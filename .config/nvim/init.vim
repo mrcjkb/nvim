@@ -132,12 +132,13 @@ call minpac#add('RishabhRD/popfix') " Dependency of lsputils
 call minpac#add('RishabhRD/nvim-lsputils') " LSP floating popups, etc.
 call minpac#add('onsails/lspkind-nvim') " Autocomplete icons
 call minpac#add('nvim-lua/completion-nvim')
-call minpac#add('codota/tabnine-vim') " TabNine/Codota auto completions
-call minpac#add('aca/completion-tabnine', { 'do': './install.sh' })
+" call minpac#add('codota/tabnine-vim') " TabNine/Codota auto completions
+" call minpac#add('aca/completion-tabnine', { 'do': './install.sh' })
 call minpac#add('nvim-treesitter/nvim-treesitter') 
 call minpac#add('nvim-treesitter/nvim-treesitter-textobjects') " Treesitter-based text objects
 call minpac#add('p00f/nvim-ts-rainbow') " Rainbow brackets (needs nvim-treesitter)
 call minpac#add('mfussenegger/nvim-jdtls') " Java LSP support
+call minpac#add('MrcJkb/nvim-java-tsls') 
 call minpac#add('mfussenegger/nvim-dap') " Debug Adapter Protocol
 call minpac#add('mfussenegger/nvim-dap-python')
 call minpac#add('theHamsta/nvim-dap-virtual-text')
@@ -234,8 +235,9 @@ let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_auto_change_source = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
+" \{'complete_items': ['lsp', 'snippet', 'tabnine']},
 let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet', 'tabnine']},
+    \{'complete_items': ['lsp', 'snippet']},
     \{'complete_items': ['snippet']},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'},
