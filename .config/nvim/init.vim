@@ -278,8 +278,8 @@ inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
 inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 " ------------------- Snippets.nvim ---------------------------
 "
-source $DOTFILES/nvim/rnvimr.vim
-source $DOTFILES/nvim/coc.vim
+source $VIMCONFIG/vimscript/rnvimr.vim
+source $VIMCONFIG/vimscript/coc.vim
 lua require('lspconfig-setup')
 lua require('dap-setup')
 lua require('lsputils-config')
