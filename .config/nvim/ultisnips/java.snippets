@@ -46,54 +46,54 @@ def mixedCase(word):
 	return word[0].lower() + word[1:]
 endglobal
 
-snippet lam "Lambda (no arguments)" b
-() -> $0 
+snippet lam "Lambda (no arguments)"
+() -> $0${VISUAL}
 endsnippet
 
-snippet lam "Lambda (1 argument)" b
-${1:x} -> $0
+snippet lam "Lambda (1 argument)"
+${1:x} -> $0${VISUAL}
 endsnippet
 
-snippet lam "Lambda (2 arguments)" b
-(${1:x}, ${2:y}) -> $0
+snippet lam "Lambda (2 arguments)"
+(${1:x}, ${2:y}) -> $0${VISUAL}
 endsnippet
 
-snippet lam "Lambda (3 arguments)" b
-(${1:x}, ${2:y}, ${3:z}) -> $0
+snippet lam "Lambda (3 arguments)" 
+(${1:x}, ${2:y}, ${3:z}) -> $0${VISUAL}
 endsnippet
 
-snippet lamb "Lambda (with body, no arguments)" b
+snippet lamb "Lambda (with body, no arguments)"
 () -> {
-	$0
+	$0${VISUAL}
 }
 endsnippet
 
-snippet lamb "Lambda (with body, 1 argument)" b
+snippet lamb "Lambda (with body, 1 argument)" 
 ${1:x} -> {
-	$0
+	$0${VISUAL}
 }
 endsnippet
 
-snippet lamb "Lambda (with body, 2 arguments)" b
+snippet lamb "Lambda (with body, 2 arguments)" 
 (${1:x}, ${2:y}) -> {
-	$0
+	$0${VISUAL}
 }
 endsnippet
 
-snippet lamb "Lambda (with body, 3 arguments)" b
+snippet lamb "Lambda (with body, 3 arguments)"
 (${1:x}, ${2:y}, ${3:z}) -> {
-	$0
+	$0${VISUAL}
 }
 endsnippet
 
-snippet optional "Optional.ofNullable()" b
-Optional.ofNullable(${1:x})
+snippet optional "Optional.ofNullable()"
+Optional.ofNullable(${1:${VISUAL:x}})
 	${2:.map(${3:it -> ${4:it.}})}
 	${5:.ifPresent(${6:it -> ${7:it.}})}
 endsnippet
 
 snippet option "Option.of()" b
-Option.of(${1:x})
+Option.of(${1:${VISUAL:x}})
 	${2:.map(${3:it -> ${4:it.}})}
 	${5:.peek(${6:it -> ${7:it.}})}
 endsnippet
@@ -102,8 +102,12 @@ snippet logger "Logger" b
 private static final Logger logger = Logger.getLogger(${1:`!p snip.rv = snip.basename or "ClassName"`}.class.getName());
 endsnippet
 
-snippet logThrow "Log Throwable" 
-${1:logger}.log(Level.SEVERE, "${2:message}", ${3:t});
+snippet logTh "Log Throwable" 
+${1:logger}.log(Level.SEVERE, "${2:message}", ${3:${VISUAL:throwable}});
+endsnippet
+
+snippet logEx "Log Exception" 
+${1:logger}.log(Level.SEVERE, "${2:message}", ${3:${VISUAL:e}});
 endsnippet
 
 snippet sleep "try sleep catch" b
@@ -142,9 +146,8 @@ snippet assertEquals "assert equals" b
 assertEquals(${1:expected}, ${2:actual});
 endsnippet
 
-snippet br "break"
+snippet br "break" b
 break;
-
 endsnippet
 
 snippet cs "case" b
@@ -153,7 +156,7 @@ case $1:
 $0
 endsnippet
 
-snippet ca "catch" b
+snippet ca "catch"
 catch (${1:Exception} ${2:e})`!p nl(snip)`{
 	$0
 }
