@@ -166,7 +166,7 @@ call minpac#add('ryanoasis/vim-devicons')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
-command! Gradle :te gw
+command! -nargs=* Gradle split | terminal gw <args>
 
 let g:dap_virtual_text = v:true
 
