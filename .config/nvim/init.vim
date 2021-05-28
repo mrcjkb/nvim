@@ -166,6 +166,8 @@ call minpac#add('ryanoasis/vim-devicons')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
+command! Gw :te gw
+
 let g:dap_virtual_text = v:true
 
 "vim-wordmotion
