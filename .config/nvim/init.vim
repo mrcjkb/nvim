@@ -150,6 +150,9 @@ call minpac#add('SirVer/ultisnips')
 call minpac#add('nvim-lua/popup.nvim')
 call minpac#add('nvim-lua/plenary.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
+call minpac#add('nvim-telescope/telescope-fzy-native.nvim')
+call minpac#add('fhill2/telescope-ultisnips.nvim')
+call minpac#add('luc-tielen/telescope_hoogle')
 call minpac#add('tjdevries/nlua.nvim') " Lua development for neovim
 call minpac#add('folke/lua-dev.nvim') " Lua development for neovim
 " Fuzzy search
@@ -182,11 +185,6 @@ let g:sneak#prompt = '🔍'
 map f <Plug>Sneak_s
 map F <Plug>Sneak_S
 
-" Telescope
-nnoremap <C-p> :<C-u>Telescope find_files<CR>
-nnoremap <C-g> :<C-u>Telescope live_grep<CR>
-nnoremap <C-s> :<C-u>Telescope grep_string<CR>
-nnoremap <leader>tg :<C-u>Telescope git_files<CR>
 
 " colorscheme codedark
 let g:material_theme_style = 'darker'
@@ -234,7 +232,7 @@ autocmd BufEnter * lua require'completion'.on_attach()
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_auto_change_source = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 
 " \{'complete_items': ['lsp', 'snippet', 'tabnine']},
 let g:completion_chain_complete_list = [
