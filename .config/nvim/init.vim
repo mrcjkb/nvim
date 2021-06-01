@@ -104,6 +104,7 @@ call minpac#add('chaoren/vim-wordmotion') " CamelCase, snake_case, etc word moti
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('norcalli/nvim-colorizer.lua') " Highlight colours
 call minpac#add('justinmk/vim-sneak') " Remaps s [cl] and S [cc] to vertical sneak search.
+call minpac#add('unblevable/quick-scope') " Highlight unique characters in line search
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('kana/vim-textobj-user') " User-defined textobjects
 call minpac#add('christoomey/vim-system-copy') " Keybindings for system clipboard copy
@@ -285,6 +286,7 @@ lua require('colorizer').setup()
 " External configs
 source $VIMCONFIG/vimscript/rnvimr.vim
 source $VIMCONFIG/vimscript/coc.vim
+source $VIMCONFIG/vimscript/quickscope-config.vim
 lua require('lspconfig-setup')
 lua require('dap-setup')
 lua require('lsputils-config')
