@@ -102,6 +102,7 @@ call minpac#add('weirongxu/plantuml-previewer.vim')
 " call minpac#add('puremourning/vimspector')
 call minpac#add('chaoren/vim-wordmotion') " CamelCase, snake_case, etc word motions
 call minpac#add('sheerun/vim-polyglot')
+call minpac#add('norcalli/nvim-colorizer.lua') " Highlight colours
 call minpac#add('justinmk/vim-sneak') " Remaps s [cl] and S [cc] to vertical sneak search.
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('kana/vim-textobj-user') " User-defined textobjects
@@ -280,7 +281,8 @@ inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
 " If you jump before the first field, it will cancel the snippet.
 inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 " ------------------- Snippets.nvim ---------------------------
-"
+lua require('colorizer').setup()
+" External configs
 source $VIMCONFIG/vimscript/rnvimr.vim
 source $VIMCONFIG/vimscript/coc.vim
 lua require('lspconfig-setup')
