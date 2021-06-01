@@ -168,7 +168,7 @@ command! PackClean call minpac#clean()
 
 command! -nargs=* Gradle split | terminal gw <args>
 
-let g:dap_virtual_text = v:true
+let g:dap_virtual_ext = v:true
 
 "vim-wordmotion
 let g:wordmotion_mappings = {
@@ -184,8 +184,8 @@ let g:wordmotion_mappings = {
 let g:sneak#label = 1
 let g:sneak#prompt = '🔍'
 " Replace f and F with Sneak
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+map <M-f> <Plug>Sneak_s
+map <M-F> <Plug>Sneak_S
 
 
 " colorscheme codedark
