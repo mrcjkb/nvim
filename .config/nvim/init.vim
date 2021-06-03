@@ -144,6 +144,7 @@ call minpac#add('MrcJkb/nvim-java-tsls')
 call minpac#add('mfussenegger/nvim-dap') " Debug Adapter Protocol
 call minpac#add('mfussenegger/nvim-dap-python')
 call minpac#add('theHamsta/nvim-dap-virtual-text')
+call minpac#add('rcarriga/nvim-dap-ui')
 call minpac#add('jbyuki/one-small-step-for-vimkind') " Debug Adapter for neovim/lua
 call minpac#add('scalameta/nvim-metals') " Scala LSP support
 call minpac#add('simrat39/rust-tools.nvim')

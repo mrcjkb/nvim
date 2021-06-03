@@ -46,6 +46,9 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>ds', '<Cmd>lua require(\'dap.ui.widgets\').centered_float(require(\'dap.ui.widgets\').scopes)<CR>', opts)
   buf_set_keymap('n', '<leader>dh', '<Cmd>lua require(\'dap.ui.widgets\').hover()<CR>', opts)
   buf_set_keymap('v', '<leader>dh', '<Cmd>lua require(\'dap.ui.widgets\').hover(require(\'dap.utils\').get_visual_selection_text)<CR>', opts)
+  buf_set_keymap('v', '<M-e>', 'require(\'dapui\').eval()<CR>', opts)
+  buf_set_keymap('v', '<M-k>', 'require(\'dapui\').float_element()<CR>', opts)
+  buf_set_keymap('n', '<leader>du', 'require(\'dapui\').toggle()<CR>', opts)
 
 
   -- Set some keybinds conditional on server capabilities
