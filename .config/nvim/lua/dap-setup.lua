@@ -1,6 +1,16 @@
 local dap = require'dap'
 local home = os.getenv('HOME')
 
+-- Virtual text
+vim.g.dap_virtual_text = true
+-- request variable values for all frames (experimental)
+vim.g.dap_virtual_text = 'all frames'
+
+-- dap-ui
+require("dapui").setup()
+
+-- dap
+
 local M = {}
 
 M.toggle_conditional_breakpoint = function()
