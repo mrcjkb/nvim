@@ -98,6 +98,7 @@ call minpac#add('k-takata/minpac') " Plugin manager
 call minpac#add('bfredl/nvim-luadev') " Adds :Luadev command (REPL like environment)
 call minpac#add('tyru/open-browser.vim') " Dependency of plantuml-previewer
 call minpac#add('aklt/plantuml-syntax') " Dependency of plantuml-previewer
+call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 call minpac#add('weirongxu/plantuml-previewer.vim') 
 " call minpac#add('puremourning/vimspector')
 call minpac#add('chaoren/vim-wordmotion') " CamelCase, snake_case, etc word motions
