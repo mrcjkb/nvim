@@ -240,7 +240,7 @@ let g:completion_auto_change_source = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
 let g:completion_matching_smart_case = 1
 let g:completion_trigger_on_delete = 1
-let g:completion_sorting = "none"
+" let g:completion_sorting = "none"
 let g:UltiSnipsExpandTrigger="<tab>"
 
 " \{'complete_items': ['lsp', 'snippet', 'tabnine']},
