@@ -237,21 +237,25 @@ EOF
 autocmd BufEnter * lua require'completion'.on_attach()
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_auto_change_source = 1
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+let g:completion_matching_smart_case = 1
+let g:completion_trigger_on_delete = 1
+let g:completion_sorting = "none"
 let g:UltiSnipsExpandTrigger="<tab>"
 
 " \{'complete_items': ['lsp', 'snippet', 'tabnine']},
+" \{'mode': 'spel'}, -> Disabled, because it fails when spell check is not
+" enabled
 let g:completion_chain_complete_list = [
     \{'complete_items': ['lsp', 'snippet']},
     \{'complete_items': ['snippet']},
+    \{'TelescopePrompt' : [ ]},
     \{'mode': '<c-p>'},
     \{'mode': '<c-n>'},
     \{'mode': 'defs'},
-    \{'mode': 'dict'},
     \{'mode': 'file'},
     \{'mode': 'line'},
     \{'mode': 'dict'},
-    \{'mode': 'spel'},
 \]
 
 
