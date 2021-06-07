@@ -135,6 +135,8 @@ call minpac#add('RishabhRD/popfix') " Dependency of lsputils
 call minpac#add('RishabhRD/nvim-lsputils') " LSP floating popups, etc.
 call minpac#add('onsails/lspkind-nvim') " Autocomplete icons
 call minpac#add('nvim-lua/completion-nvim')
+call minpac#add('hrsh7th/vim-vsnip') " VSCode vsnip for use with LSP autocomplete
+call minpac#add('hrsh7th/vim-vsnip-integ')
 " call minpac#add('codota/tabnine-vim') " TabNine/Codota auto completions
 " call minpac#add('aca/completion-tabnine', { 'do': './install.sh' })
 call minpac#add('nvim-treesitter/nvim-treesitter') 
