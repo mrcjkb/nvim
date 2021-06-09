@@ -161,6 +161,7 @@ call minpac#add('nvim-telescope/telescope-fzy-native.nvim')
 call minpac#add('fhill2/telescope-ultisnips.nvim')
 call minpac#add('luc-tielen/telescope_hoogle')
 call minpac#add('tjdevries/nlua.nvim') " Lua development for neovim
+call minpac#add('nvim-lua/plenary.nvim') " Useful lua library
 call minpac#add('folke/lua-dev.nvim') " Lua development for neovim
 " Fuzzy search
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})

@@ -146,7 +146,10 @@ local luadev = require("lua-dev").setup({
     on_attach = on_attach,
   }
 })
-lspconfig.sumneko_lua.setup(luadev)
+-- lspconfig.sumneko_lua.setup(luadev)
+require('nlua.lsp.nvim').setup(lspconfig, {
+  on_attach = on_attach,
+})
 
 local rust_tools_opts = {
     tools = { -- rust-tools options
