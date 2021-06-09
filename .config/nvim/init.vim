@@ -95,6 +95,8 @@ endif
 packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac') " Plugin manager
+call minpac#add('MrcJkb/nvim-java-tsls') 
+call minpac#add('MrcJkb/autofix.nvim') 
 call minpac#add('bfredl/nvim-luadev') " Adds :Luadev command (REPL like environment)
 call minpac#add('tyru/open-browser.vim') " Dependency of plantuml-previewer
 call minpac#add('aklt/plantuml-syntax') " Dependency of plantuml-previewer
@@ -143,7 +145,6 @@ call minpac#add('nvim-treesitter/nvim-treesitter')
 call minpac#add('nvim-treesitter/nvim-treesitter-textobjects') " Treesitter-based text objects
 call minpac#add('p00f/nvim-ts-rainbow') " Rainbow brackets (needs nvim-treesitter)
 call minpac#add('mfussenegger/nvim-jdtls') " Java LSP support
-call minpac#add('MrcJkb/nvim-java-tsls') 
 call minpac#add('mfussenegger/nvim-dap') " Debug Adapter Protocol
 call minpac#add('mfussenegger/nvim-dap-python')
 call minpac#add('theHamsta/nvim-dap-virtual-text')
