@@ -536,6 +536,32 @@ while ($1)`!p nl(snip)`{
 }
 endsnippet
 
+snippet sw "SwingWorker"
+new SwingWorker<${1:Void},${2:Void}>() {
+
+	@Override
+	public $1 doInBackground() {
+		${VISUAL}
+	}
+
+};
+endsnippet
+
+snippet swd "SwingWorker"
+new SwingWorker<${1:Void},${2:Void}>() {
+
+	@Override
+	public $1 doInBackground() {
+		${VISUAL}
+	}
+
+	@Override
+	public void done() {
+	}
+
+};
+endsnippet
+
 snippet curry "curry builder interface (1 property)" b
 With${1:Value} with$1(${2:String} `!p snip.rv = mixedCase(t[1])`);
 
