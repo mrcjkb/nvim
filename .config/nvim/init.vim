@@ -174,7 +174,7 @@ call minpac#add('ryanoasis/vim-devicons')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
-command! -nargs=* Gradle split | terminal gw <args>
+command! -nargs=* Gradle split | resize 10 | terminal gw <args>
 
 let g:dap_virtual_ext = v:true
 
