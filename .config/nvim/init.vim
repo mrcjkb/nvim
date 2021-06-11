@@ -64,14 +64,19 @@ function! ToggleQuickFix()
     endif
 endfunction
 nnoremap <silent> <C-c> :call ToggleQuickFix()<CR>
-nnoremap <silent> [c :cprevious<CR>
-nnoremap <silent> ]c :cnext<CR>
-nnoremap <silent> [C :cfirst<CR>
-nnoremap <silent> ]C :clast<CR>
+" Make cnext, cprev, lnext, lprev cycle
+command! Cnext try | cnext | catch | cfirst | catch | endtry
+command! Cprev try | cprev | catch | clast | catch | endtry
+command! Lnext try | lnext | catch | lfirst | catch | endtry
+command! Lprev try | lprev | catch | llast | catch | endtry
+nnoremap <silent> [c :Cprev<CR>
+nnoremap <silent> ]c :Cnext<CR>
+nnoremap <silent> [C :Cfirst<CR>
+nnoremap <silent> ]C :Clast<CR>
 " Location list navigation
 nnoremap <silent> <C-l> :lopen<CR>
-nnoremap <silent> [l :lprevious<CR>
-nnoremap <silent> ]l :lnext<CR>
+nnoremap <silent> [l :Lprev<CR>
+nnoremap <silent> ]l :Lnext<CR>
 nnoremap <silent> [L :Lfirst<CR>
 nnoremap <silent> ]L :Llast<CR>
 
@@ -90,6 +95,9 @@ if has('nvim')
   tnoremap <Esc> <C-\><C-n>
   tnoremap <C-v><Esc> <Esc>
 endif
+
+command! -nargs=* Gradle split | resize 10 | terminal gw <args>
+
 
 " Plugins
 packadd minpac
@@ -173,8 +181,6 @@ call minpac#add('ryanoasis/vim-devicons')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
-
-command! -nargs=* Gradle split | resize 10 | terminal gw <args>
 
 let g:dap_virtual_ext = v:true
 
