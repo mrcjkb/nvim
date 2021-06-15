@@ -205,7 +205,7 @@ end
 
 function setup_jdtls()
   local home = os.getenv('HOME')
-  local root_markers = {'gradlew', 'mvnw'}
+  local root_markers = {'gradlew', 'mvnw', '.classpath'}
   local root_dir = require('jdtls.setup').find_root(root_markers)
   local capabilities = lsp.protocol.make_client_capabilities()
   capabilities.workspace.configuration = true
@@ -226,7 +226,13 @@ function setup_jdtls()
           "java.util.function.Predicate.not",
           "java.util.logging.*",
           "org.junit.jupiter.api.Assertions.*",
-          "org.mockito.Mockito.*"
+          "org.mockito.Mockito.*",
+          "io.vavr.API.$",
+          "io.vavr.API.Case",
+          "io.vavr.API.Match",
+          "io.vavr.API.For",
+          "io.vavr.Predicates.not",
+          "java.util.function.Function.identity",
         }
       };
       sources = {
