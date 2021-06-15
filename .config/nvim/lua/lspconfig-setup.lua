@@ -224,6 +224,7 @@ function setup_jdtls()
       completion = {
         favoriteStaticMembers = {
           "java.util.function.Predicate.not",
+          "java.util.function.Function.identity",
           "java.util.logging.*",
           "org.junit.jupiter.api.Assertions.*",
           "org.mockito.Mockito.*",
@@ -232,7 +233,6 @@ function setup_jdtls()
           "io.vavr.API.Match",
           "io.vavr.API.For",
           "io.vavr.Predicates.not",
-          "java.util.function.Function.identity",
         }
       };
       sources = {

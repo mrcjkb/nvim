@@ -144,7 +144,8 @@ call minpac#add('ray-x/lsp_signature.nvim') " LSP autocomplete signature hints
 call minpac#add('RishabhRD/popfix') " Dependency of lsputils
 call minpac#add('RishabhRD/nvim-lsputils') " LSP floating popups, etc.
 call minpac#add('onsails/lspkind-nvim') " Autocomplete icons
-call minpac#add('nvim-lua/completion-nvim')
+" call minpac#add('nvim-lua/completion-nvim')
+call minpac#add('hrsh7th/nvim-compe') " Completion plugin
 call minpac#add('hrsh7th/vim-vsnip') " VSCode vsnip for use with LSP autocomplete
 call minpac#add('hrsh7th/vim-vsnip-integ')
 " call minpac#add('codota/tabnine-vim') " TabNine/Codota auto completions
@@ -201,7 +202,6 @@ let g:sneak#prompt = '🔍'
 map <M-f> <Plug>Sneak_s
 map <M-F> <Plug>Sneak_S
 
-
 " colorscheme codedark
 let g:material_theme_style = 'darker'
 let g:material_terminal_italics = 1
@@ -244,7 +244,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 " completion-nvim
-autocmd BufEnter * lua require'completion'.on_attach()
+" autocmd BufEnter * lua require'completion'.on_attach()
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_auto_change_source = 1
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
@@ -269,11 +269,19 @@ let g:completion_chain_complete_list = [
 \]
 
 
-imap <M-j> <Plug>(completion_next_source)
-imap <M-k> <Plug>(completion_prev_source)
+" imap <M-j> <Plug>(completion_next_source)
+" imap <M-k> <Plug>(completion_prev_source)
+
+" nvim-compe
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 " Avoid showing message extra message when using completion
 "set shortmess+=c
 
@@ -308,3 +316,4 @@ lua require('dap-setup')
 lua require('lsputils-config')
 lua require('telescope-config')
 lua require('treesitter-config')
+lua require('compe-config')
