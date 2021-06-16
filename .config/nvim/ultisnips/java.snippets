@@ -475,11 +475,19 @@ System.out.print($1);$0
 endsnippet
 
 snippet pl "println"  b
-System.out.println($1);$0
+System.out.println(${1:${VISUAL:""}});$0
 endsnippet
 
 snippet pr "private" b
 private $0
+endsnippet
+
+snippet prf "private final" b
+private final $0
+endsnippet
+
+snippet prsf "private static final" b
+private static final $0
 endsnippet
 
 snippet po "protected" b
