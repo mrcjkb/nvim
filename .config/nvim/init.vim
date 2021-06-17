@@ -311,6 +311,7 @@ lua require('colorizer').setup()
 source $VIMCONFIG/vimscript/rnvimr.vim
 source $VIMCONFIG/vimscript/coc.vim
 source $VIMCONFIG/vimscript/quickscope-config.vim
+lua require('lsp-overrides').setup()
 lua require('lspconfig-setup')
 lua require('dap-setup')
 lua require('lsputils-config')
