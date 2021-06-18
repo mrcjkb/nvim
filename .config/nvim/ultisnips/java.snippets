@@ -405,7 +405,7 @@ public static void main(String[] args)`!p nl(snip)`{
 }
 endsnippet
 
-snippet try "try/catch" b
+snippet tryc "try/catch" b
 try {
 	$1${VISUAL}
 } catch(${2:Exception} ${3:e}){
@@ -713,7 +713,7 @@ $1 with${4:Value2}(${5:String} `!p snip.rv = mixedCase(t[4])`);
 ${5:ReturnType} build();
 endsnippet
 
-snippet opt "Optional<VISUAL>"
+snippet opt "Option<VISUAL>"
 Option<${VISUAL}>
 endsnippet
 
@@ -725,3 +725,10 @@ snippet vals "Validation<String, VISUAL>"
 Validation<String, ${VISUAL}>
 endsnippet
 
+snippet try "Try<VISUAL>"
+Try<${VISUAL}>
+endsnippet
+
+snippet tryof "Try.of(VISUAL)"
+Try<${VISUAL}>
+endsnippet
