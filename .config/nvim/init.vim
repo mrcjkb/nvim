@@ -101,6 +101,7 @@ command! -nargs=* Gradle split | resize 10 | terminal gw <args>
 
 " Plugins
 packadd minpac
+packadd cfilter
 call minpac#init()
 call minpac#add('k-takata/minpac') " Plugin manager
 call minpac#add('MrcJkb/nvim-java-tsls') 
