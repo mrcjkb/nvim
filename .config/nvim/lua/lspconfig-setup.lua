@@ -253,22 +253,18 @@ function setup_jdtls()
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
         }
       };
-      -- configuration = {
-      --   runtimes = {
-      --     {
-      --       name = "Liberica OpenJDK 11",
-      --       path = "/usr/lib/jvm/liberica-jdk-11-full/",
-      --     },
-          -- {
-          --   name = "JavaSE-14",
-          --   path = home .. "/.sdkman/candidates/java/14.0.2-open/",
-          -- },
-          -- {
-          --   name = "JavaSE-15",
-          --   path = home .. "/.sdkman/candidates/java/15.0.1-open/",
-          -- },
-        -- }
-      -- };
+      configuration = {
+        runtimes = {
+          {
+            name = "JavaSE-16",
+            path = "/usr/lib/jvm/liberica-jdk-full/",
+          },
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/liberica-jdk-11-full/",
+          },
+        }
+      };
     };
   }
   config.cmd = {'jdtls-init.sh', workspace_folder}
