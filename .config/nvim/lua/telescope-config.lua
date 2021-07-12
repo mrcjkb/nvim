@@ -20,8 +20,10 @@ api.nvim_set_keymap('n', '<leader>th', '<Cmd>Telescope hoogle<CR>', opts)
 
 telescope.setup {
   defaults = {
-    shorten_path = true,
-    width = 1,
+    path_display = "shorten",
+    layout_config = {
+      width = 1,
+    },
     mappings = {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
