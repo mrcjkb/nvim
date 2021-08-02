@@ -68,8 +68,8 @@ inoremap ? ?<c-g>u
 " Moving text
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
-inoremap <C-j> :m .+1<CR>==
 nnoremap <leader>j :m .+1<CR>==
+inoremap <C-j> :m .+1<CR>==
 inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
@@ -115,7 +115,11 @@ if has('nvim')
   tnoremap <C-v><Esc> <Esc>
 endif
 
+" Syntactic sugar for gng 'gw' command
 command! -nargs=* Gradle split | resize 10 | terminal gw <args>
+
+" Pandoc shortcut
+command! -nargs=* Pd split | resize 10 | terminal pandoc % -f markdown-implicit_figures -s -o <args>
 
 
 " Plugins
