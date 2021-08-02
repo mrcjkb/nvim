@@ -195,6 +195,7 @@ call minpac#add('folke/lua-dev.nvim') " Lua development for neovim
 " Fuzzy search
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('junegunn/vim-easy-align')
 call minpac#add('monkoose/fzf-hoogle.vim')
 call minpac#add('vim-airline/vim-airline') " Status line at the bottom
 call minpac#add('kevinhwang91/rnvimr', {'do': 'make sync'})
@@ -202,6 +203,10 @@ call minpac#add('ryanoasis/vim-devicons')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+let g:markdown_syntax_conceal = 0
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 let g:dap_virtual_ext = v:true
 
