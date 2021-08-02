@@ -47,6 +47,9 @@ set splitbelow
 " Turn off search highlight by mapping :nohlsearch to space
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Remap Y to yank till the end of the line (consistent with C and D)
+nnoremap Y y$
+
 " Terminal
 nnoremap <leader>t :below terminal<CR>
 
@@ -55,6 +58,21 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '>-2<CR>gv=gv
+inoremap <C-j> :m .+1<CR>==
+nnoremap <leader>j :m .+1<CR>==
+inoremap <C-k> :m .-2<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
 " Quickfix list navigation
 function! ToggleQuickFix()
     if empty(filter(getwininfo(), 'v:val.quickfix'))
