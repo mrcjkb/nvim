@@ -94,6 +94,10 @@ endsnippet
 
 snippet option "Option.of()" b
 Option.of(${1:${VISUAL:x}})
+endsnippet
+
+snippet option "Option.of().map().peek()" b
+Option.of(${1:${VISUAL:x}})
 	${2:.map(${3:it -> ${4:it.}})}
 	${5:.peek(${6:it -> ${7:it.}})}
 endsnippet
