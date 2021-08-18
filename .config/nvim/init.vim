@@ -209,8 +209,9 @@ call minpac#add('ryanoasis/vim-devicons')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
-" vim-table-mode REST compatibility
+" vim-table-mode pandoc compatibility configuration
 let g:table_mode_corner_corner='+'
+let g:table_mode_corner='+'
 let g:table_mode_header_fillchar='='
 
 
