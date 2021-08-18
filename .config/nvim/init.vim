@@ -200,6 +200,7 @@ call minpac#add('folke/lua-dev.nvim') " Lua development for neovim
 call minpac#add('junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'})
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('junegunn/vim-easy-align') " Formatting, e.g for formatting markdown tables
+call minpac#add('dhruvasagar/vim-table-mode') " Activate table mode with :TableModeToggle from insert mode
 call minpac#add('monkoose/fzf-hoogle.vim')
 call minpac#add('vim-airline/vim-airline') " Status line at the bottom
 call minpac#add('kevinhwang91/rnvimr', {'do': 'make sync'})
@@ -207,6 +208,11 @@ call minpac#add('ryanoasis/vim-devicons')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+" vim-table-mode REST compatibility
+let g:table_mode_corner_corner='+'
+let g:table_mode_header_fillchar='='
+
 
 let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
