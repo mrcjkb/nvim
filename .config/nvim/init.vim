@@ -202,16 +202,18 @@ call minpac#add('junegunn/fzf.vim')
 call minpac#add('junegunn/vim-easy-align') " Formatting, e.g for formatting markdown tables
 call minpac#add('dhruvasagar/vim-table-mode') " Activate table mode with :TableModeToggle from insert mode
 call minpac#add('monkoose/fzf-hoogle.vim')
-call minpac#add('vim-airline/vim-airline') " Status line at the bottom
+call minpac#add('hoob3rt/lualine.nvim') " Status line at the bottom
+call minpac#add('SmiteshP/nvim-gps') " Status line component that shows context of the current cursor position in the file - used with lualine
 call minpac#add('kevinhwang91/rnvimr', {'do': 'make sync'})
+call minpac#add('kyazdani42/nvim-web-devicons')
 call minpac#add('ryanoasis/vim-devicons')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
 " vim-table-mode pandoc compatibility configuration
-let g:table_mode_corner_corner='+'
 let g:table_mode_corner='+'
+let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
 
 
@@ -242,7 +244,6 @@ map <M-F> <Plug>Sneak_S
 let g:material_theme_style = 'darker'
 let g:material_terminal_italics = 1
 colorscheme material
-let g:airline_theme = 'material'
 
 
 let g:polyglot_disabled = ['java']
@@ -354,3 +355,4 @@ lua require('lsputils-config')
 lua require('telescope-config')
 lua require('treesitter-config')
 lua require('compe-config')
+lua require('lualine-setup')
