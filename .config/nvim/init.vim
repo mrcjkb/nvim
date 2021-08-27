@@ -1,3 +1,4 @@
+filetype plugin indent on
 syntax on
 syntax enable
 set nocompatible
@@ -21,7 +22,6 @@ set showmatch " Highlight matching parentheses, etc
 set incsearch
 set hlsearch
 set complete=.,w,b,u,t,i,kspell
-filetype plugin indent on
 runtime macros/matchit.vim
 
 " On pressing tab, insert 2 spaces
