@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
 
   use { 
     'weirongxu/plantuml-previewer.vim',
-    ope = true,
+    opt = true,
     ft = { 'puml' },
     requires = {
       'tyru/open-browser.vim',
@@ -24,7 +24,8 @@ return require('packer').startup(function(use)
 
   use {
     'iamcco/markdown-preview.nvim',
-    ft = { 'md' },
+    -- opt = true,
+    -- ft = { 'md' },
     run = ':call mkdp#util#install()'
   }
 
