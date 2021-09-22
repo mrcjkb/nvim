@@ -24,9 +24,8 @@ return require('packer').startup(function(use)
 
   use {
     'iamcco/markdown-preview.nvim',
-    -- opt = true,
-    -- ft = { 'md' },
-    run = ':call mkdp#util#install()'
+    run = function() vim.fn['mkdp#util#install']() end,
+    ft = {'markdown'}
   }
 
   -- CamelCase, snake_case, etc word motions
