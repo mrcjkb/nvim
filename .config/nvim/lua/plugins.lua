@@ -148,12 +148,14 @@ return require('packer').startup(function(use)
   -- Activate table mode with :TableModeToggle from insert mode
   use {
     'dhruvasagar/vim-table-mode',
-    ft = { 'md' }
+    ft = {'markdown'}
   }
 
   use { 
     'monkoose/fzf-hoogle.vim',
-    ft = { 'hs' }
+    -- opt = true,
+    -- ft = { 'hs' },
+    requires = { 'junegunn/fzf' }
   }
   
   use 'hoob3rt/lualine.nvim' -- Status line at the bottom
