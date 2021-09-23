@@ -260,6 +260,10 @@ function Setup_jdtls()
             path = "/usr/lib/jvm/liberica-jdk-full/",
           },
           {
+            name = "JavaSE-16",
+            path = "/usr/lib/jvm/liberica-jdk-16-full/",
+          },
+          {
             name = "JavaSE-11",
             path = "/usr/lib/jvm/liberica-jdk-11-full/",
           },
