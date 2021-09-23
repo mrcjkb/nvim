@@ -210,7 +210,7 @@ local on_jdtls_attach = function(client, bufnr)
 end
 
 
-function setup_jdtls()
+function Setup_jdtls()
   local home = os.getenv('HOME')
   local root_markers = {'gradlew', 'mvnw', '.classpath'}
   local root_dir = require('jdtls.setup').find_root(root_markers)
@@ -256,7 +256,7 @@ function setup_jdtls()
       configuration = {
         runtimes = {
           {
-            name = "JavaSE-16",
+            name = "JavaSE-17",
             path = "/usr/lib/jvm/liberica-jdk-full/",
           },
           {
@@ -288,7 +288,7 @@ end
 vim.api.nvim_exec([[
       augroup jdtls_lsp
       autocmd!
-      autocmd FileType java lua setup_jdtls()
+      autocmd FileType java lua Setup_jdtls()
       augroup end
       ]], true)
 
