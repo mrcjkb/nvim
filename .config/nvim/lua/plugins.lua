@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   use {
     'iamcco/markdown-preview.nvim',
     run = function() vim.fn['mkdp#util#install']() end,
-    ft = {'markdown'}
+    -- ft = {'markdown'}
   }
 
   -- CamelCase, snake_case, etc word motions
@@ -148,7 +148,7 @@ return require('packer').startup(function(use)
   -- Activate table mode with :TableModeToggle from insert mode
   use {
     'dhruvasagar/vim-table-mode',
-    ft = {'markdown'}
+    -- ft = {'markdown'}
   }
 
   use { 
