@@ -1,4 +1,5 @@
 filetype plugin indent on
+set hidden " Required to persist toggleterm sessions
 syntax on
 syntax enable
 set nocompatible
@@ -270,3 +271,4 @@ lua require('telescope-config')
 lua require('treesitter-config')
 lua require('compe-config')
 lua require('lualine-setup')
+lua require('toggleterm-setup')

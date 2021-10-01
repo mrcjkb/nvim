@@ -170,4 +170,7 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
 
+  -- Wrapper for toggling NeoVim terminals
+  use "akinsho/toggleterm.nvim"
+
 end)
