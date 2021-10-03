@@ -12,3 +12,5 @@ require("toggleterm").setup{
   -- shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
 }
+
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>TermExec cmd=\"stack ghci %\"<CR>", {noremap = true, silent = true})
