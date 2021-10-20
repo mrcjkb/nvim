@@ -1,4 +1,5 @@
 filetype plugin indent on
+packadd cfilter
 set hidden " Required to persist toggleterm sessions
 syntax on
 syntax enable
