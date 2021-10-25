@@ -225,13 +225,6 @@ let g:completion_chain_complete_list = [
 " imap <M-j> <Plug>(completion_next_source)
 " imap <M-k> <Plug>(completion_prev_source)
 
-" nvim-compe
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-
 " Set completeopt to have a better completion experience
 " set completeopt=menuone,noinsert,noselect
 set completeopt=menuone,noselect

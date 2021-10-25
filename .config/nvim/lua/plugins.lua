@@ -98,7 +98,12 @@ return require('packer').startup(function(use)
   }
 
   use 'onsails/lspkind-nvim' -- Autocomplete icons
-  use 'hrsh7th/nvim-compe' -- Completion plugin
+  use 'hrsh7th/nvim-cmp' -- Completion plugin
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
 
   use 'hrsh7th/vim-vsnip' -- VSCode vsnip for use with LSP autocomplete
   use 'hrsh7th/vim-vsnip-integ'
