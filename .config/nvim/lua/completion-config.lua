@@ -30,10 +30,6 @@ cmp.setup({
         behaviour = cmp.ConfirmBehavior.Insert,
         select = true 
       }), -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
-      ['<CR>'] = cmp.mapping.confirm({ 
-        behaviour = cmp.ConfirmBehavior.Insert,
-        select = true 
-      }),
     },
     sources = cmp.config.sources({
         -- The insertion order appears to influence the priority of the sources
