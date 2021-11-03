@@ -297,3 +297,6 @@ vim.api.nvim_exec([[
       ]], true)
 
 
+-- nvim-dap-virtual-text plugin
+require'nvim-dap-virtual-text'.setup()
+

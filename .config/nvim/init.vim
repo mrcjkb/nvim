@@ -137,8 +137,6 @@ let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-let g:dap_virtual_ext = v:true
-
 "vim-wordmotion
 let g:wordmotion_mappings = {
 \ 'w' : '<M-w>',
