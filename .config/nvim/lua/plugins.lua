@@ -169,7 +169,6 @@ return require('packer').startup(function(use)
   -- rangr client
   use {
     'kevinhwang91/rnvimr', 
-    run = 'make sync'
   }
 
   use 'kyazdani42/nvim-web-devicons'
