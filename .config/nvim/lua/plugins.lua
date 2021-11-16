@@ -111,7 +111,9 @@ return require('packer').startup(function(use)
   use { 
     'folke/zen-mode.nvim', -- Adds a :ZenMode
     config = function()
-      require("zen-mode").setup()
+      require("zen-mode").setup( {
+          backdrop = 1,
+        })
     end
   }
   vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
