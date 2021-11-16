@@ -71,6 +71,8 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-dispatch' 
   use 'tpope/vim-obsession' -- Automatic session management
+  use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
+
   use 'udalov/kotlin-vim' -- Highlighting for Kotlin. Also required for Kotlin LSP support
   
   -- Material colort theme
