@@ -9,12 +9,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +80 init.vim
-badd +198 lua/lspconfig-setup.lua
+badd +30 lua/lspconfig-setup.lua
+badd +13 lua/harpoon-config.lua
+badd +201 lua/plugins.lua
 argglobal
 %argdel
-edit lua/lspconfig-setup.lua
+edit lua/plugins.lua
 argglobal
-balt init.vim
+balt lua/harpoon-config.lua
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -25,24 +27,12 @@ setlocal fdn=20
 setlocal fen
 6
 normal! zo
-190
-normal! zo
-213
-normal! zo
-221
-normal! zo
-227
-normal! zo
-228
-normal! zo
-231
-normal! zo
-let s:l = 30 - ((28 * winheight(0) + 28) / 57)
+let s:l = 202 - ((17 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 30
-normal! 055|
+keepjumps 202
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

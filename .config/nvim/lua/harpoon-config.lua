@@ -10,4 +10,6 @@ function M.setup()
   nnoremap('<leader>hc', '<Cmd>lua require(\'harpoon.cmd-ui\').toggle_quick_menu()<CR>')
 end
 
+require('harpoon').setup()
+
 return M
