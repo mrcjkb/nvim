@@ -109,11 +109,21 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip-integ'
 
   use { 
+    'folke/zen-mode.nvim', -- Adds a :ZenMode
+    config = function()
+      require("zen-mode").setup()
+    end
+  }
+  vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
+
+  use { 
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
+
+  use 'folke/twilight.nvim' -- Dim inactive potions of code (powered by TreeSitter)
 
   use 'mfussenegger/nvim-jdtls' -- Java LSP support
   use 'mfussenegger/nvim-dap' -- Debug Adapter Protocol
