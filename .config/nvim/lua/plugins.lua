@@ -116,7 +116,6 @@ return require('packer').startup(function(use)
         })
     end
   }
-  vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
 
   use { 
     'nvim-treesitter/nvim-treesitter',
@@ -142,7 +141,10 @@ return require('packer').startup(function(use)
   use 'norcalli/snippets.nvim' -- Snippet support
   use 'SirVer/ultisnips'
 
-  use 'nvim-lua/popup.nvim'
+  use {
+    'nvim-lua/popup.nvim',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
 
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
@@ -188,5 +190,12 @@ return require('packer').startup(function(use)
 
   -- Wrapper for toggling NeoVim terminals
   use "akinsho/toggleterm.nvim"
+
+  -- Specify, or on the fly, mark and create persisting key strokes to go to the files you want.
+  -- + Unlimiter terminals and navigation
+  use {
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
 
 end)
