@@ -124,6 +124,11 @@ _G.packer_plugins = {
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   indentLine = {
     loaded = true,
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/indentLine",
@@ -173,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/nlua.nvim",
     url = "https://github.com/tjdevries/nlua.nvim"
+  },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -268,12 +278,8 @@ _G.packer_plugins = {
     url = "https://github.com/jbyuki/one-small-step-for-vimkind"
   },
   ["open-browser.vim"] = {
-    load_after = {
-      ["plantuml-previewer.vim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/open-browser.vim",
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/open-browser.vim",
     url = "https://github.com/tyru/open-browser.vim"
   },
   ["packer.nvim"] = {
@@ -282,20 +288,13 @@ _G.packer_plugins = {
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plantuml-previewer.vim"] = {
-    after = { "open-browser.vim", "plantuml-syntax" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/plantuml-previewer.vim",
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/plantuml-previewer.vim",
     url = "https://github.com/weirongxu/plantuml-previewer.vim"
   },
   ["plantuml-syntax"] = {
-    load_after = {
-      ["plantuml-previewer.vim"] = true
-    },
-    loaded = false,
-    needs_bufread = true,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/plantuml-syntax",
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/plantuml-syntax",
     url = "https://github.com/aklt/plantuml-syntax"
   },
   ["plenary.nvim"] = {
@@ -428,6 +427,11 @@ _G.packer_plugins = {
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["vim-system-copy"] = {
     loaded = true,
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-system-copy",
@@ -467,23 +471,26 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
     url = "https://github.com/chaoren/vim-wordmotion"
+  },
+  ["zen-mode.nvim"] = {
+    config = { "\27LJ\1\2H\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\rbackdrop\3\1\nsetup\rzen-mode\frequire\0" },
+    loaded = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
+    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+try_loadstring("\27LJ\1\2H\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\rbackdrop\3\1\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")
+time([[Config for zen-mode.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Luadev lua require("packer.load")({'nvim-luadev'}, { cmd = "Luadev", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Filetype lazy-loads
-time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType puml ++once lua require("packer.load")({'plantuml-previewer.vim'}, { ft = "puml" }, _G.packer_plugins)]]
-time([[Defining lazy-load filetype autocommands]], false)
-vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
 end)

@@ -14,10 +14,11 @@ api.nvim_set_keymap('n', '<leader>tr', '<Cmd>Telescope registers<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tb', '<Cmd>Telescope buffers<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tf', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', opts)
 api.nvim_set_keymap('n', '<leader>td', '<Cmd>Telescope lsp_document_symbols<CR>', opts)
-api.nvim_set_keymap('n', '<leader>to', '<Cmd>Telescope lsp_workspace_symbols<CR>', opts)
 api.nvim_set_keymap('n', '<leader>ta', '<Cmd>Telescope lsp_code_actions<CR>', opts)
 api.nvim_set_keymap('n', '<leader>ts', '<Cmd>Telescope ultisnips ultisnips<CR>', opts)
 api.nvim_set_keymap('n', '<leader>th', '<Cmd>Telescope hoogle<CR>', opts)
+api.nvim_set_keymap('n', '<leader>to', '<Cmd>lua require\'telescope.builtin\'.lsp_dynamic_workspace_symbols{}<CR>', opts)
+-- api.nvim_set_keymap('n', '<leader>to', '<Cmd>Telescope lsp_workspace_symbols<CR>', opts)
 
 telescope.setup {
   defaults = {
