@@ -14,8 +14,6 @@ return require('packer').startup(function(use)
 
   use { 
     'weirongxu/plantuml-previewer.vim',
-    opt = true,
-    ft = { 'puml' },
     requires = {
       'tyru/open-browser.vim',
       'aklt/plantuml-syntax',
