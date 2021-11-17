@@ -8,6 +8,7 @@ api.nvim_set_keymap('n', '<C-g>', '<Cmd>Telescope live_grep<CR>', opts)
 api.nvim_set_keymap('n', '<leader>*', '<Cmd>Telescope grep_string<CR>', opts) -- Search for string under the cursor
 api.nvim_set_keymap('n', '<leader>tg', '<Cmd>Telescope git_files<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tc', '<Cmd>Telescope quickfix<CR>', opts)
+api.nvim_set_keymap('n', '<leader>tq', '<Cmd>Telescope command_history<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tl', '<Cmd>Telescope loclist<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tr', '<Cmd>Telescope registers<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tb', '<Cmd>Telescope buffers<CR>', opts)
