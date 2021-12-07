@@ -431,7 +431,8 @@ _G.packer_plugins = {
   },
   ["vim-sneak"] = {
     loaded = true,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-sneak",
+    needs_bufread = false,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/vim-sneak",
     url = "https://github.com/justinmk/vim-sneak"
   },
   ["vim-surround"] = {
@@ -446,7 +447,8 @@ _G.packer_plugins = {
   },
   ["vim-table-mode"] = {
     loaded = true,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-table-mode",
+    needs_bufread = true,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/vim-table-mode",
     url = "https://github.com/dhruvasagar/vim-table-mode"
   },
   ["vim-test"] = {
@@ -476,7 +478,8 @@ _G.packer_plugins = {
   },
   ["vim-wordmotion"] = {
     loaded = true,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
+    needs_bufread = false,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/vim-wordmotion",
     url = "https://github.com/chaoren/vim-wordmotion"
   },
   ["zen-mode.nvim"] = {
@@ -488,6 +491,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: vim-sneak
+time([[Setup for vim-sneak]], true)
+try_loadstring("\27LJ\1\2®\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0%\1\6\0>\0\2\1G\0\1\0I      map <M-f> <Plug>Sneak_s\n      map map <M-F> <Plug>Sneak_S\n    \bcmd\tüîç\17sneak#prompt\16sneak#label\6g\bvim\0", "setup", "vim-sneak")
+time([[Setup for vim-sneak]], false)
+time([[packadd for vim-sneak]], true)
+vim.cmd [[packadd vim-sneak]]
+time([[packadd for vim-sneak]], false)
 -- Setup for: vim-polyglot
 time([[Setup for vim-polyglot]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\tjava\22polyglot_disabled\6g\bvim\0", "setup", "vim-polyglot")
@@ -495,6 +505,20 @@ time([[Setup for vim-polyglot]], false)
 time([[packadd for vim-polyglot]], true)
 vim.cmd [[packadd vim-polyglot]]
 time([[packadd for vim-polyglot]], false)
+-- Setup for: vim-table-mode
+time([[Setup for vim-table-mode]], true)
+try_loadstring("\27LJ\1\2ã\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\3\0:\1\4\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0G\0\1\0\6=\31table_mode_header_fillchar\29table_mode_corner_corner\6+\22table_mode_corner\6g\bvim\0", "setup", "vim-table-mode")
+time([[Setup for vim-table-mode]], false)
+time([[packadd for vim-table-mode]], true)
+vim.cmd [[packadd vim-table-mode]]
+time([[packadd for vim-table-mode]], false)
+-- Setup for: vim-wordmotion
+time([[Setup for vim-wordmotion]], true)
+try_loadstring("\27LJ\1\2Ÿ\2\0\0\2\0\16\0\0294\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\5\0:\1\4\0004\0\0\0007\0\1\0%\1\a\0:\1\6\0004\0\0\0007\0\1\0%\1\t\0:\1\b\0004\0\0\0007\0\1\0%\1\v\0:\1\n\0004\0\0\0007\0\1\0%\1\r\0:\1\f\0004\0\0\0007\0\1\0%\1\15\0:\1\14\0G\0\1\0\15<C-R><M-w>#wordmotion_mappings#<C-R><C-W>\vi<M-w>\27wordmotion_mappings#iw\va<M-w>\27wordmotion_mappings#aw\v<gM-e>\27wordmotion_mappings#ge\n<M-e>\26wordmotion_mappings#e\n<M-b>\26wordmotion_mappings#b\n<M-w>\26wordmotion_mappings#w\6g\bvim\0", "setup", "vim-wordmotion")
+time([[Setup for vim-wordmotion]], false)
+time([[packadd for vim-wordmotion]], true)
+vim.cmd [[packadd vim-wordmotion]]
+time([[packadd for vim-wordmotion]], false)
 -- Config for: zen-mode.nvim
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\1\2H\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\rbackdrop\3\1\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")

@@ -53,7 +53,18 @@ return require('packer').startup(function(use)
 
   -- Remaps s [cl] and S [cc] to vertical sneak search
   -- Note: I have it mapped to <M-f> and <M-F>, respectively
-  use 'justinmk/vim-sneak'
+  use {
+  'justinmk/vim-sneak',
+  setup = function()
+    vim.g['sneak#label'] = 1
+    vim.g['sneak#prompt'] = '🔍'
+    -- Replace f and F with Sneak
+    vim.cmd [[
+      map <M-f> <Plug>Sneak_s
+      map map <M-F> <Plug>Sneak_S
+    ]]
+  end
+}
 
   -- Highlight unique characters in line search
   use 'unblevable/quick-scope'

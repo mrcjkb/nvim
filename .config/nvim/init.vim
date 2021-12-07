@@ -132,13 +132,6 @@ let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-" Sneak
-let g:sneak#label = 1
-let g:sneak#prompt = '🔍'
-" Replace f and F with Sneak
-map <M-f> <Plug>Sneak_s
-map <M-F> <Plug>Sneak_S
-
 " colorscheme codedark
 let g:material_theme_style = 'darker'
 let g:material_terminal_italics = 1
