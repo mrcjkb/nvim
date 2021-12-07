@@ -26,19 +26,12 @@ return require('packer').startup(function(use)
     -- ft = {'markdown'}
   }
 
+  use {"ellisonleao/glow.nvim"}
+
   -- CamelCase, snake_case, etc word motions
   use { 
-  'chaoren/vim-wordmotion',
-  setup = function()
-    vim.g['wordmotion_mappings#w'] = '<M-w>'
-    vim.g['wordmotion_mappings#b'] = '<M-b>'
-    vim.g['wordmotion_mappings#e'] = '<M-e>'
-    vim.g['wordmotion_mappings#ge'] = '<gM-e>'
-    vim.g['wordmotion_mappings#aw'] = 'a<M-w>'
-    vim.g['wordmotion_mappings#iw'] = 'i<M-w>'
-    vim.g['wordmotion_mappings#<C-R><C-W>'] = '<C-R><M-w>'
-  end
-}
+    'chaoren/vim-wordmotion'
+  }
 
   -- Syntax highlighting/indentation
   use {

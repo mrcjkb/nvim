@@ -123,6 +123,17 @@ command! -nargs=* Gradle split | resize 10 | terminal gw <args>
 " Pandoc shortcut
 command! -nargs=* Pd split | resize 10 | terminal pandoc % -f markdown-implicit_figures -s -o <args>
 
+" Use Alt as prefix for word motion mappings
+let g:wordmotion_mappings = {
+  \ 'w' : '<M-w>',
+  \ 'b' : '<M-b>',
+  \ 'e' : '<M-e>',
+  \ 'ge' : 'g<M-e>',
+  \ 'aw' : 'a<M-w>',
+  \ 'iw' : 'i<M-w>',
+  \ '<C-R><C-W>' : '<C-R><M-w>'
+\ }
+
 
 " Plugins
 lua require('plugins')
