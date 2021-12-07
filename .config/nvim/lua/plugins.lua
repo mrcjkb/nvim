@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   -- Syntax highlighting/indentation
   use {
     'sheerun/vim-polyglot',
-    config = function()
+    setup = function()
       vim.g['polyglot_disabled'] = {'java'}
     end
   }
@@ -204,5 +204,16 @@ return require('packer').startup(function(use)
   }
 
   use 'windwp/nvim-autopairs'
+
+  -- Virtual text with git blame information, etc
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
 end)
