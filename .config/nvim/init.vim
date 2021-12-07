@@ -127,26 +127,11 @@ command! -nargs=* Pd split | resize 10 | terminal pandoc % -f markdown-implicit_
 " Plugins
 lua require('plugins')
 
-" vim-table-mode pandoc compatibility configuration
-let g:table_mode_corner='+'
-let g:table_mode_corner_corner='+'
-let g:table_mode_header_fillchar='='
-
 
 let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-"vim-wordmotion
-let g:wordmotion_mappings = {
-\ 'w' : '<M-w>',
-\ 'b' : '<M-b>',
-\ 'e' : '<M-e>',
-\ 'ge' : 'g<M-e>',
-\ 'aw' : 'a<M-w>',
-\ 'iw' : 'i<M-w>',
-\ '<C-R><C-W>' : '<C-R><M-w>'
-\ }
 " Sneak
 let g:sneak#label = 1
 let g:sneak#prompt = '🔍'

@@ -27,7 +27,18 @@ return require('packer').startup(function(use)
   }
 
   -- CamelCase, snake_case, etc word motions
-  use 'chaoren/vim-wordmotion'
+  use { 
+  'chaoren/vim-wordmotion',
+  setup = function()
+    vim.g['wordmotion_mappings#w'] = '<M-w>'
+    vim.g['wordmotion_mappings#b'] = '<M-b>'
+    vim.g['wordmotion_mappings#e'] = '<M-e>'
+    vim.g['wordmotion_mappings#ge'] = '<gM-e>'
+    vim.g['wordmotion_mappings#aw'] = 'a<M-w>'
+    vim.g['wordmotion_mappings#iw'] = 'i<M-w>'
+    vim.g['wordmotion_mappings#<C-R><C-W>'] = '<C-R><M-w>'
+  end
+}
 
   -- Syntax highlighting/indentation
   use {
@@ -172,6 +183,11 @@ return require('packer').startup(function(use)
   -- Activate table mode with :TableModeToggle from insert mode
   use {
     'dhruvasagar/vim-table-mode',
+    setup = function()
+      vim.g['table_mode_corner'] = '+'
+      vim.g['table_mode_corner_corner'] = '+'
+      vim.g['table_mode_header_fillchar'] = '='
+    end
     -- ft = {'markdown'}
   }
 
