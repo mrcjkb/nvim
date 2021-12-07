@@ -160,8 +160,6 @@ let g:material_terminal_italics = 1
 colorscheme material
 
 
-let g:polyglot_disabled = ['java']
-
 let g:neomake_java_gradle_executable = 'gw'
 
 let test#strategy = "neovim"

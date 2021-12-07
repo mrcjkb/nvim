@@ -29,8 +29,13 @@ return require('packer').startup(function(use)
   -- CamelCase, snake_case, etc word motions
   use 'chaoren/vim-wordmotion'
 
-  -- Syntax/indentation
-  use 'sheerun/vim-polyglot'
+  -- Syntax highlighting/indentation
+  use {
+    'sheerun/vim-polyglot',
+    config = function()
+      vim.g['polyglot_disabled'] = {'java'}
+    end
+  }
 
   -- Highlight colours (e.g. #800080)
   use 'norcalli/nvim-colorizer.lua'
