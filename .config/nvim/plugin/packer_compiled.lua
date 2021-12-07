@@ -177,7 +177,8 @@ _G.packer_plugins = {
   },
   ["material.vim"] = {
     loaded = true,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/material.vim",
+    needs_bufread = false,
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/material.vim",
     url = "https://github.com/kaicataldo/material.vim"
   },
   ["nlua.nvim"] = {
@@ -491,20 +492,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: vim-sneak
-time([[Setup for vim-sneak]], true)
-try_loadstring("\27LJ\1\2¨\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0%\1\6\0>\0\2\1G\0\1\0I      map <M-f> <Plug>Sneak_s\n      map map <M-F> <Plug>Sneak_S\n    \bcmd\tğŸ”\17sneak#prompt\16sneak#label\6g\bvim\0", "setup", "vim-sneak")
-time([[Setup for vim-sneak]], false)
-time([[packadd for vim-sneak]], true)
-vim.cmd [[packadd vim-sneak]]
-time([[packadd for vim-sneak]], false)
--- Setup for: vim-polyglot
-time([[Setup for vim-polyglot]], true)
-try_loadstring("\27LJ\1\2<\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\tjava\22polyglot_disabled\6g\bvim\0", "setup", "vim-polyglot")
-time([[Setup for vim-polyglot]], false)
-time([[packadd for vim-polyglot]], true)
-vim.cmd [[packadd vim-polyglot]]
-time([[packadd for vim-polyglot]], false)
+-- Setup for: material.vim
+time([[Setup for material.vim]], true)
+try_loadstring("\27LJ\1\2\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0'\1\1\0:\1\4\0004\0\0\0007\0\5\0%\1\6\0>\0\2\1G\0\1\0\25colorscheme material\bcmd\30material_terminal_italics\vdarker\25material_theme_style\6g\bvim\0", "setup", "material.vim")
+time([[Setup for material.vim]], false)
+time([[packadd for material.vim]], true)
+vim.cmd [[packadd material.vim]]
+time([[packadd for material.vim]], false)
 -- Setup for: vim-table-mode
 time([[Setup for vim-table-mode]], true)
 try_loadstring("\27LJ\1\2‹\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\3\0:\1\4\0004\0\0\0007\0\1\0%\1\6\0:\1\5\0G\0\1\0\6=\31table_mode_header_fillchar\29table_mode_corner_corner\6+\22table_mode_corner\6g\bvim\0", "setup", "vim-table-mode")
@@ -519,6 +513,20 @@ time([[Setup for vim-wordmotion]], false)
 time([[packadd for vim-wordmotion]], true)
 vim.cmd [[packadd vim-wordmotion]]
 time([[packadd for vim-wordmotion]], false)
+-- Setup for: vim-sneak
+time([[Setup for vim-sneak]], true)
+try_loadstring("\27LJ\1\2¨\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0%\1\6\0>\0\2\1G\0\1\0I      map <M-f> <Plug>Sneak_s\n      map map <M-F> <Plug>Sneak_S\n    \bcmd\tğŸ”\17sneak#prompt\16sneak#label\6g\bvim\0", "setup", "vim-sneak")
+time([[Setup for vim-sneak]], false)
+time([[packadd for vim-sneak]], true)
+vim.cmd [[packadd vim-sneak]]
+time([[packadd for vim-sneak]], false)
+-- Setup for: vim-polyglot
+time([[Setup for vim-polyglot]], true)
+try_loadstring("\27LJ\1\2<\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\tjava\22polyglot_disabled\6g\bvim\0", "setup", "vim-polyglot")
+time([[Setup for vim-polyglot]], false)
+time([[packadd for vim-polyglot]], true)
+vim.cmd [[packadd vim-polyglot]]
+time([[packadd for vim-polyglot]], false)
 -- Config for: zen-mode.nvim
 time([[Config for zen-mode.nvim]], true)
 try_loadstring("\27LJ\1\2H\0\0\2\0\4\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\3\0>\0\2\1G\0\1\0\1\0\1\rbackdrop\3\1\nsetup\rzen-mode\frequire\0", "config", "zen-mode.nvim")

@@ -103,7 +103,12 @@ return require('packer').startup(function(use)
   -- Material colort theme
   use {
     'kaicataldo/material.vim', 
-    branch = 'main' 
+    branch = 'main',
+    setup = function()
+      vim.g['material_theme_style'] = 'darker'
+      vim.g['material_terminal_italics'] = 1
+      vim.cmd('colorscheme material')
+    end
   }
 
   use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces

@@ -132,12 +132,6 @@ let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-" colorscheme codedark
-let g:material_theme_style = 'darker'
-let g:material_terminal_italics = 1
-colorscheme material
-
-
 let g:neomake_java_gradle_executable = 'gw'
 
 let test#strategy = "neovim"
