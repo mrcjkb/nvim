@@ -132,11 +132,6 @@ let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-let g:neomake_java_gradle_executable = 'gw'
-
-let test#strategy = "neovim"
-let test#java#runner = 'gradletest'
-
 if has('nvim')
   "Highlight terminal cursor
   highlight! link TermCursor Cursor
@@ -147,65 +142,11 @@ if has('nvim')
   endif
 endif
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
-" -------------------------- Tree-Sitter --------------------------
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-  }
-}
-EOF
-
-" completion-nvim
-" autocmd BufEnter * lua require'completion'.on_attach()
-let g:completion_enable_snippet = 'UltiSnips'
-let g:completion_auto_change_source = 1
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
-let g:completion_matching_smart_case = 1
-let g:completion_trigger_on_delete = 1
-" let g:completion_sorting = "none"
-let g:UltiSnipsExpandTrigger="<tab>"
-
-" \{'complete_items': ['lsp', 'snippet', 'tabnine']},
-" \{'mode': 'spel'}, -> Disabled, because it fails when spell check is not
-" enabled
-let g:completion_chain_complete_list = [
-    \{'complete_items': ['lsp', 'snippet']},
-    \{'complete_items': ['snippet']},
-    \{'TelescopePrompt' : [ ]},
-    \{'mode': '<c-p>'},
-    \{'mode': '<c-n>'},
-    \{'mode': 'defs'},
-    \{'mode': 'file'},
-    \{'mode': 'line'},
-    \{'mode': 'dict'},
-\]
-
-
-" imap <M-j> <Plug>(completion_next_source)
-" imap <M-k> <Plug>(completion_prev_source)
-
 " Set completeopt to have a better completion experience
 " set completeopt=menuone,noinsert,noselect
 set completeopt=menuone,noselect
 " Avoid showing message extra message when using completion
 "set shortmess+=c
-
-" UltiSnips
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "ultisnips"]
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
 
 
 " ------------------- Snippets.nvim ---------------------------
@@ -220,8 +161,6 @@ inoremap <c-k> <cmd>lua return require'snippets'.expand_or_advance(1)<CR>
 " If you jump before the first field, it will cancel the snippet.
 inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 " ------------------- Snippets.nvim ---------------------------
-"  -- ZenMode keybinding
-lua vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
 
 lua require('colorizer').setup()
 " External configs

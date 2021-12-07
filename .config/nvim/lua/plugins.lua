@@ -78,7 +78,12 @@ return require('packer').startup(function(use)
   use 'christoomey/vim-system-copy'
 
   -- .editorconfig support
-  use 'editorconfig/editorconfig-vim'
+  use {
+  'editorconfig/editorconfig-vim',
+  setup = function()
+    vim.g['EditorConfig_exclude_patterns'] = {'fugitive://.*'}
+  end
+}
 
   -- Git wrapper
   use 'tpope/vim-fugitive'
@@ -112,7 +117,13 @@ return require('packer').startup(function(use)
   }
 
   use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
-  use 'vim-test/vim-test'
+  use {
+  'vim-test/vim-test',
+  setup = function()
+    vim.g['test#strategy'] = 'neovim'
+    vim.g['test#java#runner'] = 'gradletest'
+  end
+}
   use {
     'neoclide/coc.nvim',
     branch = 'release'
@@ -143,6 +154,7 @@ return require('packer').startup(function(use)
   use { 
     'folke/zen-mode.nvim', -- Adds a :ZenMode
     config = function()
+      vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
       require("zen-mode").setup( {
           backdrop = 1,
         })
@@ -151,7 +163,19 @@ return require('packer').startup(function(use)
 
   use { 
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        highlight = {
+          enable = true
+        },
+        rainbow = {
+          enable = true,
+          extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+          max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+        }
+      }
+    end
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
@@ -171,7 +195,12 @@ return require('packer').startup(function(use)
   }
 
   use 'norcalli/snippets.nvim' -- Snippet support
-  use 'SirVer/ultisnips'
+  use { 
+    'SirVer/ultisnips',
+    setup = function()
+      vim.g['UltiSnipsSnippetDirectories'] = {"UltiSnips", "ultisnips"}
+    end
+  }
 
   use {
     'nvim-lua/popup.nvim',
