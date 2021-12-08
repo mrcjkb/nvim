@@ -126,7 +126,7 @@ _G.packer_plugins = {
     url = "https://github.com/junegunn/fzf.vim"
   },
   ["gitsigns.nvim"] = {
-    config = { "\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0" },
+    config = { "\27LJ\1\2\5\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\3\0003\3\4\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [g\1\2\1\0001&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'\texpr\2\tn ]g\1\2\1\0001&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'\texpr\2\1\0\r\fnoremap\2\17v <leader>hr\29:Gitsigns reset_hunk<CR>\17n <leader>hb9<cmd>lua require\"gitsigns\".blame_line{full=true}<CR>\17n <leader>hs!<cmd>Gitsigns stage_hunk<CR>\17n <leader>hR#<cmd>Gitsigns reset_buffer<CR>\to ih#:<C-U>Gitsigns select_hunk<CR>\tx ih#:<C-U>Gitsigns select_hunk<CR>\17n <leader>hr!<cmd>Gitsigns reset_hunk<CR>\17n <leader>hU)<cmd>Gitsigns reset_buffer_index<CR>\17v <leader>hs\29:Gitsigns stage_hunk<CR>\17n <leader>hp#<cmd>Gitsigns preview_hunk<CR>\17n <leader>hS#<cmd>Gitsigns stage_buffer<CR>\17n <leader>hu&<cmd>Gitsigns undo_stage_hunk<CR>\nsetup\rgitsigns\frequire\0" },
     loaded = true,
     path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
@@ -489,8 +489,7 @@ _G.packer_plugins = {
   },
   ["vim-wordmotion"] = {
     loaded = true,
-    needs_bufread = false,
-    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/opt/vim-wordmotion",
+    path = "/home/mrcjk/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
     url = "https://github.com/chaoren/vim-wordmotion"
   },
   ["zen-mode.nvim"] = {
@@ -509,13 +508,6 @@ time([[Setup for material.vim]], false)
 time([[packadd for material.vim]], true)
 vim.cmd [[packadd material.vim]]
 time([[packadd for material.vim]], false)
--- Setup for: vim-test
-time([[Setup for vim-test]], true)
-try_loadstring("\27LJ\1\2b\0\0\2\0\6\0\t4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\5\0:\1\4\0G\0\1\0\15gradletest\21test#java#runner\vneovim\18test#strategy\6g\bvim\0", "setup", "vim-test")
-time([[Setup for vim-test]], false)
-time([[packadd for vim-test]], true)
-vim.cmd [[packadd vim-test]]
-time([[packadd for vim-test]], false)
 -- Setup for: editorconfig-vim
 time([[Setup for editorconfig-vim]], true)
 try_loadstring('\27LJ\1\2Q\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\18fugitive://.*"EditorConfig_exclude_patterns\6g\bvim\0', "setup", "editorconfig-vim")
@@ -523,13 +515,13 @@ time([[Setup for editorconfig-vim]], false)
 time([[packadd for editorconfig-vim]], true)
 vim.cmd [[packadd editorconfig-vim]]
 time([[packadd for editorconfig-vim]], false)
--- Setup for: vim-wordmotion
-time([[Setup for vim-wordmotion]], true)
-try_loadstring("\27LJ\1\2;\0\0\2\0\4\0\0054\0\0\0007\0\1\0%\1\3\0:\1\2\0G\0\1\0\f<Space>\22wordmotion_prefix\6g\bvim\0", "setup", "vim-wordmotion")
-time([[Setup for vim-wordmotion]], false)
-time([[packadd for vim-wordmotion]], true)
-vim.cmd [[packadd vim-wordmotion]]
-time([[packadd for vim-wordmotion]], false)
+-- Setup for: vim-test
+time([[Setup for vim-test]], true)
+try_loadstring("\27LJ\1\2b\0\0\2\0\6\0\t4\0\0\0007\0\1\0%\1\3\0:\1\2\0004\0\0\0007\0\1\0%\1\5\0:\1\4\0G\0\1\0\15gradletest\21test#java#runner\vneovim\18test#strategy\6g\bvim\0", "setup", "vim-test")
+time([[Setup for vim-test]], false)
+time([[packadd for vim-test]], true)
+vim.cmd [[packadd vim-test]]
+time([[packadd for vim-test]], false)
 -- Setup for: vim-sneak
 time([[Setup for vim-sneak]], true)
 try_loadstring("\27LJ\1\2®\1\0\0\2\0\a\0\r4\0\0\0007\0\1\0'\1\1\0:\1\2\0004\0\0\0007\0\1\0%\1\4\0:\1\3\0004\0\0\0007\0\5\0%\1\6\0>\0\2\1G\0\1\0I      map <M-f> <Plug>Sneak_s\n      map map <M-F> <Plug>Sneak_S\n    \bcmd\tüîç\17sneak#prompt\16sneak#label\6g\bvim\0", "setup", "vim-sneak")
@@ -544,13 +536,6 @@ time([[Setup for vim-table-mode]], false)
 time([[packadd for vim-table-mode]], true)
 vim.cmd [[packadd vim-table-mode]]
 time([[packadd for vim-table-mode]], false)
--- Setup for: ultisnips
-time([[Setup for ultisnips]], true)
-try_loadstring("\27LJ\1\2U\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\3\0\0\14UltiSnips\14ultisnips UltiSnipsSnippetDirectories\6g\bvim\0", "setup", "ultisnips")
-time([[Setup for ultisnips]], false)
-time([[packadd for ultisnips]], true)
-vim.cmd [[packadd ultisnips]]
-time([[packadd for ultisnips]], false)
 -- Setup for: vim-polyglot
 time([[Setup for vim-polyglot]], true)
 try_loadstring("\27LJ\1\2<\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\2\0\0\tjava\22polyglot_disabled\6g\bvim\0", "setup", "vim-polyglot")
@@ -558,6 +543,13 @@ time([[Setup for vim-polyglot]], false)
 time([[packadd for vim-polyglot]], true)
 vim.cmd [[packadd vim-polyglot]]
 time([[packadd for vim-polyglot]], false)
+-- Setup for: ultisnips
+time([[Setup for ultisnips]], true)
+try_loadstring("\27LJ\1\2U\0\0\2\0\4\0\0054\0\0\0007\0\1\0003\1\3\0:\1\2\0G\0\1\0\1\3\0\0\14UltiSnips\14ultisnips UltiSnipsSnippetDirectories\6g\bvim\0", "setup", "ultisnips")
+time([[Setup for ultisnips]], false)
+time([[packadd for ultisnips]], true)
+vim.cmd [[packadd ultisnips]]
+time([[packadd for ultisnips]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 try_loadstring("\27LJ\1\2•\1\0\0\3\0\b\0\v4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\4\0003\2\3\0:\2\5\0013\2\6\0:\2\a\1>\0\2\1G\0\1\0\frainbow\1\0\3\19max_file_lines\3Ë\a\18extended_mode\2\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
@@ -568,7 +560,7 @@ try_loadstring("\27LJ\1\2≠\1\0\0\5\0\v\0\0154\0\0\0007\0\1\0007\0\2\0%\1\3\0%\2\
 time([[Config for zen-mode.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\1\0026\0\0\2\0\3\0\0064\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\1G\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+try_loadstring("\27LJ\1\2\5\0\0\4\0\n\0\r4\0\0\0%\1\1\0>\0\2\0027\0\2\0003\1\b\0003\2\3\0003\3\4\0:\3\5\0023\3\6\0:\3\a\2:\2\t\1>\0\2\1G\0\1\0\fkeymaps\1\0\0\tn [g\1\2\1\0001&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'\texpr\2\tn ]g\1\2\1\0001&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'\texpr\2\1\0\r\fnoremap\2\17v <leader>hr\29:Gitsigns reset_hunk<CR>\17n <leader>hb9<cmd>lua require\"gitsigns\".blame_line{full=true}<CR>\17n <leader>hs!<cmd>Gitsigns stage_hunk<CR>\17n <leader>hR#<cmd>Gitsigns reset_buffer<CR>\to ih#:<C-U>Gitsigns select_hunk<CR>\tx ih#:<C-U>Gitsigns select_hunk<CR>\17n <leader>hr!<cmd>Gitsigns reset_hunk<CR>\17n <leader>hU)<cmd>Gitsigns reset_buffer_index<CR>\17v <leader>hs\29:Gitsigns stage_hunk<CR>\17n <leader>hp#<cmd>Gitsigns preview_hunk<CR>\17n <leader>hS#<cmd>Gitsigns stage_buffer<CR>\17n <leader>hu&<cmd>Gitsigns undo_stage_hunk<CR>\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
