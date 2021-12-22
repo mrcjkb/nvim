@@ -99,6 +99,7 @@ local on_pyright_attach = function(client, bufnr)
 end
 lspconfig.pyright.setup{ on_attach = on_pyright_attach }
 lspconfig.tsserver.setup{ on_attach = on_attach }
+lspconfig.rnix.setup { on_attach = on_attach }
 -- lspconfig.kotlin_language_server.setup{ on_attach = on_attach }
 local on_latex_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
