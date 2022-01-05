@@ -121,11 +121,13 @@ lspconfig.cmake.setup{ on_attach = on_attach }
 lspconfig.gopls.setup{ on_attach = on_attach }
 lspconfig.vimls.setup{ on_attach = on_attach }
 
-local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
+-- local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
+-- local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
+local sumneko_binary = "lua-language-server"
 local luadev = require("lua-dev").setup({
   lspconfig = {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    -- cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    cmd = { sumneko_binary };
     settings = {
       Lua = {
         runtime = {
@@ -154,7 +156,7 @@ local luadev = require("lua-dev").setup({
     on_attach = on_attach,
   }
 })
--- lspconfig.sumneko_lua.setup(luadev)
+lspconfig.sumneko_lua.setup(luadev)
 require('nlua.lsp.nvim').setup(lspconfig, {
   on_attach = on_attach,
 })
@@ -197,9 +199,6 @@ local on_jdtls_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap=true, silent=true}
   local jdtls_str = 'lua require(\'jdtls\')'
-  buf_set_keymap('n', '<A-CR>', '<cmd>'..jdtls_str..'.code_action()<CR>', opts)
-  buf_set_keymap('v', '<A-CR> <Esc>', '<cmd>'..jdtls_str..'.code_action(true)<CR>', opts)
-  buf_set_keymap('n', '<leader>r', '<cmd>'..jdtls_str..'.code_action(false, refactor)<CR>', opts)
   buf_set_keymap('n', '<A-o>', '<cmd>'..jdtls_str..'.organize_imports()<CR>', opts)
   buf_set_keymap('n', '<A-v>', '<cmd>'..jdtls_str..'.extract_variable()<CR>', opts)
   buf_set_keymap('v', '<A-v>', '<cmd>'..jdtls_str..'.extract_variable(true)<CR>', opts)
