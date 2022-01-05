@@ -301,3 +301,4 @@ vim.api.nvim_exec([[
 -- nvim-dap-virtual-text plugin
 require'nvim-dap-virtual-text'.setup()
 
+require('idris2').setup({})

@@ -182,6 +182,8 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
 
+  use {'ShinKage/idris2-nvim', requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'}}
+
   use 'scalameta/nvim-metals' -- Scala LSP support
   use {
     'simrat39/rust-tools.nvim',
