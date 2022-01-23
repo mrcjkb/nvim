@@ -87,7 +87,13 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
 
   -- Keybindings for commening/uncommenting
-  use 'tpope/vim-commentary'
+  -- use 'tpope/vim-commentary'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
@@ -121,7 +127,14 @@ return require('packer').startup(function(use)
     'neoclide/coc.nvim',
     branch = 'release'
   }
-  use 'neovim/nvim-lspconfig'
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('lsp-overrides').setup()
+      require('lspconfig-setup')
+    end
+
+  }
   use 'nvim-lua/lsp-status.nvim' -- LSP status line info
   use 'ray-x/lsp_signature.nvim' -- LSP autocomplete signature hints
 
@@ -134,7 +147,12 @@ return require('packer').startup(function(use)
   }
 
   use 'onsails/lspkind-nvim' -- Autocomplete icons
-  use 'hrsh7th/nvim-cmp' -- Completion plugin
+  use {
+    'hrsh7th/nvim-cmp', -- Completion plugin
+    config = function()
+      require('completion-config')
+    end
+  }
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lua'
@@ -158,25 +176,26 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require'nvim-treesitter.configs'.setup {
-        highlight = {
-          enable = true
-        },
-        rainbow = {
-          enable = true,
-          extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-          max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-        }
-      }
+      require('treesitter-config')
     end
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
 
-  use 'folke/twilight.nvim' -- Dim inactive potions of code (powered by TreeSitter)
+  use {
+    'folke/twilight.nvim', -- Dim inactive potions of code (powered by TreeSitter)
+    config = function()
+      require('twilight-config')
+    end
+  }
 
   use 'mfussenegger/nvim-jdtls' -- Java LSP support
-  use 'mfussenegger/nvim-dap' -- Debug Adapter Protocol
+  use {
+    'mfussenegger/nvim-dap', -- Debug Adapter Protocol
+    config = function()
+      require('dap-setup')
+    end
+  }
   use 'mfussenegger/nvim-dap-python'
   use 'theHamsta/nvim-dap-virtual-text'
   use 'rcarriga/nvim-dap-ui'
@@ -202,7 +221,12 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
-  use 'nvim-telescope/telescope.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require('telescope-config')
+    end
+  }
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'fhill2/telescope-ultisnips.nvim'
   use 'luc-tielen/telescope_hoogle'
@@ -238,7 +262,12 @@ return require('packer').startup(function(use)
     requires = { 'junegunn/fzf' }
   }
   
-  use 'hoob3rt/lualine.nvim' -- Status line at the bottom
+  use {
+    'hoob3rt/lualine.nvim', -- Status line at the bottom
+    config = function()
+      require('lualine-setup')
+    end
+  }
   use 'SmiteshP/nvim-gps' -- Status line component that shows context of the current cursor position in the file - used with lualine
   
   -- rangr client
@@ -250,16 +279,29 @@ return require('packer').startup(function(use)
   use 'ryanoasis/vim-devicons'
 
   -- Wrapper for toggling NeoVim terminals
-  use "akinsho/toggleterm.nvim"
+  use {
+    "akinsho/toggleterm.nvim",
+    config = function()
+      require('toggleterm-setup')
+    end
+  }
 
   -- Specify, or on the fly, mark and create persisting key strokes to go to the files you want.
   -- + Unlimiter terminals and navigation
   use {
     'ThePrimeagen/harpoon',
-    requires = { 'nvim-lua/plenary.nvim' }
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('harpoon-config').setup()
+    end
   }
 
-  use 'windwp/nvim-autopairs'
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('autopairs-config')
+    end
+  }
 
   -- Virtual text with git blame information, etc
   use {

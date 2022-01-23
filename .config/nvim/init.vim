@@ -178,15 +178,3 @@ lua require('colorizer').setup()
 source $VIMCONFIG/vimscript/rnvimr.vim
 source $VIMCONFIG/vimscript/coc.vim
 source $VIMCONFIG/vimscript/quickscope-config.vim
-lua require('lsp-overrides').setup()
-lua require('lspconfig-setup')
-lua require('dap-setup')
-lua require('lsputils-config')
-lua require('telescope-config')
-lua require('treesitter-config')
-lua require('completion-config')
-lua require('lualine-setup')
-lua require('toggleterm-setup')
-lua require('twilight-config')
-lua require('autopairs-config')
-lua require('harpoon-config').setup()
