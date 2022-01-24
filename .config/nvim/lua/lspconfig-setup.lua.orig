@@ -29,17 +29,17 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>d', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
   buf_set_keymap('n', '<a-cr>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({ severity=\'ERROR\' })<CR>', opts)
-  buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({ severity=\'ERROR\' })<CR>', opts)
-  buf_set_keymap('n', '[w', '<cmd>lua vim.diagnostic.goto_prev({ severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', ']w', '<cmd>lua vim.diagnostic.goto_next({ severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist({ open_loclist=false })<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '[e', '<cmd>lua vim.lsp.diagnostic.goto_prev({ severity=\'Error\' })<CR>', opts)
+  buf_set_keymap('n', ']e', '<cmd>lua vim.lsp.diagnostic.goto_next({ severity=\'Error\' })<CR>', opts)
+  buf_set_keymap('n', '[w', '<cmd>lua vim.lsp.diagnostic.goto_prev({ severity=\'Warning\' })<CR>', opts)
+  buf_set_keymap('n', ']w', '<cmd>lua vim.lsp.diagnostic.goto_next({ severity=\'Warning\' })<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist({ open_loclist=false })<CR>', opts)
   buf_set_keymap('n', '<space>c', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false })<CR>', opts)
-  buf_set_keymap('n', '<space>w', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', '<space>i', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'INFO\' })<CR>', opts)
+  buf_set_keymap('n', '<space>w', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'Warning\' })<CR>', opts)
+  buf_set_keymap('n', '<space>i', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'Information\' })<CR>', opts)
   buf_set_keymap('n', '<F5>', '<Cmd>lua require\'dap\'.stop()<CR>', opts)
   buf_set_keymap('n', '<F6>', '<Cmd>lua require\'dap\'.step_out()<CR>', opts)
   buf_set_keymap('n', '<F7>', '<Cmd>lua require\'dap\'.step_into()<CR>', opts)
@@ -259,10 +259,14 @@ function Setup_jdtls()
             name = "JavaSE-17",
             path = "/usr/lib/jvm/liberica-jdk-full/",
           },
-          -- {
-          --   name = "JavaSE-11",
-          --   path = "/usr/lib/jvm/liberica-jdk-11-full/",
-          -- },
+          {
+            name = "JavaSE-16",
+            path = "/usr/lib/jvm/liberica-jdk-16-full/",
+          },
+          {
+            name = "JavaSE-11",
+            path = "/usr/lib/jvm/liberica-jdk-11-full/",
+          },
         }
       };
     };
@@ -295,5 +299,8 @@ vim.api.nvim_exec([[
 
 -- nvim-dap-virtual-text plugin
 require'nvim-dap-virtual-text'.setup()
+<<<<<<< HEAD
 
-require('idris2').setup({server = {on_attach = on_attach}})
+require('idris2').setup({})
+=======
+>>>>>>> 98d68128aac6b44944eab623c89dac6d36e442ee
