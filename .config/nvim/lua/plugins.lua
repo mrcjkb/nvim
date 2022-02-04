@@ -82,6 +82,12 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb' -- GitHub fugitive plugin for :GBrowse
   use 'tommcdo/vim-fubitive' -- Bitbucket fugitive plugin for :GBrowse
+  use {
+    'shumphrey/fugitive-gitlab.vim', -- GitLab fugitive support for :GBrowse
+    setup = function()
+      vim.g['g:fugitive_gitlab_domains'] = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
+    end
+  }
   
   -- Add repeat . suppor to custom commands
   use 'tpope/vim-repeat'
