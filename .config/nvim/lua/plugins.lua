@@ -187,6 +187,7 @@ return require('packer').startup(function(use)
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
+  use 'nvim-treesitter/nvim-treesitter-refactor'
 
   use {
     'folke/twilight.nvim', -- Dim inactive potions of code (powered by TreeSitter)
