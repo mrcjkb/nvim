@@ -127,6 +127,7 @@ return require('packer').startup(function(use)
   setup = function()
     vim.g['test#strategy'] = 'neovim'
     vim.g['test#java#runner'] = 'gradletest'
+    vim.g['test#haskell#runner'] = 'stacktest'
   end
 }
   use {
