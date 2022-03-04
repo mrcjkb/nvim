@@ -128,6 +128,7 @@ return require('packer').startup(function(use)
     vim.g['test#strategy'] = 'neovim'
     vim.g['test#java#runner'] = 'gradletest'
     vim.g['test#haskell#runner'] = 'stacktest'
+    -- vim.g['test#haskell#stacktest#test_command'] = 'nix-shell --attr shell ./nix/tiko.nix --show-trace --keep-going --keep-failed --pure --commmand "unset TMPDIR; return && stack test ."'
   end
 }
   use {
