@@ -85,7 +85,7 @@ local on_attach = function(client, bufnr)
   require('lspkind').init({
       -- preset = 'codicons',
   })
-  require('java_tsls').setup_lsp_commands()
+  -- require('java_tsls').setup_lsp_commands()
 end
 
 lspconfig.hls.setup{ on_attach = on_attach }
