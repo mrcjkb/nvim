@@ -5,8 +5,8 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
-  use 'MrcJkb/nvim-java-tsls'
-  use 'MrcJkb/autofix.nvim'
+  -- use 'MrcJkb/nvim-java-tsls'
+  -- use 'MrcJkb/autofix.nvim'
 
   -- lazy loaded
   -- proviedes lua scratch pad
@@ -51,10 +51,8 @@ return require('packer').startup(function(use)
   setup = function()
     vim.g['sneak#label'] = 1
     vim.g['sneak#prompt'] = '🔍'
-    -- Replace f and F with Sneak
     vim.cmd [[
       map <M-f> <Plug>Sneak_s
-      map map <M-F> <Plug>Sneak_S
     ]]
   end
 }
@@ -62,13 +60,8 @@ return require('packer').startup(function(use)
   -- Highlight unique characters in line search
   use 'unblevable/quick-scope'
 
-  use 'pangloss/vim-javascript'
-
   -- User-defined textobjects
   use 'kana/vim-textobj-user'
-
-  -- Keybindings for system clipboard copy
-  use 'christoomey/vim-system-copy'
 
   -- .editorconfig support
   use {
@@ -108,8 +101,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-obsession' -- Automatic session management
   use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
-  use 'udalov/kotlin-vim' -- Highlighting for Kotlin. Also required for Kotlin LSP support
-  
   -- Material colort theme
   use {
     'kaicataldo/material.vim', 
@@ -123,18 +114,18 @@ return require('packer').startup(function(use)
 
   use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
   use {
-  'vim-test/vim-test',
-  setup = function()
-    vim.g['test#strategy'] = 'neovim'
-    vim.g['test#java#runner'] = 'gradletest'
-    vim.g['test#haskell#runner'] = 'stacktest'
-    -- vim.g['test#haskell#stacktest#test_command'] = 'nix-shell --attr shell ./nix/tiko.nix --show-trace --keep-going --keep-failed --pure --commmand "unset TMPDIR; return && stack test ."'
-  end
-}
-  use {
-    'neoclide/coc.nvim',
-    branch = 'release'
+    'vim-test/vim-test',
+    setup = function()
+      vim.g['test#strategy'] = 'neovim'
+      vim.g['test#java#runner'] = 'gradletest'
+      vim.g['test#haskell#runner'] = 'stacktest'
+      -- vim.g['test#haskell#stacktest#test_command'] = 'nix-shell --attr shell ./nix/tiko.nix --show-trace --keep-going --keep-failed --pure --commmand "unset TMPDIR; return && stack test ."'
+    end
   }
+  -- use {
+  --   'neoclide/coc.nvim',
+  --   branch = 'release'
+  -- }
   use {
     'neovim/nvim-lspconfig',
     config = function()
