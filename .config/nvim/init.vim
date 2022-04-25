@@ -45,6 +45,8 @@ autocmd BufWritePre /tmp/* setlocal noundofile
 "Split right and below
 set splitright
 set splitbelow
+"Global statusline
+set laststatus=3
 
 " Turn off search highlight by mapping :nohlsearch to space
 nnoremap <leader><space> :nohlsearch<CR>
