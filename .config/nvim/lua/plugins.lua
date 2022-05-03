@@ -263,7 +263,9 @@ return require('packer').startup(function(use)
   }
   
   use {
-    'hoob3rt/lualine.nvim', -- Status line at the bottom
+    -- 'hoob3rt/lualine.nvim', -- Status line at the bottom
+    'MrcJkb/lualine.nvim', -- Status line at the bottom
+    branch = 'featre/bufnr-option',
     config = function()
       require('lualine-setup')
     end
