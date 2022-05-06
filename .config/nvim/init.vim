@@ -184,5 +184,4 @@ source $VIMCONFIG/vimscript/quickscope-config.vim
 " ---------------------- tiko stuff ---------------------------
 " style current buffer
 au FileType haskell command! BufTikoStyle :!stylish-haskell % -c $HOME/git/tiko-backend/backend/cli/lint/stylish-haskell.yaml -i %
-au FileType haskell command! bts :BufTikoStyle
 nnoremap <buffer> <space><localleader> :BufTikoStyle<CR>
