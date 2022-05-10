@@ -178,10 +178,7 @@ inoremap <c-j> <cmd>lua return require'snippets'.advance_snippet(-1)<CR>
 lua require('colorizer').setup()
 " External configs
 source $VIMCONFIG/vimscript/rnvimr.vim
-source $VIMCONFIG/vimscript/coc.vim
+" source $VIMCONFIG/vimscript/coc.vim
 source $VIMCONFIG/vimscript/quickscope-config.vim
+source $VIMCONFIG/vimscript/tiko.vim
 
-" ---------------------- tiko stuff ---------------------------
-" style current buffer
-au FileType haskell command! BufTikoStyle :w | !stylish-haskell % -c $HOME/git/tiko-backend/backend/cli/lint/stylish-haskell.yaml -i %
-nnoremap <leader>s :write \| BufTikoStyle<CR>

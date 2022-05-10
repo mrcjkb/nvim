@@ -33,6 +33,7 @@ telescope.setup {
     mappings = {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
+        ['<C-l>'] = actions.send_to_loclist,
       },
     }
   },
@@ -47,4 +48,5 @@ telescope.setup {
 telescope.load_extension('ultisnips')
 telescope.load_extension('hoogle')
 telescope.load_extension('fzy_native')
+telescope.load_extension('cheat')
 

@@ -230,6 +230,15 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'fhill2/telescope-ultisnips.nvim'
   use 'luc-tielen/telescope_hoogle'
+  use {
+    'nvim-telescope/telescope-cheat.nvim',
+    requires = { 'tami5/sqlite.lua' },
+    setup = function() 
+      vim.cmd [[
+        let g:sqlite_clib_path = $LIBSQLITE_CLIB_PATH
+      ]]
+    end,
+  }
 
   use 'tjdevries/nlua.nvim' -- Lua development for neovim
   use 'nvim-lua/plenary.nvim' -- Useful lua library
@@ -251,7 +260,7 @@ return require('packer').startup(function(use)
       vim.g['table_mode_corner'] = '+'
       vim.g['table_mode_corner_corner'] = '+'
       vim.g['table_mode_header_fillchar'] = '='
-    end
+    end,
     -- ft = {'markdown'}
   }
 
