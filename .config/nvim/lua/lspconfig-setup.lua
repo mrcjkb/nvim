@@ -88,7 +88,21 @@ local on_attach = function(client, bufnr)
   -- require('java_tsls').setup_lsp_commands()
 end
 
-lspconfig.hls.setup{ on_attach = on_attach }
+lspconfig.hls.setup{ 
+  on_attach = on_attach,
+  settings = {
+    haskell = {
+      formattingProvider = 'stylish-haskell',
+      checkProject = false,
+      plugin = {
+        rename = {
+          globalOn = true;
+        },
+      },
+    },
+  },
+}
+
 local on_pyright_attach = function(client, bufnr)
   on_attach(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end

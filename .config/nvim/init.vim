@@ -92,6 +92,8 @@ command! Cprev try | cprev | catch | clast | catch | endtry
 command! Lnext try | lnext | catch | lfirst | catch | endtry
 command! Lprev try | lprev | catch | llast | catch | endtry
 command! DeleteOtherBufs %bd|e#
+command! Q :bd % <CR> "Delete current buffer
+" command! Q! :bd! % <CR> "Delete current buffer (force)
 nnoremap <silent> [c :Cprev<CR>
 nnoremap <silent> ]c :Cnext<CR>
 nnoremap <silent> [C :Cfirst<CR>
