@@ -7,16 +7,16 @@ cd ~/.config/nvim
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
+let s:shortmess_save = &shortmess
 set shortmess=aoO
-badd +80 init.vim
-badd +30 lua/lspconfig-setup.lua
-badd +13 lua/harpoon-config.lua
-badd +201 lua/plugins.lua
+badd +19 lua/telescope-config.lua
+badd +239 lua/plugins.lua
 argglobal
 %argdel
-edit lua/plugins.lua
+$argadd lua/telescope-config.lua
+edit lua/telescope-config.lua
 argglobal
-balt lua/harpoon-config.lua
+balt lua/plugins.lua
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -25,20 +25,19 @@ setlocal fdl=10
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-6
-normal! zo
-let s:l = 202 - ((17 * winheight(0) + 9) / 19)
+let s:l = 20 - ((8 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 202
-normal! 0
+keepjumps 20
+normal! 067|
 tabnext 1
-if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
+if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
-set winheight=1 winwidth=20 shortmess=filnxtToOFA
+set winheight=1 winwidth=20
+let &shortmess = s:shortmess_save
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

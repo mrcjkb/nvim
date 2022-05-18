@@ -229,7 +229,12 @@ return require('packer').startup(function(use)
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'fhill2/telescope-ultisnips.nvim'
-  use 'luc-tielen/telescope_hoogle'
+  use {
+    -- 'luc-tielen/telescope_hoogle',
+    'MrcJkb/telescope_hoogle',
+    branch = 'fix-no-results-displayed',
+    -- run = 'hoogle generate',
+  }
   use {
     'nvim-telescope/telescope-cheat.nvim',
     requires = { 'tami5/sqlite.lua' },
