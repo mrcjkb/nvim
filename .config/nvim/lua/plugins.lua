@@ -197,6 +197,14 @@ return require('packer').startup(function(use)
     end
   }
   use 'mfussenegger/nvim-dap-python'
+  -- use {
+  --   'mfusenegger/nvim-lint',
+  --   config = function()
+  --     require('lint').linters_by_ft = {
+  --       haskell = {'hie',}
+  --     }
+  --   end,
+  -- }
   use 'theHamsta/nvim-dap-virtual-text'
   use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
@@ -230,9 +238,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'fhill2/telescope-ultisnips.nvim'
   use {
-    -- 'luc-tielen/telescope_hoogle',
-    'MrcJkb/telescope_hoogle',
-    branch = 'fix-no-results-displayed',
+    'luc-tielen/telescope_hoogle',
     -- run = 'hoogle generate',
   }
   use {
@@ -277,9 +283,7 @@ return require('packer').startup(function(use)
   }
   
   use {
-    -- 'hoob3rt/lualine.nvim', -- Status line at the bottom
-    'MrcJkb/lualine.nvim', -- Status line at the bottom
-    branch = 'featre/bufnr-option',
+    'hoob3rt/lualine.nvim', -- Status line at the bottom
     config = function()
       require('lualine-setup')
     end
