@@ -84,6 +84,14 @@ return require('packer').startup(function(use)
   
   -- Add repeat . suppor to custom commands
   use 'tpope/vim-repeat'
+  -- Vim sugar for UNIX shell commands (:Move, :Mkdir, :SudoWrite, etc.)
+  use 'tpope/vim-eunuch'
+  use 'tpope/vim-projectionist'
+  -- Navigation with [ and ] keybindings
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-dispatch' 
+  use 'tpope/vim-obsession' -- Automatic session management
+  use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
   -- Keybindings for commening/uncommenting
   -- use 'tpope/vim-commentary'
@@ -94,12 +102,7 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- Navigation with [ and ] keybindings
-  use 'tpope/vim-unimpaired'
-
-  use 'tpope/vim-dispatch' 
-  use 'tpope/vim-obsession' -- Automatic session management
-  use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
+  use 'tommcdo/vim-exchange' -- cx-<motion> or cxx (line)/X (visual) for swapping text objects (cxc to clear)
 
   -- Material colort theme
   use {
@@ -119,7 +122,7 @@ return require('packer').startup(function(use)
       vim.g['test#strategy'] = 'neovim'
       vim.g['test#java#runner'] = 'gradletest'
       vim.g['test#haskell#runner'] = 'stacktest'
-      -- vim.g['test#haskell#stacktest#test_command'] = 'nix-shell --attr shell ./nix/tiko.nix --show-trace --keep-going --keep-failed --pure --commmand "unset TMPDIR; return && stack test ."'
+      vim.g['g:test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
     end
   }
   -- use {

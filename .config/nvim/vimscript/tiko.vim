@@ -10,3 +10,5 @@ au BufNewFile,BufRead $HOME/git/tiko-backend/backend/*
       \ au BufWritePost <buffer> :BufTikoStyle
 
 nnoremap <leader>s :write \| BufTikoStyle<CR>
+
+" let g:test#haskell#stacktest#file_pattern = '\v^(.*spec.*|.*test.*)\c\.hs$'
