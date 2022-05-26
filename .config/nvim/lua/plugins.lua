@@ -12,19 +12,19 @@ return require('packer').startup(function(use)
   -- proviedes lua scratch pad
   use { 'bfredl/nvim-luadev', opt = true, cmd = { 'Luadev' }}
 
-  use { 
-    'weirongxu/plantuml-previewer.vim',
-    requires = {
-      'tyru/open-browser.vim',
-      'aklt/plantuml-syntax',
-    }
-  }
+  -- use { 
+  --   'weirongxu/plantuml-previewer.vim',
+  --   requires = {
+  --     'tyru/open-browser.vim',
+  --     'aklt/plantuml-syntax',
+  --   }
+  -- }
 
-  use {
-    'iamcco/markdown-preview.nvim',
-    run = function() vim.fn['mkdp#util#install']() end,
-    -- ft = {'markdown'}
-  }
+  -- use {
+  --   'iamcco/markdown-preview.nvim',
+  --   run = function() vim.fn['mkdp#util#install']() end,
+  --   -- ft = {'markdown'}
+  -- }
 
   use {"ellisonleao/glow.nvim"}
 
@@ -33,13 +33,13 @@ return require('packer').startup(function(use)
     'chaoren/vim-wordmotion'
   }
 
-  -- Syntax highlighting/indentation
-  use {
-    'sheerun/vim-polyglot',
-    setup = function()
-      vim.g['polyglot_disabled'] = {'java'}
-    end
-  }
+  -- -- Syntax highlighting/indentation
+  -- use {
+  --   'sheerun/vim-polyglot',
+  --   setup = function()
+  --     vim.g['polyglot_disabled'] = {'java'}
+  --   end
+  -- }
 
   -- Highlight colours (e.g. #800080)
   use 'norcalli/nvim-colorizer.lua'
@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   -- Vim sugar for UNIX shell commands (:Move, :Mkdir, :SudoWrite, etc.)
   use 'tpope/vim-eunuch'
-  use 'tpope/vim-projectionist'
+  use 'tpope/vim-projectionist' -- alternate file configs
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-dispatch' 
@@ -94,7 +94,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
   -- Keybindings for commening/uncommenting
-  -- use 'tpope/vim-commentary'
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -125,10 +124,6 @@ return require('packer').startup(function(use)
       vim.g['g:test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
     end
   }
-  -- use {
-  --   'neoclide/coc.nvim',
-  --   branch = 'release'
-  -- }
   use {
     'neovim/nvim-lspconfig',
     config = function()
@@ -212,9 +207,8 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
 
-  use {'ShinKage/idris2-nvim', requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'}}
+  -- use {'ShinKage/idris2-nvim', requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'}}
 
-  use 'scalameta/nvim-metals' -- Scala LSP support
   use {
     'simrat39/rust-tools.nvim',
   }
@@ -278,13 +272,6 @@ return require('packer').startup(function(use)
     -- ft = {'markdown'}
   }
 
-  use { 
-    'monkoose/fzf-hoogle.vim',
-    -- opt = true,
-    -- ft = { 'hs' },
-    requires = { 'junegunn/fzf' }
-  }
-  
   use {
     'hoob3rt/lualine.nvim', -- Status line at the bottom
     config = function()
