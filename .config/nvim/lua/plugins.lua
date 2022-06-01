@@ -78,7 +78,7 @@ return require('packer').startup(function(use)
   use {
     'shumphrey/fugitive-gitlab.vim', -- GitLab fugitive support for :GBrowse
     setup = function()
-      vim.g['g:fugitive_gitlab_domains'] = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
+      vim.g['fugitive_gitlab_domains'] = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
     end
   }
   
@@ -123,7 +123,7 @@ return require('packer').startup(function(use)
     vim.g['test#strategy'] = 'neovim'
     vim.g['test#java#runner'] = 'gradletest'
     vim.g['test#haskell#runner'] = 'stacktest'
-    vim.g['g:test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
+    vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
   end
   }
   use {
@@ -217,14 +217,27 @@ return require('packer').startup(function(use)
     end
   }
   use 'mfussenegger/nvim-dap-python'
-  -- use {
-  --   'mfusenegger/nvim-lint',
-  --   config = function()
-  --     require('lint').linters_by_ft = {
-  --       haskell = {'hie',}
-  --     }
-  --   end,
-  -- }
+  use {
+    'git@github.com:mfussenegger/nvim-lint.git',
+    config = function()
+      local lint = require('lint')
+      lint.linters_by_ft = {
+        haskell = {'hlint',}
+      }
+      lint.linters.hlint.args = {"--json", "--hint=/home/mrcjk/git/tiko-backend/backend/cli/lint/hlint.yaml"}
+    end,
+    setup = function()
+      -- FIXME
+      local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        pattern = '<buffer>',
+        group = augroup,
+        callback = function()
+          require('lint').try_lint()
+        end
+      })
+    end,
+  }
   use 'theHamsta/nvim-dap-virtual-text'
   use 'rcarriga/nvim-dap-ui'
   use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
