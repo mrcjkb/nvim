@@ -86,7 +86,21 @@ return require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   -- Vim sugar for UNIX shell commands (:Move, :Mkdir, :SudoWrite, etc.)
   use 'tpope/vim-eunuch'
-  use 'tpope/vim-projectionist' -- alternate file configs
+  use {
+    'tpope/vim-projectionist', -- alternate file configs
+    setup = function()
+      vim.g['projectionist_heuristics'] = {
+        ['src/**/*.hs'] = {
+          -- FIXME: Alternate files not detected
+          ['alternate'] = { 'test/{}Spec.hs',  'test/{}Test.hs' },
+          ['type'] = 'source',
+        },
+        ['*.hs'] = {
+          ['dispatch'] = 'stack ghci {file}'
+        },
+      }
+    end,
+  }
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-dispatch' 
@@ -116,14 +130,14 @@ return require('packer').startup(function(use)
 
   use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
   use {
-  -- 'vim-test/vim-test',
-    'MrcJkb/vim-test',
+  -- 'git@github.com:vim-test/vim-test',
+    'git@github.com:MrcJkb/vim-test',
     branch = 'stacktest-improvements',
     setup = function()
     vim.g['test#strategy'] = 'neovim'
     vim.g['test#java#runner'] = 'gradletest'
     vim.g['test#haskell#runner'] = 'stacktest'
-    vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
+    -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
   end
   }
   use {
