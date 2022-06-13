@@ -45,8 +45,7 @@ telescope.setup {
   },
 }
 
-telescope.load_extension('ultisnips')
 telescope.load_extension('hoogle')
 telescope.load_extension('fzy_native')
-telescope.load_extension('cheat')
+-- telescope.load_extension('cheat') -- FIXME
 

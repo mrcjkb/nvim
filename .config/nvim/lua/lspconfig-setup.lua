@@ -112,7 +112,7 @@ local on_pyright_attach = function(client, bufnr)
   buf_set_keymap('v', '<leader>ds', '<Cmd>lua require\'dap-python\'.debug_selection()<CR>', opts)
 end
 lspconfig.pyright.setup{ on_attach = on_pyright_attach }
-lspconfig.tsserver.setup{ on_attach = on_attach }
+-- lspconfig.tsserver.setup{ on_attach = on_attach }
 lspconfig.rnix.setup { on_attach = on_attach }
 -- lspconfig.kotlin_language_server.setup{ on_attach = on_attach }
 local on_latex_attach = function(client, bufnr)
@@ -130,9 +130,9 @@ lspconfig.texlab.setup {
   },
   on_attach = on_latex_attach
 }
-lspconfig.dockerls.setup{ on_attach = on_attach }
-lspconfig.cmake.setup{ on_attach = on_attach }
-lspconfig.gopls.setup{ on_attach = on_attach }
+-- lspconfig.dockerls.setup{ on_attach = on_attach }
+-- lspconfig.cmake.setup{ on_attach = on_attach }
+-- lspconfig.gopls.setup{ on_attach = on_attach }
 lspconfig.vimls.setup{ on_attach = on_attach }
 
 -- local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
@@ -308,6 +308,6 @@ vim.api.nvim_exec([[
 
 
 -- nvim-dap-virtual-text plugin
-require'nvim-dap-virtual-text'.setup()
+-- require'nvim-dap-virtual-text'.setup()
 
 -- require('idris2').setup({server = {on_attach = on_attach}})

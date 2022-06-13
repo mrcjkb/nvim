@@ -7,7 +7,7 @@ vim.g.dap_virtual_text = true
 vim.g.dap_virtual_text = 'all frames'
 
 -- dap-ui
-require("dapui").setup()
+-- require("dapui").setup()
 
 -- dap
 
@@ -99,7 +99,7 @@ dap.adapters.nlua = function(callback, config)
 end
 
 -- Python (TODO)
-require('dap-python').setup('~/.virtualenvs/tools/bin/python')
+-- require('dap-python').setup('~/.virtualenvs/tools/bin/python')
 
 -- Go
 dap.adapters.go = {

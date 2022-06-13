@@ -14,7 +14,6 @@ endif
 set path+=**
 set number
 set relativenumber
-set background=dark
 set cursorline
 " Enable tab-completion
 set wildmenu
@@ -73,8 +72,6 @@ inoremap ? ?<c-g>u
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '>-2<CR>gv=gv
 nnoremap <leader>j :m .+1<CR>==
-inoremap <C-j> :m .+1<CR>==
-inoremap <C-k> :m .-2<CR>==
 nnoremap <leader>k :m .-2<CR>==
 
 " Quickfix list navigation
@@ -112,14 +109,12 @@ nnoremap <silent> <space>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <space>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Shortcut for expanding to current buffer's directory
-cnoremap <expr> %% getcmdtype() == ':' ? expand("%:h')'/' : '%%' 
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' 
 
 
-if has('nvim')
-  "Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-endif
+"Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 " Syntactic sugar for gng 'gw' command
 command! -nargs=* Gradle split | resize 10 | terminal gw <args>
@@ -139,29 +134,25 @@ let g:wordmotion_mappings = {
 \ }
 
 
-" Plugins
-lua require('plugins')
-
-
 let g:markdown_syntax_conceal = 0
 " Align GitHub-flavored Markdown tables
 au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
-if has('nvim')
-  "Highlight terminal cursor
-  highlight! link TermCursor Cursor
-  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
-  "Prevent nested nvim instances
-  if executable('nvr')
-    let $VISUAL="nvr -cc split --remote-wait + 'set bufhidden=wipe'"
-  endif
+"Highlight terminal cursor
+highlight! link TermCursor Cursor
+highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+"Prevent nested nvim instances
+if executable('nvr')
+  let $VISUAL="nvr -cc split --remote-wait + 'set bufhidden=wipe'"
 endif
 
-" Set completeopt to have a better completion experience
-" set completeopt=menuone,noinsert,noselect
-set completeopt=menuone,noselect
+set completeopt=menu,menuone,noselect " Recommended by nvim-cmp
 " Avoid showing message extra message when using completion
 "set shortmess+=c
+
+
+" Plugins
+lua require('plugins')
 
 
 " ------------------- Snippets.nvim ---------------------------

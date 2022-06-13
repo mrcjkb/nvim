@@ -5,14 +5,20 @@ return require('packer').startup(function(use)
 
   use 'wbthomason/packer.nvim'
 
+  use {
+    'dstein64/vim-startuptime',
+    opt = true,
+    cmd = 'StartupTime'
+  }
+
   -- use 'MrcJkb/nvim-java-tsls'
   -- use 'MrcJkb/autofix.nvim'
 
   -- lazy loaded
   -- proviedes lua scratch pad
-  use { 'bfredl/nvim-luadev', opt = true, cmd = { 'Luadev' }}
+  use { 'bfredl/nvim-luadev' }
 
-  -- use { 
+  -- use {
   --   'weirongxu/plantuml-previewer.vim',
   --   requires = {
   --     'tyru/open-browser.vim',
@@ -26,10 +32,10 @@ return require('packer').startup(function(use)
   --   -- ft = {'markdown'}
   -- }
 
-  use {"ellisonleao/glow.nvim"}
+  use {'ellisonleao/glow.nvim', opt = true, cmd = 'Glow'}
 
   -- CamelCase, snake_case, etc word motions
-  use { 
+  use {
     'chaoren/vim-wordmotion'
   }
 
@@ -81,29 +87,33 @@ return require('packer').startup(function(use)
       vim.g['fugitive_gitlab_domains'] = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
     end
   }
-  
+
   -- Add repeat . suppor to custom commands
   use 'tpope/vim-repeat'
   -- Vim sugar for UNIX shell commands (:Move, :Mkdir, :SudoWrite, etc.)
   use 'tpope/vim-eunuch'
   use {
     'tpope/vim-projectionist', -- alternate file configs
-    setup = function()
-      vim.g['projectionist_heuristics'] = {
-        ['src/**/*.hs'] = {
-          -- FIXME: Alternate files not detected
-          ['alternate'] = { 'test/{}Spec.hs',  'test/{}Test.hs' },
-          ['type'] = 'source',
-        },
-        ['*.hs'] = {
-          ['dispatch'] = 'stack ghci {file}'
-        },
-      }
-    end,
+    -- setup = function()
+    --   vim.g['projectionist_heuristics'] = {
+    --     ['src/**/*.hs'] = {
+    --       -- FIXME: Alternate files not detected
+    --       ['alternate'] = { 'test/{}Spec.hs',  'test/{}Test.hs' },
+    --       ['type'] = 'source',
+    --     },
+    --     ['*.hs'] = {
+    --       ['dispatch'] = 'stack ghci {file}'
+    --     },
+    --   }
+    -- end,
   }
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
-  use 'tpope/vim-dispatch' 
+  use {
+    'tpope/vim-dispatch',
+    opt = true,
+    cmd = {'Dispatch', 'Make', 'Focus', 'Start'}, -- lazy-load on specific commands
+  }
   use 'tpope/vim-obsession' -- Automatic session management
   use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
@@ -119,46 +129,46 @@ return require('packer').startup(function(use)
 
   -- Material colort theme
   use {
-    'kaicataldo/material.vim', 
+    'kaicataldo/material.vim',
     branch = 'main',
     setup = function()
       vim.g['material_theme_style'] = 'darker'
       vim.g['material_terminal_italics'] = 1
+    end,
+    config = function()
       vim.cmd('colorscheme material')
-    end
+    end,
   }
 
-  use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
+  -- use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
   use {
   -- 'git@github.com:vim-test/vim-test',
     'git@github.com:MrcJkb/vim-test',
     branch = 'stacktest-improvements',
     setup = function()
-    vim.g['test#strategy'] = 'neovim'
-    vim.g['test#java#runner'] = 'gradletest'
-    vim.g['test#haskell#runner'] = 'stacktest'
-    -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
-  end
+      vim.g['test#strategy'] = 'neovim'
+      vim.g['test#java#runner'] = 'gradletest'
+      vim.g['test#haskell#runner'] = 'stacktest'
+      -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
+    end
   }
-  use {
-    "klen/nvim-test",
-    config = function()
-      require('nvim-test').setup {
-        commands_create = false,
-      }
-    end,
-    setup = function()
-      vim.api.nvim_command "command! TstFile lua require'nvim-test'.run('file')<CR>"
-      vim.api.nvim_command "command! TstLast lua require'nvim-test'.run_last()<CR>"
-      vim.api.nvim_command "command! TstNearest lua require'nvim-test'.run('nearest')<CR>"
-      vim.api.nvim_command "command! TstSuite lua require'nvim-test'.run('suite')<CR>"
-      vim.api.nvim_command "command! TstVisit lua require'nvim-test'.visit()<CR>"
-      vim.api.nvim_command "command! TstInfo lua require'nvim-test.info'()<CR>"
-      vim.api.nvim_command "command! TstEdit lua require'nvim-test'.edit()<CR>"
-      -- require('nvim-test.runners.hspec'):setup {
-      -- }
-    end,
-  }
+  -- use {
+  --   "klen/nvim-test",
+  --   config = function()
+  --     require('nvim-test').setup {
+  --       commands_create = false,
+  --     }
+  --     vim.api.nvim_command "command! TstFile lua require'nvim-test'.run('file')<CR>"
+  --     vim.api.nvim_command "command! TstLast lua require'nvim-test'.run_last()<CR>"
+  --     vim.api.nvim_command "command! TstNearest lua require'nvim-test'.run('nearest')<CR>"
+  --     vim.api.nvim_command "command! TstSuite lua require'nvim-test'.run('suite')<CR>"
+  --     vim.api.nvim_command "command! TstVisit lua require'nvim-test'.visit()<CR>"
+  --     vim.api.nvim_command "command! TstInfo lua require'nvim-test.info'()<CR>"
+  --     vim.api.nvim_command "command! TstEdit lua require'nvim-test'.edit()<CR>"
+  --     -- require('nvim-test.runners.hspec'):setup {
+  --     -- }
+  --   end,
+  -- }
 
   use {
     'neovim/nvim-lspconfig',
@@ -195,7 +205,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/vim-vsnip' -- VSCode vsnip for use with LSP autocomplete
   use 'hrsh7th/vim-vsnip-integ'
 
-  use { 
+  use {
     'folke/zen-mode.nvim', -- Adds a :ZenMode
     config = function()
       vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
@@ -205,9 +215,9 @@ return require('packer').startup(function(use)
     end
   }
 
-  use { 
+  use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    run = ':TSUpdate all',
     config = function()
       require('treesitter-config')
     end
@@ -217,7 +227,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-refactor'
 
   use {
-    'folke/twilight.nvim', -- Dim inactive potions of code (powered by TreeSitter)
+    'folke/twilight.nvim', -- Dim inactive portions of code (powered by TreeSitter)
     config = function()
       require('twilight-config')
     end
@@ -228,9 +238,11 @@ return require('packer').startup(function(use)
     'mfussenegger/nvim-dap', -- Debug Adapter Protocol
     config = function()
       require('dap-setup')
-    end
+    end,
+    opt = true,
+    ft = {'java'} --, 'python', 'haskell'}, -- TODO
   }
-  use 'mfussenegger/nvim-dap-python'
+  -- use 'mfussenegger/nvim-dap-python'
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
@@ -239,10 +251,8 @@ return require('packer').startup(function(use)
         haskell = {'hlint',}
       }
       lint.linters.hlint.args = {"--json", "--hint=/home/mrcjk/git/tiko-backend/backend/cli/lint/hlint.yaml"}
-    end,
-    setup = function()
-      -- FIXME
       local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
+      -- FIXME
       vim.api.nvim_create_autocmd('BufWritePost', {
         pattern = '<buffer>',
         group = augroup,
@@ -252,9 +262,9 @@ return require('packer').startup(function(use)
       })
     end,
   }
-  use 'theHamsta/nvim-dap-virtual-text'
-  use 'rcarriga/nvim-dap-ui'
-  use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
+  -- use 'theHamsta/nvim-dap-virtual-text'
+  -- use 'rcarriga/nvim-dap-ui'
+  -- use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
 
   -- use {'ShinKage/idris2-nvim', requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'}}
 
@@ -263,7 +273,7 @@ return require('packer').startup(function(use)
   }
 
   use 'norcalli/snippets.nvim' -- Snippet support
-  use { 
+  use {
     'SirVer/ultisnips',
     setup = function()
       vim.g['UltiSnipsSnippetDirectories'] = {"UltiSnips", "ultisnips"}
@@ -272,7 +282,9 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-lua/popup.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
+    requires = { 'nvim-lua/plenary.nvim' },
+    opt = true,
+    ft = {'lua'},
   }
 
   use {
@@ -282,24 +294,29 @@ return require('packer').startup(function(use)
     end
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
-  use 'fhill2/telescope-ultisnips.nvim'
   use {
     'luc-tielen/telescope_hoogle',
     -- run = 'hoogle generate',
   }
-  use {
-    'nvim-telescope/telescope-cheat.nvim',
-    requires = { 'tami5/sqlite.lua' },
-    setup = function() 
-      vim.cmd [[
-        let g:sqlite_clib_path = $LIBSQLITE_CLIB_PATH
-      ]]
-    end,
-  }
+  -- use {
+  --   'nvim-telescope/telescope-cheat.nvim',
+  --   requires = { 'tami5/sqlite.lua' },
+  --   setup = function()
+  --     vim.cmd [[
+  --       let g:sqlite_clib_path = $LIBSQLITE_CLIB_PATH
+  --     ]]
+  --   end,
+  -- }
 
-  use 'tjdevries/nlua.nvim' -- Lua development for neovim
-  use 'nvim-lua/plenary.nvim' -- Useful lua library
-  use 'folke/lua-dev.nvim' -- Lua development for neovim
+  use {
+    'tjdevries/nlua.nvim', -- Lua development for neovim
+  }
+  use {
+    'nvim-lua/plenary.nvim', -- Useful lua library
+  }
+  use {
+    'folke/lua-dev.nvim', -- Lua development for neovim
+  }
 
   -- Fuzzy search
   use {
@@ -308,7 +325,11 @@ return require('packer').startup(function(use)
   }
   use 'junegunn/fzf.vim'
 
-  use 'junegunn/vim-easy-align' -- Formatting, e.g for formatting markdown tables
+  use {
+    'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
+    opt = true,
+    ft = {'markdown'},
+  }
 
   -- Activate table mode with :TableModeToggle from insert mode
   use {
@@ -318,7 +339,8 @@ return require('packer').startup(function(use)
       vim.g['table_mode_corner_corner'] = '+'
       vim.g['table_mode_header_fillchar'] = '='
     end,
-    -- ft = {'markdown'}
+    opt = true,
+    ft = {'markdown'},
   }
 
   use {
@@ -327,11 +349,13 @@ return require('packer').startup(function(use)
       require('lualine-setup')
     end
   }
-  use 'SmiteshP/nvim-gps' -- Status line component that shows context of the current cursor position in the file - used with lualine
-  
+  use {
+    'SmiteshP/nvim-gps', -- Status line component that shows context of the current cursor position in the file - used with lualine
+  }
+
   -- rangr client
   use {
-    'kevinhwang91/rnvimr', 
+    'kevinhwang91/rnvimr',
   }
 
   use 'kyazdani42/nvim-web-devicons'
@@ -347,13 +371,13 @@ return require('packer').startup(function(use)
 
   -- Specify, or on the fly, mark and create persisting key strokes to go to the files you want.
   -- + Unlimiter terminals and navigation
-  use {
-    'ThePrimeagen/harpoon',
-    requires = { 'nvim-lua/plenary.nvim' },
-    config = function()
-      require('harpoon-config').setup()
-    end
-  }
+  -- use {
+  --   'ThePrimeagen/harpoon',
+  --   requires = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     require('harpoon-config').setup()
+  --   end
+  -- }
 
   use {
     'windwp/nvim-autopairs',

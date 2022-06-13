@@ -46,5 +46,5 @@ require("lualine").setup({
             lualine_y = {},
             lualine_z = {}
         },
-        extenstions = {'fugitive', 'fzf', 'toggleterm', 'quickfix', 'chadtree'}
+        extenstions = {'fugitive', 'fzf', 'toggleterm', 'quickfix'}
     })
