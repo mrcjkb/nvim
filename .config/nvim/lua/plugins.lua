@@ -7,7 +7,6 @@ return require('packer').startup(function(use)
 
   use {
     'dstein64/vim-startuptime',
-    opt = true,
     cmd = 'StartupTime'
   }
 
@@ -32,7 +31,7 @@ return require('packer').startup(function(use)
   --   -- ft = {'markdown'}
   -- }
 
-  use {'ellisonleao/glow.nvim', opt = true, cmd = 'Glow'}
+  use {'ellisonleao/glow.nvim', cmd = 'Glow'}
 
   -- CamelCase, snake_case, etc word motions
   use {
@@ -111,7 +110,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'
   use {
     'tpope/vim-dispatch',
-    opt = true,
     cmd = {'Dispatch', 'Make', 'Focus', 'Start'}, -- lazy-load on specific commands
   }
   use 'tpope/vim-obsession' -- Automatic session management
@@ -121,7 +119,9 @@ return require('packer').startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-      require('Comment').setup()
+      vim.schedule(function()
+        require('Comment').setup()
+      end)
     end
   }
 
@@ -173,8 +173,10 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     config = function()
-      require('lsp-overrides').setup()
-      require('lspconfig-setup')
+      -- vim.schedule(function()
+        require('lspconfig-setup')
+        require('lsp-overrides').setup()
+      -- end)
     end
 
   }
@@ -193,7 +195,9 @@ return require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp', -- Completion plugin
     config = function()
-      require('completion-config')
+      vim.schedule(function()
+        require('completion-config')
+      end)
     end
   }
   use 'hrsh7th/cmp-buffer'
@@ -208,10 +212,12 @@ return require('packer').startup(function(use)
   use {
     'folke/zen-mode.nvim', -- Adds a :ZenMode
     config = function()
-      vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
-      require("zen-mode").setup( {
+      vim.schedule(function()
+        vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
+        require("zen-mode").setup( {
           backdrop = 1,
         })
+      end)
     end
   }
 
@@ -219,7 +225,9 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate all',
     config = function()
-      require('treesitter-config')
+      vim.schedule(function()
+        require('treesitter-config')
+      end)
     end
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
@@ -229,7 +237,9 @@ return require('packer').startup(function(use)
   use {
     'folke/twilight.nvim', -- Dim inactive portions of code (powered by TreeSitter)
     config = function()
-      require('twilight-config')
+      vim.schedule(function()
+        require('twilight-config')
+      end)
     end
   }
 
@@ -237,29 +247,32 @@ return require('packer').startup(function(use)
   use {
     'mfussenegger/nvim-dap', -- Debug Adapter Protocol
     config = function()
-      require('dap-setup')
+      vim.schedule(function()
+        require('dap-setup')
+      end)
     end,
-    opt = true,
     ft = {'java'} --, 'python', 'haskell'}, -- TODO
   }
   -- use 'mfussenegger/nvim-dap-python'
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
-      local lint = require('lint')
-      lint.linters_by_ft = {
-        haskell = {'hlint',}
-      }
-      lint.linters.hlint.args = {"--json", "--hint=/home/mrcjk/git/tiko-backend/backend/cli/lint/hlint.yaml"}
-      local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
-      -- FIXME
-      vim.api.nvim_create_autocmd('BufWritePost', {
-        pattern = '<buffer>',
-        group = augroup,
-        callback = function()
-          require('lint').try_lint()
-        end
-      })
+      vim.schedule(function()
+        local lint = require('lint')
+        lint.linters_by_ft = {
+          haskell = {'hlint',}
+        }
+        lint.linters.hlint.args = {"--json", "--hint=/home/mrcjk/git/tiko-backend/backend/cli/lint/hlint.yaml"}
+        local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
+        -- FIXME
+        vim.api.nvim_create_autocmd('BufWritePost', {
+          pattern = '<buffer>',
+          group = augroup,
+          callback = function()
+            require('lint').try_lint()
+          end
+        })
+      end)
     end,
   }
   -- use 'theHamsta/nvim-dap-virtual-text'
@@ -283,14 +296,15 @@ return require('packer').startup(function(use)
   use {
     'nvim-lua/popup.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    opt = true,
     ft = {'lua'},
   }
 
   use {
     'nvim-telescope/telescope.nvim',
     config = function()
-      require('telescope-config')
+      vim.schedule(function()
+        require('telescope-config')
+      end)
     end
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
@@ -327,7 +341,6 @@ return require('packer').startup(function(use)
 
   use {
     'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
-    opt = true,
     ft = {'markdown'},
   }
 
@@ -339,7 +352,6 @@ return require('packer').startup(function(use)
       vim.g['table_mode_corner_corner'] = '+'
       vim.g['table_mode_header_fillchar'] = '='
     end,
-    opt = true,
     ft = {'markdown'},
   }
 
@@ -365,7 +377,9 @@ return require('packer').startup(function(use)
   use {
     "akinsho/toggleterm.nvim",
     config = function()
-      require('toggleterm-setup')
+      vim.schedule(function()
+        require('toggleterm-setup')
+      end)
     end
   }
 
@@ -382,7 +396,9 @@ return require('packer').startup(function(use)
   use {
     'windwp/nvim-autopairs',
     config = function()
-      require('autopairs-config')
+      vim.schedule(function()
+        require('autopairs-config')
+      end)
     end
   }
 
@@ -393,7 +409,8 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim'
     },
     config = function()
-      require('gitsigns').setup({
+      vim.schedule(function()
+        require('gitsigns').setup({
           current_line_blame = true,
           current_line_blame_opts = {
             ignore_whitespace = true,
@@ -436,6 +453,7 @@ return require('packer').startup(function(use)
             map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
           end,
         })
+      end)
     end
   }
 
