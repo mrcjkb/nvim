@@ -142,9 +142,9 @@ return require('packer').startup(function(use)
 
   -- use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
   use {
-  -- 'git@github.com:vim-test/vim-test',
-    'git@github.com:MrcJkb/vim-test',
-    branch = 'stacktest-improvements',
+    'git@github.com:vim-test/vim-test',
+    -- 'git@github.com:MrcJkb/vim-test',
+    -- branch = 'stacktest-improvements',
     setup = function()
       vim.g['test#strategy'] = 'neovim'
       vim.g['test#java#runner'] = 'gradletest'
