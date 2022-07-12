@@ -2,12 +2,12 @@
 
 " Style current buffer
 au BufNewFile,BufRead $HOME/git/tiko-backend/backend/*
-      \ au FileType haskell command! BufTikoStyle :Dispatch! stylish-haskell % -c $HOME/git/tiko-backend/backend/master/cli/lint/stylish-haskell.yaml -i %
+      \ au FileType haskell command! BufTikoStyle :Dispatch! stylish-haskell % -c cli/lint/stylish-haskell.yaml -i %
   
 " Style current buffer after writing Haskell files
-au BufNewFile,BufRead $HOME/git/tiko-backend/backend/*
-      \ au FileType haskell 
-      \ au BufWritePost <buffer> :BufTikoStyle
+" au BufNewFile,BufRead $HOME/git/tiko-backend/backend/*
+"       \ au FileType haskell 
+"       \ au BufWritePost <buffer> :BufTikoStyle
 
 nnoremap <leader>s :write \| BufTikoStyle<CR>
 

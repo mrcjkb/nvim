@@ -262,7 +262,6 @@ return require('packer').startup(function(use)
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
-        lint.linters.hlint.args = {"--json", "--no-exit-code", "--hint=/home/mrcjk/git/tiko-backend/backend/master/cli/lint/hlint.yaml"}
         local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
         -- FIXME
         vim.api.nvim_create_autocmd('BufWritePost', {
