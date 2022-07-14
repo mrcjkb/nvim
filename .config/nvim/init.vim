@@ -53,8 +53,6 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Remap Y to yank till the end of the line (consistent with C and D)
 nnoremap Y y$
 
-" Terminal
-nnoremap <leader>t :below terminal<CR>
 
 " Buffer list navigation
 nnoremap <silent> [b :bprevious<CR>
