@@ -14,8 +14,6 @@ return require('packer').startup(function(use)
   -- use 'MrcJkb/autofix.nvim'
 
   -- lazy loaded
-  -- proviedes lua scratch pad
-  use { 'bfredl/nvim-luadev' }
 
   -- use {
   --   'weirongxu/plantuml-previewer.vim',
@@ -52,7 +50,7 @@ return require('packer').startup(function(use)
   -- Remaps s [cl] and S [cc] to vertical sneak search
   -- Note: I have it mapped to <M-f> and <M-F>, respectively
   use {
-  'justinmk/vim-sneak',
+  'justinmk/vim-sneak', -- TODO: Package for nix
   setup = function()
     vim.g['sneak#label'] = 1
     vim.g['sneak#prompt'] = '🔍'
@@ -129,7 +127,7 @@ return require('packer').startup(function(use)
 
   -- Material colort theme
   use {
-    'kaicataldo/material.vim',
+    'kaicataldo/material.vim', -- TODO: Package for nix
     branch = 'main',
     setup = function()
       vim.g['material_theme_style'] = 'darker'
@@ -231,6 +229,7 @@ return require('packer').startup(function(use)
     end
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
+  use 'nvim-treesitter/nvim-treesitter-context' 
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
   use 'nvim-treesitter/nvim-treesitter-refactor'
 
@@ -251,7 +250,7 @@ return require('packer').startup(function(use)
         require('dap-setup')
       end)
     end,
-    ft = {'java'} --, 'python', 'haskell'}, -- TODO
+    ft = {'java', 'haskell'}, -- 'python'
   }
   -- use 'mfussenegger/nvim-dap-python'
   use {
@@ -309,7 +308,7 @@ return require('packer').startup(function(use)
   }
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use {
-    'luc-tielen/telescope_hoogle',
+    'luc-tielen/telescope_hoogle', -- TODO: Package for nix
     -- run = 'hoogle generate',
   }
   -- use {
@@ -331,6 +330,9 @@ return require('packer').startup(function(use)
   use {
     'folke/lua-dev.nvim', -- Lua development for neovim
   }
+
+  -- proviedes lua scratch pad
+  use { 'bfredl/nvim-luadev' } -- TODO: Package for nix
 
   -- Fuzzy search
   use {
