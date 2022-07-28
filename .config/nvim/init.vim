@@ -1,5 +1,6 @@
 lua require('init')  -- TODO: Replace with init.lua
 
+
 " Shortcut for expanding to current buffer's directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' 
 

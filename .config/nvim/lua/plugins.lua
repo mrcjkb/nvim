@@ -59,8 +59,10 @@ return require('packer').startup(function(use)
   -- Highlight colours (e.g. #800080)
   use {
     'norcalli/nvim-colorizer.lua',
-    setup = function ()
-      require'colorizer'.setup()
+    config = function ()
+      vim.schedule(function()
+        require'colorizer'.setup()
+      end)
     end
   }
 
@@ -307,7 +309,7 @@ return require('packer').startup(function(use)
   use {
     -- Snippet support
     'norcalli/snippets.nvim',
-    setup = function ()
+    config = function ()
       require'snippets'.use_suggested_mappings()
       -- This variant will set up the mappings only for the *CURRENT* buffer.
       -- There are only two keybindings specified by the suggested keymappings, which is <C-k> and <C-j>

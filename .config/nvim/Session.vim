@@ -19,7 +19,7 @@ badd +1 ./lua/native-plugins.lua
 badd +48 ./lua/settings.lua
 badd +8 ./lua/autocommands.lua
 badd +9 lua/dap-setup.lua
-badd +506 lua/plugins.lua
+badd +312 lua/plugins.lua
 badd +4 lua/keymaps.lua
 badd +6 lua/commands.lua
 badd +4 term://~/.config/nvim//5562:gw
@@ -39,14 +39,21 @@ setlocal fdl=10
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 2 - ((1 * winheight(0) + 20) / 41)
+let s:l = 16 - ((15 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 2
+keepjumps 16
 normal! 0
 tabnext
 edit lua/plugins.lua
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
 argglobal
 balt ./lua/autocommands.lua
 setlocal fdm=indent
@@ -65,84 +72,90 @@ normal! zo
 normal! zo
 61
 normal! zo
-80
+63
 normal! zo
-94
+82
 normal! zo
-99
+96
 normal! zo
-147
+101
 normal! zo
-160
+137
 normal! zo
-211
+139
 normal! zo
-232
+149
+normal! zo
+162
+normal! zo
+213
 normal! zo
 234
 normal! zo
-235
+236
 normal! zo
-244
+237
 normal! zo
-247
+246
 normal! zo
-258
+249
 normal! zo
 260
 normal! zo
-268
+262
 normal! zo
 270
 normal! zo
-278
+272
 normal! zo
 280
 normal! zo
-281
+282
 normal! zo
-288
+283
 normal! zo
-308
+290
 normal! zo
-311
+310
 normal! zo
-329
+313
 normal! zo
-342
+331
 normal! zo
-345
+344
 normal! zo
-386
+347
 normal! zo
-395
+388
 normal! zo
-405
+397
 normal! zo
-424
+407
 normal! zo
 426
 normal! zo
-443
+428
 normal! zo
 445
 normal! zo
-453
+447
 normal! zo
-458
-normal! zo
-459
+455
 normal! zo
 460
 normal! zo
-465
+461
 normal! zo
-let s:l = 3 - ((2 * winheight(0) + 20) / 41)
+462
+normal! zo
+467
+normal! zo
+let s:l = 312 - ((21 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 0
+keepjumps 312
+normal! 010|
 tabnext
 edit ./lua/init.lua
 argglobal
