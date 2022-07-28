@@ -33,7 +33,19 @@ return require('packer').startup(function(use)
 
   -- CamelCase, snake_case, etc word motions
   use {
-    'chaoren/vim-wordmotion'
+    'chaoren/vim-wordmotion',
+    setup = function()
+    -- Use Alt as prefix for word motion mappings -- FIXME
+    vim.g['wordmotion_mappings'] = {
+        ['w'] = '<M-w>',
+        ['b'] = '<M-b>',
+        ['e'] = '<M-e>',
+        ['ge'] = 'g<M-e>',
+        ['aw'] = 'a<M-w>',
+        ['iw'] = 'i<M-w>',
+        ['<C-R><C-W>'] = '<C-R><M-w>',
+      }
+    end
   }
 
   -- -- Syntax highlighting/indentation
@@ -45,7 +57,12 @@ return require('packer').startup(function(use)
   -- }
 
   -- Highlight colours (e.g. #800080)
-  use 'norcalli/nvim-colorizer.lua'
+  use {
+    'norcalli/nvim-colorizer.lua',
+    setup = function ()
+      require'colorizer'.setup()
+    end
+  }
 
   -- Remaps s [cl] and S [cc] to vertical sneak search
   -- Note: I have it mapped to <M-f> and <M-F>, respectively
@@ -196,6 +213,10 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('completion-config')
       end)
+    vim.cmd('set completeopt=menu,menuone,noselect') 
+    --Avoid showing message extra message when using completion
+    -- vim.cmd 'set shortmess+=c'
+
     end
   }
   use 'hrsh7th/cmp-buffer'
@@ -283,7 +304,27 @@ return require('packer').startup(function(use)
     'simrat39/rust-tools.nvim',
   }
 
-  use 'norcalli/snippets.nvim' -- Snippet support
+  use {
+    -- Snippet support
+    'norcalli/snippets.nvim',
+    setup = function ()
+      require'snippets'.use_suggested_mappings()
+      -- This variant will set up the mappings only for the *CURRENT* buffer.
+      -- There are only two keybindings specified by the suggested keymappings, which is <C-k> and <C-j>
+      -- They are exactly equivalent to:
+      -- <c-k> will either expand the current snippet at the word or try to jump to
+      -- the next position for the snippet.
+      vim.keymap.set('i', '<c-k>', function()
+        return require'snippets'.expand_or_advance(1)
+      end, {noremap = true,})
+      -- <c-j> will jump backwards to the previous field.
+      -- If you jump before the first field, it will cancel the snippet.
+      vim.keymap.set('i', '<c-j>', function()
+        return require'snippets'.advance_snipped(-1)
+      end, {noremap = true,})
+    end
+  }
+
   use {
     'SirVer/ultisnips',
     setup = function()
@@ -344,6 +385,9 @@ return require('packer').startup(function(use)
   use {
     'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
     ft = {'markdown'},
+    setup = function()
+      vim.keymap.set('v', '<leader><Bslash>', ':EasyAlign*<Bar><CR>')
+    end
   }
 
   -- Activate table mode with :TableModeToggle from insert mode

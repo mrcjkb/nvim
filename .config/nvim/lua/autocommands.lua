@@ -1,10 +1,12 @@
+local api = vim.api
 
-local augroup = vim.api.nvim_create_augroup('tempdir', {clear = true})
+local tempdirgroup = api.nvim_create_augroup('tempdir', {clear = true})
 -- Do not set undofile for files in /tmp
-vim.api.nvim_create_autocmd('BufWritePre', {
+api.nvim_create_autocmd('BufWritePre', {
   pattern = '/tmp/*',
-  group = augroup,
+  group = tempdirgroup,
   callback = function()
     vim.cmd('setlocal noundofile')
   end
 })
+

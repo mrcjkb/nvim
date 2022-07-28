@@ -44,3 +44,5 @@ cmd 'set splitright'
 cmd 'set splitbelow'
 -- Global statusline
 cmd 'set laststatus=3'
+
+vim.g['markdown_syntax_conceal'] = 0
