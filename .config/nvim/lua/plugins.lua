@@ -416,6 +416,25 @@ return require('packer').startup(function(use)
   -- rangr client
   use {
     'kevinhwang91/rnvimr',
+    setup = function()
+    -- Make Ranger replace netrw and be the file explorer
+    vim.g['rnvimr_ex_enable'] = 1
+    -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
+    vim.g['rnvimr_enable_bw'] = 1
+    vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
+    vim.keymap.set({'n', 't'}, '<M-r>', ':RnvimrToggle<CR>', {silent = true,})
+-- nnrremap <silent> <M-r> :RnvimrToggle<CR>
+-- tnoremap <silent> <M-O> <C-\><C-n>:RnvimrToggle<CR>
+    -- Map Rnvimr action
+    vim.g['rnvimr_action'] = {
+        ['<C-t>'] = 'NvimEdit tabedit',
+        ['<C-x>'] = 'NvimEdit split',
+        ['<C-v>'] =  'NvimEdit vsplit',
+        ['gw'] =  'JumpNvimCwd',
+        ['gf'] = 'AttachFile',
+        ['yw'] = 'EmitRangerCwd'
+      }
+    end
   }
 
   use 'kyazdani42/nvim-web-devicons'

@@ -14,8 +14,6 @@ if executable('nvr')
 endif
 
 " External configs
-source $VIMCONFIG/vimscript/rnvimr.vim
-" source $VIMCONFIG/vimscript/coc.vim
 source $VIMCONFIG/vimscript/quickscope-config.vim
 source $VIMCONFIG/vimscript/tiko.vim
 
