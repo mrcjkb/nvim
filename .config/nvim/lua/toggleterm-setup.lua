@@ -13,4 +13,6 @@ require("toggleterm").setup{
   -- This field is only relevant if direction is set to 'float'
 }
 
-vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>TermExec cmd=\"stack ghci %\"<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>TermExec cmd=\"cabal v2-repl %\"<CR>", {noremap = true, silent = true})
+
+vim.cmd 'set hidden' -- Required to persist toggleterm sessions
