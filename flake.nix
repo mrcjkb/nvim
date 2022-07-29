@@ -3,7 +3,7 @@
 
   outputs = {self, ...}:
   {
-    nvimConfig = { defaultUser, ... }: {
+    nixosModule = { defaultUser, ... }: {
       home-manager = {
        xdg.configFile."nvim" = {
           source = ./.;
