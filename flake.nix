@@ -4,7 +4,7 @@
   outputs = {self, ...}:
   {
     nixosModule = { defaultUser, ... }: {
-      home-manager = {
+      home-manager.users."${defaultUser}" = {
        xdg.configFile."nvim" = {
           source = ./.;
           recursive = true;
