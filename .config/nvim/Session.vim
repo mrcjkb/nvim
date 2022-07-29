@@ -13,51 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +17 init.vim
-badd +9 lua/init.lua
-badd +1 lua/native-plugins.lua
-badd +48 lua/settings.lua
-badd +8 lua/autocommands.lua
-badd +9 lua/dap-setup.lua
-badd +424 lua/plugins.lua
-badd +4 lua/keymaps.lua
-badd +6 lua/commands.lua
-badd +4 term://~/.config/nvim//5562:gw
-badd +1 vimscript/rnvimr.vim
-badd +1 vimscript/quickscope-config.vim
+badd +7 init.lua
+badd +1 lua/plugins.lua
+badd +1 lua/tiko.lua
 argglobal
 %argdel
-tabnew +setlocal\ bufhidden=wipe
-tabnew +setlocal\ bufhidden=wipe
-tabrewind
-edit init.vim
-argglobal
-balt vimscript/rnvimr.vim
-setlocal fdm=indent
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=10
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 17 - ((16 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 17
-normal! 017|
-tabnext
 edit lua/plugins.lua
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
 argglobal
-balt lua/autocommands.lua
+balt init.lua
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -66,31 +29,13 @@ setlocal fdl=10
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 424 - ((19 * winheight(0) + 20) / 41)
+let s:l = 2 - ((1 * winheight(0) + 20) / 41)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 424
-normal! 041|
-tabnext
-edit lua/init.lua
-argglobal
-balt lua/keymaps.lua
-setlocal fdm=indent
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=10
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-let s:l = 10 - ((9 * winheight(0) + 20) / 41)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 10
+keepjumps 2
 normal! 0
-tabnext 2
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif

@@ -80,7 +80,22 @@ return require('packer').startup(function(use)
 }
 
   -- Highlight unique characters in line search
-  use 'unblevable/quick-scope'
+  use {
+    'unblevable/quick-scope',
+    setup = function()
+      vim.g['qs_highlight_on_keys'] = {'f', 'F', 't', 'T'}
+      vim.highlight.create('QuickScopePrimary', {guifg='#00C7DF' , gui='underline', ctermfg=155, cterm='underline'})
+      vim.highlight.create('QuickScopeSecondary', {guifg='#AFFF5F' , gui='underline', ctermfg=81, cterm='underline'})
+      local augroup = vim.api.nvim_create_augroup('qs_colors')
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        group = augroup,
+        callback = function()
+          vim.highlight.create('QuickScopePrimary', {guifg='#AFFF5F' , gui='underline', ctermfg=155, cterm='underline'})
+          vim.highlight.create('QuickScopeSecondary', {guifg='#5FFFFF' , gui='underline', ctermfg=81, cterm='underline'})
+        end
+      })
+    end
+  }
 
   -- User-defined textobjects
   use 'kana/vim-textobj-user'
@@ -284,7 +299,7 @@ return require('packer').startup(function(use)
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
-        local augroup = vim.api.nvim_create_augroup('lint commands', {clear = true})
+        local augroup = vim.api.nvim_create_augroup('lint commands')
         -- FIXME
         vim.api.nvim_create_autocmd('BufWritePost', {
           pattern = '<buffer>',

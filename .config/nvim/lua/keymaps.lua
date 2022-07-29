@@ -76,3 +76,12 @@ end, {silent = true,})
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
 keymap.set('t', '<C-v>',  '<Esc')
+
+-- Shortcut for expanding to current buffer's directory in command mode
+keymap.set('c', '%%', function()
+  if fn.getcmdtype() == ':' then
+    return fn.expand('%:h') .. '/' 
+  else
+    return '%%'
+  end
+end, {expr = true,})
