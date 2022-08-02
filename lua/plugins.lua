@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
       vim.g['qs_highlight_on_keys'] = {'f', 'F', 't', 'T'}
       vim.highlight.create('QuickScopePrimary', {guifg='#00C7DF' , gui='underline', ctermfg=155, cterm='underline'})
       vim.highlight.create('QuickScopeSecondary', {guifg='#AFFF5F' , gui='underline', ctermfg=81, cterm='underline'})
-      local augroup = vim.api.nvim_create_augroup('qs_colors')
+      local augroup = vim.api.nvim_create_augroup('qs_colors', {})
       vim.api.nvim_create_autocmd('ColorScheme', {
         group = augroup,
         callback = function()
@@ -299,7 +299,7 @@ return require('packer').startup(function(use)
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
-        local augroup = vim.api.nvim_create_augroup('lint commands')
+        local augroup = vim.api.nvim_create_augroup('lint commands', {})
         -- FIXME
         vim.api.nvim_create_autocmd('BufWritePost', {
           pattern = '<buffer>',
