@@ -38,8 +38,8 @@
         unstable.feh # Fast and light image viewer
         unstable.fzf # Fuzzy search
         unstable.xclip # Required so that neovim compiles with clipboard support
-	unstable.rg
-	unstable.fd
+        unstable.ripgrep # Fast (Rust) re-implementation of grep
+        unstable.fd # Fast alternative to find
         unstable.jdt-language-server
         unstable.nodePackages.yarn # Required by markdown-preview vim plugin
         python-language-server
