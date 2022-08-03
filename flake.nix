@@ -5,6 +5,20 @@
   {
     nixosModule = { pkgs, defaultUser, ... }: {
 
+       nixpkgs = {
+         overlays = [
+          (self: super: {
+            neovim = super.unstable.neovim.override {
+              viAlias = true;
+              vimAlias = true;
+              defaultEditor = true;
+            };
+          })
+         ];
+      };
+
+
+
       home-manager.users."${defaultUser}" = {
        xdg.configFile."nvim" = {
           source = ./.;
@@ -13,6 +27,7 @@
       };
 
       environment.systemPackages = with pkgs; [
+        neovim
         unstable.neovim-remote
         unstable.tree-sitter
         unstable.sqlite
