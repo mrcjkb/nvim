@@ -12,6 +12,17 @@
         };   
       };
 
+      nixpkgs = {
+        overlays = [
+          (self: super: {
+             neovim = pkgs.unstable.neovim.override {
+               viAlias = true;
+               vimAlias = true;
+             };
+           })
+        ];
+      };
+
       environment.systemPackages = with pkgs; [
         neovim
         unstable.neovim-remote
