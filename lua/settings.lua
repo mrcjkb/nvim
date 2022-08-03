@@ -7,7 +7,7 @@ cmd 'set nocompatible'
 
 -- Enable true colour support
 if fn.has('termguicolors') then
-  cmd 'set termguicolors'
+  vim.opt.termguicolors = true
 end
 
 -- Search down into subfolders
