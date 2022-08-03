@@ -14,7 +14,7 @@
 
       environment.systemPackages = with pkgs; [
         unstable.neovim-remote
-        unstable.tree-stiter
+        unstable.tree-sitter
         unstable.sqlite
         (unstable.lua.withPackages (luapkgs: with luapkgs; [
                                     luacheck
