@@ -546,5 +546,6 @@ return require('packer').startup(function(use)
 
   if packer_bootstrap then
     require('packer').sync()
+    vim.cmd 'TSInstall all'
   end
 end)
