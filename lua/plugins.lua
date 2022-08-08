@@ -442,6 +442,11 @@ return require('packer').startup(function(use)
   }
   use {
     'folke/lua-dev.nvim', -- Lua development for neovim
+    config = function()
+      require('lua-dev').setup({
+        library = { plugins = { 'neotest' }, types = true},
+      })
+    end
   }
 
   -- proviedes lua scratch pad
