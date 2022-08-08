@@ -58,10 +58,10 @@
           python-language-server
           unstable.nodePackages.pyright
         ];
-      };
-      sessionVariables = rec {
-        LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
-        LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
+        sessionVariables = with pkgs; rec {
+          LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
+          LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
+        };
       };
     };
   };
