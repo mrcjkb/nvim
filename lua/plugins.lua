@@ -158,6 +158,17 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        context_commentstring = {
+          enable = true
+        }
+      }
+    end
+  }
+
   use 'tommcdo/vim-exchange' -- cx-<motion> or cxx (line)/X (visual) for swapping text objects (cxc to clear)
 
   -- Material colort theme
@@ -563,6 +574,11 @@ return require('packer').startup(function(use)
         })
       end)
     end
+  }
+
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
   }
 
   if packer_bootstrap then
