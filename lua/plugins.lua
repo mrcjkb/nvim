@@ -426,15 +426,13 @@ return require('packer').startup(function(use)
       end)
     end
   }
-  -- use {
-  --   'nvim-telescope/telescope-cheat.nvim',
-  --   requires = { 'tami5/sqlite.lua' },
-  --   setup = function()
-  --     vim.cmd [[
-  --       let g:sqlite_clib_path = $LIBSQLITE_CLIB_PATH
-  --     ]]
-  --   end,
-  -- }
+  use {
+    'nvim-telescope/telescope-cheat.nvim',
+    requires = { 'tami5/sqlite.lua' },
+    setup = function()
+      vim.g.sqlite_clib_path = require('luv').os_getenv 'LIBSQLITE'
+    end,
+  }
 
   use {
     'tjdevries/nlua.nvim', -- Lua development for neovim
