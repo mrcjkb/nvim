@@ -72,16 +72,11 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- Remaps s [cl] and S [cc] to vertical sneak search
-  -- Note: I have it mapped to <M-f> and <M-F>, respectively
+  -- Remaps s [cl] and S [cc] to vertical leap search
   use {
-  'justinmk/vim-sneak', -- TODO: Package for nix
-  setup = function()
-    vim.g['sneak#label'] = 1
-    vim.g['sneak#prompt'] = '🔍'
-    vim.cmd [[
-      map <M-f> <Plug>Sneak_s
-    ]]
+  'ggandor/leap.nvim',
+  config = function()
+    require('leap').set_default_keymaps()
   end
 }
 
@@ -465,6 +460,14 @@ return require('packer').startup(function(use)
       }
     end
   }
+
+  -- Edit directories in a buffer. :Dirbuf
+  use {
+    "elihunter173/dirbuf.nvim",
+    config = function()
+      require("dirbuf").setup {}
+    end
+ }
 
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
