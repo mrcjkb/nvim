@@ -415,6 +415,8 @@ return require('packer').startup(function(use)
     requires = { 
       'luc-tielen/telescope_hoogle', -- TODO: Package for nix
       'nvim-telescope/telescope-fzy-native.nvim',
+      'nvim-telescope/telescope-smart-history',
+      'tami5/sqlite.lua', -- Required by smart-history
       'cljoly/telescope-repo.nvim',
       'nvim-lua/plenary.nvim',
     },

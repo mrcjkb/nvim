@@ -74,6 +74,10 @@ telescope.setup {
       treesitter = true
     },
     buffer_previewer_maker = new_maker,
+    history = {
+      path = vim.fn.stdpath('data') .. '/databases/telescope_history.sqlite3',
+      limit = 1000,
+    },
   },
   extensions = {
     fzy_native = {
@@ -86,6 +90,7 @@ telescope.setup {
 telescope.load_extension('hoogle')
 telescope.load_extension('repo')
 telescope.load_extension('fzy_native')
+telescope.load_extension('smart_history')
 -- telescope.load_extension('cheat') -- FIXME
 
 return M
