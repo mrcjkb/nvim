@@ -196,6 +196,32 @@ return require('packer').startup(function(use)
       -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
     end
   }
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-plenary",
+      "rouge8/neotest-rust",
+      "nvim-neotest/neotest-vim-test",
+    },
+    config = function()
+      require("neotest").setup({
+        adapters = {
+          require("neotest-python")({
+            dap = { justMyCode = false },
+          }),
+          require("neotest-plenary"),
+          require("neotest-rust"),
+          require("neotest-vim-test")({
+            ignore_file_types = { "python", "vim", "lua", "rust" },
+          }),
+        },
+      })
+    end
+  }
   -- use {
   --   "klen/nvim-test",
   --   config = function()
