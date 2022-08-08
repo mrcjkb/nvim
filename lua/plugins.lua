@@ -365,18 +365,27 @@ return require('packer').startup(function(use)
   }
 
   use {
+    -- Changes the working directory to the project root when you open a file or directory.
+    'airblade/vim-rooter',
+    setup = function()
+      -- Change each buffer’s directory, instead of the whole editor
+      vim.g['rooter_cd_cmd'] = 'lcd'
+    end
+  }
+
+  use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    requires = { 
+      'luc-tielen/telescope_hoogle', -- TODO: Package for nix
+      'nvim-telescope/telescope-fzy-native.nvim',
+      'cljoly/telescope-repo.nvim',
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       vim.schedule(function()
         require('telescope-config')
       end)
     end
-  }
-  use 'nvim-telescope/telescope-fzy-native.nvim'
-  use {
-    'luc-tielen/telescope_hoogle', -- TODO: Package for nix
-    -- run = 'hoogle generate',
   }
   -- use {
   --   'nvim-telescope/telescope-cheat.nvim',

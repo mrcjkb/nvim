@@ -13,12 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +79 lua/plugins.lua
+badd +369 lua/plugins.lua
+badd +24 lua/telescope-config.lua
+badd +1 ~/git/tiko-backend/argo-deployments/master/README.md
 badd +0 fugitive:///home/mrcjk/.config/nvim/.git//
 argglobal
 %argdel
 $argadd lua/plugins.lua
-edit lua/plugins.lua
+edit lua/telescope-config.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -38,6 +40,7 @@ set winwidth=1
 exe '1resize ' . ((&lines * 20 + 22) / 44)
 exe '2resize ' . ((&lines * 20 + 22) / 44)
 argglobal
+balt ~/git/tiko-backend/argo-deployments/master/README.md
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -46,30 +49,20 @@ setlocal fdl=10
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-12
-normal! zo
-67
-normal! zo
-83
-normal! zo
-85
-normal! zo
-87
-normal! zo
-472
-normal! zo
-let s:l = 79 - ((11 * winheight(0) + 10) / 20)
+let s:l = 24 - ((7 * winheight(0) + 10) / 20)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 79
-normal! 08|
+keepjumps 24
+normal! 064|
+lcd ~/.config/nvim
 wincmd w
 argglobal
 if bufexists(fnamemodify("fugitive:///home/mrcjk/.config/nvim/.git//", ":p")) | buffer fugitive:///home/mrcjk/.config/nvim/.git// | else | edit fugitive:///home/mrcjk/.config/nvim/.git// | endif
 if &buftype ==# 'terminal'
   silent file fugitive:///home/mrcjk/.config/nvim/.git//
 endif
+balt ~/git/tiko-backend/argo-deployments/master/README.md
 setlocal fdm=indent
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -84,6 +77,7 @@ keepjumps exe s:l
 normal! zt
 keepjumps 1
 normal! 0
+lcd ~/.config/nvim
 wincmd w
 2wincmd w
 exe '1resize ' . ((&lines * 20 + 22) / 44)

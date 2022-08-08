@@ -21,6 +21,7 @@ api.nvim_set_keymap('n', '<leader>tc', '<Cmd>Telescope quickfix<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tq', '<Cmd>Telescope command_history<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tl', '<Cmd>Telescope loclist<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tr', '<Cmd>Telescope registers<CR>', opts)
+api.nvim_set_keymap('n', '<leader>tp', '<Cmd>Telescope repo list<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tb', '<Cmd>Telescope buffers<CR>', opts)
 api.nvim_set_keymap('n', '<leader>tf', '<Cmd>Telescope current_buffer_fuzzy_find<CR>', opts)
 api.nvim_set_keymap('n', '<leader>td', '<Cmd>Telescope lsp_document_symbols<CR>', opts)
@@ -83,6 +84,7 @@ telescope.setup {
 }
 
 telescope.load_extension('hoogle')
+telescope.load_extension('repo')
 telescope.load_extension('fzy_native')
 -- telescope.load_extension('cheat') -- FIXME
 
