@@ -1,6 +1,7 @@
 -- Bootstrap packer for new installations
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local packer_bootstrap = false;
 if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
@@ -219,6 +220,14 @@ return require('packer').startup(function(use)
   }
   use 'nvim-lua/lsp-status.nvim' -- LSP status line info
   use 'ray-x/lsp_signature.nvim' -- LSP autocomplete signature hints
+
+  use {
+    'kosayoda/nvim-lightbulb',
+    requires = 'antoinemadec/FixCursorHold.nvim',
+    config = function()
+      require('nvim-lightbulb').setup({autocmd = {enabled = true}})
+    end
+  }
 
   -- LSP floating popups, etc.
   use {
