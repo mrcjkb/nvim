@@ -75,7 +75,7 @@ telescope.setup {
     },
     buffer_previewer_maker = new_maker,
     history = {
-      path = vim.fn.stdpath('data') .. '/databases/telescope_history.sqlite3',
+      path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
       limit = 1000,
     },
   },
