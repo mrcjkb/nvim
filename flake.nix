@@ -23,8 +23,8 @@
         ];
       };
 
-      environment = {
-        systemPackages = with pkgs; [
+      environment = with pkgs; {
+        systemPackages = [
           neovim
           unstable.neovim-remote
           unstable.tree-sitter
@@ -58,7 +58,7 @@
           python-language-server
           unstable.nodePackages.pyright
         ];
-        sessionVariables = with pkgs; rec {
+        sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
           LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
         };
