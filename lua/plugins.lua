@@ -416,22 +416,19 @@ return require('packer').startup(function(use)
       'luc-tielen/telescope_hoogle', -- TODO: Package for nix
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
-      'tami5/sqlite.lua', -- Required by smart-history
+      'nvim-telescope/telescope-cheat.nvim',
+      'tami5/sqlite.lua', -- Required by smart-history and cheat
       'cljoly/telescope-repo.nvim',
       'nvim-lua/plenary.nvim',
     },
+    setup = function()
+      vim.g.sqlite_clib_path = require('luv').os_getenv 'LIBSQLITE'
+    end,
     config = function()
       vim.schedule(function()
         require('telescope-config')
       end)
     end
-  }
-  use {
-    'nvim-telescope/telescope-cheat.nvim',
-    requires = { 'tami5/sqlite.lua' },
-    setup = function()
-      vim.g.sqlite_clib_path = require('luv').os_getenv 'LIBSQLITE'
-    end,
   }
 
   use {
