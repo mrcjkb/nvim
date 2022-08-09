@@ -91,6 +91,6 @@ telescope.load_extension('hoogle')
 telescope.load_extension('repo')
 telescope.load_extension('fzy_native')
 telescope.load_extension('smart_history')
--- telescope.load_extension('cheat') -- FIXME
+telescope.load_extension('cheat') 
 
 return M
