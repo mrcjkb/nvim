@@ -210,6 +210,7 @@ return require('packer').startup(function(use)
     config = function()
       require("neotest").setup({
         adapters = {
+          require("neotest-haskell"),
           require("neotest-python")({
             dap = { justMyCode = false },
           }),
