@@ -202,6 +202,7 @@ return require('packer').startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
+      "MrcJkb/neotest-haskell",
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-plenary",
       "rouge8/neotest-rust",
