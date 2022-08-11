@@ -217,7 +217,7 @@ return require('packer').startup(function(use)
           require("neotest-plenary"),
           require("neotest-rust"),
           require("neotest-vim-test")({
-            ignore_file_types = { "python", "vim", "lua", "rust" },
+            ignore_file_types = { "haskell", "python", "vim", "lua", "rust" },
           }),
         },
       })
