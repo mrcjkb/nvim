@@ -47,18 +47,18 @@ end)
 
 -- Cycle the quickfix and location lists
 keymap.set('n', '[c',  function()
-  cmd 'try | cprev | catch | clast | catch | endtry'
+  cmd 'try | cprev | catch | try | clast | catch | echo "Quickfix list is empty!" | endtry'
 end , {})
 keymap.set('n', ']c',  function() 
-  cmd 'try | cnext | catch | cfirst | catch | endtry'
+  cmd 'try | cnext | catch | try | cfirst | catch | echo "Quickfix list is empty!" | endtry'
 end, {})
 keymap.set('n', '[C',  ':cfirst<CR>' , {})
 keymap.set('n', ']C',  ':clast<CR>' , {})
 keymap.set('n', '[l',  function()
-  cmd 'try | lprev | catch | llast | catch | endtry'
+  cmd 'try | lprev | catch | try | llast | catch | echo "Location list is empty!" | endtry'
 end, {})
 keymap.set('n', ']l',  function()
-  cmd 'try | lnext | catch | lfirst | catch | endtry'
+  cmd 'try | lnext | catch | try | lfirst | catch | echo "Location list is empty!" | endtry'
 end, {})
 keymap.set('n', '[L',  ':lfirst<CR>' , {})
 keymap.set('n', ']L',  ':llast<CR>' , {})
