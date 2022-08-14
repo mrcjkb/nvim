@@ -46,14 +46,22 @@ keymap.set('n', '<C-c>', function()
 end)
 
 -- Cycle the quickfix and location lists
-keymap.set('n', '[c',  'try | cnext | catch | cfirst | catch | endtry <CR>' , {})
-keymap.set('n', ']c',  'try | cprev | catch | clast | catch | endtry <CR>' , {})
-keymap.set('n', '[C',  'cfirst' , {})
-keymap.set('n', ']C',  'clast' , {})
-keymap.set('n', '[l',  'try | lnext | catch | lfirst | catch | endtry <CR>' , {})
-keymap.set('n', ']l',  'try | lprev | catch | llast | catch | endtry <CR>' , {})
-keymap.set('n', '[L',  'lfirst' , {})
-keymap.set('n', ']L',  'llast' , {})
+keymap.set('n', '[c',  function()
+  cmd 'try | cprev | catch | clast | catch | endtry'
+end , {})
+keymap.set('n', ']c',  function() 
+  cmd 'try | cnext | catch | cfirst | catch | endtry'
+end, {})
+keymap.set('n', '[C',  ':cfirst<CR>' , {})
+keymap.set('n', ']C',  ':clast<CR>' , {})
+keymap.set('n', '[l',  function()
+  cmd 'try | lprev | catch | llast | catch | endtry'
+end, {})
+keymap.set('n', ']l',  function()
+  cmd 'try | lnext | catch | lfirst | catch | endtry'
+end, {})
+keymap.set('n', '[L',  ':lfirst<CR>' , {})
+keymap.set('n', ']L',  ':llast<CR>' , {})
 
 -- Resize vertical splits
 keymap.set('n', '<leader>+',  function()
@@ -75,7 +83,7 @@ end, {silent = true,})
 
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
-keymap.set('t', '<C-v>',  '<Esc')
+keymap.set('t', '<C-v>',  '<Esc>')
 
 -- Shortcut for expanding to current buffer's directory in command mode
 keymap.set('c', '%%', function()
