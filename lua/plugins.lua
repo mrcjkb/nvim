@@ -508,7 +508,11 @@ return require('packer').startup(function(use)
   use {
     'hoob3rt/lualine.nvim', -- Status line at the bottom
     config = function()
-      require('lualine-setup')
+      if vim.fn.exists('g:started_by_firenvim') then
+        vim.cmd 'set laststatus=0'
+      else
+        require('lualine-setup')
+      end
     end
   }
   use {
