@@ -15,10 +15,10 @@ local function live_grep_current_file_type()
     '--type', 
     current_file_ext,
   }
-  local conf = require("telescope.config").values
+  local conf = require('telescope.config').values
   builtin.live_grep({
     vimgrep_arguments = vim.tbl_flatten({ 
-      conf.values.vimgrep_arguments, 
+      conf.vimgrep_arguments, 
       additional_vimgrep_arguments,
     })
   })
