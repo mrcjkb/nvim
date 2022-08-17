@@ -178,12 +178,8 @@ require('nlua.lsp.nvim').setup(lspconfig, {
 local rust_tools_opts = {
     tools = { -- rust-tools options
         autoSetHints = true,
-        -- whether to show hover actions inside the hover window
-        -- this overrides the default hover handler so something like lspsaga.nvim's hover would be overriden by this
-        -- default: true
-        hover_with_actions = true,
         runnables = {
-            use_telescope = false
+            use_telescope = true,
         },
         -- these apply to the default RustSetInlayHints command
         inlay_hints = {
@@ -197,8 +193,16 @@ local rust_tools_opts = {
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = {}, -- rust-analyer options
 }
-require('rust-tools').setup(rust_tools_opts)
-lspconfig.rust_analyzer.setup { on_attach = on_attach }
+local rust_tools = require('rust_tools')
+rust_tools.setup(rust_tools_opts)
+local rust_analyzer_on_attach = function(client, bufnr)
+  on_attach(client, bufnr)
+  -- Hover actions
+  vim.keymap.set("n", "<C-space>", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+  -- Code action groups
+  vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
+end
+lspconfig.rust_analyzer.setup { on_attach = rust_analyzer_on_attach }
 
 -- jdt.ls
 -- `code_action` is a superset of vim.lsp.buf.code_action and you'll be able to

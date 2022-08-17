@@ -16,6 +16,7 @@ local opts = { noremap=true, silent=true }
 api.nvim_set_keymap('n', '<C-p>', '<Cmd>Telescope find_files<CR>', opts)
 api.nvim_set_keymap('n', '<C-g>', '<Cmd>Telescope live_grep<CR>', opts) 
 -- TODO: Add live_grpe call with vimgrep_arguments that filters --type for the current file type
+-- @see https://github.com/nvim-telescope/telescope.nvim/blob/ad32a4c4535af9feae1f16129de22cfc57921ef8/lua/telescope/builtin/__files.lua
 api.nvim_set_keymap('n', '<leader>*', '<Cmd>Telescope grep_string<CR>', opts) -- Search for string under the cursor 
 api.nvim_set_keymap('n', '<leader>tg', "<CMD>lua require'telescope-config'.project_files()<CR>", opts)
 api.nvim_set_keymap('n', '<leader>tc', '<Cmd>Telescope quickfix<CR>', opts)
