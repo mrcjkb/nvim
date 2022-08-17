@@ -193,7 +193,7 @@ local rust_tools_opts = {
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
     server = {}, -- rust-analyer options
 }
-local rust_tools = require('rust_tools')
+local rust_tools = require('rust-tools')
 rust_tools.setup(rust_tools_opts)
 local rust_analyzer_on_attach = function(client, bufnr)
   on_attach(client, bufnr)
