@@ -516,6 +516,7 @@ return require('packer').startup(function(use)
       end
     end,
   }
+
   use {
     'SmiteshP/nvim-gps', -- Status line component that shows context of the current cursor position in the file - used with lualine
   }
