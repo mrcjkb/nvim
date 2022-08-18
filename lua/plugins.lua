@@ -642,6 +642,16 @@ return require('packer').startup(function(use)
   use {
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end, 
+    setup = function()
+      vim.g['firenvim_config'] = {
+        ['globalSettings'] = {
+          ['alt'] = 'all';
+        },
+        ['localSettings'] = {
+          ['https://app.slack.com/'] = { ['takover'] = 'never', ['priority'] = 1 }
+        },
+      }
+    end,
     config = function()
       vim.api.nvim_create_autocmd('BufEnter', {
         group = vim.api.nvim_create_augroup('firenvim_gitlab', {}),
