@@ -644,12 +644,12 @@ return require('packer').startup(function(use)
     'glacambre/firenvim',
     run = function() vim.fn['firenvim#install'](0) end, 
     setup = function()
-      vim.g['firenvim_config'] = {
-        ['globalSettings'] = {
-          ['alt'] = 'all';
+      vim.g.firenvim_config = {
+        globalSettings = {
+          alt = 'all';
         },
-        ['localSettings'] = {
-          ['https://app.slack.com/'] = { ['takover'] = 'never', ['priority'] = 1 }
+        localSettings = {
+          ['https://app.slack.com/'] = { takover = 'never', priority = 1 }
         },
       }
     end,
