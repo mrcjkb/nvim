@@ -514,7 +514,7 @@ return require('packer').startup(function(use)
       else
         require('lualine-setup')
       end
-    end
+    end,
   }
   use {
     'SmiteshP/nvim-gps', -- Status line component that shows context of the current cursor position in the file - used with lualine
@@ -641,7 +641,19 @@ return require('packer').startup(function(use)
 
   use {
     'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
+    run = function() vim.fn['firenvim#install'](0) end, 
+    config = function()
+      vim.api.nvim_create_autocmd('BufEnter', {
+        group = vim.api.nvim_create_augroup('firenvim_gitlab', {}),
+        pattern = 'gitlab.internal.tiko.ch_*.txt',
+        callback = function() vim.cmd('set filetype=markdown') end
+      })
+      vim.api.nvim_create_autocmd('BufEnter', {
+        group = vim.api.nvim_create_augroup('firenvim_gihub', {}),
+        pattern = 'github.com_*.txt',
+        callback = function() vim.cmd('set filetype=markdown') end
+      })
+    end,
   }
 
   if packer_bootstrap then
