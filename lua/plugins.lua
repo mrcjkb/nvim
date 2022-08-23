@@ -87,9 +87,8 @@ return require('packer').startup(function(use)
       vim.g['qs_highlight_on_keys'] = {'f', 'F', 't', 'T'}
       vim.highlight.create('QuickScopePrimary', {guifg='#00C7DF' , gui='underline', ctermfg=155, cterm='underline'})
       vim.highlight.create('QuickScopeSecondary', {guifg='#AFFF5F' , gui='underline', ctermfg=81, cterm='underline'})
-      local augroup = vim.api.nvim_create_augroup('qs_colors', {})
       vim.api.nvim_create_autocmd('ColorScheme', {
-        group = augroup,
+        group = vim.api.nvim_create_augroup('qs_colors', {}),
         callback = function()
           vim.highlight.create('QuickScopePrimary', {guifg='#AFFF5F' , gui='underline', ctermfg=155, cterm='underline'})
           vim.highlight.create('QuickScopeSecondary', {guifg='#5FFFFF' , gui='underline', ctermfg=81, cterm='underline'})
