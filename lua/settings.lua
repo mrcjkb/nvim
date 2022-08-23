@@ -45,7 +45,7 @@ cmd 'set splitbelow'
 -- Global statusline
 cmd 'set laststatus=3'
 
-vim.g['markdown_syntax_conceal'] = 0
+vim.g.markdown_syntax_conceal = 0
 
 -- Highlight terminal cursor
 vim.highlight.link('TermCursor', 'Cursor')

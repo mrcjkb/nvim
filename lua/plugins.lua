@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
     'chaoren/vim-wordmotion',
     setup = function()
     -- Use Alt as prefix for word motion mappings -- FIXME
-    vim.g['wordmotion_mappings'] = {
+    vim.g.wordmotion_mappings = {
         ['w'] = '<M-w>',
         ['b'] = '<M-b>',
         ['e'] = '<M-e>',
@@ -84,16 +84,7 @@ return require('packer').startup(function(use)
   use {
     'unblevable/quick-scope',
     setup = function()
-      vim.g['qs_highlight_on_keys'] = {'f', 'F', 't', 'T'}
-      vim.highlight.create('QuickScopePrimary', {guifg='#00C7DF' , gui='underline', ctermfg=155, cterm='underline'})
-      vim.highlight.create('QuickScopeSecondary', {guifg='#AFFF5F' , gui='underline', ctermfg=81, cterm='underline'})
-      vim.api.nvim_create_autocmd('ColorScheme', {
-        group = vim.api.nvim_create_augroup('qs_colors', {}),
-        callback = function()
-          vim.highlight.create('QuickScopePrimary', {guifg='#AFFF5F' , gui='underline', ctermfg=155, cterm='underline'})
-          vim.highlight.create('QuickScopeSecondary', {guifg='#5FFFFF' , gui='underline', ctermfg=81, cterm='underline'})
-        end
-      })
+      vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
     end
   }
 
@@ -104,7 +95,7 @@ return require('packer').startup(function(use)
   use {
   'editorconfig/editorconfig-vim',
   setup = function()
-    vim.g['EditorConfig_exclude_patterns'] = {'fugitive://.*'}
+    vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
   end
 }
 
@@ -115,7 +106,7 @@ return require('packer').startup(function(use)
   use {
     'shumphrey/fugitive-gitlab.vim', -- GitLab fugitive support for :GBrowse
     setup = function()
-      vim.g['fugitive_gitlab_domains'] = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
+      vim.g.fugitive_gitlab_domains = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
     end
   }
 
@@ -175,8 +166,8 @@ return require('packer').startup(function(use)
     'kaicataldo/material.vim', -- TODO: Package for nix
     branch = 'main',
     setup = function()
-      vim.g['material_theme_style'] = 'darker'
-      vim.g['material_terminal_italics'] = 1
+      vim.g.material_theme_style = 'darker'
+      vim.g.material_terminal_italics = 1
     end,
     config = function()
       vim.cmd('colorscheme material')
@@ -420,7 +411,7 @@ return require('packer').startup(function(use)
   use {
     'SirVer/ultisnips',
     setup = function()
-      vim.g['UltiSnipsSnippetDirectories'] = {"UltiSnips", "ultisnips"}
+      vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "ultisnips"}
     end
   }
 
@@ -435,7 +426,7 @@ return require('packer').startup(function(use)
     'airblade/vim-rooter',
     setup = function()
       -- Change each buffer’s directory, instead of the whole editor
-      vim.g['rooter_cd_cmd'] = 'lcd'
+      vim.g.rooter_cd_cmd = 'lcd'
     end
   }
 
@@ -498,9 +489,9 @@ return require('packer').startup(function(use)
   use {
     'dhruvasagar/vim-table-mode',
     setup = function()
-      vim.g['table_mode_corner'] = '+'
-      vim.g['table_mode_corner_corner'] = '+'
-      vim.g['table_mode_header_fillchar'] = '='
+      vim.g.table_mode_corner = '+'
+      vim.g.table_mode_corner_corner = '+'
+      vim.g.table_mode_header_fillchar = '='
     end,
     ft = {'markdown'},
   }
@@ -508,7 +499,7 @@ return require('packer').startup(function(use)
   use {
     'hoob3rt/lualine.nvim', -- Status line at the bottom
     config = function()
-      if vim.g['started_by_firenvim'] then
+      if vim.g.started_by_firenvim then
         vim.cmd 'set laststatus=0'
       else
         require('lualine-setup')
@@ -525,15 +516,15 @@ return require('packer').startup(function(use)
     'kevinhwang91/rnvimr',
     setup = function()
     -- Make Ranger replace netrw and be the file explorer
-    vim.g['rnvimr_ex_enable'] = 1
+    vim.g.rnvimr_ex_enable = 1
     -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
-    vim.g['rnvimr_enable_bw'] = 1
+    vim.g.rnvimr_enable_bw = 1
     vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
     vim.keymap.set({'n', 't'}, '<M-r>', ':RnvimrToggle<CR>', {silent = true,})
 -- nnrremap <silent> <M-r> :RnvimrToggle<CR>
 -- tnoremap <silent> <M-O> <C-\><C-n>:RnvimrToggle<CR>
     -- Map Rnvimr action
-    vim.g['rnvimr_action'] = {
+    vim.g.rnvimr_action = {
         ['<C-t>'] = 'NvimEdit tabedit',
         ['<C-x>'] = 'NvimEdit split',
         ['<C-v>'] =  'NvimEdit vsplit',

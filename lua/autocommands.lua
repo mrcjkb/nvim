@@ -10,3 +10,12 @@ api.nvim_create_autocmd('BufWritePre', {
   end
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+  -- Add quick-scope highlights on color scheme switch
+  -- (has to be created before setting the color scheme)
+  group = vim.api.nvim_create_augroup('qs_colors', {}),
+  callback = function()
+    vim.highlight.create('QuickScopePrimary', {guifg='#AFFF5F' , gui='underline', ctermfg=155, cterm='underline'})
+    vim.highlight.create('QuickScopeSecondary', {guifg='#5FFFFF' , gui='underline', ctermfg=81, cterm='underline'})
+  end
+})
