@@ -29,21 +29,8 @@ keymap.set('v', '<leader>j', ':m .+1<CR>==')
 keymap.set('v', '<leader>k', ':m .-2<CR>==')
 
 -- Toggle the quickfix list (only opens if it is populated)
-keymap.set('n', '<C-c>', function()
-  local qf_exists = false
-  for _, win in pairs(fn.getwininfo()) do
-    if win["quickfix"] == 1 then
-      qf_exists = true
-    end
-  end
-  if qf_exists == true then
-    cmd 'cclose'
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
-    cmd 'copen'
-  end
-end)
+-- NOTE: This has to be passed as an Ex command because of https://github.com/unblevable/quick-scope/issues/88
+keymap.set('n', '<C-c>', '<cmd>lua require("keymap-utils").toggle_qf_list()<CR>')
 
 -- Cycle the quickfix and location lists
 keymap.set('n', '[c',  function()
