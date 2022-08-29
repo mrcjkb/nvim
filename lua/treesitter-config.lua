@@ -1,5 +1,7 @@
 local configs = require'nvim-treesitter.configs'
 configs.setup {
+  ensure_installed = { 'all' },
+  auto_install = true, -- Automatically install missing parsers when entering buffer
   highlight = {
     enable = true
   },
@@ -11,6 +13,8 @@ configs.setup {
   textobjects = {
     select = {
       enable = true,
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
       keymaps = {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
@@ -21,6 +25,11 @@ configs.setup {
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
         ["iP"] = "@parameter.inner",
+      },
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
       },
     },
     swap = {
@@ -60,6 +69,15 @@ configs.setup {
       },
     },
   },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
   refactor = {
     highlight_current_scope = { enable = true },
     highlight_definitions = {
@@ -85,3 +103,7 @@ configs.setup {
     },
   }
 }
+
+-- Tree-sitter based folding
+vim.cmd 'set foldmethod=expr'
+vim.cmd 'set foldexpr=nvim_treesitter#foldexpr()'

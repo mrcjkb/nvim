@@ -300,7 +300,6 @@ return require('packer').startup(function(use)
     requires = { 
       'nvim-treesitter/playground'
     },
-    run = ':TSUpdate all',
     config = function()
       vim.schedule(function()
         require('treesitter-config')
