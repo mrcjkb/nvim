@@ -1,49 +1,50 @@
 local cmd = vim.cmd
 local fn = vim.fn
+local opt = vim.o
 
 cmd 'syntax on'
 cmd 'syntax enable'
-cmd 'set nocompatible'
+opt.compatible = false
 
 -- Enable true colour support
 if fn.has('termguicolors') then
-  vim.opt.termguicolors = true
+  opt.termguicolors = true
 end
 
 -- Search down into subfolders
-cmd 'set path+=**'
-cmd 'set number'
-cmd 'set relativenumber'
-cmd 'set cursorline'
--- Enable tab-completion
-cmd 'set wildmenu'
-cmd 'set wildmode=full'
-cmd 'set lazyredraw'
-cmd 'set showmatch' -- Highlight matching parentheses, etc
-cmd 'set incsearch'
-cmd 'set hlsearch'
-cmd 'set complete=.,w,b,u,t,i,kspell'
+opt.path = vim.o.path .. '**'
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+-- Enable tab-completion 
+-- opt.wildmenu = true
+-- opt.wildmode = 'full'
+-- opt.complete = '.,w,b,u,t,i,kspell'
+opt.lazyredraw = true
+opt.showmatch = true -- Highlight matching parentheses, etc
+opt.incsearch = true
+opt.hlsearch = true
 
--- On pressing tab, insert 2 spaces
-cmd 'set expandtab'
+-- On pressing tab, insert spaces
+opt.expandtab = true
 -- Show existing tab with 2 spaces width
-cmd 'set tabstop=2'
-cmd 'set softtabstop=2'
+opt.tabstop = 2
+opt.softtabstop = 2
 -- When indenting with '>', use 2 spaces width
-cmd 'set shiftwidth=2'
-cmd 'set foldenable'
-cmd 'set foldlevelstart=10'
-cmd 'set foldmethod=indent'  -- fold based on indent level 
-cmd 'set history=2000'
--- Increment numbers in decimal format
-cmd 'set nrformats-=octal'
+opt.shiftwidth = 2
+opt.foldenable = true
+opt.foldlevelstart = 10
+opt.foldmethod = 'indent'  -- fold based on indent level 
+opt.history = 2000
+-- Increment numbers in decimal and hexadecimal formats
+opt.nrformats = 'bin,hex' -- 'octal'
 -- Persist undos between sessions
-cmd 'set undofile'
+opt.undofile = true
 -- Split right and below
-cmd 'set splitright'
-cmd 'set splitbelow'
--- Global statusline
-cmd 'set laststatus=3'
+opt.splitright = true
+opt.splitbelow = true
+-- Global statusline 
+-- opt.laststatus = 3 -- managed by lualine
 
 vim.g.markdown_syntax_conceal = 0
 
@@ -55,3 +56,6 @@ vim.highlight.create('TermCursorNC', {guibg='red', guifg='white', ctermbg=1, cte
 if fn.executable('nvr') then
   vim.fn.setenv('VISUAL', "nvr -cc split --remote-wait + 'set bufhidden=wipe'")
 end
+
+-- Set default shell
+opt.shell = "fish"
