@@ -29,10 +29,6 @@
           unstable.neovim-remote
           unstable.tree-sitter
           unstable.sqlite
-          (unstable.lua.withPackages (luapkgs: with luapkgs; [
-                                      plenary-nvim
-                                      luacov
-          ]))
           unstable.haskellPackages.hoogle
           unstable.haskellPackages.hlint
           unstable.haskell-language-server
