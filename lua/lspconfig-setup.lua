@@ -323,9 +323,7 @@ vim.api.nvim_create_autocmd({'BufNewFile', 'BufRead', }, {
 
 lspconfig.jsonls.setup { 
   on_attach = on_attach,
-  settings = {
-    filetypes = { 'json', 'jsonc', 'avro', },
-  },
+  filetypes = { 'json', 'jsonc', 'avro', },
 }
 
 -- nvim-dap-virtual-text plugin
