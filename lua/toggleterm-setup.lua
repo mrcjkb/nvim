@@ -1,11 +1,5 @@
 require("toggleterm").setup{
-  size = function(term)
-    if term.direction == "horizontal" then
-      return 15
-    elseif term.direction == "vertical" then
-      return 50
-    end
-  end,
+  size = 50,
   open_mapping = [[<M-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
