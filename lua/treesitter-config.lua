@@ -1,6 +1,6 @@
 local configs = require'nvim-treesitter.configs'
 configs.setup {
-  ensure_installed = { 'all' },
+  ensure_installed = 'all',
   auto_install = true, -- Automatically install missing parsers when entering buffer
   highlight = {
     enable = true
