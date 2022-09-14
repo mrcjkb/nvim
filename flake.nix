@@ -41,6 +41,7 @@
           unstable.nodePackages.vim-language-server
           unstable.nodePackages.yaml-language-server
           unstable.nodePackages.dockerfile-language-server-nodejs
+          unstable.nodePackages.vscode-json-languageserver-bin
           unstable.glow # Render markdown on the command-line
           unstable.bat # cat with syntax highlighting
           unstable.ueberzug # Display images in terminal

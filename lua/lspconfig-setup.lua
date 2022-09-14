@@ -311,6 +311,12 @@ vim.api.nvim_create_autocmd('FileType', {
   end
 })
 
+lspconfig.jsonls.setup { 
+  on_attach = on_attach,
+  settings = {
+    filetypes = { 'json', 'jsonc', 'avsc', },
+  },
+}
 
 -- nvim-dap-virtual-text plugin
 -- require'nvim-dap-virtual-text'.setup()
