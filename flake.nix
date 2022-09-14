@@ -30,7 +30,6 @@
           unstable.tree-sitter
           unstable.sqlite
           (unstable.lua.withPackages (luapkgs: with luapkgs; [
-                                      luacheck
                                       plenary-nvim
                                       luacov
           ]))
@@ -41,6 +40,7 @@
           unstable.stylish-haskell
           unstable.rnix-lsp # Nix language server
           unstable.rust-analyzer
+          unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
           unstable.sumneko-lua-language-server
           unstable.nodePackages.vim-language-server
           unstable.nodePackages.yaml-language-server
