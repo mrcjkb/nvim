@@ -303,12 +303,13 @@ function Setup_jdtls()
   jdtls.start_or_attach(config)
 end
 
-vim.api.nvim_exec([[
-      augroup jdtls_lsp
-      autocmd!
-      autocmd FileType java lua Setup_jdtls()
-      augroup end
-      ]], true)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'java',
+  group = vim.api.nvim_create_augroup("jdtls_lsp", {}),
+  callback = function()
+    Setup_jdtls()
+  end
+})
 
 
 -- nvim-dap-virtual-text plugin
