@@ -214,23 +214,6 @@ return require('packer').startup(function(use)
       })
     end
   }
-  -- use {
-  --   "klen/nvim-test",
-  --   config = function()
-  --     require('nvim-test').setup {
-  --       commands_create = false,
-  --     }
-  --     vim.api.nvim_command "command! TstFile lua require'nvim-test'.run('file')<CR>"
-  --     vim.api.nvim_command "command! TstLast lua require'nvim-test'.run_last()<CR>"
-  --     vim.api.nvim_command "command! TstNearest lua require'nvim-test'.run('nearest')<CR>"
-  --     vim.api.nvim_command "command! TstSuite lua require'nvim-test'.run('suite')<CR>"
-  --     vim.api.nvim_command "command! TstVisit lua require'nvim-test'.visit()<CR>"
-  --     vim.api.nvim_command "command! TstInfo lua require'nvim-test.info'()<CR>"
-  --     vim.api.nvim_command "command! TstEdit lua require'nvim-test'.edit()<CR>"
-  --     -- require('nvim-test.runners.hspec'):setup {
-  --     -- }
-  --   end,
-  -- }
 
   use {
     'neovim/nvim-lspconfig',
