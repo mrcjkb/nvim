@@ -186,6 +186,7 @@ return require('packer').startup(function(use)
       -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
     end
   }
+
   use {
     "nvim-neotest/neotest",
     requires = {

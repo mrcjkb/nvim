@@ -229,13 +229,12 @@ end
 
 
 function Setup_jdtls()
-  local home = os.getenv('HOME')
   local root_markers = {'gradlew', 'mvnw', '.classpath'}
   local root_dir = require('jdtls.setup').find_root(root_markers)
   local capabilities = lsp.protocol.make_client_capabilities()
   capabilities.workspace.configuration = true
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  local workspace_folder = home .. "/.workspace/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+  local workspace_folder = vim.fn.stdpath('data')..'/.workspace/' .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local config = {
     flags = {
       allow_incremental_sync = true,
@@ -271,34 +270,34 @@ function Setup_jdtls()
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
         }
       };
-      configuration = {
-        runtimes = {
-          {
-            name = "JavaSE-17",
-            path = "/usr/lib/jvm/liberica-jdk-full/",
-          },
+      -- configuration = {
+        -- runtimes = {
+          -- {
+          --   name = "JavaSE-17",
+          --   path = "/usr/lib/jvm/liberica-jdk-full/",
+          -- },
           -- {
           --   name = "JavaSE-11",
           --   path = "/usr/lib/jvm/liberica-jdk-11-full/",
           -- },
-        }
-      };
+    --     }
+    --   };
     };
   }
-  config.cmd = {'jdtls', workspace_folder}
+  config.cmd = {'jdt-language-server', workspace_folder}
   config.on_attach = on_jdtls_attach
   config.on_init = function(client, _)
     client.notify('workspace/didChangeConfiguration', { settings = config.settings })
   end
   local extendedClientCapabilities = require'jdtls'.extendedClientCapabilities
   extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
-  local bundles = {
-    vim.fn.glob(home .. "/git/clones/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-  }
-  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/git/clones/vscode-java-test/server/*.jar"), "\n"))
+  -- local bundles = {
+  --   vim.fn.glob(home .. "/git/clones/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+  -- }
+  -- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/git/clones/vscode-java-test/server/*.jar"), "\n"))
   config.init_options = {
     extendedClientCapabilities = extendedClientCapabilities;
-    bundles = bundles;
+    -- bundles = bundles;
   }
   jdtls.start_or_attach(config)
 end
