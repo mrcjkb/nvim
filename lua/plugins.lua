@@ -343,12 +343,12 @@ return require('packer').startup(function(use)
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
+      local lint = require('lint')
       local hlint_hint_file = os.getenv("HLINT_HINT")
       if hlint_hint_file and hlint_hint_file ~= "" then
-        require('lint.linters').haskell.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
+        lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
       end
       vim.schedule(function()
-        local lint = require('lint')
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
