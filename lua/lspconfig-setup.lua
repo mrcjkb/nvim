@@ -289,16 +289,16 @@ function Setup_jdtls()
   config.on_init = function(client, _)
     client.notify('workspace/didChangeConfiguration', { settings = config.settings })
   end
-  local extendedClientCapabilities = require'jdtls'.extendedClientCapabilities
-  extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+  -- local extendedClientCapabilities = require'jdtls'.extendedClientCapabilities
+  -- extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
   -- local bundles = {
   --   vim.fn.glob(home .. "/git/clones/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
   -- }
   -- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/git/clones/vscode-java-test/server/*.jar"), "\n"))
-  config.init_options = {
-    extendedClientCapabilities = extendedClientCapabilities;
+  -- config.init_options = {
+    -- extendedClientCapabilities = extendedClientCapabilities;
     -- bundles = bundles;
-  }
+  -- }
   jdtls.start_or_attach(config)
 end
 

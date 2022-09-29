@@ -343,16 +343,17 @@ return require('packer').startup(function(use)
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
+      local hlint_hint_file = os.getenv("HLINT_HINT")
+      if hlint_hint_file and hlint_hint_file ~= "" then
+        require('lint.linters').haskell.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
+      end
       vim.schedule(function()
         local lint = require('lint')
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
-        local augroup = vim.api.nvim_create_augroup('lint commands', {})
-        -- FIXME
         vim.api.nvim_create_autocmd('BufWritePost', {
-          pattern = '<buffer>',
-          group = augroup,
+          group = vim.api.nvim_create_augroup('lint commands', {});
           callback = function()
             lint.try_lint()
           end
