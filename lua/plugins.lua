@@ -499,8 +499,8 @@ return require('packer').startup(function(use)
   use {
     'kevinhwang91/rnvimr',
     setup = function()
-    -- Make Ranger replace netrw and be the file explorer
-    vim.g.rnvimr_ex_enable = 1
+    -- Do not make Ranger replace netrw and be the file explorer
+    vim.g.rnvimr_ex_enable = 0
     -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
     vim.g.rnvimr_enable_bw = 1
     vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
