@@ -2,6 +2,9 @@ local lspconfig = require('lspconfig')
 local lsp = require('vim.lsp')
 local api = vim.api
 
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').update_capabilities(lsp.protocol.make_client_capabilities())
+
 local on_attach = function(client, bufnr)
   api.nvim_command("setlocal signcolumn=yes")
 
@@ -90,6 +93,7 @@ end
 
 lspconfig.hls.setup{ 
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     haskell = {
       formattingProvider = 'stylish-haskell',
@@ -182,9 +186,15 @@ local on_pyright_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>df', '<Cmd>lua require\'dap-python\'.test_class()<CR>', opts)
   buf_set_keymap('v', '<leader>ds', '<Cmd>lua require\'dap-python\'.debug_selection()<CR>', opts)
 end
-lspconfig.pyright.setup{ on_attach = on_pyright_attach }
+lspconfig.pyright.setup{ 
+  on_attach = on_pyright_attach,
+  capabilities = capabilities,
+}
 -- lspconfig.tsserver.setup{ on_attach = on_attach }
-lspconfig.rnix.setup { on_attach = on_attach }
+lspconfig.rnix.setup { 
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 -- lspconfig.kotlin_language_server.setup{ on_attach = on_attach }
 local on_latex_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -199,12 +209,16 @@ lspconfig.texlab.setup {
       }
     }
   },
-  on_attach = on_latex_attach
+  on_attach = on_latex_attach,
+  capabilities = capabilities,
 }
 -- lspconfig.dockerls.setup{ on_attach = on_attach }
 -- lspconfig.cmake.setup{ on_attach = on_attach }
 -- lspconfig.gopls.setup{ on_attach = on_attach }
-lspconfig.vimls.setup{ on_attach = on_attach }
+lspconfig.vimls.setup{ 
+  on_attach = on_attach, 
+  capabilities = capabilities,
+}
 
 -- local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
 -- local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
@@ -239,11 +253,13 @@ local luadev = require("lua-dev").setup({
       },
     },
     on_attach = on_attach,
+    capabilities = capabilities,
   }
 })
 lspconfig.sumneko_lua.setup(luadev)
 require('nlua.lsp.nvim').setup(lspconfig, {
   on_attach = on_attach,
+  capabilities = capabilities,
 })
 
 local rust_tools_opts = {
@@ -273,7 +289,10 @@ local rust_analyzer_on_attach = function(client, bufnr)
   -- Code action groups
   vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
 end
-lspconfig.rust_analyzer.setup { on_attach = rust_analyzer_on_attach }
+lspconfig.rust_analyzer.setup { 
+  on_attach = rust_analyzer_on_attach,
+  capabilities = capabilities,
+}
 
 -- jdt.ls
 -- `code_action` is a superset of vim.lsp.buf.code_action and you'll be able to
@@ -299,18 +318,18 @@ local on_jdtls_attach = function(client, bufnr)
 end
 
 
+local jdtls_capabilities = capabilities
 function Setup_jdtls()
   local root_markers = {'gradlew', 'mvnw', '.classpath'}
   local root_dir = require('jdtls.setup').find_root(root_markers)
-  local capabilities = lsp.protocol.make_client_capabilities()
-  capabilities.workspace.configuration = true
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  jdtls_capabilities.workspace.configuration = true
+  jdtls_capabilities.textDocument.completion.completionItem.snippetSupport = true
   local workspace_folder = vim.fn.stdpath('data')..'/.workspace/' .. vim.fn.fnamemodify(root_dir, ":p:h:t")
   local config = {
     flags = {
       allow_incremental_sync = true,
     };
-    capabilities = capabilities,
+    capabilities = jdtls_capabilities,
   }
   config.settings = {
     java = {

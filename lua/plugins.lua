@@ -248,6 +248,18 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim' -- Autocomplete icons
   use {
     'hrsh7th/nvim-cmp', -- Completion plugin
+    requires = {
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-nvim-lsp',
+      'quangnguyen30192/cmp-nvim-ultisnips',
+      'hrsh7th/vim-vsnip', -- VSCode vsnip for use with LSP autocomplete
+      'hrsh7th/vim-vsnip-integ',
+      'petertriho/cmp-git',
+      'lukas-reineke/cmp-rg',
+    },
     config = function()
       vim.schedule(function()
         require('completion-config')
@@ -255,17 +267,8 @@ return require('packer').startup(function(use)
     vim.cmd('set completeopt=menu,menuone,noselect') 
     --Avoid showing message extra message when using completion
     -- vim.cmd 'set shortmess+=c'
-
     end
   }
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
-
-  use 'hrsh7th/vim-vsnip' -- VSCode vsnip for use with LSP autocomplete
-  use 'hrsh7th/vim-vsnip-integ'
 
   use {
     'folke/zen-mode.nvim', -- Adds a :ZenMode
