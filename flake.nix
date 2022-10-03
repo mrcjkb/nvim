@@ -23,7 +23,9 @@
         ];
       };
 
-      environment = with pkgs; {
+      environment = with pkgs; let
+        sumneko-lsp = unstable.sumneko-lua-language-server;
+      in {
         systemPackages = [
           neovim
           (unstable.neovim-remote.overrideAttrs (old: {
@@ -42,7 +44,6 @@
             '';
           }))
           unstable.tree-sitter
-          unstable.sqlite
           unstable.haskellPackages.hoogle
           unstable.haskellPackages.hlint
           unstable.haskell-language-server
@@ -72,6 +73,8 @@
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
           LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
+          SUMNEKO_BIN_PATH = "${sumneko-lsp}/bin/lua-language-server"; # Passed to nlua
+          SUMNEKO_MAIN_PATH = "${sumneko-lsp}/share/lua-language-server/main.lua"; # Passed to nlua
         };
       };
     };

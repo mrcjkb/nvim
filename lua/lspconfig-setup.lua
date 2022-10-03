@@ -205,11 +205,12 @@ require("lua-dev").setup {
   end,
 }
 
--- local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
--- local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
-local sumneko_binary = "lua-language-server"
+-- lspconfig.sumneko_lua.setup {}
+
+local sumneko_binary = os.getenv('SUMNEKO_BIN_PATH')
+local sumneko_main = os.getenv('SUMNEKO_MAIN_PATH')
 require('nlua.lsp.nvim').setup(lspconfig, {
-  cmd = { sumneko_binary };
+  cmd = sumneko_binary and sumneko_main and { sumneko_binary, '-E', sumneko_main } or { 'lua-language-server' }
   settings = {
     Lua = {
       runtime = {
