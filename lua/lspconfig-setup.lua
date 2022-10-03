@@ -1,6 +1,11 @@
 local lspconfig = require('lspconfig')
 local lsp = require('vim.lsp')
 local api = vim.api
+local keymap = vim.keymap
+local dap = require('dap')
+local dap_widgets = require('dap.ui.widgets')
+local dap_utils = require('dap.utils')
+local dapui = require('dapui')
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(lsp.protocol.make_client_capabilities())
@@ -8,65 +13,54 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(lsp.protocol.ma
 local on_attach = function(client, bufnr)
   api.nvim_command("setlocal signcolumn=yes")
 
-  local function buf_set_keymap(...) api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) api.nvim_buf_set_option(bufnr, ...) end
   local function buf_set_var(...) api.nvim_buf_set_var(bufnr, ...) end
 
+  -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   buf_set_option("bufhidden", "hide")
   buf_set_var("lsp_client_id", client.id)
 
   -- Mappings.
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<space>o', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>', opts)
-  buf_set_keymap('n', '<space>d', '<cmd>lua vim.lsp.buf.document_symbol()<CR>', opts)
-  buf_set_keymap('n', '<a-cr>', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.show_line_diagnostics()<CR>', opts)
-  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', '[e', '<cmd>lua vim.diagnostic.goto_prev({ severity=\'ERROR\' })<CR>', opts)
-  buf_set_keymap('n', ']e', '<cmd>lua vim.diagnostic.goto_next({ severity=\'ERROR\' })<CR>', opts)
-  buf_set_keymap('n', '[w', '<cmd>lua vim.diagnostic.goto_prev({ severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', ']w', '<cmd>lua vim.diagnostic.goto_next({ severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.set_loclist({ open_loclist=false })<CR>', opts)
-  buf_set_keymap('n', '<space>c', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false })<CR>', opts)
-  buf_set_keymap('n', '<space>w', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'WARN\' })<CR>', opts)
-  buf_set_keymap('n', '<space>i', '<cmd>lua require\'lsp-ext\'.diagnostics_set_qflist({ open_qflist=false, severity=\'INFO\' })<CR>', opts)
-  buf_set_keymap('n', '<F5>', '<Cmd>lua require\'dap\'.stop()<CR>', opts)
-  buf_set_keymap('n', '<F6>', '<Cmd>lua require\'dap\'.step_out()<CR>', opts)
-  buf_set_keymap('n', '<F7>', '<Cmd>lua require\'dap\'.step_into()<CR>', opts)
-  buf_set_keymap('n', '<F8>', '<Cmd>lua require\'dap\'.step_over()<CR>', opts)
-  buf_set_keymap('n', '<F9>', '<Cmd>lua require\'dap\'.continue()<CR>', opts)
-  buf_set_keymap('n', '<leader>b', '<Cmd>lua require\'dap\'.toggle_breakpoint()<CR>', opts)
-  buf_set_keymap('n', '<leader>B', '<Cmd>lua require\'dap-setup\'.toggle_conditional_breakpoint()<CR>', opts)
-  buf_set_keymap('n', '<leader>dr', '<Cmd>lua require\'dap\'.repl.toggle({height=15})<CR>', opts)
-  buf_set_keymap('n', '<leader>dl', '<Cmd>lua require\'dap\'.run_last()<CR>', opts)
-  buf_set_keymap('n', '<leader>dS', '<Cmd>lua require(\'dap.ui.widgets\').centered_float(require(\'dap.ui.widgets\').frames)<CR>', opts)
-  buf_set_keymap('n', '<leader>ds', '<Cmd>lua require(\'dap.ui.widgets\').centered_float(require(\'dap.ui.widgets\').scopes)<CR>', opts)
-  buf_set_keymap('n', '<leader>dh', '<Cmd>lua require(\'dap.ui.widgets\').hover()<CR>', opts)
-  buf_set_keymap('v', '<leader>dh', '<Cmd>lua require(\'dap.ui.widgets\').hover(require(\'dap.utils\').get_visual_selection_text)<CR>', opts)
-  buf_set_keymap('v', '<M-e>', '<Cmd> lua require(\'dapui\').eval()<CR>', opts)
-  buf_set_keymap('v', '<M-k>', '<Cmd> lua require(\'dapui\').float_element()<CR>', opts)
-  buf_set_keymap('n', '<leader>du', '<Cmd> lua require(\'dapui\').toggle()<CR>', opts)
+  local opts = { noremap=true, silent=true, buffer = bufnr }
+  keymap.set('n', 'gD', lsp.buf.declaration, opts)
+  keymap.set('n', 'gd', lsp.buf.definition, opts)
+  keymap.set('n', 'K', lsp.buf.hover, opts)
+  keymap.set('n', 'gi', lsp.buf.implementation, opts)
+  keymap.set('n', '<C-k>', lsp.buf.signature_help, opts)
+  keymap.set('n', '<space>wa', lsp.buf.add_workspace_folder, opts)
+  keymap.set('n', '<space>wr', lsp.buf.remove_workspace_folder, opts)
+  keymap.set('n', '<space>wl', function() vim.pretty_print(lsp.buf.list_workspace_folders()) end, opts)
+  keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+  keymap.set('n', '<space>rn', lsp.buf.rename, opts)
+  keymap.set('n', '<space>o', lsp.buf.workspace_symbol, opts)
+  keymap.set('n', '<space>d', lsp.buf.document_symbol, opts)
+  keymap.set('n', '<a-cr>', lsp.buf.code_action, opts)
+  keymap.set('n', 'gr', lsp.buf.references, opts)
+  keymap.set('n', '<F5>', dap.stop, opts)
+  keymap.set('n', '<F6>', dap.step_out, opts)
+  keymap.set('n', '<F7>', dap.step_into, opts)
+  keymap.set('n', '<F8>', dap.step_over, opts)
+  keymap.set('n', '<F9>', dap.continue, opts)
+  keymap.set('n', '<leader>b', dap.toggle_breakpoint, opts)
+  keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts)
+  keymap.set('n', '<leader>dr', function() dap.repl.toggle({height=15}) end, opts)
+  keymap.set('n', '<leader>dl', dap.run_last, opts)
+  keymap.set('n', '<leader>dS', function() dap_widgets.centered_float(dap_widgets.frames) end, opts)
+  keymap.set('n', '<leader>ds', function() dap_widgets.centered_float(dap_widgets.scopes) end, opts)
+  keymap.set('n', '<leader>dh', dap_widgets.hover, opts)
+  keymap.set('v', '<leader>dH', function() dap_widgets.hover(dap_utils.get_visual_selection_text) end, opts)
+  keymap.set('v', '<M-e>', dapui.eval, opts)
+  keymap.set('v', '<M-k>', dapui.float_element, opts)
+  keymap.set('n', '<leader>du', dapui.toggle, opts)
 
 
   -- Set some keybinds conditional on server capabilities
   if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    keymap.set('n', '<space>f', lsp.buf.formatting, opts)
   end
   if client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("v", "<space>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+    keymap.set('v', '<space>f', lsp.buf.range_formatting, opts)
   end
 
   -- Set autocommands conditional on server_capabilities

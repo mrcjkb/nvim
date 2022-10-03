@@ -2,6 +2,7 @@ local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
+local diagnostic = vim.diagnostic
 
 
 -- Turn off search highlight by mapping :nohlsearch to space
@@ -75,8 +76,24 @@ keymap.set('t', '<C-v>',  '<Esc>')
 -- Shortcut for expanding to current buffer's directory in command mode
 keymap.set('c', '%%', function()
   if fn.getcmdtype() == ':' then
-    return fn.expand('%:h') .. '/' 
+    return fn.expand('%:h') .. '/'
   else
     return '%%'
   end
 end, {expr = true,})
+
+local opts = { noremap=true, silent=true }
+keymap.set('n', '<space>e', diagnostic.open_float, opts)
+keymap.set('n', '[d', diagnostic.goto_prev, opts)
+keymap.set('n', ']d', diagnostic.goto_next, opts)
+keymap.set('n', '[e', function() diagnostic.goto_prev({ severity='ERROR' }) end, opts)
+keymap.set('n', ']e', function() diagnostic.goto_next({ severity='ERROR' }) end, opts)
+keymap.set('n', '[w', function() diagnostic.goto_prev({ severity='WARN' }) end, opts)
+keymap.set('n', ']w', function() diagnostic.goto_next({ severity='WARN' }) end, opts)
+keymap.set('n', '[i', function() diagnostic.goto_prev({ severity='INFO' }) end, opts)
+keymap.set('n', ']i', function() diagnostic.goto_next({ severity='INFO' }) end, opts)
+keymap.set('n', '<space>q', function() diagnostic.set_loclist({ open_loclist=false }) end, opts)
+keymap.set('n', '<space>c', function() diagnostic.set_qflist( {open_qflist=false }) end, opts)
+keymap.set('n', '<space>w', function() diagnostic.set_qflist( {open_qflist=false, severity = 'WARN' }) end, opts)
+keymap.set('n', '<space>i', function() diagnostic.set_qflist( {open_qflist=false, severity = 'INFO' }) end, opts)
+
