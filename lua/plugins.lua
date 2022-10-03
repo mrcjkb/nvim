@@ -337,7 +337,7 @@ return require('packer').startup(function(use)
     'mfussenegger/nvim-dap', -- Debug Adapter Protocol
     requires = {
       'mfussenegger/nvim-dap-python',
-    }
+    },
     config = function()
       vim.schedule(function()
         require('dap-setup')
