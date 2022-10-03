@@ -37,7 +37,7 @@ keymap.set('n', '<C-c>', '<cmd>lua require("keymap-utils").toggle_qf_list()<CR>'
 keymap.set('n', '[c',  function()
   cmd 'try | cprev | catch | try | clast | catch | echo "Quickfix list is empty!" | endtry'
 end , {})
-keymap.set('n', ']c',  function() 
+keymap.set('n', ']c',  function()
   cmd 'try | cnext | catch | try | cfirst | catch | echo "Quickfix list is empty!" | endtry'
 end, {})
 keymap.set('n', '[C',  ':cfirst<CR>' , {})
@@ -90,8 +90,8 @@ keymap.set('n', '[e', function() diagnostic.goto_prev({ severity='ERROR' }) end,
 keymap.set('n', ']e', function() diagnostic.goto_next({ severity='ERROR' }) end, opts)
 keymap.set('n', '[w', function() diagnostic.goto_prev({ severity='WARN' }) end, opts)
 keymap.set('n', ']w', function() diagnostic.goto_next({ severity='WARN' }) end, opts)
-keymap.set('n', '[i', function() diagnostic.goto_prev({ severity='INFO' }) end, opts)
-keymap.set('n', ']i', function() diagnostic.goto_next({ severity='INFO' }) end, opts)
+keymap.set('n', '[h', function() diagnostic.goto_prev({ severity='HINT' }) end, opts)
+keymap.set('n', ']h', function() diagnostic.goto_next({ severity='HINT' }) end, opts)
 keymap.set('n', '<space>q', function() diagnostic.set_loclist({ open_loclist=false }) end, opts)
 keymap.set('n', '<space>c', function() diagnostic.set_qflist( {open_qflist=false }) end, opts)
 keymap.set('n', '<space>w', function() diagnostic.set_qflist( {open_qflist=false, severity = 'WARN' }) end, opts)

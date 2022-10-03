@@ -221,6 +221,7 @@ return require('packer').startup(function(use)
     requires = {
       'simrat39/rust-tools.nvim',
       'mfussenegger/nvim-jdtls', -- Java LSP support
+      'tjdevries/nlua.nvim', -- Lua development for neovim
       -- 'ShinKage/idris2-nvim',
       -- 'MunifTanjim/nui.nvim', -- Required by idris2-nvim
 
@@ -415,7 +416,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    requires = { 
+    requires = {
       'luc-tielen/telescope_hoogle', -- TODO: Package for nix
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
@@ -434,9 +435,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    'tjdevries/nlua.nvim', -- Lua development for neovim
-  }
   use {
     'nvim-lua/plenary.nvim', -- Useful lua library
   }

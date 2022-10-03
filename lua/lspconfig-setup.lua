@@ -78,9 +78,9 @@ lspconfig.hls.setup{
         alternateNumberFormat = {globalOn = true,},
         callHierarchy = {globalOn = true,},
         changeTypeSignature = {globalOn = true,},
-        class = { 
-          codeActionsOn = true, 
-          codeLensOn = true, 
+        class = {
+          codeActionsOn = true,
+          codeLensOn = true,
         },
         eval = {
           globalOn = true,
@@ -163,12 +163,12 @@ local on_pyright_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
   vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
 end
-lspconfig.pyright.setup{ 
+lspconfig.pyright.setup{
   on_attach = on_pyright_attach,
   capabilities = capabilities,
 }
 -- lspconfig.tsserver.setup{ on_attach = on_attach }
-lspconfig.rnix.setup { 
+lspconfig.rnix.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -191,51 +191,53 @@ lspconfig.texlab.setup {
 -- lspconfig.dockerls.setup{ on_attach = on_attach }
 -- lspconfig.cmake.setup{ on_attach = on_attach }
 -- lspconfig.gopls.setup{ on_attach = on_attach }
-lspconfig.vimls.setup{ 
-  on_attach = on_attach, 
+lspconfig.vimls.setup{
+  on_attach = on_attach,
   capabilities = capabilities,
+}
+
+require("lua-dev").setup {
+  override = function(root_dir, library)
+    if require("lua-dev.util").has_file(root_dir, "/etc/nixos") then
+      library.enabled = true
+      library.plugins = true
+    end
+  end,
 }
 
 -- local sumneko_root_path = os.getenv("HOME") .. '/git/clones/lua-language-server'
 -- local sumneko_binary = sumneko_root_path.."/bin/Linux/lua-language-server"
 local sumneko_binary = "lua-language-server"
-local luadev = require("lua-dev").setup({
-  lspconfig = {
-    -- cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-    cmd = { sumneko_binary };
-    settings = {
-      Lua = {
-        runtime = {
-          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-          version = 'LuaJIT',
-          -- Setup your lua path
-          path = vim.split(package.path, ';'),
-        },
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = {'vim'},
-        },
-        workspace = {
-          -- Make the server aware of Neovim runtime files
-          library = {
-            [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-            [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-          },
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-          enable = false,
+require('nlua.lsp.nvim').setup(lspconfig, {
+  cmd = { sumneko_binary };
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = vim.split(package.path, ';'),
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = {'vim'},
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
         },
       },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
     },
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-})
-lspconfig.sumneko_lua.setup(luadev)
-require('nlua.lsp.nvim').setup(lspconfig, {
+  },
   on_attach = on_attach,
   capabilities = capabilities,
+
 })
 
 local rust_tools_opts = {
@@ -265,7 +267,7 @@ local rust_analyzer_on_attach = function(client, bufnr)
   -- Code action groups
   vim.keymap.set("n", "<Leader>a", rust_tools.code_action_group.code_action_group, { buffer = bufnr })
 end
-lspconfig.rust_analyzer.setup { 
+lspconfig.rust_analyzer.setup {
   on_attach = rust_analyzer_on_attach,
   capabilities = capabilities,
 }
