@@ -37,22 +37,6 @@ local on_attach = function(client, bufnr)
   keymap.set('n', '<space>d', lsp.buf.document_symbol, opts)
   keymap.set('n', '<a-cr>', lsp.buf.code_action, opts)
   keymap.set('n', 'gr', lsp.buf.references, opts)
-  keymap.set('n', '<F5>', dap.stop, opts)
-  keymap.set('n', '<F6>', dap.step_out, opts)
-  keymap.set('n', '<F7>', dap.step_into, opts)
-  keymap.set('n', '<F8>', dap.step_over, opts)
-  keymap.set('n', '<F9>', dap.continue, opts)
-  keymap.set('n', '<leader>b', dap.toggle_breakpoint, opts)
-  keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts)
-  keymap.set('n', '<leader>dr', function() dap.repl.toggle({height=15}) end, opts)
-  keymap.set('n', '<leader>dl', dap.run_last, opts)
-  keymap.set('n', '<leader>dS', function() dap_widgets.centered_float(dap_widgets.frames) end, opts)
-  keymap.set('n', '<leader>ds', function() dap_widgets.centered_float(dap_widgets.scopes) end, opts)
-  keymap.set('n', '<leader>dh', dap_widgets.hover, opts)
-  keymap.set('v', '<leader>dH', function() dap_widgets.hover(dap_utils.get_visual_selection_text) end, opts)
-  keymap.set('v', '<M-e>', dapui.eval, opts)
-  keymap.set('v', '<M-k>', dapui.float_element, opts)
-  keymap.set('n', '<leader>du', dapui.toggle, opts)
 
 
   -- Set some keybinds conditional on server capabilities
@@ -85,8 +69,31 @@ local on_attach = function(client, bufnr)
   -- require('java_tsls').setup_lsp_commands()
 end
 
-lspconfig.hls.setup{ 
-  on_attach = on_attach,
+local on_dap_attach = function(bufnr)
+  local opts = { noremap=true, silent=true, buffer = bufnr }
+  keymap.set('n', '<F5>', dap.stop, opts)
+  keymap.set('n', '<F6>', dap.step_out, opts)
+  keymap.set('n', '<F7>', dap.step_into, opts)
+  keymap.set('n', '<F8>', dap.step_over, opts)
+  keymap.set('n', '<F9>', dap.continue, opts)
+  keymap.set('n', '<leader>b', dap.toggle_breakpoint, opts)
+  -- keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts) -- FIXME
+  keymap.set('n', '<leader>dr', function() dap.repl.toggle({height=15}) end, opts)
+  keymap.set('n', '<leader>dl', dap.run_last, opts)
+  keymap.set('n', '<leader>dS', function() dap_widgets.centered_float(dap_widgets.frames) end, opts)
+  keymap.set('n', '<leader>ds', function() dap_widgets.centered_float(dap_widgets.scopes) end, opts)
+  keymap.set('n', '<leader>dh', dap_widgets.hover, opts)
+  keymap.set('v', '<leader>dH', function() dap_widgets.hover(dap_utils.get_visual_selection_text) end, opts)
+  keymap.set('v', '<M-e>', dapui.eval, opts)
+  keymap.set('v', '<M-k>', dapui.float_element, opts)
+  keymap.set('n', '<leader>du', dapui.toggle, opts)
+end
+
+lspconfig.hls.setup{
+  on_attach = function (client, bufnr)
+    on_attach(client, bufnr)
+    on_dap_attach(bufnr)
+  end,
   capabilities = capabilities,
   settings = {
     haskell = {
@@ -175,6 +182,7 @@ lspconfig.hls.setup{
 local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
   on_attach(client, bufnr)
+  on_dap_attach(bufnr)
   local opts = { noremap=true, silent=true }
   vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
   vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
@@ -293,6 +301,7 @@ lspconfig.rust_analyzer.setup {
 local jdtls = require('jdtls')
 local on_jdtls_attach = function(client, bufnr)
   on_attach(client, bufnr)
+  on_dap_attach(bufnr)
   jdtls.setup_dap({
       hotcodereplace = 'auto'
     })
@@ -303,8 +312,8 @@ local on_jdtls_attach = function(client, bufnr)
   vim.keymap.set('v', '<A-v>', function() jdtls.extract_variable(true) end, opts)
   vim.keymap.set('v', '<A-m>', function() jdtls.extract_method(true) end, opts)
   -- nvim-dap (requires java-debug and vscode-java-test bundles)
-  vim.keymap.set('n', '<leader>df', '<cmd>'..jdtls_str..'.test_class()<CR>', opts)
-  vim.keymap.set('n', '<leader>dn', '<cmd>'..jdtls_str..'.test_nearest_method()<CR>', opts)
+  vim.keymap.set('n', '<leader>df', jdtls.test_class, opts)
+  vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
   require'lsp-status'.register_progress()
 end
 
