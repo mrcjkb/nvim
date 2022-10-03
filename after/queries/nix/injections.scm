@@ -70,3 +70,12 @@
    (string_fragment) @bash
  )
 )
+
+;; (nixosTest) testScript
+;; XXX this could be ambiguous
+(binding
+ ((attrpath) @_func_name) (#eq? @_func_name "testScript")
+ (_
+   (string_fragment) @python
+ )
+)
