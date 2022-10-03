@@ -49,8 +49,8 @@ opt.splitbelow = true
 vim.g.markdown_syntax_conceal = 0
 
 -- Highlight terminal cursor
-vim.highlight.link('TermCursor', 'Cursor')
-vim.highlight.create('TermCursorNC', {guibg='red', guifg='white', ctermbg=1, ctermfg=15})
+vim.api.nvim_set_hl(0, 'TermCursor', {link = 'Cursor',})
+vim.api.nvim_set_hl(0, 'TermCursorNC', {bg='red', fg='white', ctermbg=1, ctermfg=15})
 
 -- Prevent nested nvim instances
 if fn.executable('nvr') then

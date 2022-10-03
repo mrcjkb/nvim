@@ -172,13 +172,13 @@ lspconfig.hls.setup{
   },
 }
 
+local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
   on_attach(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', '<leader>dn', '<Cmd>lua require\'dap-python\'.test_method()<CR>', opts)
-  buf_set_keymap('n', '<leader>df', '<Cmd>lua require\'dap-python\'.test_class()<CR>', opts)
-  buf_set_keymap('v', '<leader>ds', '<Cmd>lua require\'dap-python\'.debug_selection()<CR>', opts)
+  vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
+  vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
+  vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
 end
 lspconfig.pyright.setup{ 
   on_attach = on_pyright_attach,
@@ -191,8 +191,7 @@ lspconfig.rnix.setup {
 }
 -- lspconfig.kotlin_language_server.setup{ on_attach = on_attach }
 local on_latex_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  buf_set_keymap('n', '<space>b', '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>', { noremap=true, silent=true })
+  vim.keymap.set('n', '<space>b', '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>', { noremap=true, silent=true })
   on_attach(client, bufnr)
 end
 lspconfig.texlab.setup {
@@ -298,16 +297,14 @@ local on_jdtls_attach = function(client, bufnr)
       hotcodereplace = 'auto'
     })
   jdtls.setup.add_commands()
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap=true, silent=true}
-  local jdtls_str = 'lua require(\'jdtls\')'
-  buf_set_keymap('n', '<A-o>', '<cmd>'..jdtls_str..'.organize_imports()<CR>', opts)
-  buf_set_keymap('n', '<A-v>', '<cmd>'..jdtls_str..'.extract_variable()<CR>', opts)
-  buf_set_keymap('v', '<A-v>', '<cmd>'..jdtls_str..'.extract_variable(true)<CR>', opts)
-  buf_set_keymap('v', '<A-m>', '<cmd>'..jdtls_str..'.extract_method(true)<CR>', opts)
+  vim.keymap.set('n', '<A-o>', jdtls.organize_imports, opts)
+  vim.keymap.set('n', '<A-v>', jdtls.extract_variable, opts)
+  vim.keymap.set('v', '<A-v>', function() jdtls.extract_variable(true) end, opts)
+  vim.keymap.set('v', '<A-m>', function() jdtls.extract_method(true) end, opts)
   -- nvim-dap (requires java-debug and vscode-java-test bundles)
-  buf_set_keymap('n', '<leader>df', '<cmd>'..jdtls_str..'.test_class()<CR>', opts)
-  buf_set_keymap('n', '<leader>dn', '<cmd>'..jdtls_str..'.test_nearest_method()<CR>', opts)
+  vim.keymap.set('n', '<leader>df', '<cmd>'..jdtls_str..'.test_class()<CR>', opts)
+  vim.keymap.set('n', '<leader>dn', '<cmd>'..jdtls_str..'.test_nearest_method()<CR>', opts)
   require'lsp-status'.register_progress()
 end
 

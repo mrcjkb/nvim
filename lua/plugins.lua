@@ -335,6 +335,9 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-jdtls' -- Java LSP support
   use {
     'mfussenegger/nvim-dap', -- Debug Adapter Protocol
+    requires = {
+      'mfussenegger/nvim-dap-python',
+    }
     config = function()
       vim.schedule(function()
         require('dap-setup')
@@ -342,7 +345,6 @@ return require('packer').startup(function(use)
     end,
     ft = {'java', 'haskell'}, -- 'python'
   }
-  -- use 'mfussenegger/nvim-dap-python'
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
