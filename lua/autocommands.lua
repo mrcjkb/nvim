@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
   -- (has to be created before setting the color scheme)
   group = vim.api.nvim_create_augroup('qs_colors', {}),
   callback = function()
-    vim.highlight.create('QuickScopePrimary', {guifg='#AFFF5F' , gui='underline', ctermfg=155, cterm='underline'})
-    vim.highlight.create('QuickScopeSecondary', {guifg='#5FFFFF' , gui='underline', ctermfg=81, cterm='underline'})
+    vim.api.nvim_set_hl(0, 'QuickScopePrimary', {fg='#AFFF5F' , underline=true, ctermfg=155, cterm = {underline=true,}})
+    vim.api.nvim_set_hl(0, 'QuickScopeSecondary', {fg='#AFFF5F' , underline=true, ctermfg=155, cterm = {underline=true,}})
   end
 })
