@@ -13,7 +13,7 @@ return require('packer').startup(function(use)
 
   use {
     'dstein64/vim-startuptime',
-    cmd = 'StartupTime'
+    cmd = 'StartupTime',
   }
 
   -- use 'MrcJkb/nvim-java-tsls'
@@ -41,17 +41,17 @@ return require('packer').startup(function(use)
   use {
     'chaoren/vim-wordmotion',
     setup = function()
-    -- Use Alt as prefix for word motion mappings -- FIXME
-    vim.g.wordmotion_mappings = {
-        ['w'] = '<M-w>',
-        ['b'] = '<M-b>',
-        ['e'] = '<M-e>',
-        ['ge'] = 'g<M-e>',
-        ['aw'] = 'a<M-w>',
-        ['iw'] = 'i<M-w>',
-        ['<C-R><C-W>'] = '<C-R><M-w>',
-      }
-    end
+      -- Use Alt as prefix for word motion mappings -- FIXME
+      vim.g.wordmotion_mappings = {
+          ['w'] = '<M-w>',
+          ['b'] = '<M-b>',
+          ['e'] = '<M-e>',
+          ['ge'] = 'g<M-e>',
+          ['aw'] = 'a<M-w>',
+          ['iw'] = 'i<M-w>',
+          ['<C-R><C-W>'] = '<C-R><M-w>',
+        }
+    end,
   }
 
   -- -- Syntax highlighting/indentation
@@ -69,7 +69,7 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require'colorizer'.setup()
       end)
-    end
+    end,
   }
 
   -- Remaps s [cl] and S [cc] to vertical leap search
@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
   'ggandor/leap.nvim',
   config = function()
     require('leap').set_default_keymaps()
-  end
+  end,
 }
 
   -- Highlight unique characters in line search
@@ -85,7 +85,7 @@ return require('packer').startup(function(use)
     'unblevable/quick-scope',
     setup = function()
       vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
-    end
+    end,
   }
 
   -- User-defined textobjects
@@ -96,7 +96,7 @@ return require('packer').startup(function(use)
   'editorconfig/editorconfig-vim',
   setup = function()
     vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
-  end
+  end,
 }
 
   -- Git wrapper
@@ -107,7 +107,7 @@ return require('packer').startup(function(use)
     'shumphrey/fugitive-gitlab.vim', -- GitLab fugitive support for :GBrowse
     setup = function()
       vim.g.fugitive_gitlab_domains = {'ssh://gitlab.internal.tiko.ch', 'https://gitlab.internal.tiko.ch'}
-    end
+    end,
   }
 
   -- Add repeat . suppor to custom commands
@@ -145,7 +145,7 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('Comment').setup()
       end)
-    end
+    end,
   }
 
   use {
@@ -156,7 +156,7 @@ return require('packer').startup(function(use)
           enable = true
         }
       }
-    end
+    end,
   }
 
   use 'tommcdo/vim-exchange' -- cx-<motion> or cxx (line)/X (visual) for swapping text objects (cxc to clear)
@@ -184,7 +184,7 @@ return require('packer').startup(function(use)
       vim.g['test#java#runner'] = 'gradletest'
       vim.g['test#haskell#runner'] = 'stacktest'
       -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
-    end
+    end,
   }
 
   use {
@@ -213,18 +213,31 @@ return require('packer').startup(function(use)
           }),
         },
       })
-    end
+    end,
   }
 
   use {
     'neovim/nvim-lspconfig',
+    requires = {
+      'simrat39/rust-tools.nvim',
+      'mfussenegger/nvim-jdtls', -- Java LSP support
+      -- 'ShinKage/idris2-nvim',
+      -- 'MunifTanjim/nui.nvim', -- Required by idris2-nvim
+
+      -- Debug Adapter Protocol
+      'mfussenegger/nvim-dap', 
+      'mfussenegger/nvim-dap-python',
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+      'jbyuki/one-small-step-for-vimkind', -- Debug Adapter for neovim/lua
+    },
     config = function()
       -- vim.schedule(function()
+        require('dap-setup')
         require('lspconfig-setup')
         require('lsp-overrides').setup()
       -- end)
-    end
-
+    end,
   }
   use 'nvim-lua/lsp-status.nvim' -- LSP status line info
   use 'ray-x/lsp_signature.nvim' -- LSP autocomplete signature hints
@@ -234,15 +247,15 @@ return require('packer').startup(function(use)
     requires = 'antoinemadec/FixCursorHold.nvim',
     config = function()
       require('nvim-lightbulb').setup({autocmd = {enabled = true}})
-    end
+    end,
   }
 
   -- LSP floating popups, etc.
   use {
     'RishabhRD/nvim-lsputils',
     requires = {
-      'RishabhRD/popfix'
-    }
+      'RishabhRD/popfix',
+    },
   }
 
   use 'onsails/lspkind-nvim' -- Autocomplete icons
@@ -264,10 +277,10 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('completion-config')
       end)
-    vim.cmd('set completeopt=menu,menuone,noselect') 
-    --Avoid showing message extra message when using completion
-    -- vim.cmd 'set shortmess+=c'
-    end
+      vim.cmd('set completeopt=menu,menuone,noselect') 
+      --Avoid showing message extra message when using completion
+      -- vim.cmd 'set shortmess+=c'
+    end,
   }
 
   use {
@@ -279,7 +292,7 @@ return require('packer').startup(function(use)
           backdrop = 1,
         })
       end)
-    end
+    end,
   }
 
   use {
@@ -316,7 +329,7 @@ return require('packer').startup(function(use)
           },
         }
       end)
-    end
+    end,
   }
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
   use 'nvim-treesitter/nvim-treesitter-context' 
@@ -329,22 +342,9 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('twilight-config')
       end)
-    end
+    end,
   }
 
-  use 'mfussenegger/nvim-jdtls' -- Java LSP support
-  use {
-    'mfussenegger/nvim-dap', -- Debug Adapter Protocol
-    requires = {
-      'mfussenegger/nvim-dap-python',
-    },
-    config = function()
-      vim.schedule(function()
-        require('dap-setup')
-      end)
-    end,
-    ft = {'java', 'haskell'}, -- 'python'
-  }
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
@@ -366,15 +366,6 @@ return require('packer').startup(function(use)
       end)
     end,
   }
-  -- use 'theHamsta/nvim-dap-virtual-text'
-  -- use 'rcarriga/nvim-dap-ui'
-  -- use 'jbyuki/one-small-step-for-vimkind' -- Debug Adapter for neovim/lua
-
-  -- use {'ShinKage/idris2-nvim', requires = {'neovim/nvim-lspconfig', 'MunifTanjim/nui.nvim'}}
-
-  use {
-    'simrat39/rust-tools.nvim',
-  }
 
   use {
     -- Snippet support
@@ -394,14 +385,14 @@ return require('packer').startup(function(use)
       vim.keymap.set('i', '<c-j>', function()
         return require'snippets'.advance_snipped(-1)
       end, {noremap = true,})
-    end
+    end,
   }
 
   use {
     'SirVer/ultisnips',
     setup = function()
       vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "ultisnips"}
-    end
+    end,
   }
 
   use {
@@ -416,7 +407,7 @@ return require('packer').startup(function(use)
     setup = function()
       -- Change each buffer’s directory, instead of the whole editor
       vim.g.rooter_cd_cmd = 'lcd'
-    end
+    end,
   }
 
   use {
@@ -438,7 +429,7 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('telescope-config')
       end)
-    end
+    end,
   }
 
   use {
@@ -453,7 +444,7 @@ return require('packer').startup(function(use)
       require('lua-dev').setup({
         library = { plugins = { 'neotest' }, types = true},
       })
-    end
+    end,
   }
 
   -- proviedes lua scratch pad
@@ -462,7 +453,7 @@ return require('packer').startup(function(use)
   -- Fuzzy search
   use {
     'junegunn/fzf',
-    run = './install --all'
+    run = './install --all',
   }
   use 'junegunn/fzf.vim'
 
@@ -471,7 +462,7 @@ return require('packer').startup(function(use)
     ft = {'markdown'},
     setup = function()
       vim.keymap.set('v', '<leader><Bslash>', ':EasyAlign*<Bar><CR>')
-    end
+    end,
   }
 
   -- Activate table mode with :TableModeToggle from insert mode
@@ -504,24 +495,24 @@ return require('packer').startup(function(use)
   use {
     'kevinhwang91/rnvimr',
     setup = function()
-    -- Do not make Ranger replace netrw and be the file explorer
-    vim.g.rnvimr_ex_enable = 0
-    -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
-    vim.g.rnvimr_enable_bw = 1
-    vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
-    vim.keymap.set({'n', 't'}, '<M-r>', ':RnvimrToggle<CR>', {silent = true,})
--- nnrremap <silent> <M-r> :RnvimrToggle<CR>
--- tnoremap <silent> <M-O> <C-\><C-n>:RnvimrToggle<CR>
-    -- Map Rnvimr action
-    vim.g.rnvimr_action = {
-        ['<C-t>'] = 'NvimEdit tabedit',
-        ['<C-x>'] = 'NvimEdit split',
-        ['<C-v>'] =  'NvimEdit vsplit',
-        ['gw'] =  'JumpNvimCwd',
-        ['gf'] = 'AttachFile',
-        ['yw'] = 'EmitRangerCwd'
-      }
-    end
+      -- Do not make Ranger replace netrw and be the file explorer
+      vim.g.rnvimr_ex_enable = 0
+      -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
+      vim.g.rnvimr_enable_bw = 1
+      vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
+      vim.keymap.set({'n', 't'}, '<M-r>', ':RnvimrToggle<CR>', {silent = true,})
+  -- nnrremap <silent> <M-r> :RnvimrToggle<CR>
+  -- tnoremap <silent> <M-O> <C-\><C-n>:RnvimrToggle<CR>
+      -- Map Rnvimr action
+      vim.g.rnvimr_action = {
+          ['<C-t>'] = 'NvimEdit tabedit',
+          ['<C-x>'] = 'NvimEdit split',
+          ['<C-v>'] =  'NvimEdit vsplit',
+          ['gw'] =  'JumpNvimCwd',
+          ['gf'] = 'AttachFile',
+          ['yw'] = 'EmitRangerCwd'
+        }
+    end,
   }
 
   -- Edit directories in a buffer. :Dirbuf
@@ -529,7 +520,7 @@ return require('packer').startup(function(use)
     "elihunter173/dirbuf.nvim",
     config = function()
       require("dirbuf").setup {}
-    end
+    end,
  }
 
   use 'kyazdani42/nvim-web-devicons'
@@ -542,7 +533,7 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('toggleterm-setup')
       end)
-    end
+    end,
   }
 
   -- Specify, or on the fly, mark and create persisting key strokes to go to the files you want.
@@ -561,14 +552,14 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('autopairs-config')
       end)
-    end
+    end,
   }
 
   -- Virtual text with git blame information, etc
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
-      'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim',
     },
     config = function()
       vim.schedule(function()
@@ -616,7 +607,7 @@ return require('packer').startup(function(use)
           end,
         })
       end)
-    end
+    end,
   }
 
   use {
