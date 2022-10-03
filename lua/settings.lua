@@ -45,6 +45,8 @@ opt.splitright = true
 opt.splitbelow = true
 -- Global statusline 
 -- opt.laststatus = 3 -- managed by lualine
+-- Hide command line unless typing a command or printing a message
+opt.cmdheight = 0
 
 vim.g.markdown_syntax_conceal = 0
 
