@@ -225,11 +225,15 @@ return require('packer').startup(function(use)
       -- 'MunifTanjim/nui.nvim', -- Required by idris2-nvim
 
       -- Debug Adapter Protocol
-      'mfussenegger/nvim-dap', 
+      'mfussenegger/nvim-dap',
       'mfussenegger/nvim-dap-python',
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'jbyuki/one-small-step-for-vimkind', -- Debug Adapter for neovim/lua
+
+      -- Additional plugins used in lspconfig-setup
+      'nvim-lua/lsp-status.nvim', -- LSP status line info
+      'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
     },
     config = function()
       -- vim.schedule(function()
@@ -239,8 +243,6 @@ return require('packer').startup(function(use)
       -- end)
     end,
   }
-  use 'nvim-lua/lsp-status.nvim' -- LSP status line info
-  use 'ray-x/lsp_signature.nvim' -- LSP autocomplete signature hints
 
   use {
     'kosayoda/nvim-lightbulb',
@@ -258,7 +260,6 @@ return require('packer').startup(function(use)
     },
   }
 
-  use 'onsails/lspkind-nvim' -- Autocomplete icons
   use {
     'hrsh7th/nvim-cmp', -- Completion plugin
     requires = {
@@ -272,6 +273,7 @@ return require('packer').startup(function(use)
       'hrsh7th/vim-vsnip-integ',
       'petertriho/cmp-git',
       'lukas-reineke/cmp-rg',
+      'onsails/lspkind-nvim', -- Autocomplete icons
     },
     config = function()
       vim.schedule(function()

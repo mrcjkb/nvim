@@ -37,36 +37,11 @@ local on_attach = function(client, bufnr)
   keymap.set('n', '<space>d', lsp.buf.document_symbol, opts)
   keymap.set('n', '<a-cr>', lsp.buf.code_action, opts)
   keymap.set('n', 'gr', lsp.buf.references, opts)
-
-
-  -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    keymap.set('n', '<space>f', lsp.buf.formatting, opts)
-  end
-  if client.resolved_capabilities.document_range_formatting then
-    keymap.set('v', '<space>f', lsp.buf.range_formatting, opts)
-  end
-
-  -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
-    vim.api.nvim_exec([[
-      hi LspReferenceRead cterm=bold ctermbg=237 guibg=#45403d
-      hi LspReferenceText cterm=bold ctermbg=237 guibg=#45403d
-      hi LspReferenceWrite cterm=bold ctermbg=237 guibg=#45403d
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]], false)
-  end
+  keymap.set('n', '<space>f', lsp.buf.formatting, opts)
+  keymap.set('v', '<space>f', lsp.buf.range_formatting, opts)
 
   -- Autocomplete signature hints
   require'lsp_signature'.on_attach()
-  require('lspkind').init({
-      -- preset = 'codicons',
-  })
-  -- require('java_tsls').setup_lsp_commands()
 end
 
 local on_dap_attach = function(bufnr)
