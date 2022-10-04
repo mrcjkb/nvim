@@ -397,7 +397,7 @@ lspconfig.jsonls.setup {
 -- autocmd to attempt to cleanly shut down an lsp before leaving neovim
 api.nvim_create_autocmd('VimLeavePre', {
   group = api.nvim_create_augroup('lsp-clean-exit', {clear = true}),
-  callback = function() vim.lsp.stop_client(vim.lsp.get_active_clients()) end
+  callback = function() vim.lsp.stop_client(vim.lsp.get_active_clients(), false) end
 })
 -- nvim-dap-virtual-text plugin
 -- require'nvim-dap-virtual-text'.setup()
