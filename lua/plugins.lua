@@ -354,14 +354,13 @@ return require('packer').startup(function(use)
       if hlint_hint_file and hlint_hint_file ~= "" then
         lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
       end
-        lint.linters_by_ft = {
-          haskell = {'hlint',}
-        }
-        vim.api.nvim_create_autocmd({ 'FileType', 'BufWritePost', }, {
-          group = vim.api.nvim_create_augroup('lint commands', {});
-          pattern = 'haskell',
-          callback = lint.try_lint
-        })
+      lint.linters_by_ft = {
+        haskell = {'hlint',}
+      }
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        group = vim.api.nvim_create_augroup('lint-commands', {});
+        callback = lint.try_lint
+      })
     end,
   }
 
