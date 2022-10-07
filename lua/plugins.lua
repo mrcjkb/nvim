@@ -237,11 +237,9 @@ return require('packer').startup(function(use)
       'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
     },
     config = function()
-      -- vim.schedule(function()
-        require('dap-setup')
-        require('lspconfig-setup')
-        require('lsp-overrides').setup()
-      -- end)
+      require('dap-setup')
+      require('lspconfig-setup')
+      require('lsp-overrides').setup()
     end,
   }
 
@@ -356,17 +354,14 @@ return require('packer').startup(function(use)
       if hlint_hint_file and hlint_hint_file ~= "" then
         lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
       end
-      vim.schedule(function()
         lint.linters_by_ft = {
           haskell = {'hlint',}
         }
-        vim.api.nvim_create_autocmd('BufWritePost', {
+        vim.api.nvim_create_autocmd({ 'FileType', 'BufWritePost', }, {
           group = vim.api.nvim_create_augroup('lint commands', {});
-          callback = function()
-            lint.try_lint()
-          end
+          pattern = 'haskell',
+          callback = lint.try_lint
         })
-      end)
     end,
   }
 
