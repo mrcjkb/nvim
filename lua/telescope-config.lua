@@ -39,6 +39,7 @@ vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, { })
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, { })
 vim.keymap.set('n', '<leader>ts', '<Cmd>Telescope ultisnips ultisnips<CR>', { })
 vim.keymap.set('n', '<leader>th', '<Cmd>Telescope hoogle<CR>', { })
+vim.keymap.set('n', '<leader>tn', '<Cmd>Telescope manix<CR>', { })
 vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, { })
 -- api.nvim_set_keymap('n', '<leader>to', '<Cmd>Telescope lsp_workspace_symbols<CR>', opts)
 
@@ -75,6 +76,7 @@ telescope.setup {
 }
 
 telescope.load_extension('hoogle')
+telescope.load_extension('manix')
 telescope.load_extension('repo')
 telescope.load_extension('fzy_native')
 telescope.load_extension('smart_history')

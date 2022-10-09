@@ -412,6 +412,7 @@ return require('packer').startup(function(use)
     branch = '0.1.x',
     requires = {
       'luc-tielen/telescope_hoogle', -- TODO: Package for nix
+      'MrcJkb/telescope-manix',
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
       'nvim-telescope/telescope-cheat.nvim',
