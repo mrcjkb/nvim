@@ -212,6 +212,9 @@ return require('packer').startup(function(use)
             ignore_file_types = { "haskell", "python", "vim", "lua", "rust" },
           }),
         },
+        discovery = {
+          enabled = true,
+        },
       })
     end,
   }
@@ -358,8 +361,10 @@ return require('packer').startup(function(use)
         haskell = {'hlint',}
       }
       vim.api.nvim_create_autocmd('BufWritePost', {
-        group = vim.api.nvim_create_augroup('lint-commands', {});
-        callback = lint.try_lint
+        group = vim.api.nvim_create_augroup('lint-commands', {}),
+        callback = function()
+          require('lint').try_lint()
+        end,
       })
     end,
   }
