@@ -637,6 +637,11 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    'kevinhwang91/nvim-bqf',
+    ft = 'qf',
+  }
+
   if packer_bootstrap then
     require('packer').sync()
     vim.cmd 'TSInstall all'
