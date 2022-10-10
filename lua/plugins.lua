@@ -637,7 +637,7 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
+  use { -- better quickfix list
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
   }
