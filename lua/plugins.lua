@@ -197,7 +197,7 @@ return require('packer').startup(function(use)
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-plenary",
       "rouge8/neotest-rust",
-      "nvim-neotest/neotest-vim-test",
+      -- "nvim-neotest/neotest-vim-test",
     },
     config = function()
       require("neotest").setup({
@@ -208,9 +208,9 @@ return require('packer').startup(function(use)
           }),
           require("neotest-plenary"),
           require("neotest-rust"),
-          require("neotest-vim-test")({
-            ignore_file_types = { "haskell", "python", "vim", "lua", "rust" },
-          }),
+          -- require("neotest-vim-test")({
+          --   ignore_file_types = { "haskell", "python", "vim", "lua", "rust" },
+          -- }),
         },
         discovery = {
           enabled = true,
