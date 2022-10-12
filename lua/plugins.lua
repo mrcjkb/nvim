@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
 
   use {
     'lewis6991/impatient.nvim',
-    setup = function()
+    config = function()
       require('impatient')
     end,
   }
