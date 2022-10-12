@@ -223,9 +223,10 @@ return require('packer').startup(function(use)
           enabled = true,
         },
       })
-      vim.keymap.set('n', '<leader>nr', function() require('neotest').run.run() end, { })
-      vim.keymap.set('n', '<leader>no', function() require('neotest').output.open() end, { })
-      vim.keymap.set('n', '<leader>ns', function() require('neotest').summary.toggle() end, { })
+      local opts = { noremap = true, }
+      vim.keymap.set('n', '<leader>nr', function() require('neotest').run.run() end, opts)
+      vim.keymap.set('n', '<leader>no', function() require('neotest').output.open() end, opts)
+      vim.keymap.set('n', '<leader>ns', function() require('neotest').summary.toggle() end, opts)
     end,
   }
 
