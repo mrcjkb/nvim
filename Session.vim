@@ -13,14 +13,22 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +364 lua/plugins.lua
-badd +8 lua/telescope-config.lua
-badd +1 ~/git/tiko-backend/argo-deployments/master/README.md
-badd +1 fugitive:///home/mrcjk/.config/nvim/.git//
+badd +227 lua/plugins.lua
+badd +2 ~/git/github/mrcjkb/nvim-config/lua/plugins.lua
+badd +1 fugitive:///home/mrcjk/git/github/mrcjkb/nvim-config/.git//
 argglobal
 %argdel
 $argadd lua/plugins.lua
-edit lua/plugins.lua
+edit ~/git/github/mrcjkb/nvim-config/lua/plugins.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
 wincmd t
 let s:save_winminheight = &winminheight
 let s:save_winminwidth = &winminwidth
@@ -28,8 +36,10 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
+exe '1resize ' . ((&lines * 20 + 22) / 44)
+exe '2resize ' . ((&lines * 21 + 22) / 44)
 argglobal
-balt lua/telescope-config.lua
+balt lua/plugins.lua
 setlocal fdm=expr
 setlocal fde=nvim_treesitter#foldexpr()
 setlocal fmr={{{,}}}
@@ -38,21 +48,39 @@ setlocal fdl=10
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-10
-normal! zo
-349
-normal! zo
-351
-normal! zo
-360
-normal! zo
-let s:l = 364 - ((34 * winheight(0) + 21) / 42)
+let s:l = 2 - ((0 * winheight(0) + 10) / 20)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 364
-normal! 011|
-lcd ~/.config/nvim
+keepjumps 2
+normal! 0
+lcd ~/git/github/mrcjkb/nvim-config
+wincmd w
+argglobal
+if bufexists(fnamemodify("fugitive:///home/mrcjk/git/github/mrcjkb/nvim-config/.git//", ":p")) | buffer fugitive:///home/mrcjk/git/github/mrcjkb/nvim-config/.git// | else | edit fugitive:///home/mrcjk/git/github/mrcjkb/nvim-config/.git// | endif
+if &buftype ==# 'terminal'
+  silent file fugitive:///home/mrcjk/git/github/mrcjkb/nvim-config/.git//
+endif
+balt ~/.config/nvim/lua/plugins.lua
+setlocal fdm=expr
+setlocal fde=nvim_treesitter#foldexpr()
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=10
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 1 - ((0 * winheight(0) + 10) / 21)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+lcd ~/git/github/mrcjkb/nvim-config
+wincmd w
+2wincmd w
+exe '1resize ' . ((&lines * 20 + 22) / 44)
+exe '2resize ' . ((&lines * 21 + 22) / 44)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

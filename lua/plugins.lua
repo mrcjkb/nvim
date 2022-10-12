@@ -207,8 +207,7 @@ return require('packer').startup(function(use)
       -- "nvim-neotest/neotest-vim-test",
     },
     config = function()
-      local neotest = require('neotest')
-      neotest.setup({
+      require('neotest').setup({
         adapters = {
           require("neotest-haskell"),
           require("neotest-python")({
@@ -224,9 +223,9 @@ return require('packer').startup(function(use)
           enabled = true,
         },
       })
-      vim.keymap.set('n', '<leader>nr', neotest.run.run, { })
-      vim.keymap.set('n', '<leader>no', neotest.output.open, { })
-      vim.keymap.set('n', '<leader>ns', neotest.summary.toggle, { })
+      vim.keymap.set('n', '<leader>nr', function() require('neotest').run.run() end, { })
+      vim.keymap.set('n', '<leader>no', function() require('neotest').output.open() end, { })
+      vim.keymap.set('n', '<leader>ns', function() require('neotest').summary.toggle() end, { })
     end,
   }
 
