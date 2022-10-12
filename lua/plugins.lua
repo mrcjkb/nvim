@@ -9,6 +9,13 @@ end
 
 return require('packer').startup(function(use)
 
+  use {
+    'lewis6991/impatient.nvim',
+    setup = function()
+      require('impatient')
+    end,
+  }
+
   use 'wbthomason/packer.nvim'
 
   use {
