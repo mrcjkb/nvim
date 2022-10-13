@@ -68,6 +68,13 @@ lspconfig.hls.setup{
   on_attach = function (client, bufnr)
     on_attach(client, bufnr)
     on_dap_attach(bufnr)
+    -- autocmd to attempt to cleanly shut down the lsp before leaving neovim
+    api.nvim_create_autocmd('VimLeavePre', {
+      group = api.nvim_create_augroup('hls-clean-exit', {clear = true}),
+      callback = function() 
+        vim.lsp.stop_client(client, false) 
+      end
+    })
   end,
   capabilities = capabilities,
   settings = {
@@ -394,11 +401,6 @@ lspconfig.jsonls.setup {
   cmd = { 'json-languageserver', '--stdio', },
 }
 
--- autocmd to attempt to cleanly shut down an lsp before leaving neovim
-api.nvim_create_autocmd('VimLeavePre', {
-  group = api.nvim_create_augroup('lsp-clean-exit', {clear = true}),
-  callback = function() vim.lsp.stop_client(vim.lsp.get_active_clients(), false) end
-})
 -- nvim-dap-virtual-text plugin
 -- require'nvim-dap-virtual-text'.setup()
 
