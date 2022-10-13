@@ -27,7 +27,8 @@
         sumneko-lsp = unstable.sumneko-lua-language-server;
       in {
         systemPackages = [
-          neovim
+          unstable.neovim
+          unstable.neovide
           (unstable.neovim-remote.overrideAttrs (old: {
             # Workaround for failing pytest
             doCheck = false;

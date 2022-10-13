@@ -61,7 +61,7 @@ dap.configurations.haskell = {
     -- Adjust the prompt to the prompt you see when you invoke the stack ghci command below
     ghciInitialPrompt = 'Prelude> ',
     -- ghciCmd= 'stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show',
-    ghciCmd= 'cabal new-repl TARGET',
+    ghciCmd = 'cabal new-repl TARGET',
     forceInspect = false,
   },
 }
