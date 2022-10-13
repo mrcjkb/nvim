@@ -634,6 +634,35 @@ return require('packer').startup(function(use)
     ft = 'qf',
   }
 
+  use {
+    'mhartington/formatter.nvim',
+    config = function ()
+      local stylish_config = os.getenv("STYLISH_HASKELL_CONFIG")
+      if stylish_config then
+        local stylish_haskell = require('formatter.filetypes.haskell').stylish_haskell()
+        require('formatter').setup {
+          filetype = {
+            haskell = {
+              function ()
+                return vim.tbl_extend('force', stylish_haskell, {
+                  args = {
+                    '-c',
+                    stylish_config,
+                  },
+                })
+              end
+            },
+          },
+        }
+        vim.api.nvim_create_autocmd('BufWritePost', {
+          group = vim.api.nvim_create_augroup('post-write-format', {}),
+          pattern = {'*.hs',},
+          command = 'Format',
+        })
+      end
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
     vim.cmd 'TSInstall all'
