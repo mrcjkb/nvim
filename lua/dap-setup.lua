@@ -44,20 +44,24 @@ dap.adapters.haskell = {
 }
 dap.configurations.haskell = {
   {
-    type = 'haskell',
+    type = 'ghc',
     request = 'launch',
-    name = 'Debug',
+    name = 'haskell-debug-adapter',
     internalConsoleOptions = 'openOnSessionStart',
-    workspace = '${workspaceFolder}',
+    workspace = '${workspaceRoot}',
     startup = '${file}',
+    startupFunc = '',
+    startupArgs = '';
     stopOnEntry = true,
+    mainArgs = '';
     logFile = vim.fn.stdpath('data') .. '/haskell-dap.log',
     logLevel = 'WARNING',
     ghciEnv = vim.empty_dict(),
     ghciPrompt = 'λ: ',
     -- Adjust the prompt to the prompt you see when you invoke the stack ghci command below
     ghciInitialPrompt = 'Prelude> ',
-    ghciCmd= 'stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show',
+    -- ghciCmd= 'stack ghci --test --no-load --no-build --main-is TARGET --ghci-options -fprint-evld-with-show',
+    ghciCmd= 'cabal new-repl TARGET',
     forceInspect = false,
   },
 }
