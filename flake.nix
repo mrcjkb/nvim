@@ -23,6 +23,10 @@
         ];
       };
 
+      programs.fish.shellAliases = {
+        nv = "neovide";
+      };
+
       environment = with pkgs; let
         sumneko-lsp = unstable.sumneko-lua-language-server;
       in {
