@@ -51,6 +51,10 @@ cmp.setup({
     { name = 'path' },
     { name = 'rg', keyword_length = 3 },
   }),
+  enabled = function()
+    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+        or require("cmp_dap").is_dap_buffer()
+  end,
   experimental = {
     native_menu = false,
     ghost_text = true,
@@ -63,6 +67,12 @@ cmp.setup.filetype('gitcommit', {
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
     { name = 'buffer' },
   })
+})
+
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+  sources = {
+    { name = "dap" },
+  },
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).

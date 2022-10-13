@@ -268,6 +268,7 @@ return require('packer').startup(function(use)
       'petertriho/cmp-git',
       'lukas-reineke/cmp-rg',
       'onsails/lspkind-nvim', -- Autocomplete icons
+      'rcarriga/cmp-dap',
     },
     config = function()
       vim.schedule(function()
