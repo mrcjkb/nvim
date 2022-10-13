@@ -82,6 +82,10 @@ keymap.set('c', '%%', function()
   end
 end, {expr = true,})
 
+keymap.set('n', 'tn',  ':tabnew<CR>' , {})
+keymap.set('n', 'vs',  ':vsplit<CR>' , {})
+keymap.set('n', 'hs',  ':split<CR>' , {})
+
 local opts = { noremap=true, silent=true }
 keymap.set('n', '<space>e', diagnostic.open_float, opts)
 keymap.set('n', '[d', diagnostic.goto_prev, opts)
