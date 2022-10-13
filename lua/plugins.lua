@@ -354,6 +354,7 @@ return require('packer').startup(function(use)
       }
       vim.api.nvim_create_autocmd('BufWritePost', {
         group = vim.api.nvim_create_augroup('lint-commands', {}),
+        pattern = {'*.hs',},
         callback = function()
           require('lint').try_lint()
         end,
