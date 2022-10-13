@@ -25,7 +25,7 @@
 
       programs.fish.shellAliases = {
         nv = "neovide";
-        luamake = "$XDG_CACHE_HOME/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake";
+        luamake = "{$XDG_CACHE_HOME}/nvim/nlua/sumneko_lua/lua-language-server/3rd/luamake/luamake";
       };
 
       environment = with pkgs; let
