@@ -145,6 +145,31 @@ return require('packer').startup(function(use)
   use 'tpope/vim-obsession' -- Automatic session management
   use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
+  use {
+    'jedrzejboczar/possession.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('possession').setup {
+        autosave = {
+          current = true,  -- or fun(name): boolean
+          tmp = true,  -- or fun(): boolean
+          tmp_name = 'tmp',
+          on_load = true,
+          on_quit = true,
+        },
+        commands = {
+          save = 'SSave',
+          load = 'SLoad',
+          close = 'SClose',
+          delete = 'SDelete',
+          show = 'SShow',
+          list = 'SList',
+          migrate = 'SMigrate',
+        },
+      }
+    end,
+  }
+
   -- Keybindings for commening/uncommenting
   use {
     'numToStr/Comment.nvim',
