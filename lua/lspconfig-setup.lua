@@ -203,9 +203,9 @@ lspconfig.vimls.setup{
   capabilities = capabilities,
 }
 
-require("lua-dev").setup {
+require('neodev').setup {
   override = function(root_dir, library)
-    if require("lua-dev.util").has_file(root_dir, "/etc/nixos") then
+    if require('neodev.util').has_file(root_dir, "/etc/nixos") then
       library.enabled = true
       library.plugins = true
     end

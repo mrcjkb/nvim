@@ -433,9 +433,9 @@ return require('packer').startup(function(use)
     'nvim-lua/plenary.nvim', -- Useful lua library
   }
   use {
-    'folke/lua-dev.nvim', -- Lua development for neovim
+    'folke/neodev.nvim', -- Lua development for neovim
     config = function()
-      require('lua-dev').setup({
+      require('neodev').setup({
         library = { plugins = { 'neotest' }, types = true},
       })
     end,
