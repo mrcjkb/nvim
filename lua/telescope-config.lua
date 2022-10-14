@@ -1,7 +1,6 @@
 local telescope = require'telescope'
 local actions = require'telescope.actions'
 local builtin = require'telescope.builtin'
-local extensions = require'telescope.extensions'
 
 -- Fall back to find_files if not in a git repo
 local project_files = function()
@@ -39,7 +38,7 @@ vim.keymap.set('n', '<leader>tb', builtin.buffers, { })
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, { })
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, { })
 vim.keymap.set('n', '<leader>tS', '<Cmd>Telescope ultisnips ultisnips<CR>', { })
-vim.keymap.set('n', '<leader>ts', extensions.postsession.list, { })
+vim.keymap.set('n', '<leader>ts', function() require('telescope').extensions.possession.list() end, { })
 vim.keymap.set('n', '<leader>th', '<Cmd>Telescope hoogle<CR>', { })
 vim.keymap.set('n', '<leader>tn', '<Cmd>Telescope manix<CR>', { })
 vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, { })
@@ -83,3 +82,4 @@ telescope.load_extension('repo')
 telescope.load_extension('fzy_native')
 telescope.load_extension('smart_history')
 telescope.load_extension('cheat') 
+telescope.load_extension('possession')
