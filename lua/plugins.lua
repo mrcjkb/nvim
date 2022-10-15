@@ -239,6 +239,7 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     requires = {
+      'MrcJkb/haskell-tools.nvim',
       'simrat39/rust-tools.nvim',
       'mfussenegger/nvim-jdtls', -- Java LSP support
       'tjdevries/nlua.nvim', -- Lua development for neovim

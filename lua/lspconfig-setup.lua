@@ -64,99 +64,15 @@ local on_dap_attach = function(bufnr)
   keymap.set('n', '<leader>du', dapui.toggle, opts)
 end
 
-lspconfig.hls.setup{
-  on_attach = function (client, bufnr)
-    on_attach(client, bufnr)
-    on_dap_attach(bufnr)
-    -- autocmd to attempt to cleanly shut down the lsp before leaving neovim
-    api.nvim_create_autocmd('VimLeavePre', {
-      group = api.nvim_create_augroup('hls-clean-exit', {clear = true}),
-      callback = function() 
-        vim.lsp.stop_client(client, false) 
-      end
-    })
-  end,
-  capabilities = capabilities,
-  settings = {
+require('haskell-tools').setup {
+  hls = {
+    on_attach = function (client, bufnr)
+      on_attach(client, bufnr)
+      on_dap_attach(bufnr)
+    end,
     haskell = {
       formattingProvider = 'stylish-haskell',
       checkProject = false,
-      plugin = {
-        alternateNumberFormat = {globalOn = true,},
-        callHierarchy = {globalOn = true,},
-        changeTypeSignature = {globalOn = true,},
-        class = {
-          codeActionsOn = true,
-          codeLensOn = true,
-        },
-        eval = {
-          globalOn = true,
-          config = {
-            diff = true,
-            exception = true,
-          },
-        },
-        excplicitFixity = {globalOn = true,},
-        gadt = {globalOn = true,},
-        ['ghcide-code-actions-bindings'] = {globalOn = true,},
-        ['ghcide-code-actions-fill-holes'] = {globalOn = true,},
-        ['ghcide-code-actions-imports-exports'] = {globalOn = true,},
-        ['ghcide-code-actions-type-signatures'] = {globalOn = true,},
-        ['ghcide-completions'] = {
-          globalOn = true,
-          config = {
-            autoExtendOn = true,
-            snippetsOn = true,
-          },
-        },
-        ['ghcide-hover-and-symbols'] = {
-          hoverOn = true,
-          symbolsOn = true,
-        },
-        ['ghcide-type-lenses'] = {
-          globalOn = true,
-          config = {
-            mode = 'always',
-          },
-        },
-        haddockComments = {globalOn = true,},
-        hlint = {
-          codeActionsOn = true,
-          diagnosticsOn = true,
-        },
-        importLens = {
-          globalOn = true,
-          codeLensOn = true,
-        },
-        moduleName = {globalOn = true,},
-        pragmas = {
-          codeActionsOn = true,
-          completionOn = true,
-        },
-        qualifyImportedNames = {globalOn = true,},
-        refineImports = {
-          codeActionsOn = true,
-          codeLensOn = true,
-        },
-        rename = {
-          globalOn = true,
-          config = {crossModule = true,},
-        },
-        retrie = {globalOn = true,},
-        splice = {globalOn = true,},
-        tactics = {
-          codeActionsOn = true,
-          codeLensOn = true,
-          config = {
-            auto_gas = 4,
-            hole_severity = nil,
-            max_use_ctor_actions = 5,
-            proofstate_styling = true,
-            timeout_duration = 2,
-          },
-          hoverOn = true,
-        },
-      },
     },
   },
 }
