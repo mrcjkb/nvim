@@ -8,7 +8,7 @@ local dap_utils = require('dap.utils')
 local dapui = require('dapui')
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(lsp.protocol.make_client_capabilities())
 
 local on_attach = function(client, bufnr)
   api.nvim_command("setlocal signcolumn=yes")
