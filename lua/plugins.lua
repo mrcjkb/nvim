@@ -1,10 +1,11 @@
 -- Bootstrap packer for new installations
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-local packer_bootstrap = false;
+local packer_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
+  packer_bootstrap = true
 end
 
 return require('packer').startup(function(use)
@@ -22,9 +23,6 @@ return require('packer').startup(function(use)
     'dstein64/vim-startuptime',
     cmd = 'StartupTime',
   }
-
-  -- use 'MrcJkb/nvim-java-tsls'
-  -- use 'MrcJkb/autofix.nvim'
 
   -- lazy loaded
 
@@ -48,7 +46,7 @@ return require('packer').startup(function(use)
   use {
     'chaoren/vim-wordmotion',
     setup = function()
-      -- Use Alt as prefix for word motion mappings -- FIXME
+      -- Use Alt as prefix for word motion mappings 
       vim.g.wordmotion_mappings = {
           ['w'] = '<M-w>',
           ['b'] = '<M-b>',
@@ -60,14 +58,6 @@ return require('packer').startup(function(use)
         }
     end,
   }
-
-  -- -- Syntax highlighting/indentation
-  -- use {
-  --   'sheerun/vim-polyglot',
-  --   setup = function()
-  --     vim.g['polyglot_disabled'] = {'java'}
-  --   end
-  -- }
 
   -- Highlight colours (e.g. #800080)
   use {
@@ -81,11 +71,11 @@ return require('packer').startup(function(use)
 
   -- Remaps s [cl] and S [cc] to vertical leap search
   use {
-  'ggandor/leap.nvim',
-  config = function()
-    require('leap').set_default_keymaps()
-  end,
-}
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').set_default_keymaps()
+    end,
+  }
 
   -- Highlight unique characters in line search
   use {
@@ -119,30 +109,12 @@ return require('packer').startup(function(use)
 
   -- Add repeat . suppor to custom commands
   use 'tpope/vim-repeat'
-  -- Vim sugar for UNIX shell commands (:Move, :Mkdir, :SudoWrite, etc.)
-  use 'tpope/vim-eunuch'
-  use {
-    'tpope/vim-projectionist', -- alternate file configs
-    -- setup = function()
-    --   vim.g['projectionist_heuristics'] = {
-    --     ['src/**/*.hs'] = {
-    --       -- FIXME: Alternate files not detected
-    --       ['alternate'] = { 'test/{}Spec.hs',  'test/{}Test.hs' },
-    --       ['type'] = 'source',
-    --     },
-    --     ['*.hs'] = {
-    --       ['dispatch'] = 'stack ghci {file}'
-    --     },
-    --   }
-    -- end,
-  }
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
   use {
     'tpope/vim-dispatch',
     cmd = {'Dispatch', 'Make', 'Focus', 'Start'}, -- lazy-load on specific commands
   }
-  use 'tpope/vim-obsession' -- Automatic session management
   use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
 
   use {
@@ -202,11 +174,10 @@ return require('packer').startup(function(use)
       vim.g.material_terminal_italics = 1
     end,
     config = function()
-      vim.cmd('colorscheme material')
+      vim.cmd [[colorscheme material]]
     end,
   }
 
-  -- use 'Yggdroot/indentLine' -- Display thin vertical lines at each indentation level for code indented with spaces
   use {
     'git@github.com:vim-test/vim-test',
     -- 'git@github.com:MrcJkb/vim-test',
