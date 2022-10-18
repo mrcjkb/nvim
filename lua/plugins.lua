@@ -231,6 +231,7 @@ return require('packer').startup(function(use)
       -- Additional plugins used in lspconfig-setup
       'nvim-lua/lsp-status.nvim', -- LSP status line info
       'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
+      'camilledejoye/nvim-lsp-selection-range', -- LSP selection range
     },
     config = function()
       require('dap-setup')

@@ -71,6 +71,15 @@ require('haskell-tools').setup {
     on_attach = function (client, bufnr)
       on_attach(client, bufnr)
       on_dap_attach(bufnr)
+      local opts = { noremap=true, silent=true, buffer = bufnr }
+      keymap.set('n', 'vv', function()
+        require('lsp-selection-range').trigger()
+      end,
+      opts)
+      keymap.set('v', 'vv', function()
+        require('lsp-selection-range').expand()
+      end,
+      opts)
     end,
     haskell = {
       formattingProvider = 'stylish-haskell',
