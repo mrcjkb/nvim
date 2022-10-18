@@ -200,7 +200,6 @@ return require('packer').startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
-      "antoinemadec/FixCursorHold.nvim",
       "MrcJkb/neotest-haskell",
       "nvim-neotest/neotest-python",
       "nvim-neotest/neotest-plenary",
@@ -242,7 +241,6 @@ return require('packer').startup(function(use)
 
   use {
     'kosayoda/nvim-lightbulb',
-    requires = 'antoinemadec/FixCursorHold.nvim',
     config = function()
       require('nvim-lightbulb').setup({autocmd = {enabled = true}})
     end,

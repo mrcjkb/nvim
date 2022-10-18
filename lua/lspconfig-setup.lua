@@ -43,7 +43,7 @@ local on_attach = function(client, bufnr)
   keymap.set('v', '<space>f', lsp.buf.range_formatting, opts)
 
   -- Autocomplete signature hints
-  require'lsp_signature'.on_attach()
+  require('lsp_signature').on_attach()
 end
 
 local on_dap_attach = function(bufnr)
