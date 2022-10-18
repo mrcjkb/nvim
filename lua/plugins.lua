@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
       vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
       vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
     end,
+    -- FIXME
     ft = { 'markdown', },
   }
 
