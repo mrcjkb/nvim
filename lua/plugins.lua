@@ -34,11 +34,15 @@ return require('packer').startup(function(use)
   --   }
   -- }
 
-  -- use {
-  --   'iamcco/markdown-preview.nvim',
-  --   run = function() vim.fn['mkdp#util#install']() end,
-  --   -- ft = {'markdown'}
-  -- }
+  use { 
+    'toppair/peek.nvim', 
+    run = 'deno task --quiet build:fast',
+    config = function()
+      vim.api.nvim_create_user_command('PeekOpen', require('peek').open, {})
+      vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
+    end,
+    ft = { 'markdown', },
+  }
 
   use {'ellisonleao/glow.nvim', cmd = 'Glow'}
 
@@ -546,6 +550,11 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    -- Tab out form parentheses, quotes, etc.
+    'abecodes/tabout.nvim', 
+  }
+
   -- Virtual text with git blame information, etc
   use {
     'lewis6991/gitsigns.nvim',
@@ -660,6 +669,30 @@ return require('packer').startup(function(use)
         })
       end
     end,
+  }
+
+  use {
+    "gbprod/yanky.nvim",
+    config = function()
+      require("yanky").setup {
+        highlight = {
+          on_put = true,
+          on_yank = true,
+          timer = 500,
+        },
+        preserve_cursor_position = {
+          enabled = true,
+        },
+      }
+      vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+      vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+      vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+      vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+      vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+      vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+      vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
+    end,
+    requires = { "kkharji/sqlite.lua" },
   }
 
   if packer_bootstrap then
