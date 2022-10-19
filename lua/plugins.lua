@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
       vim.api.nvim_create_user_command('PeekClose', require('peek').close, {})
     end,
     -- FIXME
-    ft = { 'markdown', },
+    ft = 'markdown'
   }
 
   use {'ellisonleao/glow.nvim', cmd = 'Glow'}
@@ -396,7 +396,7 @@ return require('packer').startup(function(use)
   use {
     'nvim-lua/popup.nvim',
     requires = { 'nvim-lua/plenary.nvim' },
-    ft = {'lua'},
+    ft = 'lua',
   }
 
   use {
@@ -455,7 +455,7 @@ return require('packer').startup(function(use)
 
   use {
     'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
-    ft = {'markdown'},
+    ft = 'markdown',
     setup = function()
       vim.keymap.set('v', '<leader><Bslash>', ':EasyAlign*<Bar><CR>')
     end,
@@ -469,7 +469,7 @@ return require('packer').startup(function(use)
       vim.g.table_mode_corner_corner = '+'
       vim.g.table_mode_header_fillchar = '='
     end,
-    ft = {'markdown'},
+    ft = 'markdown',
   }
 
   use {
