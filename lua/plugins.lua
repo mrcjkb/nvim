@@ -696,6 +696,13 @@ return require('packer').startup(function(use)
     requires = { "kkharji/sqlite.lua" },
   }
 
+  use { 
+    'hkupty/iron.nvim',
+    config = function()
+      require('repl-setup')
+    end
+  }
+
   if packer_bootstrap then
     require('packer').sync()
     vim.cmd 'TSInstall all'
