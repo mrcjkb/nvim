@@ -9,6 +9,7 @@ iron.setup {
         command = {
           'cabal',
           'v2-repl',
+          'all',
         }
       }
     },
@@ -16,7 +17,7 @@ iron.setup {
     -- See below for more information
     repl_open_cmd = require('iron.view').bottom(40),
   },
-  -- Iron doesn't set keymaps by default anymore.
+  -- Iron doesn't setkeymaps by default anymore.
   -- You can set them here or manually add keymaps to the functions in iron.core
   keymaps = {
     send_motion = "<space>sc",
