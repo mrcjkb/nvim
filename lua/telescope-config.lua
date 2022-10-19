@@ -9,14 +9,14 @@ local project_files = function()
   if not ok then builtin.find_files(opts) end
 end
 
-local function live_grep_current_file_type()
+local function grep_current_file_type(func)
   local current_file_ext = vim.fn.expand('%:e')
   local additional_vimgrep_arguments = { 
     '--type', 
     current_file_ext,
   }
   local conf = require('telescope.config').values
-  builtin.live_grep({
+  func({
     vimgrep_arguments = vim.tbl_flatten({ 
       conf.vimgrep_arguments, 
       additional_vimgrep_arguments,
@@ -24,9 +24,18 @@ local function live_grep_current_file_type()
   })
 end
 
+local function grep_string_current_file_type()
+  grep_current_file_type(builtin.grep_string)
+end
+
+local function live_grep_current_file_type()
+  grep_current_file_type(builtin.live_grep)
+end
+
 vim.keymap.set('n', '<C-p>', builtin.find_files, { })
 vim.keymap.set('n', '<C-g>', builtin.live_grep, { })
 vim.keymap.set('n', '<M-g>', live_grep_current_file_type, { })
+vim.keymap.set('n', '<leader>t*', grep_string_current_file_type, { })
 vim.keymap.set('n', '<leader>*', builtin.grep_string, { })
 vim.keymap.set('n', '<leader>tg', project_files, { })
 vim.keymap.set('n', '<leader>tc', builtin.quickfix, { })
