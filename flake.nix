@@ -72,6 +72,7 @@
           unstable.ripgrep # Fast (Rust) re-implementation of grep
           unstable.fd # Fast alternative to find
           unstable.deno # Used by peek.nvim for Markdown preview
+          unstable.webkitgtk # Dependency of deno, used by peek.nvim for Markdown preview
           unstable.jdt-language-server
           unstable.nodePackages.yarn # Required by markdown-preview vim plugin
           python-language-server
