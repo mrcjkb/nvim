@@ -9,6 +9,7 @@ local dapui = require('dapui')
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 
 local on_attach = function(client, bufnr)
   api.nvim_command("setlocal signcolumn=yes")
@@ -41,6 +42,8 @@ local on_attach = function(client, bufnr)
   keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)
   keymap.set('v', '<space>f', vim.lsp.buf.range_formatting, opts)
+  keymap.set('n', 'vv', function() require('lsp-selection-range').trigger() end, opts)
+  keymap.set('v', 'vv', function() require('lsp-selection-range').expand() end, opts)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
@@ -66,20 +69,14 @@ local on_dap_attach = function(bufnr)
   keymap.set('n', '<leader>du', dapui.toggle, opts)
 end
 
-require('haskell-tools').setup {
+local ht = require('haskell-tools')
+ht.setup {
   hls = {
     on_attach = function (client, bufnr)
       on_attach(client, bufnr)
       on_dap_attach(bufnr)
       local opts = { noremap=true, silent=true, buffer = bufnr }
-      keymap.set('n', 'vv', function()
-        require('lsp-selection-range').trigger()
-      end,
-      opts)
-      keymap.set('v', 'vv', function()
-        require('lsp-selection-range').expand()
-      end,
-      opts)
+      keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
     end,
     haskell = {
       formattingProvider = 'stylish-haskell',
