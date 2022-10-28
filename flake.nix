@@ -34,7 +34,7 @@
         systemPackages = [
           unstable.neovim
           unstable.neovide
-          (unstable.neovim-remote.overrideAttrs (old: {
+          (neovim-remote.overrideAttrs (old: {
             # Workaround for failing pytest
             doCheck = false;
             preCheck = ''
