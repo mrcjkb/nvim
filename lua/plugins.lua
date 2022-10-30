@@ -100,6 +100,15 @@ return require('packer').startup(function(use)
     vim.g.EditorConfig_exclude_patterns = {'fugitive://.*'}
   end,
 }
+  
+  -- NeoVim clone of Magit
+  use { 
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require('neogit').setup()
+    end,
+  }
 
   -- Git wrapper
   use 'tpope/vim-fugitive'
