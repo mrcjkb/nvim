@@ -112,7 +112,7 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- Add repeat . suppor to custom commands
+  -- Add repeat . support to custom commands
   use 'tpope/vim-repeat'
   -- Navigation with [ and ] keybindings
   use 'tpope/vim-unimpaired'
@@ -120,7 +120,14 @@ return require('packer').startup(function(use)
     'tpope/vim-dispatch',
     cmd = {'Dispatch', 'Make', 'Focus', 'Start'}, -- lazy-load on specific commands
   }
-  use 'tpope/vim-surround' -- Add "surroundings text-object cammands"
+
+  use({
+    "kylechui/nvim-surround", -- Add "surroundings text-object cammands"
+    config = function()
+      require("nvim-surround").setup({
+      })
+    end
+  })
 
   use {
     'jedrzejboczar/possession.nvim',
