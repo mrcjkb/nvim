@@ -1,6 +1,7 @@
 require('plugins')
 require('native-plugins')
 require('settings')
+require('highlights')
 require('autocommands')
 require('keymaps')
 require('commands')

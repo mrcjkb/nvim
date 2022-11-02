@@ -64,10 +64,6 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
 
 vim.g.markdown_syntax_conceal = 0
 
--- Highlight terminal cursor
-vim.api.nvim_set_hl(0, 'TermCursor', {link = 'Cursor',})
-vim.api.nvim_set_hl(0, 'TermCursorNC', {bg='red', fg='white', ctermbg=1, ctermfg=15})
-
 -- Prevent nested nvim instances
 if fn.executable('nvr') then
   vim.fn.setenv('VISUAL', "nvr -cc split --remote-wait + 'set bufhidden=wipe'")
