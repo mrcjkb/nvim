@@ -47,6 +47,8 @@ local on_attach = function(client, bufnr)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
+
+  vim.api.nvim_set_hl(0, 'LspCodeLens', { fg = '#BC96da', underline=false, italic = true, })
 end
 
 local on_dap_attach = function(bufnr)
