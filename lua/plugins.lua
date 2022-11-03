@@ -188,14 +188,14 @@ return require('packer').startup(function(use)
 
   -- Material colort theme
   use {
-    'kaicataldo/material.vim', -- TODO: Package for nix
+    'marko-cerovac/material.nvim', -- TODO: Package for nix
     branch = 'main',
     setup = function()
-      vim.g.material_theme_style = 'darker'
+      vim.g.material_style = 'darker'
       vim.g.material_terminal_italics = 1
     end,
     config = function()
-      vim.cmd [[colorscheme material]]
+      require('theme')
     end,
   }
 
