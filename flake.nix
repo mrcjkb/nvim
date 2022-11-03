@@ -54,6 +54,8 @@
           unstable.haskellPackages.hlint
           unstable.haskell-language-server
           unstable.haskellPackages.haskell-debug-adapter
+          unstable.haskellPackages.ghci-dap
+          unstable.haskellPackages.haskell-dap
           unstable.stylish-haskell
           unstable.rnix-lsp # Nix language server
           unstable.rust-analyzer
