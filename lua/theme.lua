@@ -1,7 +1,7 @@
 require('material').setup({
   contrast = {
     terminal = true,
-    floating_windows = true,
+    floating_windows = false,
     cursor_line = true,
     non_current_windows = true,
   },
@@ -33,5 +33,10 @@ require('material').setup({
   custom_highlights = {
     LspCodeLens = { link = 'DiagnosticHint' }
   },
+  custom_colors = function(colors)
+    colors.editor.fg = "#FFFFFF"
+    colors.editor.fg_dark = colors.main.white
+    colors.editor.accent = colors.main.darkpurple
+  end
 })
 vim.cmd [[colorscheme material]]
