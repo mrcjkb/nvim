@@ -25,6 +25,10 @@ require('material').setup({
     'trouble',
     'which-key',
   },
+  high_visibility = {
+    lighter = true,
+    darker = true,
+  },
   async_loading = true,
   custom_highlights = {
     LspCodeLens = { link = 'DiagnosticHint' }
