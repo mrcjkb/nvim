@@ -71,3 +71,26 @@ end
 
 -- Set default shell
 opt.shell = "fish"
+
+local function prefix_diagnostic(prefix, diagnostic)
+  return string.format(prefix .. ' %s', diagnostic.message)
+end
+
+vim.diagnostic.config {
+  virtual_text = {
+    prefix = '',
+    format = function(diagnostic)
+      local severity = diagnostic.severity
+      if severity == vim.diagnostic.severity.ERROR then
+        return prefix_diagnostic('✘', diagnostic)
+      end
+      if severity == vim.diagnostic.severity.WARN then
+        return prefix_diagnostic('⚠', diagnostic)
+      end
+      if severity == vim.diagnostic.severity.INFO then
+        return prefix_diagnostic('ⓘ', diagnostic)
+      end
+      return prefix_diagnostic('■', diagnostic)
+    end,
+  },
+}
