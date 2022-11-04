@@ -90,6 +90,9 @@ vim.diagnostic.config {
       if severity == vim.diagnostic.severity.INFO then
         return prefix_diagnostic('ⓘ', diagnostic)
       end
+      if severity == vim.diagnostic.severity.HINT then
+        return prefix_diagnostic('', diagnostic)
+      end
       return prefix_diagnostic('■', diagnostic)
     end,
   },
