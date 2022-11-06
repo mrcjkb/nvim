@@ -85,14 +85,14 @@ ht.setup {
   },
 }
 
-local dap_python = require('dap-python')
+-- local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
   on_attach(client, bufnr)
   on_dap_attach(bufnr)
   local opts = { noremap=true, silent=true }
-  vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
-  vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
-  vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
+  -- vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
+  -- vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
+  -- vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
 end
 lspconfig.pyright.setup{
   on_attach = on_pyright_attach,
