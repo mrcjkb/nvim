@@ -26,14 +26,6 @@ return require('packer').startup(function(use)
 
   -- lazy loaded
 
-  -- use {
-  --   'weirongxu/plantuml-previewer.vim',
-  --   requires = {
-  --     'tyru/open-browser.vim',
-  --     'aklt/plantuml-syntax',
-  --   }
-  -- }
-
   use { 
     'toppair/peek.nvim', 
     run = 'deno task --quiet build:fast',
@@ -188,7 +180,7 @@ return require('packer').startup(function(use)
 
   -- Material colort theme
   use {
-    'marko-cerovac/material.nvim', -- TODO: Package for nix
+    'marko-cerovac/material.nvim',
     branch = 'main',
     setup = function()
       vim.g.material_style = 'darker'
@@ -239,7 +231,6 @@ return require('packer').startup(function(use)
 
       -- Debug Adapter Protocol
       'mfussenegger/nvim-dap',
-      'mfussenegger/nvim-dap-python',
       'rcarriga/nvim-dap-ui',
       'theHamsta/nvim-dap-virtual-text',
       'jbyuki/one-small-step-for-vimkind', -- Debug Adapter for neovim/lua
@@ -287,24 +278,12 @@ return require('packer').startup(function(use)
       'onsails/lspkind-nvim', -- Autocomplete icons
       'rcarriga/cmp-dap',
     },
+    setup = function()
+      vim.o.completeopt = 'menu,menuone,noselect'
+    end,
     config = function()
       vim.schedule(function()
         require('completion-config')
-      end)
-      vim.cmd('set completeopt=menu,menuone,noselect') 
-      --Avoid showing message extra message when using completion
-      -- vim.cmd 'set shortmess+=c'
-    end,
-  }
-
-  use {
-    'folke/zen-mode.nvim', -- Adds a :ZenMode
-    config = function()
-      vim.schedule(function()
-        vim.api.nvim_set_keymap('n', '<leader>z', ':ZenMode<Cr>', { noremap = true, silent = true })
-        require("zen-mode").setup( {
-          backdrop = 1,
-        })
       end)
     end,
   }
@@ -349,15 +328,6 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-context' 
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
   use 'nvim-treesitter/nvim-treesitter-refactor'
-
-  use {
-    'folke/twilight.nvim', -- Dim inactive portions of code (powered by TreeSitter)
-    config = function()
-      vim.schedule(function()
-        require('twilight-config')
-      end)
-    end,
-  }
 
   use {
     'git@github.com:mfussenegger/nvim-lint.git',
@@ -415,11 +385,16 @@ return require('packer').startup(function(use)
   }
 
   use {
+    -- Project management
     -- Changes the working directory to the project root when you open a file or directory.
-    'airblade/vim-rooter',
-    setup = function()
-      -- Change each buffer’s directory, instead of the whole editor
-      vim.g.rooter_cd_cmd = 'lcd'
+    'ahmedkhalf/project.nvim',
+    config = function()
+      require('project_nvim').setup {
+        patterns = { '.git', '_darcs', '.hg', '.bzr', '.svn', 'Makefile', 'package.json', 
+                     'cabal.project', 'stack.yaml', 'hie.yaml', 'build.gradle', 'build.grale.kts',
+                   },
+        scope_chdir = 'win',
+      }
     end,
   }
 
@@ -427,7 +402,7 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     requires = {
-      'luc-tielen/telescope_hoogle', -- TODO: Package for nix
+      'luc-tielen/telescope_hoogle',
       'MrcJkb/telescope-manix',
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
@@ -459,7 +434,7 @@ return require('packer').startup(function(use)
   }
 
   -- proviedes lua scratch pad
-  use { 'bfredl/nvim-luadev' } -- TODO: Package for nix
+  use { 'bfredl/nvim-luadev' }
 
   -- Fuzzy search
   use {
@@ -512,8 +487,6 @@ return require('packer').startup(function(use)
       vim.g.rnvimr_enable_bw = 1
       vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', {silent = true,})
       vim.keymap.set({'n', 't'}, '<M-r>', ':RnvimrToggle<CR>', {silent = true,})
-  -- nnrremap <silent> <M-r> :RnvimrToggle<CR>
-  -- tnoremap <silent> <M-O> <C-\><C-n>:RnvimrToggle<CR>
       -- Map Rnvimr action
       vim.g.rnvimr_action = {
           ['<C-t>'] = 'NvimEdit tabedit',
