@@ -57,7 +57,7 @@
           unstable.haskellPackages.ghci-dap
           unstable.haskellPackages.haskell-dap
           unstable.stylish-haskell
-          unstable.rnix-lsp # Nix language server
+          unstable.nil # Nix language server
           unstable.rust-analyzer
           unstable.ninja # Small build system with a focus on speed (used to build sumneko-lua-language-server for nlua.nvim)
           unstable.sumneko-lua-language-server
