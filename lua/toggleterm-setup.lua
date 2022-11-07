@@ -1,5 +1,11 @@
 require("toggleterm").setup{
-  size = 50,
+  size = function(term)
+    if term.direction == "horizontal" then
+      return vim.o.lines / 2
+    elseif term.direction == "vertical" then
+      return vim.o.columns / 2
+    end
+  end,
   open_mapping = [[<M-t>]],
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
