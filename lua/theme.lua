@@ -31,7 +31,7 @@ require('material').setup({
   },
   async_loading = true,
   custom_highlights = {
-    LspCodeLens = { link = 'DiagnosticHint' }
+    LspCodeLens = { link = 'DiagnosticHint', italic = true, }
   },
   custom_colors = function(colors)
     colors.editor.fg = "#FFFFFF"
