@@ -700,7 +700,8 @@ return require('packer').startup(function(use)
   }
 
   use { 
-    'hkupty/iron.nvim',
+    -- 'hkupty/iron.nvim',
+    'MrcJkb/iron.nvim-fork',
     config = function()
       require('repl-setup')
     end
