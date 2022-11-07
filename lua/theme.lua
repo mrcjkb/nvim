@@ -30,6 +30,9 @@ require('material').setup({
     darker = true,
   },
   async_loading = true,
+  custom_highlights = {
+    LspCodeLens = { link = 'DiagnosticHint' }
+  },
   custom_colors = function(colors)
     colors.editor.fg = "#FFFFFF"
     colors.editor.fg_dark = colors.main.white
