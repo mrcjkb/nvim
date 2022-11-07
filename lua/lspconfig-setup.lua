@@ -70,12 +70,13 @@ local on_dap_attach = function(bufnr)
 end
 
 local ht = require('haskell-tools')
+local def_opts = { noremap=true, silent=true, }
 ht.setup {
   hls = {
     on_attach = function (client, bufnr)
       on_attach(client, bufnr)
       on_dap_attach(bufnr)
-      local opts = { noremap=true, silent=true, buffer = bufnr }
+      local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
       keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
     end,
     haskell = {
@@ -84,12 +85,13 @@ ht.setup {
     },
   },
 }
+vim.keymap.set('n', '<leader>hg', ht.repl.toggle_repl, def_opts)
 
 -- local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
   on_attach(client, bufnr)
   on_dap_attach(bufnr)
-  local opts = { noremap=true, silent=true }
+  -- local opts = { noremap=true, silent=true }
   -- vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
   -- vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
   -- vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
