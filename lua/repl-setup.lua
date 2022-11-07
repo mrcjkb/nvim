@@ -6,8 +6,9 @@ iron.setup {
     scratch_repl = true,
     repl_definition = {
       haskell = {
-        command = function()
-          return require('haskell-tools').repl.mk_repl_cmd()
+        command = function(meta)
+          local file = vim.api.nvim_buf_get_name(meta.current_bufnr)
+          return require('haskell-tools').repl.mk_repl_cmd(file)
         end,
       }
     },
