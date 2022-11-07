@@ -6,11 +6,9 @@ iron.setup {
     scratch_repl = true,
     repl_definition = {
       haskell = {
-        command = {
-          'cabal',
-          'v2-repl',
-          'all',
-        }
+        command = function()
+          return require('haskell-tools').repl.mk_repl_cmd()
+        end,
       }
     },
     -- How the repl window will be displayed
