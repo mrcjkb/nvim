@@ -96,9 +96,24 @@ return require('packer').startup(function(use)
   -- NeoVim clone of Magit
   use { 
     'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+    },
     config = function()
-      require('neogit').setup()
+      local neogit = require('neogit')
+      neogit.setup {
+        integrations = {
+          diffview = true,
+        },
+        mappings = {
+          ["a"] = "Stage",
+          ["A"] = "StageAll",
+          [">"] = "Toggle",
+        },
+      }
+      vim.keymap.set('n', '<leader>go', neogit.open)
+      vim.keymap.set('n', '<leader>gs', function() neogit.open {kind = 'split'} end)
     end,
   }
 
