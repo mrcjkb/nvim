@@ -250,14 +250,14 @@ return require('packer').startup(function(use)
       'theHamsta/nvim-dap-virtual-text',
       'jbyuki/one-small-step-for-vimkind', -- Debug Adapter for neovim/lua
 
-      -- Additional plugins used in lspconfig-setup
+      -- Additional plugins used in lsp.lua
       'nvim-lua/lsp-status.nvim', -- LSP status line info
       'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
       'camilledejoye/nvim-lsp-selection-range', -- LSP selection range
     },
     config = function()
       require('dap-setup')
-      require('lspconfig-setup')
+      require('lsp')
       require('lsp-overrides').setup()
     end,
   }

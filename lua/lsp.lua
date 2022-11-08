@@ -85,7 +85,10 @@ ht.setup {
     },
   },
 }
-vim.keymap.set('n', '<leader>hg', ht.repl.toggle_repl, def_opts)
+vim.keymap.set('n', '<leader>rp', ht.repl.toggle_repl, def_opts)
+vim.keymap.set('n', '<leader>rf', function()
+    ht.repl.toggle_repl(vim.api.nvim_buf_get_name(0))
+end, def_opts)
 
 -- local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
