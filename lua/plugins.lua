@@ -366,30 +366,16 @@ return require('packer').startup(function(use)
   }
 
   use {
-    -- Snippet support
-    'norcalli/snippets.nvim',
-    config = function ()
-      require'snippets'.use_suggested_mappings()
-      -- This variant will set up the mappings only for the *CURRENT* buffer.
-      -- There are only two keybindings specified by the suggested keymappings, which is <C-k> and <C-j>
-      -- They are exactly equivalent to:
-      -- <c-k> will either expand the current snippet at the word or try to jump to
-      -- the next position for the snippet.
-      vim.keymap.set('i', '<c-k>', function()
-        return require'snippets'.expand_or_advance(1)
-      end, {noremap = true,})
-      -- <c-j> will jump backwards to the previous field.
-      -- If you jump before the first field, it will cancel the snippet.
-      vim.keymap.set('i', '<c-j>', function()
-        return require'snippets'.advance_snipped(-1)
-      end, {noremap = true,})
+    'SirVer/ultisnips',
+    setup = function()
+      vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "ultisnips"}
     end,
   }
 
   use {
-    'SirVer/ultisnips',
-    setup = function()
-      vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "ultisnips"}
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require('luasnip-config')
     end,
   }
 
