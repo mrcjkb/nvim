@@ -692,6 +692,13 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    "jbyuki/venn.nvim",
+    config = function()
+      require('venn')
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
     vim.cmd 'TSInstall all'
