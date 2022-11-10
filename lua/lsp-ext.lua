@@ -1,7 +1,7 @@
 local if_nil = vim.F.if_nil
-local protocol = require('vim.lsp.protocol')
-local util = require('vim.lsp.util')
-local diagnostic = require('vim.lsp.diagnostic')
+local protocol = vim.lsp.protocol
+local util = vim.lsp.util
+local diagnostic = vim.diagnostic
 
 local M = {}
 
