@@ -11,10 +11,13 @@ end
 
 local function grep_current_file_type(func)
   local current_file_ext = vim.fn.expand('%:e')
-  local additional_vimgrep_arguments = { 
-    '--type', 
-    current_file_ext,
-  }
+  local additional_vimgrep_arguments = {}
+  if current_file_ext ~= '' then
+    additional_vimgrep_arguments = vim.list_extend(additional_vimgrep_arguments, { 
+      '--type', 
+      current_file_ext,
+    })
+  end
   local conf = require('telescope.config').values
   func({
     vimgrep_arguments = vim.tbl_flatten({ 
