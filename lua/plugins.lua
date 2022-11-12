@@ -699,6 +699,12 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use {
+    -- Leverages Neovim's built-in RPC functionality to simplify opening files from 
+    -- within Neovim's terminal emulator without unintentionally nesting sessions.
+    'samjwill/nvim-unception'
+  }
+
   if packer_bootstrap then
     require('packer').sync()
     vim.cmd 'TSInstall all'

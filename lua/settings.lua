@@ -64,11 +64,6 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
 
 vim.g.markdown_syntax_conceal = 0
 
--- Prevent nested nvim instances
-if fn.executable('nvr') then
-  vim.fn.setenv('VISUAL', "nvr -cc split --remote-wait + 'set bufhidden=wipe'")
-end
-
 -- Set default shell
 opt.shell = "fish"
 

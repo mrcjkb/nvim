@@ -34,21 +34,6 @@
         systemPackages = [
           unstable.neovim
           unstable.neovide
-          (neovim-remote.overrideAttrs (old: {
-            # Workaround for failing pytest
-            doCheck = false;
-            preCheck = ''
-              cat >pytest.ini <<EOF
-              [pytest]
-              filterwarnings =
-                  ignore::DeprecationWarning
-              EOF
-              cat >tests/test_nvr.py <<EOF
-              def test_placeholder():
-                pass
-              EOF
-            '';
-          }))
           unstable.tree-sitter
           unstable.haskellPackages.hoogle
           unstable.haskellPackages.hlint
