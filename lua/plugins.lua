@@ -267,7 +267,7 @@ return require('packer').startup(function(use)
     config = function()
       local lightbulb = require('nvim-lightbulb')
       lightbulb.setup({autocmd = {enabled = false}})
-      vim.api.nvim_create_autocmd( { 'CursorHold', 'CursorHoldI', 'CursorMoved', }, {
+      vim.api.nvim_create_autocmd( { 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged', }, {
         desc = 'Show lightbulb in the signcolumn whenever an LSP action is available',
         group = vim.api.nvim_create_augroup('LspLightBulb', {}),
         callback = lightbulb.update_lightbulb,
