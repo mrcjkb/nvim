@@ -265,7 +265,14 @@ return require('packer').startup(function(use)
   use {
     'kosayoda/nvim-lightbulb',
     config = function()
-      require('nvim-lightbulb').setup({autocmd = {enabled = true}})
+      local lightbulb = require('nvim-lightbulb')
+      lightbulb.setup({autocmd = {enabled = false}})
+      vim.api.nvim_create_autocmd( { 'CursorHold', 'CursorHoldI', 'CursorMoved', }, {
+        desc = 'Show lightbulb in the signcolumn whenever an LSP action is available',
+        group = vim.api.nvim_create_augroup('LspLightBulb', {}),
+        callback = lightbulb.update_lightbulb,
+        pattern = '*',
+      })
     end,
   }
 

@@ -64,6 +64,8 @@ vim.api.nvim_create_autocmd('RecordingLeave', {
 
 vim.g.markdown_syntax_conceal = 0
 
+opt.updatetime = 100
+
 -- Set default shell
 opt.shell = "fish"
 
