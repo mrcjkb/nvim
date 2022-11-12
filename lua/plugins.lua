@@ -107,9 +107,9 @@ return require('packer').startup(function(use)
           diffview = true,
         },
         mappings = {
-          ["a"] = "Stage",
-          ["A"] = "StageAll",
-          [">"] = "Toggle",
+          ['a'] = 'Stage',
+          ['A'] = 'StageAll',
+          ['>'] = 'Toggle',
         },
       }
       vim.keymap.set('n', '<leader>go', neogit.open)
@@ -138,9 +138,9 @@ return require('packer').startup(function(use)
   }
 
   use({
-    "kylechui/nvim-surround", -- Add "surroundings text-object cammands"
+    'kylechui/nvim-surround', -- Add 'surroundings text-object cammands'
     config = function()
-      require("nvim-surround").setup({
+      require('nvim-surround').setup({
       })
     end
   })
@@ -219,15 +219,15 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "nvim-neotest/neotest",
+    'nvim-neotest/neotest',
     requires = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "MrcJkb/neotest-haskell",
-      "nvim-neotest/neotest-python",
-      "nvim-neotest/neotest-plenary",
-      "rouge8/neotest-rust",
-      -- "nvim-neotest/neotest-vim-test",
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'MrcJkb/neotest-haskell',
+      'nvim-neotest/neotest-python',
+      'nvim-neotest/neotest-plenary',
+      'rouge8/neotest-rust',
+      -- 'nvim-neotest/neotest-vim-test',
     },
     config = function()
       require('neotest-config')
@@ -311,7 +311,7 @@ return require('packer').startup(function(use)
     config = function()
       vim.schedule(function()
         require('treesitter-config')
-        require "nvim-treesitter.configs".setup {
+        require 'nvim-treesitter.configs'.setup {
           playground = { -- Toggle with :TSPlaygroundToggle
             enable = true,
             disable = {},
@@ -333,7 +333,7 @@ return require('packer').startup(function(use)
           query_linter = {
             enable = true,
             use_virtual_text = true,
-            lint_events = {"BufWrite", "CursorHold"},
+            lint_events = {'BufWrite', 'CursorHold'},
           },
         }
       end)
@@ -348,8 +348,8 @@ return require('packer').startup(function(use)
     'git@github.com:mfussenegger/nvim-lint.git',
     config = function()
       local lint = require('lint')
-      local hlint_hint_file = os.getenv("HLINT_HINT")
-      if hlint_hint_file and hlint_hint_file ~= "" then
+      local hlint_hint_file = os.getenv('HLINT_HINT')
+      if hlint_hint_file and hlint_hint_file ~= '' then
         lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file}
       end
       lint.linters_by_ft = {
@@ -368,7 +368,7 @@ return require('packer').startup(function(use)
   use {
     'SirVer/ultisnips',
     setup = function()
-      vim.g.UltiSnipsSnippetDirectories = {"UltiSnips", "ultisnips"}
+      vim.g.UltiSnipsSnippetDirectories = {'UltiSnips', 'ultisnips'}
     end,
   }
 
@@ -502,9 +502,9 @@ return require('packer').startup(function(use)
 
   -- Edit directories in a buffer. :Dirbuf
   use {
-    "elihunter173/dirbuf.nvim",
+    'elihunter173/dirbuf.nvim',
     config = function()
-      require("dirbuf").setup {}
+      require('dirbuf').setup {}
     end,
  }
 
@@ -513,7 +513,7 @@ return require('packer').startup(function(use)
 
   -- Wrapper for toggling NeoVim terminals
   use {
-    "akinsho/toggleterm.nvim",
+    'akinsho/toggleterm.nvim',
     config = function()
       vim.schedule(function()
         require('toggleterm-setup')
@@ -635,7 +635,7 @@ return require('packer').startup(function(use)
   use {
     'mhartington/formatter.nvim',
     config = function ()
-      local stylish_config = os.getenv("STYLISH_HASKELL_CONFIG")
+      local stylish_config = os.getenv('STYLISH_HASKELL_CONFIG')
       if stylish_config then
         local stylish_haskell = require('formatter.filetypes.haskell').stylish_haskell()
         require('formatter').setup {
@@ -662,9 +662,9 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "gbprod/yanky.nvim",
+    'gbprod/yanky.nvim',
     config = function()
-      require("yanky").setup {
+      require('yanky').setup {
         highlight = {
           on_put = true,
           on_yank = true,
@@ -674,15 +674,15 @@ return require('packer').startup(function(use)
           enabled = true,
         },
       }
-      vim.keymap.set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-      vim.keymap.set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-      vim.keymap.set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-      vim.keymap.set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
-      vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-      vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-      vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
+      vim.keymap.set({'n','x'}, 'p', '<Plug>(YankyPutAfter)')
+      vim.keymap.set({'n','x'}, 'P', '<Plug>(YankyPutBefore)')
+      vim.keymap.set({'n','x'}, 'gp', '<Plug>(YankyGPutAfter)')
+      vim.keymap.set({'n','x'}, 'gP', '<Plug>(YankyGPutBefore)')
+      vim.keymap.set('n', '<c-n>', '<Plug>(YankyCycleForward)')
+      vim.keymap.set('n', '<c-p>', '<Plug>(YankyCycleBackward)')
+      vim.keymap.set({'n','x'}, 'y', '<Plug>(YankyYank)')
     end,
-    requires = { "kkharji/sqlite.lua" },
+    requires = { 'kkharji/sqlite.lua' },
   }
 
   use { 
@@ -693,7 +693,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "jbyuki/venn.nvim",
+    'jbyuki/venn.nvim',
     config = function()
       require('venn')
     end,
