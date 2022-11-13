@@ -207,7 +207,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'git@github.com:vim-test/vim-test',
+    'vim-test/vim-test',
     -- 'git@github.com:MrcJkb/vim-test',
     -- branch = 'stacktest-improvements',
     setup = function()
@@ -352,7 +352,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-refactor'
 
   use {
-    'git@github.com:mfussenegger/nvim-lint.git',
+    'mfussenegger/nvim-lint.git',
     config = function()
       local lint = require('lint')
       local hlint_hint_file = os.getenv('HLINT_HINT')
