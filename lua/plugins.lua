@@ -352,7 +352,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-refactor'
 
   use {
-    'mfussenegger/nvim-lint.git',
+    'mfussenegger/nvim-lint',
     config = function()
       local lint = require('lint')
       local hlint_hint_file = os.getenv('HLINT_HINT')
