@@ -88,8 +88,8 @@ ht.setup {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'haskell',
   group = vim.api.nvim_create_augroup("haskell-keymaps", {}),
-  callback = function(bufnr)
-    bufnr = bufnr or vim.api.nvim_get_current_buf()
+  callback = function(meta)
+    local bufnr = meta and meta.buf vim.api.nvim_get_current_buf()
     local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
     keymap.set('n', '<leader>rr', ht.repl.toggle, opts)
     keymap.set('n', '<leader>rl', ht.repl.reload, opts)
