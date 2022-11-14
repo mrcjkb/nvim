@@ -91,7 +91,7 @@ telescope.setup {
   },
 }
 
-telescope.load_extension('haskell-tools')
+-- telescope.load_extension('haskell-tools')
 telescope.load_extension('hoogle')
 telescope.load_extension('manix')
 telescope.load_extension('repo')

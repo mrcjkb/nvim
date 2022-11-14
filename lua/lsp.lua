@@ -85,14 +85,15 @@ ht.setup {
     },
   },
 }
-vim.keymap.set('n', '<leader>rr', ht.repl.toggle, def_opts)
-vim.keymap.set('n', '<leader>rf', function()
+keymap.set('n', '<leader>rr', ht.repl.toggle, def_opts)
+keymap.set('n', '<leader>rf', function()
     ht.repl.toggle(vim.api.nvim_buf_get_name(0))
 end, def_opts)
-vim.keymap.set('n', '<leader>rq', ht.repl.quit, def_opts)
-vim.keymap.set('n', '<leader>rp', ht.repl.paste, def_opts)
-vim.keymap.set('n', '<leader>rt', ht.repl.paste_type, def_opts)
-vim.keymap.set('n', '<leader>rw', ht.repl.cword_type, def_opts)
+keymap.set('n', '<leader>rq', ht.repl.quit, def_opts)
+keymap.set('n', '<leader>rp', ht.repl.paste, def_opts)
+keymap.set('n', '<leader>rt', ht.repl.paste_type, def_opts)
+keymap.set('n', '<leader>rw', ht.repl.cword_type, def_opts)
+keymap.set('n', '<leader>sp', ht.project.telescope_package_grep, def_opts)
 
 -- local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
