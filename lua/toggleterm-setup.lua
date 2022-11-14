@@ -21,6 +21,4 @@ require("toggleterm").setup{
   autochdir = false,
 }
 
-vim.keymap.set('n','<leader>g', '<cmd>TermExec cmd=\"cabal v2-repl %\"<CR>', {silent = true,})
-
 vim.cmd 'set hidden' -- Required to persist toggleterm sessions
