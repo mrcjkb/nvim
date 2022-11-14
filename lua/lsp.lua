@@ -101,7 +101,7 @@ vim.api.nvim_create_autocmd('FileType', {
     keymap.set('n', '<leader>rt', ht.repl.paste_type, opts)
     keymap.set('n', '<leader>rw', ht.repl.cword_type, opts)
     keymap.set('n', '<space>gp', ht.project.telescope_package_grep, opts)
-    keymap.set('n', '<space>gf', ht.project.telescope_package_find, opts)
+    keymap.set('n', '<space>gf', ht.project.telescope_package_files, opts)
     -- TODO: remove when ambiguous target issue is resolved
     keymap.set('n','<leader>tt', '<cmd>TermExec cmd=\"cabal v2-repl %\"<CR>', opts)
   end
