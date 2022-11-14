@@ -85,7 +85,7 @@ ht.setup {
     },
   },
 }
-vim.api.vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd('FileType', {
   pattern = 'haskell',
   group = vim.api.nvim_create_augroup("haskell-keymaps", {}),
   callback = function(bufnr)
