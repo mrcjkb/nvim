@@ -85,16 +85,25 @@ ht.setup {
     },
   },
 }
-keymap.set('n', '<leader>rr', ht.repl.toggle, def_opts)
-keymap.set('n', '<leader>rf', function()
-    ht.repl.toggle(vim.api.nvim_buf_get_name(0))
-end, def_opts)
-keymap.set('n', '<leader>rq', ht.repl.quit, def_opts)
-keymap.set('n', '<leader>rp', ht.repl.paste, def_opts)
-keymap.set('n', '<leader>rt', ht.repl.paste_type, def_opts)
-keymap.set('n', '<leader>rw', ht.repl.cword_type, def_opts)
-keymap.set('n', '<space>gp', ht.project.telescope_package_grep, def_opts)
-keymap.set('n', '<space>gf', ht.project.telescope_package_find, def_opts)
+vim.api.vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'haskell',
+  group = vim.api.nvim_create_augroup("haskell-keymaps", {}),
+  callback = function(bufnr)
+    bufnr = bufnr or vim.api.nvim_get_current_buf()
+    local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
+    keymap.set('n', '<leader>rr', ht.repl.toggle, opts)
+    keymap.set('n', '<leader>rl', ht.repl.reload, opts)
+    keymap.set('n', '<leader>rf', function()
+        ht.repl.toggle(vim.api.nvim_buf_get_name(0))
+    end, opts)
+    keymap.set('n', '<leader>rq', ht.repl.quit, opts)
+    keymap.set('n', '<leader>rp', ht.repl.paste, opts)
+    keymap.set('n', '<leader>rt', ht.repl.paste_type, opts)
+    keymap.set('n', '<leader>rw', ht.repl.cword_type, opts)
+    keymap.set('n', '<space>gp', ht.project.telescope_package_grep, opts)
+    keymap.set('n', '<space>gf', ht.project.telescope_package_find, opts)
+  end
+})
 
 -- local dap_python = require('dap-python')
 local on_pyright_attach = function(client, bufnr)
