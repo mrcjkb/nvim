@@ -138,7 +138,9 @@ lspconfig.vimls.setup{
 
 require('neodev').setup {
   override = function(root_dir, library)
-    if require('neodev.util').has_file(root_dir, "/etc/nixos") then
+    local util = require('neodev.util')
+    if util.has_file(root_dir, '/etc/nixos') 
+      or util.has_file(root_dir, 'nvim-config') then
       library.enabled = true
       library.plugins = true
     end
