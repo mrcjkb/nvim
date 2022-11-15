@@ -258,7 +258,7 @@ return require('packer').startup(function(use)
     config = function()
       require('dap-setup')
       require('lsp')
-      require('lsp-overrides').setup()
+      -- require('lsp-overrides').setup()
     end,
   }
 
