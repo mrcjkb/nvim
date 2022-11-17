@@ -270,9 +270,6 @@ function Setup_jdtls()
       contentProvider = { preferred = 'fernflower' };
       completion = {
         favoriteStaticMembers = {
-          "java.util.function.Predicate.not",
-          "java.util.function.Function.identity",
-          "java.util.logging.*",
           "org.junit.jupiter.api.Assertions.*",
           "org.mockito.Mockito.*",
           "io.vavr.API.$",
@@ -293,18 +290,6 @@ function Setup_jdtls()
           template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
         }
       };
-      -- configuration = {
-        -- runtimes = {
-          -- {
-          --   name = "JavaSE-17",
-          --   path = "/usr/lib/jvm/liberica-jdk-full/",
-          -- },
-          -- {
-          --   name = "JavaSE-11",
-          --   path = "/usr/lib/jvm/liberica-jdk-11-full/",
-          -- },
-    --     }
-    --   };
     };
   }
   config.cmd = {'jdt-language-server', workspace_folder}
@@ -312,16 +297,6 @@ function Setup_jdtls()
   config.on_init = function(client, _)
     client.notify('workspace/didChangeConfiguration', { settings = config.settings })
   end
-  -- local extendedClientCapabilities = require'jdtls'.extendedClientCapabilities
-  -- extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
-  -- local bundles = {
-  --   vim.fn.glob(home .. "/git/clones/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
-  -- }
-  -- vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/git/clones/vscode-java-test/server/*.jar"), "\n"))
-  -- config.init_options = {
-    -- extendedClientCapabilities = extendedClientCapabilities;
-    -- bundles = bundles;
-  -- }
   jdtls.start_or_attach(config)
 end
 
