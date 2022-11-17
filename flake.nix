@@ -41,6 +41,7 @@
           unstable.haskellPackages.haskell-debug-adapter
           unstable.haskellPackages.ghci-dap
           unstable.haskellPackages.haskell-dap
+          unstable.haskellPackages.fast-tags # Fast tag generation
           unstable.stylish-haskell
           unstable.nil # Nix language server
           unstable.rust-analyzer
