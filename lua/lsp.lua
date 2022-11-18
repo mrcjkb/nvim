@@ -80,7 +80,7 @@ ht.setup {
       keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
     end,
     haskell = {
-      formattingProvider = 'stylish-haskell',
+      formattingProvider = 'fourmolu',
       checkProject = false,
     },
   },
