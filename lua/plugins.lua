@@ -272,14 +272,7 @@ return require('packer').startup(function(use)
   use {
     'kosayoda/nvim-lightbulb',
     config = function()
-      local lightbulb = require('nvim-lightbulb')
-      lightbulb.setup { autocmd = { enabled = false } }
-      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' }, {
-        desc = 'Show lightbulb in the signcolumn whenever an LSP action is available',
-        group = vim.api.nvim_create_augroup('LspLightBulb', {}),
-        callback = lightbulb.update_lightbulb,
-        pattern = '*',
-      })
+      require('nvim-lightbulb').setup { autocmd = { enabled = false } }
     end,
   }
 
@@ -348,9 +341,7 @@ return require('packer').startup(function(use)
       vim.api.nvim_create_autocmd('BufWritePost', {
         group = vim.api.nvim_create_augroup('lint-commands', {}),
         pattern = { '*.hs' },
-        callback = function()
-          require('lint').try_lint()
-        end,
+        callback = require('lint').try_lint,
       })
     end,
   }

@@ -59,6 +59,14 @@ local on_attach = function(client, bufnr)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
+
+  local lightbulb = require('nvim-lightbulb')
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' }, {
+    desc = 'Show lightbulb in the signcolumn whenever an LSP action is available',
+    group = vim.api.nvim_create_augroup('LspLightBulb', {}),
+    callback = lightbulb.update_lightbulb,
+    buffer = bufnr,
+  })
 end
 
 local on_dap_attach = function(bufnr)
@@ -99,8 +107,10 @@ ht.setup {
       local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
       keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
     end,
-    haskell = {
-      checkProject = false,
+    settings = {
+      haskell = {
+        formattingProvider = 'stylish-haskell',
+      },
     },
   },
 }
