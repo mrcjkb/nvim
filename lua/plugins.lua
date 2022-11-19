@@ -321,7 +321,11 @@ return require('packer').startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = { 
-      'nvim-treesitter/playground'
+      'nvim-treesitter/playground',
+      -- 'nvim-treesitter/nvim-treesitter-textobjects',
+      'MrcJkb/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-context',
+      'nvim-treesitter/nvim-treesitter-refactor',
     },
     config = function()
       vim.schedule(function()
@@ -354,10 +358,7 @@ return require('packer').startup(function(use)
       end)
     end,
   }
-  use 'nvim-treesitter/nvim-treesitter-textobjects' -- Treesitter-based text objects
-  use 'nvim-treesitter/nvim-treesitter-context' 
   use 'p00f/nvim-ts-rainbow' -- Rainbow brackets (needs nvim-treesitter)
-  use 'nvim-treesitter/nvim-treesitter-refactor'
 
   use {
     'mfussenegger/nvim-lint',
