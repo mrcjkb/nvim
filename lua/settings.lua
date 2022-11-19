@@ -2,8 +2,8 @@ local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.o
 
-cmd 'syntax on'
-cmd 'syntax enable'
+cmd('syntax on')
+cmd('syntax enable')
 opt.compatible = false
 
 -- Enable true colour support
@@ -16,7 +16,7 @@ opt.path = vim.o.path .. '**'
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
--- Enable tab-completion 
+-- Enable tab-completion
 -- opt.wildmenu = true
 -- opt.wildmode = 'full'
 -- opt.complete = '.,w,b,u,t,i,kspell'
@@ -34,7 +34,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 opt.foldenable = true
 opt.foldlevelstart = 10
-opt.foldmethod = 'indent'  -- fold based on indent level 
+opt.foldmethod = 'indent' -- fold based on indent level
 opt.history = 2000
 -- Increment numbers in decimal and hexadecimal formats
 opt.nrformats = 'bin,hex' -- 'octal'
@@ -43,23 +43,23 @@ opt.undofile = true
 -- Split right and below
 opt.splitright = true
 opt.splitbelow = true
--- Global statusline 
+-- Global statusline
 -- opt.laststatus = 3 -- managed by lualine
 -- Hide command line unless typing a command or printing a message
-opt.cmdheight = 0 
+opt.cmdheight = 0
 -- Workaround to show macro recording indicator
-local cmdheightaugroup = vim.api.nvim_create_augroup('cmdheight', {clear = true})
+local cmdheightaugroup = vim.api.nvim_create_augroup('cmdheight', { clear = true })
 vim.api.nvim_create_autocmd('RecordingEnter', {
   group = cmdheightaugroup,
   callback = function()
     opt.cmdheight = 1
-  end
+  end,
 })
 vim.api.nvim_create_autocmd('RecordingLeave', {
   group = cmdheightaugroup,
   callback = function()
     opt.cmdheight = 0
-  end
+  end,
 })
 
 vim.g.markdown_syntax_conceal = 0
@@ -67,7 +67,7 @@ vim.g.markdown_syntax_conceal = 0
 opt.updatetime = 100
 
 -- Set default shell
-opt.shell = "fish"
+opt.shell = 'fish'
 
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)

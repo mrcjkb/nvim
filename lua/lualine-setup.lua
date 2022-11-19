@@ -1,17 +1,17 @@
 local gps = require('nvim-gps')
 gps.setup()
-require('lualine').setup({
-  globalstatus = true;
+require('lualine').setup {
+  globalstatus = true,
   sections = {
     lualine_c = {
-      { 
+      {
         'filename',
         path = 1,
       },
       { gps.get_location, cond = gps.is_available },
     },
   },
-  options = { 
+  options = {
     theme = 'material-nvim',
   },
   tabline = {
@@ -19,7 +19,7 @@ require('lualine').setup({
       {
         'tabs',
         mode = 1,
-      }
+      },
     },
     lualine_b = {
       {
@@ -32,11 +32,11 @@ require('lualine').setup({
           dashboard = 'Dashboard',
           packer = 'Packer',
           fzf = 'FZF',
-          alpha = 'Alpha'
+          alpha = 'Alpha',
         },
         buffers_color = {
           -- Same values as the general color option can be used here.
-          active = 'lualine_b_normal',     -- Color for active buffer.
+          active = 'lualine_b_normal', -- Color for active buffer.
           inactive = 'lualine_b_inactive', -- Color for inactive buffer.
         },
       },
@@ -44,7 +44,7 @@ require('lualine').setup({
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = {},
   },
-  extenstions = {'fugitive', 'fzf', 'toggleterm', 'quickfix'}
-})
+  extenstions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
+}

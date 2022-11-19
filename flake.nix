@@ -1,7 +1,12 @@
 {
   description = "XDG config for nix home-manager";
 
-  outputs = {self, ...}:
+  pre-commit-hooks = {
+    url = "github:cachix/pre-commit-hooks.nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = {self, pre-commit-hooks, ...}:
   {
     nixosModule = { pkgs, defaultUser, ... }: {
 
@@ -66,6 +71,7 @@
           unstable.nodePackages.yarn # Required by markdown-preview vim plugin
           python-language-server
           unstable.nodePackages.pyright
+          unstable.stylua
         ];
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";

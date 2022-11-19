@@ -1,4 +1,4 @@
-require('material').setup({
+require('material').setup {
   contrast = {
     terminal = true,
     floating_windows = false,
@@ -6,7 +6,7 @@ require('material').setup({
     non_current_windows = true,
   },
   styles = {
-    comments = { italic = true, },
+    comments = { italic = true },
   },
   plugins = {
     'dap',
@@ -31,12 +31,12 @@ require('material').setup({
   },
   async_loading = true,
   custom_highlights = {
-    LspCodeLens = { link = 'DiagnosticHint', italic = true, }
+    LspCodeLens = { link = 'DiagnosticHint', italic = true },
   },
   custom_colors = function(colors)
-    colors.editor.fg = "#FFFFFF"
+    colors.editor.fg = '#FFFFFF'
     colors.editor.fg_dark = colors.main.white
     colors.editor.accent = colors.main.darkpurple
-  end
-})
-vim.cmd [[colorscheme material]]
+  end,
+}
+vim.cmd([[colorscheme material]])

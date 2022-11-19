@@ -7,7 +7,9 @@ local M = {}
 
 local DiagnosticSeverity = protocol.DiagnosticSeverity
 local to_severity = function(severity)
-  if not severity then return nil end
+  if not severity then
+    return nil
+  end
   return type(severity) == 'string' and DiagnosticSeverity[severity] or severity
 end
 
@@ -24,7 +26,7 @@ end
 function M.diagnostics_set_qflist(opts)
   opts = opts or {}
   local open_qflist = if_nil(opts.open_qflist, true)
-  local diags = diagnostic.get_all(opts.client_id) 
+  local diags = diagnostic.get_all(opts.client_id)
   local predicate = function(d)
     local severity = to_severity(opts.severity)
     if severity then
@@ -39,7 +41,7 @@ function M.diagnostics_set_qflist(opts)
   local items = util.diagnostics_to_items(diags, predicate)
   util.set_qflist(items)
   if open_qflist then
-    vim.cmd [[copen]]
+    vim.cmd([[copen]])
   end
 end
 

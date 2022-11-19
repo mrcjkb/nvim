@@ -5,9 +5,9 @@ end
 local M = {}
 
 function M.setup()
-  nnoremap('<leader>hm', '<Cmd>lua require(\'harpoon.mark\').add_file()<CR>')
-  nnoremap('<leader>ht', '<Cmd>lua require(\'harpoon.ui\').toggle_quick_menu()<CR>')
-  nnoremap('<leader>hc', '<Cmd>lua require(\'harpoon.cmd-ui\').toggle_quick_menu()<CR>')
+  nnoremap('<leader>hm', "<Cmd>lua require('harpoon.mark').add_file()<CR>")
+  nnoremap('<leader>ht', "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+  nnoremap('<leader>hc', "<Cmd>lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>")
 end
 
 require('harpoon').setup()

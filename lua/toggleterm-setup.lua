@@ -1,8 +1,8 @@
-require("toggleterm").setup{
+require('toggleterm').setup {
   size = function(term)
-    if term.direction == "horizontal" then
+    if term.direction == 'horizontal' then
       return vim.o.lines / 2
-    elseif term.direction == "vertical" then
+    elseif term.direction == 'vertical' then
       return vim.o.columns / 2
     end
   end,
@@ -21,4 +21,4 @@ require("toggleterm").setup{
   autochdir = false,
 }
 
-vim.cmd 'set hidden' -- Required to persist toggleterm sessions
+vim.cmd('set hidden') -- Required to persist toggleterm sessions
