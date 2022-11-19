@@ -21,9 +21,12 @@ configs.setup {
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
         ["aC"] = "@comment.outer",
-        ["iC"] = "@comment.inner",
+        ["iC"] = "@comment.outer",
+        ["ai"] = "@conditional.outer",
+        ["ii"] = "@conditional.outer",
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
+        ["aP"] = "@parameter.outer",
         ["iP"] = "@parameter.inner",
       },
       selection_modes = {
@@ -45,20 +48,24 @@ configs.setup {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
-        ["]m"] = "@function.outer",
-        ["]]"] = "@class.outer",
+        ["]f"] = "@function.outer",
+        ["]P"] = "@parameter.outer",
+        ["]c"] = "@class.outer",
       },
       goto_next_end = {
-        ["]M"] = "@function.outer",
-        ["]["] = "@class.outer",
+        ["]f"] = "@function.outer",
+        ["]P"] = "@parameter.outer",
+        ["]c"] = "@class.outer",
       },
       goto_previous_start = {
-        ["[m"] = "@function.outer",
-        ["[["] = "@class.outer",
+        ["[f"] = "@function.outer",
+        ["[P"] = "@parameter.outer",
+        ["[c"] = "@class.outer",
       },
       goto_previous_end = {
-        ["[M"] = "@function.outer",
-        ["[]"] = "@class.outer",
+        ["[f"] = "@function.outer",
+        ["[P"] = "@parameter.outer",
+        ["[c"] = "@class.outer",
       },
     },
     lsp_interop = {
