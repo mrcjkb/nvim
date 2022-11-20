@@ -1,12 +1,7 @@
 {
   description = "XDG config for nix home-manager";
 
-  pre-commit-hooks = {
-    url = "github:cachix/pre-commit-hooks.nix";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
-  outputs = {self, pre-commit-hooks, ...}:
+  outputs = {self, ...}:
   {
     nixosModule = { pkgs, defaultUser, ... }: {
 
