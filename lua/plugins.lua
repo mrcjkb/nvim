@@ -292,6 +292,9 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-document-symbol',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-omni',
       'quangnguyen30192/cmp-nvim-ultisnips',
       'hrsh7th/vim-vsnip', -- VSCode vsnip for use with LSP autocomplete
       'hrsh7th/vim-vsnip-integ',
@@ -299,6 +302,9 @@ return require('packer').startup(function(use)
       'lukas-reineke/cmp-rg',
       'onsails/lspkind-nvim', -- Autocomplete icons
       'rcarriga/cmp-dap',
+      'amarakon/nvim-cmp-buffer-lines',
+      'davidsierradz/cmp-conventionalcommits',
+      'dmitmel/cmp-cmdline-history',
     },
     setup = function()
       vim.o.completeopt = 'menu,menuone,noselect'

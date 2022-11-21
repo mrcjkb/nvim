@@ -23,33 +23,36 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
       -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
-      -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
     end,
   },
   mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<C-y>'] = cmp.mapping.confirm {
-      behaviour = cmp.ConfirmBehavior.Insert,
       select = true,
     }, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
+    { name = 'omni' },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'nvim_lsp_signature_help' },
     -- { name = 'luasnip' }, -- For luasnip users.
+    { name = 'vsnip' }, -- For vsnip users.
     { name = 'ultisnips' }, -- For ultisnips users.
+    { name = 'rg', keyword_length = 3 },
     -- { name = 'snippy' }, -- For snippy users.
     { name = 'buffer', keyword_length = 3 },
     { name = 'path' },
-    { name = 'rg', keyword_length = 3 },
+    { name = 'buffer-lines', keyword_length = 3 },
   },
   enabled = function()
     return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()
@@ -64,6 +67,7 @@ cmp.setup {
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources {
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    { name = 'conventionalcommits' },
     { name = 'buffer' },
   },
 })
@@ -78,7 +82,9 @@ cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
+    { name = 'nvim_lsp_document_symbol' },
     { name = 'buffer' },
+    { name = 'cmdline_history' },
   },
 })
 
@@ -88,5 +94,6 @@ cmp.setup.cmdline(':', {
   sources = cmp.config.sources {
     { name = 'path' },
     { name = 'cmdline' },
+    { name = 'cmdline_history' },
   },
 })
