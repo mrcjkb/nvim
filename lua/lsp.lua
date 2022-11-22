@@ -286,12 +286,21 @@ local on_jdtls_attach = function(client, bufnr)
   require('lsp-status').register_progress()
 end
 
-local jdtls_capabilities = capabilities
 function Setup_jdtls()
   local root_markers = { 'gradlew', 'mvnw', '.classpath' }
   local root_dir = require('jdtls.setup').find_root(root_markers)
-  jdtls_capabilities.workspace.configuration = true
-  jdtls_capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local jdtls_capabilities = vim.tbl_deep_extend('force', capabilities, {
+    workspace = {
+      configuration = true,
+      textDocument = {
+        completion = {
+          completionItem = {
+            snippetSupport = true,
+          },
+        },
+      },
+    },
+  })
   local workspace_folder = vim.fn.stdpath('data') .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
   local config = {
     flags = {
