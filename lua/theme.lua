@@ -25,6 +25,9 @@ require('material').setup {
     'trouble',
     'which-key',
   },
+  disable = {
+    colored_cursor = true,
+  },
   high_visibility = {
     lighter = true,
     darker = true,
