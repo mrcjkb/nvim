@@ -239,6 +239,7 @@ return require('packer').startup(function(use)
     requires = {
       'MrcJkb/haskell-tools.nvim',
       'simrat39/rust-tools.nvim',
+      'simrat39/inlay-hints.nvim',
       'mfussenegger/nvim-jdtls', -- Java LSP support
       'tjdevries/nlua.nvim', -- Lua development for neovim
       -- 'ShinKage/idris2-nvim',

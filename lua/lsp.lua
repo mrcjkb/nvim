@@ -6,6 +6,8 @@ local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
 local dap_utils = require('dap.utils')
 local dapui = require('dapui')
+local ih = require('inlay-hints')
+ih.setup()
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -59,6 +61,7 @@ local on_attach = function(client, bufnr)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
+  ih.on_attach(client, bufnr)
 
   local lightbulb = require('nvim-lightbulb')
   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' }, {
@@ -222,6 +225,9 @@ require('nlua.lsp.nvim').setup(lspconfig, {
       telemetry = {
         enable = false,
       },
+      hint = {
+        enable = true,
+      },
     },
   },
   on_attach = on_attach,
@@ -236,9 +242,10 @@ local rust_tools_opts = {
     },
     -- these apply to the default RustSetInlayHints command
     inlay_hints = {
-      show_parameter_hints = true,
-      parameter_hints_prefix = ' ← ',
-      other_hints_prefix = ' ⇒ ',
+      auto = false, -- provided by inlay-hints plugin
+      -- show_parameter_hints = true,
+      -- parameter_hints_prefix = ' ← ',
+      -- other_hints_prefix = ' ⇒ ',
     },
   },
   -- all the opts to send to nvim-lspconfig
