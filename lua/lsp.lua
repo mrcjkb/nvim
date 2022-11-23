@@ -113,6 +113,7 @@ ht.setup {
     settings = {
       haskell = {
         formattingProvider = 'stylish-haskell',
+        maxCompletions = 10,
       },
     },
   },
