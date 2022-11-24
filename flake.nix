@@ -59,6 +59,7 @@
           unstable.fzf # Fuzzy search
           unstable.xclip # Required so that neovim compiles with clipboard support
           unstable.ripgrep # Fast (Rust) re-implementation of grep
+          unstable.silver-searcher # Ag
           unstable.fd # Fast alternative to find
           unstable.deno # Used by peek.nvim for Markdown preview
           unstable.webkitgtk_4_1 # Dependency of deno, used by peek.nvim for Markdown preview
