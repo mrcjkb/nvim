@@ -256,13 +256,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'MrcJkb/nvim-lsp-foldexpr',
-    config = function()
-      require('lsp-foldexpr').setup()
-    end,
-  }
-
-  use {
     'kosayoda/nvim-lightbulb',
     config = function()
       require('nvim-lightbulb').setup { autocmd = { enabled = false } }
