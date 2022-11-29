@@ -152,13 +152,13 @@ return require('packer').startup(function(use)
       local p = require('persistence')
       p.setup()
       -- restore the session for the current directory
-      vim.keymap.set('n', '<leader>ps', p.load, {})
+      vim.keymap.set('n', '<leader>os', p.load, {})
       -- restore the last session
-      vim.keymap.set('n', '<leader>pl', function()
+      vim.keymap.set('n', '<leader>ol', function()
         p.load { last = true }
       end, {})
       -- stop Persistence => session won't be saved on exit
-      vim.keymap.set('n', '<leader>pd', p.stop, {})
+      vim.keymap.set('n', '<leader>od', p.stop, {})
     end,
   }
 
