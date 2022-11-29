@@ -36,7 +36,6 @@
           unstable.neovide
           unstable.tree-sitter
           unstable.haskellPackages.hoogle
-          unstable.haskellPackages.cabal-hoogle
           unstable.haskellPackages.hlint
           unstable.haskell-language-server
           unstable.haskellPackages.haskell-debug-adapter
