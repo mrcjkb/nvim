@@ -146,27 +146,19 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'jedrzejboczar/possession.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
+    'folke/persistence.nvim',
+    module = 'persistence',
     config = function()
-      require('possession').setup {
-        autosave = {
-          current = true, -- or fun(name): boolean
-          tmp = true, -- or fun(): boolean
-          tmp_name = 'tmp',
-          on_load = true,
-          on_quit = true,
-        },
-        commands = {
-          save = 'SSave',
-          load = 'SLoad',
-          close = 'SClose',
-          delete = 'SDelete',
-          show = 'SShow',
-          list = 'SList',
-          migrate = 'SMigrate',
-        },
-      }
+      local p = require('persistence')
+      p.setup()
+      -- restore the session for the current directory
+      vim.keymap.set('n', '<leader>qs', p.load, {})
+      -- restore the last session
+      vim.keymap.set('n', '<leader>ql', function()
+        p.load { last = true }
+      end, {})
+      -- stop Persistence => session won't be saved on exit
+      vim.keymap.set('n', '<leader>qd', p.stop, {})
     end,
   }
 
