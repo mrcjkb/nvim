@@ -288,7 +288,7 @@ return require('packer').startup(function(use)
       'lukas-reineke/cmp-rg',
       'onsails/lspkind-nvim', -- Autocomplete icons
       'rcarriga/cmp-dap',
-      'amarakon/nvim-cmp-buffer-lines',
+      -- 'amarakon/nvim-cmp-buffer-lines',
       'davidsierradz/cmp-conventionalcommits',
       'dmitmel/cmp-cmdline-history',
     },

@@ -52,7 +52,7 @@ cmp.setup {
     -- { name = 'snippy' }, -- For snippy users.
     { name = 'buffer', keyword_length = 3 },
     { name = 'path' },
-    { name = 'buffer-lines', keyword_length = 3 },
+    -- { name = 'buffer-lines', keyword_length = 3 },
   },
   enabled = function()
     return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()
