@@ -4,7 +4,7 @@ local fn = vim.fn
 local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
--- Automatic management of search highlight 
+-- Automatic management of search highlight
 local auto_hlsearch_namespace = vim.api.nvim_create_namespace('auto_hlsearch')
 vim.on_key(function(char)
   if vim.fn.mode() == 'n' then
