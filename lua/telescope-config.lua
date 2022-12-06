@@ -38,6 +38,7 @@ local function live_grep_current_file_type()
 end
 
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<M-p>', builtin.oldfiles, {})
 vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
 vim.keymap.set('n', '<M-g>', live_grep_current_file_type, {})
 vim.keymap.set('n', '<leader>t*', grep_string_current_file_type, {})
@@ -74,11 +75,14 @@ telescope.setup {
     path_display = {
       'shorten',
     },
-    -- layout_config = {
-    -- vertical = {
-    --   width = 100,
-    --   }
-    -- },
+    layout_config = {
+      horizontal = {
+        width = 0.8,
+        height = 0.9,
+        prompt_position = "bottom",
+        preview_cutoff = 40,
+      },
+    },
     mappings = {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
