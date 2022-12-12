@@ -75,18 +75,22 @@ telescope.setup {
     path_display = {
       'shorten',
     },
+    layout_strategy = 'vertical',
     layout_config = {
       vertical = {
         width = 0.8,
         height = 0.9,
         prompt_position = 'bottom',
-        preview_cutoff = 40,
       },
+      preview_cutoff = 120,
     },
     mappings = {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
         ['<C-l>'] = actions.send_to_loclist,
+      },
+      n = {
+        ['q'] = require('telescope.actions').close,
       },
     },
     preview = {
@@ -95,6 +99,22 @@ telescope.setup {
     history = {
       path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
       limit = 1000,
+    },
+    color_devicons = true,
+    set_env = { ['COLORTERM'] = 'truecolor' },
+    prompt_prefix = '   ',
+    selection_caret = '  ',
+    entry_prefix = '  ',
+    initial_mode = 'insert',
+    vimgrep_arguments = {
+      'rg',
+      '-L',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
     },
   },
   extensions = {
