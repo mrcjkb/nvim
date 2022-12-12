@@ -1,6 +1,9 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 cmp.setup {
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  },
   formatting = {
     format = lspkind.cmp_format {
       mode = 'symbol_text',
@@ -34,7 +37,15 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
+    -- toggle completion
+    ['<C-e>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.close()
+        fallback()
+      else
+        cmp.complete()
+      end
+    end),
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
     }, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
