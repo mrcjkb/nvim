@@ -293,7 +293,7 @@ return require('packer').startup(function(use)
       'dmitmel/cmp-cmdline-history',
     },
     setup = function()
-      vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+      vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
     end,
     config = function()
       vim.schedule(function()
