@@ -5,11 +5,18 @@ configs.setup {
   auto_install = true, -- Automatically install missing parsers when entering buffer
   highlight = {
     enable = true,
+    disable = function(_, buf)
+      local max_filesize = 100 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
+    end,
   },
   rainbow = {
     enable = true,
     extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+    max_file_lines = 500, -- Do not enable for files with more than 1000 lines, int
   },
   textobjects = {
     select = {
