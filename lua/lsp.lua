@@ -51,7 +51,6 @@ local on_attach = function(client, bufnr)
   keymap.set('n', '<space>f', function()
     vim.lsp.buf.format { async = true }
   end, opts)
-  keymap.set('v', '<space>f', vim.lsp.buf.range_formatting, opts)
   keymap.set('n', 'vv', function()
     require('lsp-selection-range').trigger()
   end, opts)
