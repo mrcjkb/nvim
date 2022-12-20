@@ -1,7 +1,11 @@
 {
   description = "XDG config for nix home-manager";
 
-  outputs = {self, ...}:
+  inputs = {
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+  };
+
+  outputs = {self, neovim-nightly-overlay, ...}:
   {
     nixosModule = { pkgs, defaultUser, ... }: {
 
@@ -14,12 +18,7 @@
 
       nixpkgs = {
         overlays = [
-          (self: super: {
-             neovim = pkgs.unstable.neovim.override {
-               viAlias = true;
-               vimAlias = true;
-             };
-           })
+          neovim-nightly-overlay.overlay
         ];
       };
 
@@ -32,7 +31,8 @@
         sumneko-lsp = unstable.sumneko-lua-language-server;
       in {
         systemPackages = [
-          unstable.neovim
+          # unstable.neovim
+          neovim-nightly
           unstable.neovide
           unstable.tree-sitter
           unstable.haskellPackages.hoogle
