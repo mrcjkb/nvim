@@ -66,7 +66,7 @@
           unstable.jdt-language-server
           unstable.nodePackages.yarn # Required by markdown-preview vim plugin
           python-language-server
-          unstable.python3.withPackages(ps: with ps; [pynvim])
+          (unstable.python3.withPackages (ps: with ps; [pynvim]))
           unstable.nodePackages.pyright
           unstable.stylua
         ];
