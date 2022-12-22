@@ -6,8 +6,8 @@ local dap = require('dap')
 local dap_widgets = require('dap.ui.widgets')
 local dap_utils = require('dap.utils')
 local dapui = require('dapui')
-local ih = require('inlay-hints')
-ih.setup()
+local inlayhints = require('inlay-hints')
+inlayhints.setup()
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -60,15 +60,7 @@ local on_attach = function(client, bufnr)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
-  ih.on_attach(client, bufnr)
-
-  local lightbulb = require('nvim-lightbulb')
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' }, {
-    desc = 'Show lightbulb in the signcolumn whenever an LSP action is available',
-    group = vim.api.nvim_create_augroup('LspLightBulb', {}),
-    callback = lightbulb.update_lightbulb,
-    buffer = bufnr,
-  })
+  inlayhints.on_attach(client, bufnr)
 end
 
 local on_dap_attach = function(bufnr)

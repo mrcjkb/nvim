@@ -261,8 +261,16 @@ return require('packer').startup(function(use)
 
   use {
     'kosayoda/nvim-lightbulb',
+    setup = function()
+      vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
+    end,
     config = function()
-      require('nvim-lightbulb').setup { autocmd = { enabled = false } }
+      require('nvim-lightbulb').setup {
+        autocmd = {
+          enabled = true,
+          events = { 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' },
+        },
+      }
     end,
   }
 
