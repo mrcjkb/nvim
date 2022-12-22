@@ -120,7 +120,7 @@ vim.diagnostic.config {
 }
 
 vim.api.nvim_create_autocmd('BufEnter', {
-  augroup = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
+  group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
   callback = function()
     vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
   end,
