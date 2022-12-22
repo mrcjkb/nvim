@@ -303,6 +303,7 @@ return require('packer').startup(function(use)
       -- 'MrcJkb/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-context',
       'nvim-treesitter/nvim-treesitter-refactor',
+      'p00f/nvim-ts-rainbow', -- Rainbow brackets (needs nvim-treesitter)
     },
     config = function()
       vim.schedule(function()
@@ -310,7 +311,6 @@ return require('packer').startup(function(use)
       end)
     end,
   }
-  use('p00f/nvim-ts-rainbow') -- Rainbow brackets (needs nvim-treesitter)
 
   use {
     'mfussenegger/nvim-lint',
@@ -415,9 +415,11 @@ return require('packer').startup(function(use)
   -- Fuzzy search
   use {
     'junegunn/fzf',
+    requires = {
+      'junegunn/fzf.vim',
+    },
     run = './install --all',
   }
-  use('junegunn/fzf.vim')
 
   use {
     'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
@@ -440,6 +442,10 @@ return require('packer').startup(function(use)
 
   use {
     'hoob3rt/lualine.nvim', -- Status line at the bottom
+    requires = {
+      -- Status line component that shows context of the current cursor position in the file
+      'SmiteshP/nvim-gps',
+    },
     config = function()
       if vim.g.started_by_firenvim then
         vim.cmd('set laststatus=0')
@@ -447,10 +453,6 @@ return require('packer').startup(function(use)
         require('lualine-setup')
       end
     end,
-  }
-
-  use {
-    'SmiteshP/nvim-gps', -- Status line component that shows context of the current cursor position in the file - used with lualine
   }
 
   -- rangr client
