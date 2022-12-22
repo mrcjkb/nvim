@@ -299,8 +299,8 @@ return require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'nvim-treesitter/playground',
-      -- 'nvim-treesitter/nvim-treesitter-textobjects',
-      'MrcJkb/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      -- 'MrcJkb/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-context',
       'nvim-treesitter/nvim-treesitter-refactor',
     },
