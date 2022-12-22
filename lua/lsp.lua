@@ -188,43 +188,10 @@ require('neodev').setup {
   end,
 }
 
--- lspconfig.sumneko_lua.setup {}
-
-local sumneko_binary = os.getenv('SUMNEKO_BIN_PATH')
-local sumneko_main = os.getenv('SUMNEKO_MAIN_PATH')
-require('nlua.lsp.nvim').setup(lspconfig, {
-  cmd = sumneko_binary and sumneko_main and { sumneko_binary, '-E', sumneko_main } or { 'lua-language-server' },
-  settings = {
-    Lua = {
-      runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
-        -- Setup your lua path
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-      hint = {
-        enable = true,
-      },
-    },
-  },
+lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-})
+}
 
 local rust_tools_opts = {
   tools = { -- rust-tools options

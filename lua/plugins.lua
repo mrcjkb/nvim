@@ -233,7 +233,7 @@ return require('packer').startup(function(use)
       'simrat39/rust-tools.nvim',
       'simrat39/inlay-hints.nvim',
       'mfussenegger/nvim-jdtls', -- Java LSP support
-      'tjdevries/nlua.nvim', -- Lua development for neovim
+      'folke/neodev.nvim', -- Lua development for neovim
       -- 'ShinKage/idris2-nvim',
       -- 'MunifTanjim/nui.nvim', -- Required by idris2-nvim
 
@@ -417,18 +417,6 @@ return require('packer').startup(function(use)
       vim.schedule(function()
         require('telescope-config')
       end)
-    end,
-  }
-
-  use {
-    'nvim-lua/plenary.nvim', -- Useful lua library
-  }
-  use {
-    'folke/neodev.nvim', -- Lua development for neovim
-    config = function()
-      require('neodev').setup {
-        library = { plugins = { 'neotest' }, types = true },
-      }
     end,
   }
 
@@ -738,6 +726,5 @@ return require('packer').startup(function(use)
 
   if packer_bootstrap then
     require('packer').sync()
-    vim.cmd('TSInstall all')
   end
 end)
