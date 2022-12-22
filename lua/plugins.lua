@@ -82,12 +82,7 @@ return require('packer').startup(function(use)
   use('kana/vim-textobj-user')
 
   -- .editorconfig support
-  use {
-    'editorconfig/editorconfig-vim',
-    setup = function()
-      vim.g.EditorConfig_exclude_patterns = { 'fugitive://.*' }
-    end,
-  }
+  use('gpanders/editorconfig.nvim')
 
   -- NeoVim clone of Magit
   use {
