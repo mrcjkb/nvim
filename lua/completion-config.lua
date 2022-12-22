@@ -1,12 +1,8 @@
 local cmp = require('cmp')
-local types = require('cmp.types')
 local lspkind = require('lspkind')
 cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
-  },
-  confirmation = {
-    default_behavior = types.cmp.ConfirmBehavior.Replace,
   },
   formatting = {
     format = lspkind.cmp_format {
@@ -20,7 +16,8 @@ cmp.setup {
         nvim_lsp = '[LSP]',
         nvim_lua = '[API]',
         path = '[PATH]',
-        ultisnips = '[SNIP]',
+        luasnip = '[SNIP]',
+        ultisnips = '[ULTISNIP]',
         vsnip = '[VSNIP]',
         rg = '[RG]',
         cmdline = '[CMD]',
@@ -30,8 +27,7 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+      require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       vim.fn['UltiSnips#Anon'](args.body) -- For `ultisnips` users.
     end,
   },
@@ -60,11 +56,9 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    -- { name = 'luasnip' }, -- For luasnip users.
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'luasnip' }, -- For luasnip users.
     { name = 'ultisnips' }, -- For ultisnips users.
     { name = 'rg', keyword_length = 3 },
-    -- { name = 'snippy' }, -- For snippy users.
     { name = 'buffer', keyword_length = 3 },
     { name = 'path' },
     -- { name = 'buffer-lines', keyword_length = 3 },

@@ -275,8 +275,6 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-omni',
       'quangnguyen30192/cmp-nvim-ultisnips',
-      'hrsh7th/vim-vsnip', -- VSCode vsnip for use with LSP autocomplete
-      'hrsh7th/vim-vsnip-integ',
       'petertriho/cmp-git',
       'lukas-reineke/cmp-rg',
       'onsails/lspkind-nvim', -- Autocomplete icons
