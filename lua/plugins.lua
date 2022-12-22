@@ -187,17 +187,17 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    'vim-test/vim-test',
-    -- 'git@github.com:MrcJkb/vim-test',
-    -- branch = 'stacktest-improvements',
-    setup = function()
-      vim.g['test#strategy'] = 'neovim'
-      vim.g['test#java#runner'] = 'gradletest'
-      vim.g['test#haskell#runner'] = 'stacktest'
-      -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
-    end,
-  }
+  -- use {
+  --   'vim-test/vim-test',
+  --   -- 'git@github.com:MrcJkb/vim-test',
+  --   -- branch = 'stacktest-improvements',
+  --   setup = function()
+  --     vim.g['test#strategy'] = 'neovim'
+  --     vim.g['test#java#runner'] = 'gradletest'
+  --     vim.g['test#haskell#runner'] = 'stacktest'
+  --     -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
+  --   end,
+  -- }
 
   use {
     'nvim-neotest/neotest',
