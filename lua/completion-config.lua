@@ -1,8 +1,12 @@
 local cmp = require('cmp')
+local types = require('cmp.types')
 local lspkind = require('lspkind')
 cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
+  },
+  confirmation = {
+    default_behavior = types.cmp.ConfirmBehavior.Replace,
   },
   formatting = {
     format = lspkind.cmp_format {
