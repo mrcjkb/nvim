@@ -65,13 +65,16 @@ return require('packer').startup(function(use)
   -- Remaps s [cl] and S [cc] to vertical leap search
   use {
     'ggandor/leap.nvim',
-    requires = {
-      'ggandor/flit.nvim',
-      'tpope/vim-repeat',
-    },
     config = function()
-      require('leap').add_default_mappings()
-      require('flit').setup {}
+      require('leap').set_default_keymaps()
+    end,
+  }
+
+  -- Highlight unique characters in line search
+  use {
+    'unblevable/quick-scope',
+    setup = function()
+      vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
     end,
   }
 
