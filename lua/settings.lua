@@ -118,3 +118,10 @@ vim.diagnostic.config {
     prefix = '',
   },
 }
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  augroup = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
+  callback = function()
+    vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
+  end,
+})
