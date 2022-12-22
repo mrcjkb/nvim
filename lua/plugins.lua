@@ -263,14 +263,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- LSP floating popups, etc.
-  use {
-    'RishabhRD/nvim-lsputils',
-    requires = {
-      'RishabhRD/popfix',
-    },
-  }
-
   use {
     'hrsh7th/nvim-cmp', -- Completion plugin
     requires = {
