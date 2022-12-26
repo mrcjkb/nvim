@@ -83,8 +83,8 @@ telescope.setup {
         height = 0.9,
         prompt_position = 'bottom',
         mirror = true,
+        preview_cutoff = 0,
       },
-      -- preview_cutoff = 120,
     },
     mappings = {
       i = {
