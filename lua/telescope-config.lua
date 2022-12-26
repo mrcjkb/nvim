@@ -1,7 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
-local themes = require('telescope-themes')
+local themes = require('telescope.themes')
 
 -- Fall back to find_files if not in a git repo
 local project_files = function()
