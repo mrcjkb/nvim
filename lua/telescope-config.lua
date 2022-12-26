@@ -75,9 +75,9 @@ telescope.setup {
     path_display = {
       'shorten',
     },
-    layout_strategy = 'horizontal',
+    layout_strategy = 'vertical',
     layout_config = {
-      horizontal = {
+      vertical = {
         width = 0.8,
         height = 0.9,
         prompt_position = 'bottom',
