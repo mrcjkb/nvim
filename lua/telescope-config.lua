@@ -74,7 +74,7 @@ vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, {})
 telescope.setup {
   defaults = {
     path_display = {
-      'shorten',
+      'smart',
     },
     layout_strategy = 'vertical',
     layout_config = {
