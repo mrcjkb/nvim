@@ -2,18 +2,56 @@
   description = "XDG config for nix home-manager";
 
   inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {self, neovim-nightly-overlay, ...}:
-  {
-    nixosModule = { pkgs, defaultUser, ... }: {
-
+  outputs = {
+    self,
+    nixpkgs,
+    neovim-nightly-overlay,
+    pre-commit-hooks,
+    ...
+  }: let
+    supportedSystems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
+    perSystem = nixpkgs.lib.genAttrs supportedSystems;
+    pkgsFor = system: import nixpkgs {inherit system;};
+    pre-commit-check-for = system:
+      pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          alejandra.enable = true;
+        };
+      };
+    shellFor = system: let
+      pkgs = pkgsFor system;
+      pre-commit-check = pre-commit-check-for system;
+    in
+      pkgs.mkShell {
+        name = "nixfiles-devShell";
+        inherit (pre-commit-check) shellHook;
+        buildInputs = with pkgs; [
+          alejandra
+        ];
+      };
+  in {
+    nixosModule = {
+      pkgs,
+      defaultUser,
+      ...
+    }: {
       home-manager.users."${defaultUser}" = {
-       xdg.configFile."nvim" = {
+        xdg.configFile."nvim" = {
           source = ./.;
           recursive = true;
-        };   
+        };
       };
 
       nixpkgs = {
@@ -78,5 +116,13 @@
         };
       };
     };
+
+    devShells = perSystem (system: {
+      default = shellFor system;
+    });
+
+    checks = perSystem (system: {
+      formatting = pre-commit-check-for system;
+    });
   };
 }
