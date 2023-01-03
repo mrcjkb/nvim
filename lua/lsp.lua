@@ -9,6 +9,13 @@ local dapui = require('dapui')
 local inlayhints = require('inlay-hints')
 inlayhints.setup()
 
+require('nvim-lightbulb').setup {
+  autocmd = {
+    enabled = true,
+    events = { 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' },
+  },
+}
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)

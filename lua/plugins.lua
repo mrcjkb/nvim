@@ -20,8 +20,6 @@ return require('packer').startup(function(use)
     cmd = 'StartupTime',
   }
 
-  -- lazy loaded
-
   use {
     'toppair/peek.nvim',
     run = 'deno task --quiet build:fast',
@@ -113,7 +111,6 @@ return require('packer').startup(function(use)
   -- Git wrapper
   use('tpope/vim-fugitive')
   use('tpope/vim-rhubarb') -- GitHub fugitive plugin for :GBrowse
-  use('tommcdo/vim-fubitive') -- Bitbucket fugitive plugin for :GBrowse
   use {
     'shumphrey/fugitive-gitlab.vim', -- GitLab fugitive support for :GBrowse
     setup = function()
@@ -143,13 +140,8 @@ return require('packer').startup(function(use)
     config = function()
       local p = require('persistence')
       p.setup()
-      -- restore the session for the current directory
-      vim.keymap.set('n', '<leader>ls', p.load, {})
-      -- restore the last session
-      vim.keymap.set('n', '<leader>ll', function()
-        p.load { last = true }
-      end, {})
-      -- stop Persistence => session won't be saved on exit
+      vim.keymap.set('n', '<leader>ls', p.save, {})
+      vim.keymap.set('n', '<leader>ll', p.load, {})
       vim.keymap.set('n', '<leader>ld', p.stop, {})
     end,
   }
@@ -239,7 +231,11 @@ return require('packer').startup(function(use)
       'nvim-lua/lsp-status.nvim', -- LSP status line info
       'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
       'camilledejoye/nvim-lsp-selection-range', -- LSP selection range
+      'kosayoda/nvim-lightbulb',
     },
+    setup = function()
+      vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
+    end,
     config = function()
       require('dap-setup')
       require('lsp')
@@ -249,21 +245,6 @@ return require('packer').startup(function(use)
 
   use {
     'MrcJkb/lsp-inject.nvim',
-  }
-
-  use {
-    'kosayoda/nvim-lightbulb',
-    setup = function()
-      vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
-    end,
-    config = function()
-      require('nvim-lightbulb').setup {
-        autocmd = {
-          enabled = true,
-          events = { 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' },
-        },
-      }
-    end,
   }
 
   use {
@@ -509,20 +490,6 @@ return require('packer').startup(function(use)
   --     require('harpoon-config').setup()
   --   end
   -- }
-
-  use {
-    'windwp/nvim-autopairs',
-    config = function()
-      vim.schedule(function()
-        require('autopairs-config')
-      end)
-    end,
-  }
-
-  use {
-    -- Tab out form parentheses, quotes, etc.
-    'abecodes/tabout.nvim',
-  }
 
   -- Virtual text with git blame information, etc
   use {
