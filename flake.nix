@@ -22,7 +22,13 @@
       "x86_64-linux"
     ];
     perSystem = nixpkgs.lib.genAttrs supportedSystems;
-    pkgsFor = system: import nixpkgs {inherit system;};
+    pkgsFor = system:
+      import nixpkgs {
+        inherit system;
+        overlays = [
+          neovim-nightly-overlay.overlay
+        ];
+      };
     pre-commit-check-for = system:
       pre-commit-hooks.lib.${system}.run {
         src = ./.;
@@ -39,6 +45,7 @@
         inherit (pre-commit-check) shellHook;
         buildInputs = with pkgs; [
           alejandra
+          neovim-nightly
         ];
       };
   in {
@@ -119,6 +126,11 @@
 
     devShells = perSystem (system: {
       default = shellFor system;
+    });
+
+    packages = perSystem (system: {
+      # Workaround so that nix shell doesn't fail
+      default = neovim-nightly-overlay.packages."${system}".default;
     });
 
     checks = perSystem (system: {
