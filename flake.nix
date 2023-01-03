@@ -129,8 +129,8 @@
     });
 
     packages = perSystem (system: {
-      # Workaround so that nix shell doesn't fail
-      default = neovim-nightly-overlay.packages."${system}".default;
+      # Workaround for GitHub Actions
+      default = shellFor system;
     });
 
     checks = perSystem (system: {
