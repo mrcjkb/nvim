@@ -341,8 +341,8 @@ lspconfig.jsonls.setup {
   cmd = { 'json-languageserver', '--stdio' },
 }
 
--- clangd (C++)
-lspconfig.clangd.setup {
+-- ccls (C/C++) -- TODO: Complete
+lspconfig.ccls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
