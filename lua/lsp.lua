@@ -341,6 +341,12 @@ lspconfig.jsonls.setup {
   cmd = { 'json-languageserver', '--stdio' },
 }
 
+-- clangd (C++)
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- nvim-dap-virtual-text plugin
 -- require'nvim-dap-virtual-text'.setup()
 
