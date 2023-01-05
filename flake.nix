@@ -114,6 +114,7 @@
           (unstable.python3.withPackages (ps: with ps; [pynvim]))
           unstable.nodePackages.pyright
           unstable.stylua
+          unstable.ctags
         ];
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
