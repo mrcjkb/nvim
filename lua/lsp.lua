@@ -139,7 +139,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- local dap_python = require('dap-python')
-local on_pyright_attach = function(client, bufnr)
+local on_pylsp_attach = function(client, bufnr)
   on_attach(client, bufnr)
   on_dap_attach(bufnr)
   -- local opts = { noremap=true, silent=true }
@@ -147,10 +147,22 @@ local on_pyright_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
   -- vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
 end
-lspconfig.pyright.setup {
-  on_attach = on_pyright_attach,
+lspconfig.pylsp.setup {
+  on_attach = on_pylsp_attach,
   capabilities = capabilities,
+  settings = {
+    pylsp = {
+      plugins = {
+        flake8 = { enabled = true },
+        pycodestyle = { enabled = false },
+        pyflakes = { enabled = false },
+        pylint = { enabled = false },
+        mccabe = { enabled = false },
+      },
+    },
+  },
 }
+
 -- lspconfig.tsserver.setup{ on_attach = on_attach }
 lspconfig.nil_ls.setup {
   on_attach = on_attach,
