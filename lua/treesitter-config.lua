@@ -60,22 +60,18 @@ configs.setup {
       goto_next_start = {
         [']m'] = '@function.outer',
         [']P'] = '@parameter.outer',
-        [']c'] = '@class.outer',
       },
       goto_next_end = {
         [']m'] = '@function.outer',
         [']P'] = '@parameter.outer',
-        [']c'] = '@class.outer',
       },
       goto_previous_start = {
         ['[m'] = '@function.outer',
         ['[P'] = '@parameter.outer',
-        ['[c'] = '@class.outer',
       },
       goto_previous_end = {
         ['[m'] = '@function.outer',
         ['[P'] = '@parameter.outer',
-        ['[c'] = '@class.outer',
       },
     },
     lsp_interop = {
