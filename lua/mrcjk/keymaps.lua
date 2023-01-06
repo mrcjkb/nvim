@@ -1,3 +1,5 @@
+local M = {}
+
 local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
@@ -31,8 +33,24 @@ keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
 
 -- Toggle the quickfix list (only opens if it is populated)
+M.toggle_qf_list = function()
+  local qf_exists = false
+  for _, win in pairs(fn.getwininfo()) do
+    if win['quickfix'] == 1 then
+      qf_exists = true
+    end
+  end
+  if qf_exists == true then
+    vim.cmd.cclose()
+    return
+  end
+  if not vim.tbl_isempty(vim.fn.getqflist()) then
+    vim.cmd.copen()
+  end
+end
+
 -- NOTE: This has to be passed as an Ex command because of https://github.com/unblevable/quick-scope/issues/88
-keymap.set('n', '<C-c>', '<cmd>lua require("keymap-utils").toggle_qf_list()<CR>')
+keymap.set('n', '<C-c>', '<cmd>lua require("mrcjk.keymap").toggle_qf_list()<CR>')
 
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
@@ -154,3 +172,5 @@ end, opts)
 keymap.set('n', '<space>i', function()
   diagnostic.set_qflist { open_qflist = false, severity = 'INFO' }
 end, opts)
+
+return M

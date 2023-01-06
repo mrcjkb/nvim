@@ -1,0 +1,5 @@
+local p = require('persistence')
+p.setup()
+vim.keymap.set('n', '<leader>ls', p.save, {})
+vim.keymap.set('n', '<leader>ll', p.load, {})
+vim.keymap.set('n', '<leader>ld', p.stop, {})

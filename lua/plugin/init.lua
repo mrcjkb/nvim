@@ -90,21 +90,7 @@ return require('packer').startup(function(use)
       'sindrets/diffview.nvim',
     },
     config = function()
-      local neogit = require('neogit')
-      neogit.setup {
-        integrations = {
-          diffview = true,
-        },
-        mappings = {
-          ['a'] = 'Stage',
-          ['A'] = 'StageAll',
-          ['>'] = 'Toggle',
-        },
-      }
-      vim.keymap.set('n', '<leader>go', neogit.open)
-      vim.keymap.set('n', '<leader>gs', function()
-        neogit.open { kind = 'split' }
-      end)
+      require('plugin.neogit')
     end,
   }
 
@@ -138,11 +124,7 @@ return require('packer').startup(function(use)
     'folke/persistence.nvim',
     module = 'persistence',
     config = function()
-      local p = require('persistence')
-      p.setup()
-      vim.keymap.set('n', '<leader>ls', p.save, {})
-      vim.keymap.set('n', '<leader>ll', p.load, {})
-      vim.keymap.set('n', '<leader>ld', p.stop, {})
+      require('plugin.persistence')
     end,
   }
 
@@ -169,30 +151,13 @@ return require('packer').startup(function(use)
 
   use('tommcdo/vim-exchange') -- cx-<motion> or cxx (line)/X (visual) for swapping text objects (cxc to clear)
 
-  -- Material colort theme
+  -- Material color theme
   use {
     'marko-cerovac/material.nvim',
     branch = 'main',
-    setup = function()
-      vim.g.material_style = 'darker'
-      vim.g.material_terminal_italics = 1
-    end,
-    config = function()
-      require('theme')
-    end,
+    setup = require('plugin.theme').setup,
+    config = require('plugin.theme').config,
   }
-
-  -- use {
-  --   'vim-test/vim-test',
-  --   -- 'git@github.com:MrcJkb/vim-test',
-  --   -- branch = 'stacktest-improvements',
-  --   setup = function()
-  --     vim.g['test#strategy'] = 'neovim'
-  --     vim.g['test#java#runner'] = 'gradletest'
-  --     vim.g['test#haskell#runner'] = 'stacktest'
-  --     -- vim.g['test#haskell#stacktest#file_pattern'] = [[\v^(.*spec.*|.*test.*)\c\.hs$']]
-  --   end,
-  -- }
 
   use {
     'nvim-neotest/neotest',
@@ -203,10 +168,9 @@ return require('packer').startup(function(use)
       'nvim-neotest/neotest-python',
       'nvim-neotest/neotest-plenary',
       'rouge8/neotest-rust',
-      -- 'nvim-neotest/neotest-vim-test',
     },
     config = function()
-      require('neotest-config')
+      require('plugin.neotest')
     end,
   }
 
@@ -237,9 +201,8 @@ return require('packer').startup(function(use)
       vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
     end,
     config = function()
-      require('dap-setup')
-      require('lsp')
-      -- require('lsp-overrides').setup()
+      require('plugin.dap')
+      require('plugin.lsp')
     end,
   }
 
@@ -272,7 +235,7 @@ return require('packer').startup(function(use)
     end,
     config = function()
       vim.schedule(function()
-        require('completion-config')
+        require('plugin.completion')
       end)
     end,
   }
@@ -289,7 +252,7 @@ return require('packer').startup(function(use)
     },
     config = function()
       vim.schedule(function()
-        require('treesitter-config')
+        require('plugin.treesitter')
       end)
     end,
   }
@@ -297,21 +260,7 @@ return require('packer').startup(function(use)
   use {
     'mfussenegger/nvim-lint',
     config = function()
-      local lint = require('lint')
-      local hlint_hint_file = os.getenv('HLINT_HINT')
-      if hlint_hint_file and hlint_hint_file ~= '' then
-        lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file }
-      end
-      lint.linters_by_ft = {
-        haskell = { 'hlint' },
-      }
-      vim.api.nvim_create_autocmd('BufWritePost', {
-        group = vim.api.nvim_create_augroup('lint-commands', {}),
-        pattern = { '*.hs' },
-        callback = function()
-          require('lint').try_lint()
-        end,
-      })
+      require('plugin.lint')
     end,
   }
 
@@ -325,7 +274,7 @@ return require('packer').startup(function(use)
   use {
     'L3MON4D3/LuaSnip',
     config = function()
-      require('luasnip-config')
+      require('plugin.luasnip')
     end,
   }
 
@@ -340,23 +289,7 @@ return require('packer').startup(function(use)
     -- Changes the working directory to the project root when you open a file or directory.
     'ahmedkhalf/project.nvim',
     config = function()
-      require('project_nvim').setup {
-        patterns = {
-          '.git',
-          '_darcs',
-          '.hg',
-          '.bzr',
-          '.svn',
-          'Makefile',
-          'package.json',
-          'cabal.project',
-          'stack.yaml',
-          'hie.yaml',
-          'build.gradle',
-          'build.grale.kts',
-        },
-        scope_chdir = 'win',
-      }
+      require('plugin.project')
     end,
   }
 
@@ -379,7 +312,7 @@ return require('packer').startup(function(use)
     end,
     config = function()
       vim.schedule(function()
-        require('telescope-config')
+        require('plugin.telescope')
       end)
     end,
   }
@@ -405,25 +338,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'junegunn/vim-easy-align', -- Formatting, e.g for formatting markdown tables
-    ft = 'markdown',
-    setup = function()
-      vim.keymap.set('v', '<leader><Bslash>', ':EasyAlign*<Bar><CR>')
-    end,
-  }
-
-  -- Activate table mode with :TableModeToggle from insert mode
-  use {
-    'dhruvasagar/vim-table-mode',
-    setup = function()
-      vim.g.table_mode_corner = '+'
-      vim.g.table_mode_corner_corner = '+'
-      vim.g.table_mode_header_fillchar = '='
-    end,
-    ft = 'markdown',
-  }
-
-  use {
     'hoob3rt/lualine.nvim', -- Status line at the bottom
     requires = {
       -- Status line component that shows context of the current cursor position in the file
@@ -433,7 +347,7 @@ return require('packer').startup(function(use)
       if vim.g.started_by_firenvim then
         vim.cmd.set('laststatus=0')
       else
-        require('lualine-setup')
+        require('plugin.lualine')
       end
     end,
   }
@@ -442,21 +356,7 @@ return require('packer').startup(function(use)
   use {
     'kevinhwang91/rnvimr',
     setup = function()
-      -- Do not make Ranger replace netrw and be the file explorer
-      vim.g.rnvimr_ex_enable = 0
-      -- Make Neovim wipe the buffers corresponding to the files deleted by Ranger
-      vim.g.rnvimr_enable_bw = 1
-      vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', { silent = true })
-      vim.keymap.set({ 'n', 't' }, '<M-r>', ':RnvimrToggle<CR>', { silent = true })
-      -- Map Rnvimr action
-      vim.g.rnvimr_action = {
-        ['<C-t>'] = 'NvimEdit tabedit',
-        ['<C-x>'] = 'NvimEdit split',
-        ['<C-v>'] = 'NvimEdit vsplit',
-        ['gw'] = 'JumpNvimCwd',
-        ['gf'] = 'AttachFile',
-        ['yw'] = 'EmitRangerCwd',
-      }
+      require('plugin.rnvimr')
     end,
   }
 
@@ -475,9 +375,7 @@ return require('packer').startup(function(use)
   use {
     'akinsho/toggleterm.nvim',
     config = function()
-      vim.schedule(function()
-        require('toggleterm-setup')
-      end)
+      require('plugin.toggleterm')
     end,
   }
 
@@ -487,7 +385,7 @@ return require('packer').startup(function(use)
   --   'ThePrimeagen/harpoon',
   --   requires = { 'nvim-lua/plenary.nvim' },
   --   config = function()
-  --     require('harpoon-config').setup()
+  --     require('plugin.harpoon').setup()
   --   end
   -- }
 
@@ -498,97 +396,15 @@ return require('packer').startup(function(use)
       'nvim-lua/plenary.nvim',
     },
     config = function()
-      vim.schedule(function()
-        require('gitsigns').setup {
-          current_line_blame = true,
-          current_line_blame_opts = {
-            ignore_whitespace = true,
-          },
-          on_attach = function(bufnr)
-            local gs = package.loaded.gitsigns
-
-            local function map(mode, l, r, opts)
-              opts = opts or {}
-              opts.buffer = bufnr
-              vim.keymap.set(mode, l, r, opts)
-            end
-
-            -- Navigation
-            map('n', ']g', function()
-              if vim.wo.diff then
-                return ']g'
-              end
-              vim.schedule(function()
-                gs.next_hunk()
-              end)
-              return '<Ignore>'
-            end, { expr = true })
-
-            map('n', '[g', function()
-              if vim.wo.diff then
-                return '[g'
-              end
-              vim.schedule(function()
-                gs.prev_hunk()
-              end)
-              return '<Ignore>'
-            end, { expr = true })
-
-            -- Actions
-            map({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-            map({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
-            map('n', '<leader>hS', gs.stage_buffer)
-            map('n', '<leader>hu', gs.undo_stage_hunk)
-            map('n', '<leader>hR', gs.reset_buffer)
-            map('n', '<leader>hp', gs.preview_hunk)
-            map('n', '<leader>hb', function()
-              gs.blame_line { full = true }
-            end)
-            map('n', '<leader>gb', gs.toggle_current_line_blame)
-            map('n', '<leader>hd', gs.diffthis)
-            map('n', '<leader>hD', function()
-              gs.diffthis('~')
-            end)
-            map('n', '<leader>td', gs.toggle_deleted)
-            -- Text object
-            map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-          end,
-        }
-      end)
+      require('plugin.gitsigns')
     end,
   }
 
   use {
     'glacambre/firenvim',
-    run = function()
-      vim.fn['firenvim#install'](0)
-    end,
-    setup = function()
-      vim.g.firenvim_config = {
-        globalSettings = {
-          alt = 'all',
-        },
-        localSettings = {
-          ['https://app.slack.com/'] = { takover = 'never', priority = 1 },
-        },
-      }
-    end,
-    config = function()
-      vim.api.nvim_create_autocmd('BufEnter', {
-        group = vim.api.nvim_create_augroup('firenvim_gitlab', {}),
-        pattern = 'gitlab.internal.tiko.ch_*.txt',
-        callback = function()
-          vim.cmd.setf('markdown')
-        end,
-      })
-      vim.api.nvim_create_autocmd('BufEnter', {
-        group = vim.api.nvim_create_augroup('firenvim_gihub', {}),
-        pattern = 'github.com_*.txt',
-        callback = function()
-          vim.cmd.setf('markdown')
-        end,
-      })
-    end,
+    run = require('plugin.firenvim').run,
+    setup = require('plugin.firenvim').setup,
+    config = require('plugin.firenvim').config,
   }
 
   use { -- better quickfix list
@@ -599,67 +415,22 @@ return require('packer').startup(function(use)
   use {
     'mhartington/formatter.nvim',
     config = function()
-      local stylish_config = os.getenv('STYLISH_HASKELL_CONFIG')
-      local stylish_haskell = require('formatter.filetypes.haskell').stylish_haskell()
-      require('formatter').setup {
-        filetype = {
-          haskell = stylish_config and {
-            function()
-              return vim.tbl_extend('force', stylish_haskell, {
-                args = {
-                  '-c',
-                  stylish_config,
-                },
-              })
-            end,
-          },
-          lua = {
-            -- "formatter.filetypes.lua" defines default configurations for the
-            -- "lua" filetype
-            require('formatter.filetypes.lua').stylua,
-          },
-        },
-      }
-      local pattern = { '*.lua' }
-      if stylish_config then
-        table.insert(pattern, '*.hs')
-      end
-      vim.api.nvim_create_autocmd('BufWritePost', {
-        group = vim.api.nvim_create_augroup('post-write-format', {}),
-        pattern = pattern,
-        command = 'Format',
-      })
+      require('plugin.formatter')
     end,
   }
 
   use {
     'gbprod/yanky.nvim',
-    config = function()
-      require('yanky').setup {
-        highlight = {
-          on_put = true,
-          on_yank = true,
-          timer = 500,
-        },
-        preserve_cursor_position = {
-          enabled = true,
-        },
-      }
-      vim.keymap.set({ 'n', 'x' }, 'p', '<Plug>(YankyPutAfter)')
-      vim.keymap.set({ 'n', 'x' }, 'P', '<Plug>(YankyPutBefore)')
-      vim.keymap.set({ 'n', 'x' }, 'gp', '<Plug>(YankyGPutAfter)')
-      vim.keymap.set({ 'n', 'x' }, 'gP', '<Plug>(YankyGPutBefore)')
-      vim.keymap.set('n', '<c-n>', '<Plug>(YankyCycleForward)')
-      vim.keymap.set('n', '<c-p>', '<Plug>(YankyCycleBackward)')
-      vim.keymap.set({ 'n', 'x' }, 'y', '<Plug>(YankyYank)')
-    end,
     requires = { 'kkharji/sqlite.lua' },
+    config = function()
+      require('plugin.yanky')
+    end,
   }
 
   use {
     'hkupty/iron.nvim',
     config = function()
-      require('repl-setup')
+      require('plugin.repl')
     end,
   }
 

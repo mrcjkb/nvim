@@ -22,4 +22,4 @@ vim.keymap.set('i', '<c-l>', function()
 end, { silent = true })
 
 -- Source luasnips config (for snippet development)
-vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/git/github/mrcjkb/nvim-config/lua/luasnip-config.lua')
+vim.keymap.set('n', '<leader><leader>s', '<cmd>source ~/git/github/mrcjkb/nvim-config/lua/plugin/luasnip/init.lua')
