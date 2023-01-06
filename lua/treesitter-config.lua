@@ -145,5 +145,5 @@ configs.setup {
 }
 
 -- Tree-sitter based folding
-vim.cmd('set foldmethod=expr')
-vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

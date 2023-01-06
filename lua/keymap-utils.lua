@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local fn = vim.fn
 
 local M = {}
@@ -11,11 +10,11 @@ M.toggle_qf_list = function()
     end
   end
   if qf_exists == true then
-    cmd('cclose')
+    vim.cmd.cclose()
     return
   end
   if not vim.tbl_isempty(vim.fn.getqflist()) then
-    cmd('copen')
+    vim.cmd.copen()
   end
 end
 

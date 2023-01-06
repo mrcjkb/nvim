@@ -42,4 +42,4 @@ require('material').setup {
     colors.editor.accent = colors.main.darkpurple
   end,
 }
-vim.cmd([[colorscheme material]])
+vim.cmd.colorscheme('material')

@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
@@ -16,10 +15,10 @@ end, auto_hlsearch_namespace)
 keymap.set('n', 'Y', 'y$', { silent = true })
 
 -- Buffer list navigation
-keymap.set('n', '[b', ':bprevious<CR>', { silent = true })
-keymap.set('n', ']b', ':bnext<CR>', { silent = true })
-keymap.set('n', '[B', ':bfirst<CR>', { silent = true })
-keymap.set('n', ']B', ':blast<CR>', { silent = true })
+keymap.set('n', '[b', vim.cmd.bprevious, { silent = true })
+keymap.set('n', ']b', vim.cmd.bnext, { silent = true })
+keymap.set('n', '[B', vim.cmd.bfirst, { silent = true })
+keymap.set('n', ']B', vim.cmd.blast, { silent = true })
 
 -- Undo break points in insert mode
 -- inoremap(',', ',<c-g>u')
@@ -30,30 +29,62 @@ keymap.set('n', ']B', ':blast<CR>', { silent = true })
 -- Moving text
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
-keymap.set('v', '<leader>j', ':m .+1<CR>==')
-keymap.set('v', '<leader>k', ':m .-2<CR>==')
 
 -- Toggle the quickfix list (only opens if it is populated)
 -- NOTE: This has to be passed as an Ex command because of https://github.com/unblevable/quick-scope/issues/88
 keymap.set('n', '<C-c>', '<cmd>lua require("keymap-utils").toggle_qf_list()<CR>')
 
+local function try_fallback_notify(opts)
+  local success, _ = pcall(opts.try)
+  if success then
+    return
+  end
+  success, _ = pcall(opts.fallback)
+  if success then
+    return
+  end
+  vim.notify(opts.notify, vim.log.levels.INFO)
+end
+
 -- Cycle the quickfix and location lists
-keymap.set('n', '[c', function()
-  cmd('try | cprev | catch | try | clast | catch | echo "Quickfix list is empty!" | endtry')
-end, {})
-keymap.set('n', ']c', function()
-  cmd('try | cnext | catch | try | cfirst | catch | echo "Quickfix list is empty!" | endtry')
-end, {})
-keymap.set('n', '[C', ':cfirst<CR>', {})
-keymap.set('n', ']C', ':clast<CR>', {})
-keymap.set('n', '[l', function()
-  cmd('try | lprev | catch | try | llast | catch | echo "Location list is empty!" | endtry')
-end, {})
-keymap.set('n', ']l', function()
-  cmd('try | lnext | catch | try | lfirst | catch | echo "Location list is empty!" | endtry')
-end, {})
-keymap.set('n', '[L', ':lfirst<CR>', {})
-keymap.set('n', ']L', ':llast<CR>', {})
+local function cleft()
+  try_fallback_notify {
+    try = vim.cmd.cprev,
+    fallback = vim.cmd.clast,
+    notify = 'Quickfix list is empty!',
+  }
+end
+keymap.set('n', '[c', cleft, { silent = true })
+
+local function cright()
+  try_fallback_notify {
+    try = vim.cmd.cnext,
+    fallback = vim.cmd.cfirst,
+    notify = 'Quickfix list is empty!',
+  }
+end
+
+keymap.set('n', ']c', cright, { silent = true })
+keymap.set('n', '[C', vim.cmd.cfirst, { silent = true })
+keymap.set('n', ']C', vim.cmd.clast, { silent = true })
+local function lleft()
+  try_fallback_notify {
+    try = vim.cmd.lprev,
+    fallback = vim.cmd.llast,
+    notify = 'Location list is empty!',
+  }
+end
+keymap.set('n', '[l', lleft, { silent = true })
+local function lright()
+  try_fallback_notify {
+    try = vim.cmd.lnext,
+    fallback = vim.cmd.lfirst,
+    notify = 'Location list is empty!',
+  }
+end
+keymap.set('n', ']l', lright, { silent = true })
+keymap.set('n', '[L', vim.cmd.lfirst, { silent = true })
+keymap.set('n', ']L', vim.cmd.llast, { silent = true })
 
 -- Resize vertical splits
 local toIntegral = math.ceil
@@ -76,7 +107,7 @@ end, { silent = true })
 
 -- Remap Esc to switch to normal mode and Ctrl-Esc to pass Esc to terminal
 keymap.set('t', '<Esc>', '<C-\\><C-n>')
-keymap.set('t', '<C-v>', '<Esc>')
+keymap.set('t', '<C-Esc>', '<Esc>')
 
 -- Shortcut for expanding to current buffer's directory in command mode
 keymap.set('c', '%%', function()

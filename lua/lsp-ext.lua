@@ -41,7 +41,7 @@ function M.diagnostics_set_qflist(opts)
   local items = util.diagnostics_to_items(diags, predicate)
   util.set_qflist(items)
   if open_qflist then
-    vim.cmd([[copen]])
+    vim.cmd.copen()
   end
 end
 

@@ -100,7 +100,7 @@ dap.adapters.nlua = function(callback, config)
   -- doing a `client = new_tcp(); client:connect()` within vim.wait doesn't work
   -- because an extra client connecting confuses `osv`, so sleep a bit instead
   -- to wait until server is started
-  vim.cmd('sleep')
+  vim.cmd.sleep()
   callback { type = 'server', host = '127.0.0.1', port = port }
 end
 

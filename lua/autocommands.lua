@@ -6,7 +6,7 @@ api.nvim_create_autocmd('BufWritePre', {
   pattern = '/tmp/*',
   group = tempdirgroup,
   callback = function()
-    vim.cmd('setlocal noundofile')
+    vim.cmd.setlocal('noundofile')
   end,
 })
 

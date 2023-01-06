@@ -21,4 +21,4 @@ require('toggleterm').setup {
   autochdir = false,
 }
 
-vim.cmd('set hidden') -- Required to persist toggleterm sessions
+vim.cmd.set('hidden') -- Required to persist toggleterm sessions

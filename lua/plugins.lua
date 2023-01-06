@@ -4,7 +4,7 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local packer_bootstrap = false
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-  vim.cmd([[packadd packer.nvim]])
+  vim.cmd.packadd('packer.nvim')
   packer_bootstrap = true
 end
 
@@ -431,7 +431,7 @@ return require('packer').startup(function(use)
     },
     config = function()
       if vim.g.started_by_firenvim then
-        vim.cmd('set laststatus=0')
+        vim.cmd.set('laststatus=0')
       else
         require('lualine-setup')
       end
@@ -578,14 +578,14 @@ return require('packer').startup(function(use)
         group = vim.api.nvim_create_augroup('firenvim_gitlab', {}),
         pattern = 'gitlab.internal.tiko.ch_*.txt',
         callback = function()
-          vim.cmd('set filetype=markdown')
+          vim.cmd.setf('markdown')
         end,
       })
       vim.api.nvim_create_autocmd('BufEnter', {
         group = vim.api.nvim_create_augroup('firenvim_gihub', {}),
         pattern = 'github.com_*.txt',
         callback = function()
-          vim.cmd('set filetype=markdown')
+          vim.cmd.setf('markdown')
         end,
       })
     end,

@@ -343,7 +343,7 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
   pattern = '*.avsc',
   group = vim.api.nvim_create_augroup('avro-filetype-detection', {}),
   callback = function()
-    vim.cmd('setf avro')
+    vim.cmd.setf('avro')
   end,
 })
 
