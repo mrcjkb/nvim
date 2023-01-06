@@ -69,6 +69,9 @@ vim.keymap.set('n', '<leader>n*', function()
   require('telescope-manix').search { cword = true }
 end, {})
 vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, {})
+vim.keymap.set('n', '<leader>ti', function()
+  require('telescope').extensions.notify {}
+end, {})
 -- api.nvim_set_keymap('n', '<leader>to', '<Cmd>Telescope lsp_workspace_symbols<CR>', opts)
 
 telescope.setup {
@@ -139,3 +142,4 @@ telescope.load_extension('cheat')
 telescope.load_extension('yank_history')
 telescope.load_extension('projects')
 telescope.load_extension('ui-select')
+telescope.load_extension('notify')

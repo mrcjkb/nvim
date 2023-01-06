@@ -676,6 +676,13 @@ return require('packer').startup(function(use)
     'samjwill/nvim-unception',
   }
 
+  use {
+    'rcarriga/nvim-notify',
+    config = function()
+      vim.notify = require('notify')
+    end,
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end
