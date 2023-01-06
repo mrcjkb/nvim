@@ -50,29 +50,19 @@ vim.keymap.set('n', '<leader>tq', builtin.command_history, {})
 vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
 vim.keymap.set('n', '<leader>tr', builtin.registers, {})
 vim.keymap.set('n', '<leader>tp', '<Cmd>Telescope repo list<CR>', {})
-vim.keymap.set('n', '<leader>tP', function()
-  require('telescope').extensions.projects.projects {}
-end, {})
+vim.keymap.set('n', '<leader>tP', telescope.extensions.projects.projects, {})
 vim.keymap.set('n', '<leader>ty', '<Cmd>Telescope yank_history<CR>', {})
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>tS', '<Cmd>Telescope ultisnips ultisnips<CR>', {})
-vim.keymap.set('n', '<leader>ts', function()
-  require('telescope').extensions.possession.list()
-end, {})
 vim.keymap.set('n', '<leader>th', '<Cmd>Telescope hoogle<CR>', {})
-vim.keymap.set('n', '<leader>tn', function()
-  require('telescope-manix').search()
-end, {})
+vim.keymap.set('n', '<leader>tn', telescope.extensions.manix.manix, {})
 vim.keymap.set('n', '<leader>n*', function()
-  require('telescope-manix').search { cword = true }
+  telescope.extensions.manix.manix { cword = true }
 end, {})
 vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, {})
-vim.keymap.set('n', '<leader>ti', function()
-  require('telescope').extensions.notify {}
-end, {})
--- api.nvim_set_keymap('n', '<leader>to', '<Cmd>Telescope lsp_workspace_symbols<CR>', opts)
+vim.keymap.set('n', '<leader>ti', telescope.extensions.notify.notify, {})
 
 telescope.setup {
   defaults = {
