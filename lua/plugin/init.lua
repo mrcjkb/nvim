@@ -400,13 +400,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use {
-    'glacambre/firenvim',
-    run = require('plugin.firenvim').run,
-    setup = require('plugin.firenvim').setup,
-    config = require('plugin.firenvim').config,
-  }
-
   use { -- better quickfix list
     'kevinhwang91/nvim-bqf',
     ft = 'qf',
