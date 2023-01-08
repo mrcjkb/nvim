@@ -196,6 +196,7 @@ return require('packer').startup(function(use)
       'ray-x/lsp_signature.nvim', -- LSP autocomplete signature hints
       'camilledejoye/nvim-lsp-selection-range', -- LSP selection range
       'kosayoda/nvim-lightbulb',
+      'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     },
     setup = function()
       vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
