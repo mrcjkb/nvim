@@ -50,7 +50,7 @@ M.toggle_qf_list = function()
 end
 
 -- NOTE: This has to be passed as an Ex command because of https://github.com/unblevable/quick-scope/issues/88
-keymap.set('n', '<C-c>', '<cmd>lua require("mrcjk.keymap").toggle_qf_list()<CR>')
+keymap.set('n', '<C-c>', '<cmd>lua require("mrcjk.keymaps").toggle_qf_list()<CR>')
 
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
