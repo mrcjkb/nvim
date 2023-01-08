@@ -363,5 +363,3 @@ lspconfig.ccls.setup {
 -- require'nvim-dap-virtual-text'.setup()
 
 -- require('idris2').setup({server = {on_attach = on_attach}})
-
-require('lsp_lines').setup()
