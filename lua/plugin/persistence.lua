@@ -1,14 +1,23 @@
-local p = require('persistence')
-p.setup()
-vim.keymap.set('n', '<leader>ls', function()
-  p.save()
-  print('Saved session.')
-end, {})
-vim.keymap.set('n', '<leader>ll', function()
-  p.load()
-  print('Loaded session.')
-end, {})
-vim.keymap.set('n', '<leader>ld', function()
-  p.stop()
-  print('Stopped session rexording.')
-end, {})
+local M = {}
+
+M.config = function()
+  require('persistence').setup()
+end
+
+M.setup = function()
+  local p = require('persistence')
+  vim.keymap.set('n', '<leader>ss', function()
+    p.save()
+    print('Saved session.')
+  end, {})
+  vim.keymap.set('n', '<leader>sl', function()
+    p.load()
+    print('Loaded session.')
+  end, {})
+  vim.keymap.set('n', '<leader>sx', function()
+    p.stop()
+    print('Stopped session recording.')
+  end, {})
+end
+
+return M

@@ -123,9 +123,8 @@ return require('packer').startup(function(use)
   use {
     'folke/persistence.nvim',
     module = 'persistence',
-    config = function()
-      require('plugin.persistence')
-    end,
+    setup = require('plugin.persistence').setup,
+    config = require('plugin.persistence').config,
   }
 
   -- Keybindings for commening/uncommenting
