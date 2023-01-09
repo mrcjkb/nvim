@@ -7,6 +7,7 @@ local dap_widgets = require('dap.ui.widgets')
 local dap_utils = require('dap.utils')
 local dapui = require('dapui')
 local inlayhints = require('inlay-hints')
+local telescope = require('telescope')
 inlayhints.setup()
 
 require('nvim-lightbulb').setup {
@@ -107,6 +108,10 @@ ht.setup {
       on_dap_attach(bufnr)
       local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
       keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
+      keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, opts)
+      keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
+      keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
+      keymap.set('n', '<space>hp', ht.project.open_package_yaml, opts)
     end,
     settings = {
       haskell = {
