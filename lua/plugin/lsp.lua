@@ -102,6 +102,14 @@ end
 local ht = require('haskell-tools')
 local def_opts = { noremap = true, silent = true }
 ht.setup {
+  tools = {
+    repl = {
+      handler = 'toggleterm',
+    },
+    definition = {
+      hoogle_signature_fallback = true,
+    },
+  },
   hls = {
     on_attach = function(client, bufnr)
       on_attach(client, bufnr)
