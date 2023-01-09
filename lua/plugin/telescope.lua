@@ -1,7 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
-local themes = require('telescope.themes')
+-- local themes = require('telescope.themes')
 
 -- Fall back to find_files if not in a git repo
 local project_files = function()
@@ -115,9 +115,9 @@ telescope.setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
-    ['ui-select'] = {
-      themes.get_dropdown {},
-    },
+    -- ['ui-select'] = {
+    --   themes.get_dropdown {},
+    -- },
   },
 }
 
@@ -130,4 +130,4 @@ telescope.load_extension('smart_history')
 telescope.load_extension('cheat')
 telescope.load_extension('yank_history')
 telescope.load_extension('projects')
-telescope.load_extension('ui-select')
+-- telescope.load_extension('ui-select')

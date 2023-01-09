@@ -305,7 +305,7 @@ return require('packer').startup(function(use)
       'tami5/sqlite.lua', -- Required by smart-history and cheat
       'cljoly/telescope-repo.nvim',
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-ui-select.nvim',
+      -- 'nvim-telescope/telescope-ui-select.nvim',
     },
     setup = function()
       vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')
