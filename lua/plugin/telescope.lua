@@ -81,6 +81,9 @@ telescope.setup {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
         ['<C-l>'] = actions.send_to_loclist,
+        ['<esc>'] = actions.close,
+        ['<C-s>'] = actions.cycle_previewers_next,
+        ['<C-a>'] = actions.cycle_previewers_prev,
       },
       n = {
         ['q'] = require('telescope.actions').close,
