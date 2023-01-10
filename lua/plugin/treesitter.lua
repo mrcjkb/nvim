@@ -141,5 +141,6 @@ configs.setup {
 }
 
 -- Tree-sitter based folding
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- disabled. Folding is managed by nvim-ufo
+-- vim.opt.foldmethod = 'expr'
+-- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
