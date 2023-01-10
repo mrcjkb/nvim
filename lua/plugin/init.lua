@@ -434,6 +434,13 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    setup = require('plugin.ufo').setup,
+    config = require('plugin.ufo').config,
+  }
+
+  use {
     -- Leverages Neovim's built-in RPC functionality to simplify opening files from
     -- within Neovim's terminal emulator without unintentionally nesting sessions.
     'samjwill/nvim-unception',

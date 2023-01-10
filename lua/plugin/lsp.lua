@@ -21,6 +21,12 @@ require('nvim-lightbulb').setup {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 
+-- foldingRange capabilities provided by the nvim-ufo plugin
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
 local on_attach = function(client, bufnr)
   api.nvim_command('setlocal signcolumn=yes')
 
@@ -40,7 +46,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overriden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
   keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)

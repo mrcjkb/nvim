@@ -47,6 +47,9 @@ opt.splitbelow = true
 -- opt.laststatus = 3 -- managed by lualine
 -- Hide command line unless typing a command or printing a message
 opt.cmdheight = 0
+
+opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
 -- Workaround to show macro recording indicator
 local cmdheightaugroup = vim.api.nvim_create_augroup('cmdheight', { clear = true })
 vim.api.nvim_create_autocmd('RecordingEnter', {
