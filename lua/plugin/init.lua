@@ -379,14 +379,13 @@ return require('packer').startup(function(use)
   }
 
   -- Specify, or on the fly, mark and create persisting key strokes to go to the files you want.
-  -- + Unlimiter terminals and navigation
-  -- use {
-  --   'ThePrimeagen/harpoon',
-  --   requires = { 'nvim-lua/plenary.nvim' },
-  --   config = function()
-  --     require('plugin.harpoon').setup()
-  --   end
-  -- }
+  -- + Unlimited terminals and navigation
+  use {
+    'ThePrimeagen/harpoon',
+    requires = { 'nvim-lua/plenary.nvim' },
+    setup = require('plugin.harpoon').setup,
+    config = require('plugin.harpoon').config,
+  }
 
   -- Virtual text with git blame information, etc
   use {
