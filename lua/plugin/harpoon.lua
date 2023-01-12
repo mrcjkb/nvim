@@ -6,6 +6,7 @@ function harpoon.config()
   local github_home = git_home .. '/github'
   local github_mrcjkb = github_home .. '/mrcjkb'
   local nix_flake_check_cmd = 'nix flake check -L'
+  local nix_flake_update_cmd = 'nix flake update --commit-lock-file'
 
   require('harpoon').setup {
     projects = {
@@ -13,6 +14,7 @@ function harpoon.config()
         term = {
           cmds = {
             nix_flake_check_cmd,
+            nix_flake_update_cmd,
           },
         },
       },
