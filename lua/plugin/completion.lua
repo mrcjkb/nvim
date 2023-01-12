@@ -48,7 +48,7 @@ cmp.setup {
     end),
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
-    }, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+    },
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
