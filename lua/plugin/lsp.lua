@@ -111,6 +111,7 @@ ht.setup {
   tools = {
     repl = {
       handler = 'toggleterm',
+      auto_focus = false,
     },
     definition = {
       hoogle_signature_fallback = true,
