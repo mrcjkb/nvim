@@ -17,6 +17,8 @@ require('nvim-lightbulb').setup {
   },
 }
 
+require('fidget').setup()
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
