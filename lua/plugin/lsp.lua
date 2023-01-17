@@ -77,10 +77,10 @@ local on_attach = function(client, bufnr)
     require('lsp-selection-range').expand()
   end, opts)
   keymap.set('n', ']]', function()
-    illuminate.goto_next_reference(false)
+    illuminate.goto_next_reference(true)
   end, opts)
   keymap.set('n', '[[', function()
-    illuminate.goto_prev_reference(false)
+    illuminate.goto_prev_reference(true)
   end, opts)
 
   -- Autocomplete signature hints
