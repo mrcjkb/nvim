@@ -196,6 +196,7 @@ return require('packer').startup(function(use)
       'camilledejoye/nvim-lsp-selection-range', -- LSP selection range
       'kosayoda/nvim-lightbulb',
       'j-hui/fidget.nvim', -- Standalone UI for nvim-lsp progress. Eye candy for the impatient.
+      'RRethy/vim-illuminate', -- Highlight other uses of the word under the cursor using either LSP, Tree-sitter, or regex matching
     },
     setup = function()
       vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })

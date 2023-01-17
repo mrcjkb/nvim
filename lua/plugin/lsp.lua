@@ -19,6 +19,9 @@ require('nvim-lightbulb').setup {
 
 require('fidget').setup()
 
+local illuminate = require('illuminate')
+illuminate.configure()
+
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
@@ -72,6 +75,12 @@ local on_attach = function(client, bufnr)
   end, opts)
   keymap.set('v', 'vv', function()
     require('lsp-selection-range').expand()
+  end, opts)
+  keymap.set('n', ']]', function()
+    illuminate.goto_next_reference(false)
+  end, opts)
+  keymap.set('n', '[[', function()
+    illuminate.goto_prev_reference(false)
   end, opts)
 
   -- Autocomplete signature hints
@@ -239,12 +248,18 @@ lspconfig.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+        globals = {
+          'vim',
+          'describe',
+          'it',
+          'assert',
+        },
       },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file('', true),
-      },
+      -- workspace = {
+      --   -- Make the server aware of Neovim runtime files
+      -- TODO: Refine to library plugins and neovim API
+      --   library = vim.api.nvim_get_runtime_file('', true),
+      -- },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
