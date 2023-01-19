@@ -21,10 +21,6 @@ require('fidget').setup()
 
 local illuminate = require('illuminate')
 illuminate.configure {
-  providers = {
-    'lsp',
-    'treesitter',
-  },
   delay = 200,
 }
 
