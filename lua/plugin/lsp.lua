@@ -20,7 +20,13 @@ require('nvim-lightbulb').setup {
 require('fidget').setup()
 
 local illuminate = require('illuminate')
-illuminate.configure()
+illuminate.configure {
+  providers = {
+    'lsp',
+    'treesitter',
+  },
+  delay = 200,
+}
 
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
