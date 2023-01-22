@@ -163,7 +163,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
-      'MrcJkb/neotest-haskell',
+      'mrcjkb/neotest-haskell',
       'nvim-neotest/neotest-python',
       'nvim-neotest/neotest-plenary',
       'rouge8/neotest-rust',
@@ -176,7 +176,7 @@ return require('packer').startup(function(use)
   use {
     'neovim/nvim-lspconfig',
     requires = {
-      'MrcJkb/haskell-tools.nvim',
+      'mrcjkb/haskell-tools.nvim',
       'simrat39/rust-tools.nvim',
       'simrat39/inlay-hints.nvim',
       'mfussenegger/nvim-jdtls', -- Java LSP support
@@ -208,7 +208,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'MrcJkb/lsp-inject.nvim',
+    'mrcjkb/lsp-inject.nvim',
   }
 
   use {
@@ -246,7 +246,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-treesitter/playground',
       'nvim-treesitter/nvim-treesitter-textobjects',
-      -- 'MrcJkb/nvim-treesitter-textobjects',
+      -- 'mrcjkb/nvim-treesitter-textobjects',
       'nvim-treesitter/nvim-treesitter-context',
       'nvim-treesitter/nvim-treesitter-refactor',
       'p00f/nvim-ts-rainbow', -- Rainbow brackets (needs nvim-treesitter)
