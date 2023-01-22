@@ -128,14 +128,6 @@ telescope.setup {
     -- ['ui-select'] = {
     --   themes.get_dropdown {},
     -- },
-    hoogle = {
-      render = 'treesitter',
-      renders = {
-        treesitter = {
-          remove_wrap = false,
-        },
-      },
-    },
   },
 }
 

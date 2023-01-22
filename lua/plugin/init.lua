@@ -298,8 +298,7 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     requires = {
-      -- 'luc-tielen/telescope_hoogle',
-      'psiska/telescope-hoogle.nvim',
+      'luc-tielen/telescope_hoogle',
       'mrcjkb/telescope-manix',
       'nvim-telescope/telescope-fzy-native.nvim',
       'nvim-telescope/telescope-smart-history.nvim',
