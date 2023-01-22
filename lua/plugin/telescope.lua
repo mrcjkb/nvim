@@ -3,6 +3,15 @@ local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 -- local themes = require('telescope.themes')
 
+local layout_config = {
+  vertical = {
+    width = 0.8,
+    height = 0.9,
+    prompt_position = 'bottom',
+    preview_cutoff = 0,
+  },
+}
+
 -- Fall back to find_files if not in a git repo
 local project_files = function()
   local opts = {} -- define here if you want to define something
@@ -59,6 +68,7 @@ vim.keymap.set('n', '<leader>tH', telescope.extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>th', function()
   telescope.extensions.hoogle.hoogle {
     layout_strategy = 'vertical',
+    layout_config = layout_config,
   }
 end, {})
 vim.keymap.set('n', '<leader>tn', telescope.extensions.manix.manix, {})
@@ -73,14 +83,7 @@ telescope.setup {
       'smart',
     },
     layout_strategy = 'vertical',
-    layout_config = {
-      vertical = {
-        width = 0.8,
-        height = 0.9,
-        prompt_position = 'bottom',
-        preview_cutoff = 0,
-      },
-    },
+    layout_config = layout_config,
     mappings = {
       i = {
         ['<C-q>'] = actions.send_to_qflist,
