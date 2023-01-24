@@ -50,21 +50,6 @@ opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
--- Workaround to show macro recording indicator
-local cmdheightaugroup = vim.api.nvim_create_augroup('cmdheight', { clear = true })
-vim.api.nvim_create_autocmd('RecordingEnter', {
-  group = cmdheightaugroup,
-  callback = function()
-    opt.cmdheight = 1
-  end,
-})
-vim.api.nvim_create_autocmd('RecordingLeave', {
-  group = cmdheightaugroup,
-  callback = function()
-    opt.cmdheight = 0
-  end,
-})
-
 vim.g.markdown_syntax_conceal = 0
 
 opt.updatetime = 100

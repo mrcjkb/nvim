@@ -1,14 +1,27 @@
 local gps = require('nvim-gps')
 gps.setup()
+
+---@return string status
+local function macro_status()
+  local reg_recording = vim.fn.reg_recording()
+  if reg_recording ~= '' then
+    return ' @' .. reg_recording
+  end
+  local reg_executing = vim.fn.reg_executing()
+  if reg_executing ~= '' then
+    return ' @' .. reg_executing
+  end
+  return ''
+end
+
 require('lualine').setup {
   globalstatus = true,
   sections = {
     lualine_c = {
-      {
-        'filename',
-        path = 1,
-      },
       { gps.get_location, cond = gps.is_available },
+    },
+    lualine_z = {
+      { macro_status },
     },
   },
   options = {
@@ -45,6 +58,16 @@ require('lualine').setup {
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
+  },
+  winbar = {
+    lualine_z = {
+      {
+        'filename',
+        path = 1,
+        file_status = true,
+        newfile_status = true,
+      },
+    },
   },
   extenstions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
 }
