@@ -13,8 +13,8 @@ require('neotest').setup {
   icons = {
     failed = '✘',
     passed = '✔',
-    running = '🏃',
-    skipped = '⏭',
+    running = '',
+    skipped = '嶺',
   },
 }
 local opts = { noremap = true }
