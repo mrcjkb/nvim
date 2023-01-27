@@ -141,7 +141,7 @@ ht.setup {
       keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
       keymap.set('n', '<space>hp', ht.project.open_package_yaml, opts)
     end,
-    settings = {
+    default_settings = {
       haskell = {
         formattingProvider = 'stylish-haskell',
         maxCompletions = 10,
