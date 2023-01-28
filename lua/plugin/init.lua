@@ -304,7 +304,6 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope-smart-history.nvim',
       'nvim-telescope/telescope-cheat.nvim',
       'tami5/sqlite.lua', -- Required by smart-history and cheat
-      'cljoly/telescope-repo.nvim',
       'nvim-lua/plenary.nvim',
       -- 'nvim-telescope/telescope-ui-select.nvim',
     },
