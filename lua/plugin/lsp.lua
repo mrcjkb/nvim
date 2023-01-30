@@ -53,6 +53,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  keymap.set('n', 'gT', vim.lsp.buf.type_definition, opts)
   -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overriden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
@@ -61,7 +62,6 @@ local on_attach = function(client, bufnr)
   keymap.set('n', '<space>wl', function()
     vim.pretty_print(lsp.buf.list_workspace_folders())
   end, opts)
-  keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
   keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
   keymap.set('n', '<space>o', vim.lsp.buf.workspace_symbol, opts)
   keymap.set('n', '<space>d', vim.lsp.buf.document_symbol, opts)
@@ -135,11 +135,11 @@ ht.setup {
       on_attach(client, bufnr)
       on_dap_attach(bufnr)
       local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr })
-      keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
+      keymap.set('n', 'gh', ht.hoogle.hoogle_signature, opts)
       keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, opts)
       keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
       keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
-      keymap.set('n', '<space>hp', ht.project.open_package_yaml, opts)
+      keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
     end,
     default_settings = {
       haskell = {
