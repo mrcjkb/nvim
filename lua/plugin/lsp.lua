@@ -53,7 +53,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  keymap.set('n', 'gT', vim.lsp.buf.type_definition, opts)
+  keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, opts)
   -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overriden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
