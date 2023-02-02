@@ -124,6 +124,7 @@
           unstable.nodePackages.pyright
           unstable.stylua
           unstable.ctags
+          unstable.nodejs # Used by nvim-treesitter to install parsers
         ];
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
