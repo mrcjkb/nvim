@@ -52,6 +52,9 @@ opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.g.markdown_syntax_conceal = 0
 
+-- See https://github.com/hrsh7th/nvim-compe/issues/286#issuecomment-805140394
+vim.g.omni_sql_default_compl_type = 'syntax'
+
 opt.updatetime = 100
 
 -- Set default shell
