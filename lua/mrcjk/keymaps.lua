@@ -138,42 +138,47 @@ end, { expr = true })
 
 keymap.set('n', 'tn', ':tabnew<CR>', {})
 
+local severity = diagnostic.severity
+
 local opts = { noremap = true, silent = true }
 keymap.set('n', '<space>e', diagnostic.open_float, opts)
-keymap.set('n', '<space>dq', function()
-  diagnostic.toqflist(diagnostic.get())
-end, opts)
 keymap.set('n', '[d', diagnostic.goto_prev, opts)
 keymap.set('n', ']d', diagnostic.goto_next, opts)
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev { severity = 'ERROR' }
+  diagnostic.goto_prev { severity = severity.ERROR }
 end, opts)
 keymap.set('n', ']e', function()
-  diagnostic.goto_next { severity = 'ERROR' }
+  diagnostic.goto_next { severity = severity.ERROR }
 end, opts)
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev { severity = 'WARN' }
+  diagnostic.goto_prev { severity = severity.WARN }
 end, opts)
 keymap.set('n', ']w', function()
-  diagnostic.goto_next { severity = 'WARN' }
+  diagnostic.goto_next { severity = severity.WARN }
 end, opts)
 keymap.set('n', '[h', function()
-  diagnostic.goto_prev { severity = 'HINT' }
+  diagnostic.goto_prev { severity = severity.HINT }
 end, opts)
 keymap.set('n', ']h', function()
-  diagnostic.goto_next { severity = 'HINT' }
+  diagnostic.goto_next { severity = severity.HINT }
 end, opts)
-keymap.set('n', '<space>q', function()
-  diagnostic.set_loclist { open_loclist = false }
+keymap.set('n', '<space>qa', function()
+  diagnostic.setloclist { open = false }
 end, opts)
-keymap.set('n', '<space>c', function()
-  diagnostic.set_qflist { open_qflist = false }
+keymap.set('n', '<space>ca', function()
+  diagnostic.setqflist { open = false }
 end, opts)
-keymap.set('n', '<space>w', function()
-  diagnostic.set_qflist { open_qflist = false, severity = 'WARN' }
+keymap.set('n', '<space>ce', function()
+  diagnostic.setqflist { open = false, severity = severity.ERROR }
 end, opts)
-keymap.set('n', '<space>i', function()
-  diagnostic.set_qflist { open_qflist = false, severity = 'INFO' }
+keymap.set('n', '<space>cw', function()
+  diagnostic.setqflist { open = false, severity = severity.WARN }
+end, opts)
+keymap.set('n', '<space>ci', function()
+  diagnostic.setqflist { open = false, severity = severity.INFO }
+end, opts)
+keymap.set('n', '<space>ch', function()
+  diagnostic.setqflist { open = false, severity = severity.HINT }
 end, opts)
 
 return M
