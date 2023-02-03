@@ -140,6 +140,9 @@ keymap.set('n', 'tn', ':tabnew<CR>', {})
 
 local opts = { noremap = true, silent = true }
 keymap.set('n', '<space>e', diagnostic.open_float, opts)
+keymap.set('n', '<space>dq', function()
+  diagnostic.toqflist(diagnostic.get())
+end, opts)
 keymap.set('n', '[d', diagnostic.goto_prev, opts)
 keymap.set('n', ']d', diagnostic.goto_next, opts)
 keymap.set('n', '[e', function()
