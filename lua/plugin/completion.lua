@@ -1,5 +1,8 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -101,8 +104,8 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources {
+    { name = 'cmdline_history' },
     { name = 'path' },
     { name = 'cmdline' },
-    { name = 'cmdline_history' },
   },
 })

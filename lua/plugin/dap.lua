@@ -11,13 +11,11 @@ vim.g.dap_virtual_text = 'all frames'
 
 -- dap
 
-local M = {}
-
-M.toggle_conditional_breakpoint = function()
-  dap.toggle_breakpoint(vim.fn.input('Breakpoint condition: '), nil, nil, true)
+dap.toggle_conditional_breakpoint = function()
+  dap.toggle_breakpoint(vim.fn.input { prompt = 'Breakpoint condition: ' }, nil, nil, true)
 end
 local widgets = require('dap.ui.widgets')
-M.sidebar = widgets.sidebar(widgets.scopes)
+dap.sidebar = widgets.sidebar(widgets.scopes)
 
 vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', linehl = '', numhl = '' })
 
@@ -145,7 +143,7 @@ dap.adapters.cpp = {
 
 local last_gdb_config
 
-M.start_c_debugger = function(args, mi_mode, mi_debugger_path)
+dap.start_c_debugger = function(args, mi_mode, mi_debugger_path)
   if args and #args > 0 then
     last_gdb_config = {
       type = 'cpp',
@@ -176,5 +174,3 @@ vim.cmd([[
 vim.cmd([[
     command! -complete=file -nargs=* DebugRust lua require "my_debug".start_c_debugger({<f-args>}, "gdb", "rust-gdb")
 ]])
-
-return M
