@@ -10,6 +10,7 @@ local inlayhints = require('inlay-hints')
 local telescope = require('telescope')
 inlayhints.setup()
 
+vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
 require('nvim-lightbulb').setup {
   autocmd = {
     enabled = true,
