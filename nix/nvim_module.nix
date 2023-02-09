@@ -106,10 +106,9 @@ with lib; let
 
   customRC =
     ''
-      local data_path = vim.fn.stdpath('data')
-      local pack_path = data_path .. '/site'
+      local pack_path = vim.fn.stdpath("data") .. "/site/pack/dev",
       vim.opt.packpath:prepend(pack_path)
-      local dev_plugins_dir = pack_path .. '/pack/dev/opt'
+      local dev_plugins_dir = pack_path .. '/opt'
       local dev_plugin_path
     ''
     + optionalString (cfg.devPlugins != []) (
