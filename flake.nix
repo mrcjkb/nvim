@@ -399,11 +399,10 @@
       pre-commit-check = pre-commit-check-for system;
     in
       pkgs.mkShell {
-        name = "nixfiles-devShell";
+        name = "nvim-config-devShell";
         inherit (pre-commit-check) shellHook;
         buildInputs = with pkgs; [
           alejandra
-          neovim-nightly
         ];
       };
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};

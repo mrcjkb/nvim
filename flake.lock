@@ -707,7 +707,7 @@
         "type": "github"
       }
     },
-    "neodev": {
+    "neodev-nvim": {
       "flake": false,
       "locked": {
         "lastModified": 1675845933,
@@ -1314,7 +1314,7 @@
         "lualine": "lualine",
         "luasnip": "luasnip",
         "material-theme": "material-theme",
-        "neodev": "neodev",
+        "neodev-nvim": "neodev-nvim",
         "neogit": "neogit",
         "neotest": "neotest",
         "neotest-plenary": "neotest-plenary",
