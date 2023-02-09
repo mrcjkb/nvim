@@ -525,6 +525,7 @@
           (withLuaModule quick-scope "plugin.quickscope")
           vim-textobj-user
           editorconfig
+          pkgs.unstable.vimPlugins.vim-fugitive
           (withLuaModule neogit "plugin.neogit")
           (withLuaModule gitlinker "plugin.gitlinker")
           repeat
