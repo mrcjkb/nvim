@@ -507,10 +507,6 @@
             name = "lsp-inject.nvim";
             url = "git@github.com:mrcjkb/lsp-inject.nvim.git";
           }
-          {
-            name = "nvim-treesitter";
-            url = "git@github.com:nvim-treesitter/nvim-treesitter.nvim.git";
-          }
         ];
         plugins = with pkgs.nvimPlugins; [
           (withLuaModule impatient "impatient")
