@@ -133,7 +133,7 @@
       url = "github:mfussenegger/nvim-jdtls";
       flake = false;
     };
-    neodev = {
+    neodev-nvim = {
       url = "github:folke/neodev.nvim";
       flake = false;
     };
@@ -288,10 +288,6 @@
     };
     telescope_hoogle = {
       url = "github:luc-tielen/telescope_hoogle";
-      flake = false;
-    };
-    telescope-fzy-native = {
-      url = "github:nvim-telescope/telescope-fzy-native.nvim";
       flake = false;
     };
     telescope-smart-history = {
@@ -545,7 +541,7 @@
           (withLuaModule nvim-dap "plugin.dap")
           nvim-dap-ui
           nvim-dap-virtual-text
-          neodev
+          neodev-nvim
           jdtls
           lsp-status
           lsp_signature
@@ -577,11 +573,10 @@
           (withConfig ultisnips "vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'ultisnips' }")
           (withLuaModule luasnip "plugin.luasnip")
           (withLuaModule project "plugin.project")
-          (withScheduledLuaModule telescope "plugin.telescope")
           telescope_hoogle
-          telescope-fzy-native
+          pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
           telescope-smart-history
-          (withScheduledLuaModule telescope "plugin.project")
+          (withScheduledLuaModule telescope "plugin.telescope")
           (withLuaSetup todo-comments "todo-comments")
           fzf-lua
           nvim-gps

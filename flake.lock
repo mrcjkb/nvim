@@ -1351,7 +1351,6 @@
         "statuscol": "statuscol",
         "surround": "surround",
         "telescope": "telescope",
-        "telescope-fzy-native": "telescope-fzy-native",
         "telescope-smart-history": "telescope-smart-history",
         "telescope_hoogle": "telescope_hoogle",
         "todo-comments": "todo-comments",
@@ -1446,22 +1445,6 @@
         "owner": "nvim-telescope",
         "ref": "0.1.x",
         "repo": "telescope.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-fzy-native": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1662879374,
-        "narHash": "sha256-ntSc/Z2KGwAPwBSgQ2m+Q9HgpGUwGbd+4fA/dtzOXY4=",
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzy-native.nvim",
-        "rev": "282f069504515eec762ab6d6c89903377252bf5b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzy-native.nvim",
         "type": "github"
       }
     },

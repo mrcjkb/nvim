@@ -35,7 +35,7 @@ in {
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
-    neodev = mkNvimPlugin inputs.neodev "neodev";
+    neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     nvim-dap-virtual-text = mkNvimPlugin inputs.nvim-dap-virtual-text "nvim-dap-virtual-text";
@@ -74,7 +74,6 @@ in {
     project = mkNvimPlugin inputs.project "project.nvim";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
-    telescope-fzy-native = mkNvimPlugin inputs.telescope-fzy-native "telescope-fzy-native.nvim";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     fzf-lua = mkNvimPlugin inputs.fzf-lua "fzf-lua";
