@@ -141,6 +141,7 @@ ht.setup {
       keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
       keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
       keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
+      keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
     end,
     default_settings = {
       haskell = {
