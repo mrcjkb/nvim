@@ -79,6 +79,25 @@ function lsp.on_attach(client, bufnr)
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
   inlayhints.on_attach(client, bufnr)
+
+  if client.server_capabilities.documentHighlightProvider then
+    local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
+    api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+      group = group,
+      buffer = bufnr,
+      callback = function()
+        local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
+        client.request('textDocument/documentHighlight', params, nil, bufnr)
+      end,
+    })
+    api.nvim_create_autocmd('CursorMoved', {
+      group = group,
+      buffer = bufnr,
+      callback = function()
+        pcall(vim.lsp.buf.clear_references)
+      end,
+    })
+  end
 end
 
 function lsp.on_dap_attach(bufnr)
