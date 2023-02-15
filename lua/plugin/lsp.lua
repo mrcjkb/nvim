@@ -24,10 +24,6 @@ lspconfig.texlab.setup {
 -- lspconfig.dockerls.setup{ on_attach = on_attach }
 -- lspconfig.cmake.setup{ on_attach = on_attach }
 -- lspconfig.gopls.setup{ on_attach = on_attach }
-lspconfig.vimls.setup {
-  on_attach = lsp.on_attach,
-  capabilities = lsp.capabilities,
-}
 
 -- C/C++ -- TODO: Complete
 lspconfig.clangd.setup {
