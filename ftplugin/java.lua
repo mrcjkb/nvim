@@ -25,7 +25,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 
 local root_dir = require('jdtls.setup').find_root { 'build.gradle', 'gradlew', 'mvnw', '.classpath' }
--- local workspace_folder = vim.fn.stdpath('data') .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+local workspace_folder = vim.fn.stdpath('data') .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
 local settings = {
   java = {
@@ -58,8 +58,7 @@ local settings = {
 
 jdtls.start_or_attach {
   capabilities = capabilities,
-  -- cmd = { 'jdt-language-server', workspace_folder },
-  cmd = { 'jdt-language-server' },
+  cmd = { 'jdt-language-server', '-configuration', '-data', workspace_folder },
   settings = settings,
   on_attach = on_jdtls_attach,
   on_init = function(client, _)
