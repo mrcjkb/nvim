@@ -116,3 +116,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
     vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
   end,
 })
+
+-- disable filetype.vim (in favour of filetype.lua)
+vim.g.did_load_filetypes = 0
