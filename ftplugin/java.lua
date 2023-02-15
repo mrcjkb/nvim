@@ -1,9 +1,15 @@
+local lsp = require('mrcjk.lsp')
 local jdtls = require('jdtls')
-local on_jdtls_attach = function(_, _)
+
+local on_jdtls_attach = function(client, bufnr)
+  lsp.on_attach(client, bufnr)
+  -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
+  -- you make during a debug session immediately.
+  -- You can use the `JdtHotcodeReplace` command to trigger it manually
   -- jdtls.setup_dap {
   --   hotcodereplace = 'auto',
   -- }
-  -- jdtls.setup.add_commands()
+  jdtls.setup.add_commands()
   local opts = { noremap = true, silent = true }
   vim.keymap.set('n', '<A-o>', jdtls.organize_imports, opts)
   vim.keymap.set('n', '<A-v>', jdtls.extract_variable, opts)
@@ -16,7 +22,6 @@ local on_jdtls_attach = function(_, _)
   -- nvim-dap (requires java-debug and vscode-java-test bundles)
   -- vim.keymap.set('n', '<leader>df', jdtls.test_class, opts)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
-  require('lsp-status').register_progress()
 end
 
 -- XXX: Duplicate.
