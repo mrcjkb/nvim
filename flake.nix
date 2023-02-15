@@ -483,6 +483,7 @@
           unstable.stylua
           unstable.ctags
           unstable.texlab
+          unstable.deno # Needed by peek.nvim
         ];
         extraConfigLua = ''
           require('mrcjk')
