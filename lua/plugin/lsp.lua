@@ -35,25 +35,7 @@ lspconfig.vimls.setup {
   capabilities = lsp.capabilities,
 }
 
-require('neodev').setup {
-  override = function(root_dir, library)
-    local util = require('neodev.util')
-    if util.has_file(root_dir, '/etc/nixos') or util.has_file(root_dir, 'nvim-config') then
-      library.enabled = true
-      library.plugins = true
-    end
-  end,
-}
-
 -- json-language-server
-
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
-  pattern = '*.avsc',
-  group = vim.api.nvim_create_augroup('avro-filetype-detection', {}),
-  callback = function()
-    vim.cmd.setf('avro')
-  end,
-})
 
 lspconfig.jsonls.setup {
   on_attach = lsp.on_attach,
