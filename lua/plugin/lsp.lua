@@ -1,12 +1,6 @@
 local lspconfig = require('lspconfig')
 local lsp = require('mrcjk.lsp')
 
--- lspconfig.tsserver.setup{ on_attach = on_attach }
-lspconfig.nil_ls.setup {
-  on_attach = lsp.on_attach,
-  capabilities = lsp.capabilities,
-}
--- lspconfig.kotlin_language_server.setup{ on_attach = on_attach }
 local on_latex_attach = function(client, bufnr)
   vim.keymap.set(
     'n',
@@ -40,8 +34,5 @@ lspconfig.clangd.setup {
   on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
 }
-
--- nvim-dap-virtual-text plugin
--- require'nvim-dap-virtual-text'.setup()
 
 -- require('idris2').setup({server = {on_attach = on_attach}})

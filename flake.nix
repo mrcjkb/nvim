@@ -481,6 +481,7 @@
           unstable.fd
           unstable.stylua
           unstable.ctags
+          unstable.texlab
         ];
         extraConfigLua = ''
           require('mrcjk')
