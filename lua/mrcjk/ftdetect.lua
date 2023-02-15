@@ -1,6 +1,7 @@
 vim.filetype.add {
   extension = {
-    avsc = 'avsc',
+    avsc = 'json', -- avro
+    jsonc = 'json',
 
     -- NOTE: Example for a more complex filetype detection...
     -- SEE: https://www.reddit.com/r/neovim/comments/rvwsl3/introducing_filetypelua_and_a_call_for_help/

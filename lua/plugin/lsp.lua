@@ -35,14 +35,6 @@ lspconfig.vimls.setup {
   capabilities = lsp.capabilities,
 }
 
--- json-language-server
-
-lspconfig.jsonls.setup {
-  on_attach = lsp.on_attach,
-  filetypes = { 'json', 'jsonc', 'avro' },
-  cmd = { 'json-languageserver', '--stdio' },
-}
-
 -- C/C++ -- TODO: Complete
 lspconfig.clangd.setup {
   on_attach = lsp.on_attach,
