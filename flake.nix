@@ -464,6 +464,7 @@
           unstable.haskellPackages.fast-tags # Fast tag generation
           unstable.nil
           unstable.rust-analyzer
+          unstable.taplo # toml toolkit including a language server
           unstable.lua-language-server
           unstable.nodePackages.vim-language-server
           unstable.nodePackages.yaml-language-server
