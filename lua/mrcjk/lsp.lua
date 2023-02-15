@@ -176,4 +176,29 @@ function lsp.start_or_attach_haskell_tools()
     },
   }
 end
+
+api.nvim_create_autocmd('LspDetach', {
+  group = api.nvim_create_augroup('lsp-detach', {}),
+  callback = function(args)
+    local group = api.nvim_create_augroup(string.format('lsp-%s-%s', args.buf, args.data.client_id), {})
+    pcall(api.nvim_del_augroup_by_name, group)
+  end,
+})
+
+api.nvim_create_user_command('LspStop', function(kwargs)
+  local name = kwargs.fargs[1]
+  for _, client in pairs(vim.lsp.get_active_clients()) do
+    if client.name == name then
+      vim.lsp.stop_client(client.id)
+    end
+  end
+end, {
+  nargs = 1,
+  complete = function()
+    return vim.tbl_map(function(c)
+      return c.name
+    end, vim.lsp.get_active_clients())
+  end,
+})
+
 return lsp
