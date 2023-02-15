@@ -469,7 +469,7 @@
           unstable.nodePackages.yaml-language-server
           unstable.nodePackages.dockerfile-language-server-nodejs
           unstable.nodePackages.vscode-json-languageserver-bin
-          unstable.jdt-language-server
+          jdt-language-server
           unstable.glow # Dependency of glow.nvim
           unstable.bat
           unstable.ueberzug # Display images in terminal
