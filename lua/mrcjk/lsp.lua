@@ -80,25 +80,53 @@ function lsp.on_attach(client, bufnr)
   require('lsp_signature').on_attach()
   inlayhints.on_attach(client, bufnr)
 
-  -- FIXME: This trys to request documentHighlight in the wrong buffers
-  --   if client.server_capabilities.documentHighlightProvider then
-  --     local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
-  --     api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-  --       group = group,
-  --       buffer = bufnr,
-  --       callback = function()
-  --         local params = vim.lsp.util.make_position_params(0, client.offset_encoding)
-  --         client.request('textDocument/documentHighlight', params, nil, bufnr)
-  --       end,
-  --     })
-  --     api.nvim_create_autocmd('CursorMoved', {
-  --       group = group,
-  --       buffer = bufnr,
-  --       callback = function()
-  --         pcall(vim.lsp.buf.clear_references)
-  --       end,
-  --     })
-  --   end
+  local function get_active_clients(buf)
+    return vim.lsp.get_active_clients { bufnr = buf, name = client.name }
+  end
+  local function buf_refresh_codeLens()
+    vim.schedule(function()
+      for _, c in pairs(get_active_clients(bufnr)) do
+        if c.server_capabilities.codeLensProvider then
+          vim.lsp.codelens.refresh()
+          return
+        end
+      end
+    end)
+  end
+  local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
+  if client.server_capabilities.codeLensProvider then
+    vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufWritePost', 'TextChanged' }, {
+      group = group,
+      callback = buf_refresh_codeLens,
+      buffer = bufnr,
+    })
+    buf_refresh_codeLens()
+  end
+  local function buf_document_highlight()
+    vim.schedule(function()
+      for _, c in pairs(get_active_clients(bufnr)) do
+        if c.server_capabilities.documentHighlightProvider then
+          vim.lsp.buf.document_highlight()
+          return
+        end
+      end
+    end)
+  end
+  if client.server_capabilities.documentHighlightProvider then
+    api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+      group = group,
+      buffer = bufnr,
+      callback = buf_document_highlight,
+    })
+    api.nvim_create_autocmd('CursorMoved', {
+      group = group,
+      buffer = bufnr,
+      callback = function()
+        pcall(vim.lsp.buf.clear_references)
+      end,
+    })
+    buf_document_highlight()
+  end
 end
 
 function lsp.on_dap_attach(bufnr)
@@ -151,6 +179,9 @@ function lsp.start_or_attach_haskell_tools()
       repl = {
         handler = 'toggleterm',
         auto_focus = false,
+      },
+      codeLens = {
+        autoRefresh = false,
       },
       definition = {
         hoogle_signature_fallback = true,
