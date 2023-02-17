@@ -20,15 +20,7 @@ lspconfig.texlab.setup {
   },
   on_attach = on_latex_attach,
   capabilities = lsp.capabilities,
-}
--- lspconfig.dockerls.setup{ on_attach = on_attach }
--- lspconfig.cmake.setup{ on_attach = on_attach }
--- lspconfig.gopls.setup{ on_attach = on_attach }
-
--- C/C++ -- TODO: Complete
-lspconfig.clangd.setup {
-  on_attach = lsp.on_attach,
-  capabilities = lsp.capabilities,
+  autostart = false,
 }
 
--- require('idris2').setup({server = {on_attach = on_attach}})
+return lspconfig.textlab

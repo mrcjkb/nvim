@@ -555,7 +555,7 @@
           one-small-step-for-vimkind
           fidget
           illuminate
-          (withLuaModule lspconfig "plugin.lsp")
+          lspconfig
           cmp-buffer
           cmp-path
           cmp-cmdline
