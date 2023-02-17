@@ -48,6 +48,10 @@ require('material').setup {
     NeotestFailed = { link = 'DiagnosticError' },
     NeotestRunning = { link = 'DiagnosticWarn' },
     NeotestTarget = { link = 'DiagnosticError' },
+    NeotestAdapterName = { link = 'DiagnosticHint' },
+    NeotestDir = { link = 'DiagnosticHint' },
+    NeotestFile = { link = 'DiagnosticHint' },
+    NeotestSkipped = { link = 'DiagnosticHint' },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
