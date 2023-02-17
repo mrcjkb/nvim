@@ -157,6 +157,7 @@ function lsp.start_or_attach_haskell_tools()
       },
       codeLens = {
         autoRefresh = false,
+        icon = '',
       },
       definition = {
         hoogle_signature_fallback = true,
