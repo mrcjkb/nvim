@@ -25,6 +25,19 @@ require('nvim-lightbulb').setup {
 
 require('fidget').setup()
 
+local default_on_codelens = vim.lsp.codelens.on_codelens
+vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
+  if err or not lenses or not next(lenses) then
+    return default_on_codelens(err, lenses, ctx, _)
+  end
+  for _, lens in pairs(lenses) do
+    if lens and lens.command and lens.command.title then
+      lens.command.title = ' ' .. lens.command.title
+    end
+  end
+  return default_on_codelens(err, lenses, ctx, _)
+end
+
 function lsp.on_attach(client, bufnr)
   api.nvim_command('setlocal signcolumn=yes')
 
