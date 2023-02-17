@@ -38,6 +38,16 @@ require('material').setup {
   async_loading = true,
   custom_highlights = {
     LspCodeLens = { link = 'DiagnosticHint', italic = true },
+    TermCursor = { link = 'Cursor' },
+    TermCursorNC = { bg = 'red', fg = 'white', ctermbg = 1, ctermfg = 15 },
+    FidgetTitle = { link = 'DiagnosticHint' },
+    IlluminatedWordRead = { link = 'TSDefinitionUsage' },
+    IlluminatedWordWrite = { link = 'TSDefinitionUsage' },
+    IlluminatedWordText = { link = 'TSDefinitionUsage' },
+    NeotestPassed = { fg = '#ABCF76' },
+    NeotestFailed = { link = 'DiagnosticError' },
+    NeotestRunning = { link = 'DiagnosticWarn' },
+    NeotestTarget = { link = 'DiagnosticError' },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
