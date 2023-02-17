@@ -102,31 +102,6 @@ function lsp.on_attach(client, bufnr)
     })
     buf_refresh_codeLens()
   end
-  local function buf_document_highlight()
-    vim.schedule(function()
-      for _, c in pairs(get_active_clients(bufnr)) do
-        if c.server_capabilities.documentHighlightProvider then
-          vim.lsp.buf.document_highlight()
-          return
-        end
-      end
-    end)
-  end
-  if client.server_capabilities.documentHighlightProvider then
-    api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-      group = group,
-      buffer = bufnr,
-      callback = buf_document_highlight,
-    })
-    api.nvim_create_autocmd('CursorMoved', {
-      group = group,
-      buffer = bufnr,
-      callback = function()
-        pcall(vim.lsp.buf.clear_references)
-      end,
-    })
-    buf_document_highlight()
-  end
 end
 
 function lsp.on_dap_attach(bufnr)
