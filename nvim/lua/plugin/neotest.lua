@@ -16,6 +16,10 @@ require('neotest').setup {
     running = '',
     skipped = '嶺',
   },
+  quickfix = {
+    enabled = false,
+    open = false,
+  },
 }
 local opts = { noremap = true }
 vim.keymap.set('n', '<leader>nr', function()
