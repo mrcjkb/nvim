@@ -47,6 +47,7 @@ vim.lsp.start {
           'it',
           'assert',
         },
+        libraryFiles = 'Disable',
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

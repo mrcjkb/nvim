@@ -1,1 +1,1 @@
-require('lsp.texlab').launch()
+require('lang.texlab').launch()

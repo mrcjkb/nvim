@@ -1,1 +1,1 @@
-require('lsp.clangd').launch()
+require('lang.clangd').launch()

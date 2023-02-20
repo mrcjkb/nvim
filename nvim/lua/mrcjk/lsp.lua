@@ -157,47 +157,6 @@ capabilities.textDocument.foldingRange = {
 
 lsp.capabilities = capabilities
 
-function lsp.start_or_attach_haskell_tools()
-  local ht = require('haskell-tools')
-  local telescope = require('telescope')
-  local keymap_opts = { noremap = true, silent = true }
-
-  ht.start_or_attach {
-    tools = {
-      repl = {
-        handler = 'toggleterm',
-        auto_focus = false,
-      },
-      codeLens = {
-        autoRefresh = false,
-        icon = '',
-      },
-      definition = {
-        hoogle_signature_fallback = true,
-      },
-    },
-    hls = {
-      on_attach = function(client, bufnr)
-        lsp.on_attach(client, bufnr)
-        lsp.on_dap_attach(bufnr)
-        local opts = vim.tbl_extend('keep', keymap_opts, { buffer = bufnr })
-        vim.keymap.set('n', 'gh', ht.hoogle.hoogle_signature, opts)
-        vim.keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, opts)
-        vim.keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
-        vim.keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
-        vim.keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
-        vim.keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
-      end,
-      default_settings = {
-        haskell = {
-          formattingProvider = 'stylish-haskell',
-          maxCompletions = 10,
-        },
-      },
-    },
-  }
-end
-
 api.nvim_create_autocmd('LspDetach', {
   group = api.nvim_create_augroup('lsp-detach', {}),
   callback = function(args)
