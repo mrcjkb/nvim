@@ -48,6 +48,9 @@ opt.splitbelow = true
 -- Hide command line unless typing a command or printing a message
 opt.cmdheight = 0
 
+-- Keep cursor in the middle of the pane while scrolling
+opt.scrolloff = 10000
+
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
 vim.g.markdown_syntax_conceal = 0
