@@ -10,8 +10,6 @@ require('project_nvim').setup {
     'cabal.project',
     'stack.yaml',
     'hie.yaml',
-    'build.gradle',
-    'build.grale.kts',
   },
   scope_chdir = 'win',
 }
