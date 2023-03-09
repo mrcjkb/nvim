@@ -1,4 +1,5 @@
-require('neotest').setup {
+local neotest = require('neotest')
+neotest.setup {
   adapters = {
     require('neotest-haskell'),
     require('neotest-python') {
@@ -11,10 +12,11 @@ require('neotest').setup {
     -- }),
   },
   icons = {
-    failed = '✘',
-    passed = '✔',
-    running = '',
-    skipped = '嶺',
+    failed = '',
+    passed = '',
+    running = '',
+    skipped = '',
+    unknown = '',
   },
   quickfix = {
     enabled = false,
@@ -23,11 +25,14 @@ require('neotest').setup {
 }
 local opts = { noremap = true }
 vim.keymap.set('n', '<leader>nr', function()
-  require('neotest').run.run()
+  neotest.run.run()
+end, opts)
+vim.keymap.set('n', '<leader>nf', function()
+  neotest.run.run(vim.api.nvim_buf_get_name(0))
 end, opts)
 vim.keymap.set('n', '<leader>no', function()
-  require('neotest').output.open()
+  neotest.output.open()
 end, opts)
 vim.keymap.set('n', '<leader>ns', function()
-  require('neotest').summary.toggle()
+  neotest.summary.toggle()
 end, opts)
