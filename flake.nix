@@ -138,7 +138,8 @@
       flake = false;
     };
     neodev-nvim = {
-      url = "github:folke/neodev.nvim";
+      # url = "github:folke/neodev.nvim";
+      url = "github:mrcjkb/neodev.nvim";
       flake = false;
     };
     nvim-dap = {
