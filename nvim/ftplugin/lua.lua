@@ -1,3 +1,5 @@
+vim.bo.comments = ':---,:--'
+
 local lsp = require('mrcjk.lsp')
 
 local root_files = {
