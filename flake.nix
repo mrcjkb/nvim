@@ -133,12 +133,12 @@
       url = "github:mfussenegger/nvim-jdtls";
       flake = false;
     };
-    neodev-nvim = {
-      url = "github:folke/neodev.nvim";
-      flake = false;
-    };
     neoconf-nvim = {
       url = "github:folke/neoconf.nvim";
+      flake = false;
+    };
+    neodev-nvim = {
+      url = "github:folke/neodev.nvim";
       flake = false;
     };
     nvim-dap = {
@@ -548,8 +548,8 @@
           (withLuaModule nvim-dap "plugin.dap")
           nvim-dap-ui
           nvim-dap-virtual-text
-          (withLuaModule neodev-nvim "plugin.neodev")
           (withLuaSetup neoconf-nvim "neoconf")
+          (withLuaModule neodev-nvim "plugin.neodev")
           jdtls
           lsp-status
           lsp_signature

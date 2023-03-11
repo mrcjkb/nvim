@@ -35,8 +35,8 @@ in {
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
-    neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
+    neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     nvim-dap-virtual-text = mkNvimPlugin inputs.nvim-dap-virtual-text "nvim-dap-virtual-text";
