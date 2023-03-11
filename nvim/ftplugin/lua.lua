@@ -33,6 +33,9 @@ vim.lsp.start {
           'it',
           'assert',
         },
+        disable = {
+          'duplicate-set-field',
+        },
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
