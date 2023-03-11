@@ -22,11 +22,6 @@ local root_files = {
   'selene.yml',
 }
 
-local runtime_paths = vim.api.nvim_get_runtime_file('', true)
-local library_paths = vim.tbl_filter(function(path)
-  return vim.endswith(path, 'neotest') or vim.endswith(path, 'plenary.nvim') or vim.endswith(path, 'telescope.nvim')
-end, runtime_paths)
-
 vim.lsp.start {
   name = 'luals',
   cmd = { 'lua-language-server' },
@@ -40,19 +35,13 @@ vim.lsp.start {
         version = 'LuaJIT',
       },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
+        -- Get the language server to recognize the `vim` global, etc.
         globals = {
           'vim',
           'describe',
           'it',
           'assert',
         },
-        libraryFiles = 'Disable',
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        -- TODO: Refine to library plugins and neovim API
-        library = library_paths,
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
