@@ -115,6 +115,10 @@
       url = "github:rouge8/neotest-rust";
       flake = false;
     };
+    neoconf-nvim = {
+      url = "github:folke/neoconf.nvim";
+      flake = false;
+    };
     lspconfig = {
       # XXX: Do I need this?
       url = "github:neovim/nvim-lspconfig";
@@ -131,10 +135,6 @@
     jdtls = {
       # FIXME: Update setup in dotfiles
       url = "github:mfussenegger/nvim-jdtls";
-      flake = false;
-    };
-    neoconf-nvim = {
-      url = "github:folke/neoconf.nvim";
       flake = false;
     };
     neodev-nvim = {
@@ -548,7 +548,6 @@
           (withLuaModule nvim-dap "plugin.dap")
           nvim-dap-ui
           nvim-dap-virtual-text
-          (withLuaSetup neoconf-nvim "neoconf")
           (withLuaModule neodev-nvim "plugin.neodev")
           jdtls
           lsp-status
@@ -560,6 +559,7 @@
           one-small-step-for-vimkind
           fidget
           illuminate
+          (withLuaSetup neoconf-nvim "neoconf")
           lspconfig
           cmp-buffer
           cmp-path

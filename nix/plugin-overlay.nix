@@ -31,11 +31,11 @@ in {
     neotest-python = mkNvimPlugin inputs.neotest-python "neotest-python";
     neotest-plenary = mkNvimPlugin inputs.neotest-plenary "neotest-plenary";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
+    neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     lspconfig = mkNvimPlugin inputs.lspconfig "nvim-lspconfig";
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
-    neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
