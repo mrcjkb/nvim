@@ -548,7 +548,7 @@
           (withLuaModule nvim-dap "plugin.dap")
           nvim-dap-ui
           nvim-dap-virtual-text
-          neodev-nvim
+          (withLuaModule neodev-nvim "plugin.neodev")
           (withLuaSetup neoconf-nvim "neoconf")
           jdtls
           lsp-status
