@@ -1532,11 +1532,11 @@
     "treesitter-context": {
       "flake": false,
       "locked": {
-        "lastModified": 1678533190,
-        "narHash": "sha256-STl76hVjS5txlA5n25aUXH5vDKHhaWfT8Ou4ObzxpuA=",
+        "lastModified": 1678575352,
+        "narHash": "sha256-S43/DEkg6K1o+RMzvlFIr0AD569zB4rjUY/IP0uUETc=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
-        "rev": "67dcaf9d913d31a9e87d8deceb7eaecf1c33bb22",
+        "rev": "f35bc5473117771b3b95125eea1bf1d13a550139",
         "type": "github"
       },
       "original": {
