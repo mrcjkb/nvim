@@ -22,7 +22,7 @@
       flake = false;
     };
     sqlite = {
-      url = "github:tami5/sqlite.lua";
+      url = "github:kkharji/sqlite.lua";
       flake = false;
     };
     nvim-web-devicons = {
