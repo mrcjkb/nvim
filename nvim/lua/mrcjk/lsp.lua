@@ -148,6 +148,14 @@ end
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
+-- Enable preliminary support for workspace/didChangeWatchedFiles
+vim.tbl_deep_extend('keep', capabilities, {
+  workspace = {
+    didChangeWatchedFiles = {
+      dynamicRegistration = true,
+    },
+  },
+})
 
 -- foldingRange capabilities provided by the nvim-ufo plugin
 capabilities.textDocument.foldingRange = {
