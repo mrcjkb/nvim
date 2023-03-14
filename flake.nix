@@ -119,7 +119,7 @@
       url = "github:folke/neoconf.nvim";
       flake = false;
     };
-    schemastore-nnvim = {
+    schemastore-nvim = {
       url = "github:b0o/SchemaStore.nvim";
       flake = false;
     };
@@ -565,7 +565,7 @@
           fidget
           illuminate
           (withLuaSetup neoconf-nvim "neoconf")
-          schemastore-nnvim
+          schemastore-nvim
           lspconfig
           cmp-buffer
           cmp-path
