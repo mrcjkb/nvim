@@ -5,4 +5,9 @@ vim.lsp.start {
   cmd = { 'yaml-language-server', '--stdio' },
   on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
+  settings = {
+    yaml = {
+      schemas = require('schemastore').yaml.schemas(),
+    },
+  },
 }

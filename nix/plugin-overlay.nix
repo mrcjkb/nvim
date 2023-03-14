@@ -32,6 +32,7 @@ in {
     neotest-plenary = mkNvimPlugin inputs.neotest-plenary "neotest-plenary";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
+    schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
     lspconfig = mkNvimPlugin inputs.lspconfig "nvim-lspconfig";
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
