@@ -632,7 +632,7 @@
 
       environment = with pkgs; {
         systemPackages = [
-          unstable.neovide
+          neovide
         ];
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
