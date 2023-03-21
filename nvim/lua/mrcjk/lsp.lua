@@ -25,6 +25,19 @@ require('nvim-lightbulb').setup {
 
 require('fidget').setup()
 
+local function format_range_operator()
+  local old_func = vim.go.operatorfunc
+  _G.op_func_formatting = function()
+    local start = vim.api.nvim_buf_get_mark(0, '[')
+    local finish = vim.api.nvim_buf_get_mark(0, ']')
+    vim.lsp.buf.range_formatting({}, start, finish)
+    vim.go.operatorfunc = old_func
+    _G.op_func_formatting = nil
+  end
+  vim.go.operatorfunc = 'v:lua.op_func_formatting'
+  vim.api.nvim_feedkeys('g@', 'n', false)
+end
+
 local default_on_codelens = vim.lsp.codelens.on_codelens
 vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
   if err or not lenses or not next(lenses) then
@@ -92,6 +105,10 @@ function lsp.on_attach(client, bufnr)
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
   inlayhints.on_attach(client, bufnr)
+
+  if client.server_capabilities.documentRangeFormattingProvider then
+    keymap.set('n', 'gm', format_range_operator, { noremap = true })
+  end
 
   local function get_active_clients(buf)
     return vim.lsp.get_active_clients { bufnr = buf, name = client.name }
