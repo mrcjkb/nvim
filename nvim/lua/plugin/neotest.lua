@@ -1,7 +1,15 @@
 local neotest = require('neotest')
 neotest.setup {
   adapters = {
-    require('neotest-haskell'),
+    require('neotest-haskell') {
+      frameworks = {
+        'tasty',
+        {
+          framework = 'hspec',
+          modules = { 'Test.Hspec', 'T', 'TestUtil' },
+        },
+      },
+    },
     require('neotest-python') {
       dap = { justMyCode = false },
     },
