@@ -88,7 +88,7 @@ function lsp.on_attach(client, bufnr)
     vim.pretty_print(vim.lsp.buf.list_workspace_folders())
   end, opts)
   keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-  keymap.set('n', '<space>o', vim.lsp.buf.workspace_symbol, opts)
+  keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, opts)
   keymap.set('n', '<space>d', vim.lsp.buf.document_symbol, opts)
   keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, opts)
@@ -112,7 +112,7 @@ function lsp.on_attach(client, bufnr)
 
   local navbuddy = require('nvim-navbuddy')
   navbuddy.attach(client, bufnr)
-  keymap.set('n', '<space>no', navbuddy.open, opts)
+  keymap.set('n', 'go', navbuddy.open, opts)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
