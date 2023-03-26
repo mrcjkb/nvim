@@ -1,3 +1,4 @@
+require('mrcjk.deprication-warnings')
 require('mrcjk.native-plugins')
 require('mrcjk.settings')
 require('mrcjk.autocommands')
