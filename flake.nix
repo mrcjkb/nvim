@@ -55,16 +55,14 @@
       flake = false;
     };
     quick-scope = {
+      # Vimscript
       url = "github:unblevable/quick-scope";
       flake = false;
     };
     vim-textobj-user = {
+      # Vimscript
       # User-defined textobjects
       url = "github:kana/vim-textobj-user";
-      flake = false;
-    };
-    editorconfig = {
-      url = "github:gpanders/editorconfig.nvim";
       flake = false;
     };
     neogit = {
@@ -536,7 +534,6 @@
           (withConfig leap "require('leap').set_default_keymaps()")
           (withLuaModule quick-scope "plugin.quickscope")
           vim-textobj-user
-          editorconfig
           pkgs.unstable.vimPlugins.vim-fugitive
           (withLuaModule neogit "plugin.neogit")
           (withLuaModule gitlinker "plugin.gitlinker")

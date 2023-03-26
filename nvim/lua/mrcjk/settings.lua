@@ -120,5 +120,4 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
--- disable filetype.vim (in favour of filetype.lua)
-vim.g.did_load_filetypes = 0
+vim.g.editorconfig = true

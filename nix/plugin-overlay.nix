@@ -18,7 +18,6 @@ in {
     leap = mkNvimPlugin inputs.leap "leap.nvim";
     quick-scope = mkNvimPlugin inputs.quick-scope "quick-scope";
     vim-textobj-user = mkNvimPlugin inputs.vim-textobj-user "vim-textobj-user";
-    editorconfig = mkNvimPlugin inputs.editorconfig "editorconfig.nvim";
     neogit = mkNvimPlugin inputs.neogit "neogit";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
     repeat = mkNvimPlugin inputs.repeat "vim-repeat";
