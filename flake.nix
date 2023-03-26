@@ -42,6 +42,7 @@
       flake = false;
     };
     vim-wordmotion = {
+      # Vimscript
       url = "github:chaoren/vim-wordmotion";
       flake = false;
     };
