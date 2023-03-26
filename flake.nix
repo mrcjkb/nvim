@@ -145,6 +145,10 @@
       url = "github:folke/neodev.nvim";
       flake = false;
     };
+    nvim-navbuddy = {
+      url = "github:smiteshp/nvim-navbuddy";
+      flake = false;
+    };
     nvim-dap = {
       url = "github:mfussenegger/nvim-dap";
       flake = false;
@@ -553,6 +557,7 @@
           nvim-dap-ui
           nvim-dap-virtual-text
           (withLuaModule neodev-nvim "plugin.neodev")
+          nvim-navbuddy
           jdtls
           lsp-status
           lsp_signature
