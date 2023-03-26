@@ -553,7 +553,6 @@
           nvim-dap-ui
           nvim-dap-virtual-text
           (withLuaModule neodev-nvim "plugin.neodev")
-          nvim-navbuddy
           jdtls
           lsp-status
           lsp_signature
