@@ -1,4 +1,3 @@
-require('mrcjk.overrides')
 require('mrcjk.native-plugins')
 require('mrcjk.settings')
 require('mrcjk.autocommands')
