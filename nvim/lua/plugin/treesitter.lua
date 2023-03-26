@@ -147,6 +147,3 @@ configs.setup {
 -- disabled. Folding is managed by nvim-ufo
 -- vim.opt.foldmethod = 'expr'
 -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
--- Suppress deprecation warning
-vim.treesitter.query.get_query = vim.treesitter.query.get
