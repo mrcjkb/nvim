@@ -1,4 +1,4 @@
-require('mrcjk.deprication-warnings')
+require('mrcjk.deprecation-warnings')
 require('mrcjk.native-plugins')
 require('mrcjk.settings')
 require('mrcjk.autocommands')
