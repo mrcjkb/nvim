@@ -171,7 +171,8 @@ function lsp.on_dap_attach(bufnr)
 end
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local cmp_lsp = require('cmp_nvim_lsp')
+local capabilities = cmp_lsp and cmp_lsp.default_capabilities() or vim.lsp.protocol.make_client_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 -- Enable preliminary support for workspace/didChangeWatchedFiles
 vim.tbl_deep_extend('keep', capabilities, {

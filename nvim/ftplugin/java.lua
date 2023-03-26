@@ -26,7 +26,8 @@ end
 
 -- XXX: Duplicate.
 -- TODO: Extract to lsp module.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local cmp_lsp = require('cmp_nvim_lsp')
+local capabilities = cmp_lsp and cmp_lsp.default_capabilities() or vim.lsp.protocol.make_client_capabilities()
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 
 local root_dir = require('jdtls.setup').find_root { 'build.gradle', 'gradlew', 'mvnw', '.classpath' }
