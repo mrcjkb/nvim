@@ -401,11 +401,11 @@
     "fzf-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1679768662,
-        "narHash": "sha256-oLojTiFdDBlgg2XrkowMKHxT2QB1dAWWIoOIAIXvzkU=",
+        "lastModified": 1679844444,
+        "narHash": "sha256-ErEfMVeZ5WobE9XfplV+GQA5m5LL/Af9bbWWIs+SJe4=",
         "owner": "ibhagwan",
         "repo": "fzf-lua",
-        "rev": "11225b76a41ae59bd52307c64862e13b12de50ef",
+        "rev": "02bde5fae96772729004743f0f309c35c5182b83",
         "type": "github"
       },
       "original": {
@@ -1041,22 +1041,6 @@
         "type": "github"
       }
     },
-    "nvim-navbuddy": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1679811822,
-        "narHash": "sha256-L8xxaqqzjIlV4nGhJr3dBzTZ6mgK6GtZDJ+3JRbzcw4=",
-        "owner": "smiteshp",
-        "repo": "nvim-navbuddy",
-        "rev": "61afbf6b2e7a86ff0c88a8535b51ea192146dfc7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "smiteshp",
-        "repo": "nvim-navbuddy",
-        "type": "github"
-      }
-    },
     "nvim-ts-context-commentstring": {
       "flake": false,
       "locked": {
@@ -1364,7 +1348,6 @@
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
-        "nvim-navbuddy": "nvim-navbuddy",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-ts-rainbow": "nvim-ts-rainbow",
         "nvim-ufo": "nvim-ufo",
