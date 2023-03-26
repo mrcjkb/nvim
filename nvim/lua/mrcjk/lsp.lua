@@ -110,9 +110,9 @@ function lsp.on_attach(client, bufnr)
     illuminate.goto_prev_reference(true)
   end, opts)
 
-  local navbuddy = require('nvim-navbuddy')
-  navbuddy.attach(client, bufnr)
-  keymap.set('n', 'go', navbuddy.open, opts)
+  -- local navbuddy = require('nvim-navbuddy')
+  -- navbuddy.attach(client, bufnr)
+  -- keymap.set('n', 'go', navbuddy.open, opts)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
