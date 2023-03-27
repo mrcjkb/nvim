@@ -3,11 +3,12 @@ neotest.setup {
   adapters = {
     require('neotest-haskell') {
       frameworks = {
-        'tasty',
         {
-          framework = 'hspec',
-          modules = { 'Test.Hspec', 'T', 'TestUtil' },
+          framework = 'tasty',
+          modules = { 'Test.Tasty', 'T', 'TestUtil' },
         },
+        'hspec',
+        'sydtest',
       },
     },
     require('neotest-python') {
