@@ -30,7 +30,8 @@
       flake = false;
     };
     diffview = {
-      url = "github:sindrets/diffview.nvim";
+      # url = "github:sindrets/diffview.nvim";
+      url = "github:3699394/diffview.nvim";
       flake = false;
     };
     peek = {
