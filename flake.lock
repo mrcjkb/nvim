@@ -259,15 +259,15 @@
     "diffview": {
       "flake": false,
       "locked": {
-        "lastModified": 1679155640,
-        "narHash": "sha256-HdXrbX5405ZrYqpAjPopaTA20kY+wIkQq7E858cnX1o=",
-        "owner": "sindrets",
+        "lastModified": 1679837733,
+        "narHash": "sha256-nl026IvVmfdtWk8eHd8ZEnTzNwUZ3SFWkHMR3zIc1Ak=",
+        "owner": "3699394",
         "repo": "diffview.nvim",
-        "rev": "58035354fc79c6ec42fa7b218dab90bd3968615f",
+        "rev": "6420a73b340fdb1f842479cd7640dcca9ec6f5d1",
         "type": "github"
       },
       "original": {
-        "owner": "sindrets",
+        "owner": "3699394",
         "repo": "diffview.nvim",
         "type": "github"
       }
