@@ -1,5 +1,6 @@
 local disabled_deprecation_warnings = {
   'vim.treesitter.query',
+  'vim.treesitter.parse_query',
 }
 
 local orig_deprecate = vim.deprecate
