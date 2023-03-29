@@ -53,7 +53,7 @@
       flake = false;
     };
     colorizer = {
-      url = "github:norcalli/nvim-colorizer.lua";
+      url = "github:NvChad/nvim-colorizer.lua";
       flake = false;
     };
     leap = {
