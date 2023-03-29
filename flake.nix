@@ -1,5 +1,10 @@
 {
-  description = "XDG config for nix home-manager";
+  description = "Neovim config";
+
+  nixConfig = {
+    extra-substituters = "https://mrcjkb.cachix.org";
+    extra-trusted-public-keys = "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4=";
+  };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
