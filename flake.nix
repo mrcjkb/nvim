@@ -483,6 +483,7 @@
           unstable.nodePackages.yaml-language-server
           unstable.nodePackages.dockerfile-language-server-nodejs
           unstable.nodePackages.vscode-json-languageserver-bin
+          unstable.nodePackages.bash-language-server
           unstable.jdt-language-server
           unstable.glow # Dependency of glow.nvim
           unstable.bat
