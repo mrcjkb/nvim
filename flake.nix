@@ -563,7 +563,7 @@
           nvim-dap-ui
           nvim-dap-virtual-text
           (withLuaModule neodev-nvim "plugin.neodev")
-          (withLuaSetup femaco "femaco")
+          (withLuaModule femaco "plugin.femaco")
           jdtls
           lsp-status
           lsp_signature
