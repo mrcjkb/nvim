@@ -279,8 +279,8 @@
       url = "github:nvim-treesitter/nvim-treesitter-refactor";
       flake = false;
     };
-    nvim-ts-rainbow = {
-      url = "github:mrjones2014/nvim-ts-rainbow";
+    nvim-ts-rainbow2 = {
+      url = "github:HiPhish/nvim-ts-rainbow2";
       flake = false;
     };
     nvim-lint = {
@@ -536,7 +536,7 @@
           treesitter-textobjects
           treesitter-context
           treesitter-refactor
-          nvim-ts-rainbow
+          nvim-ts-rainbow2
           (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
           # TODO: Package with deno build
           (withLuaModule peek "plugin.peek")
