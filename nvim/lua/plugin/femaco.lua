@@ -1,5 +1,5 @@
-local femaco = require('femaco')
+require('femaco').setup()
 
-femaco.setup()
-
-vim.keymap.set('n', '<leader>fe', femaco.edit_code_block, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>fe', function()
+  require('femaco.edit').edit_code_block()
+end, { noremap = true, silent = true })
