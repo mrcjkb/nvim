@@ -150,6 +150,10 @@
       url = "github:folke/neodev.nvim";
       flake = false;
     };
+    femaco = {
+      url = "github:AckslD/nvim-FeMaco.lua";
+      flake = false;
+    };
     nvim-dap = {
       url = "github:mfussenegger/nvim-dap";
       flake = false;
@@ -559,6 +563,7 @@
           nvim-dap-ui
           nvim-dap-virtual-text
           (withLuaModule neodev-nvim "plugin.neodev")
+          (withLuaSetup femaco "femaco")
           jdtls
           lsp-status
           lsp_signature

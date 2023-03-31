@@ -37,6 +37,7 @@ in {
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
+    femaco = mkNvimPlugin inputs.femaco "nvim-femaco.lua";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     nvim-dap-virtual-text = mkNvimPlugin inputs.nvim-dap-virtual-text "nvim-dap-virtual-text";
