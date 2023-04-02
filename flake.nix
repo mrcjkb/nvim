@@ -488,6 +488,8 @@
           unstable.nodePackages.dockerfile-language-server-nodejs
           unstable.nodePackages.vscode-json-languageserver-bin
           unstable.nodePackages.bash-language-server
+          unstable.nodePackages.markdownlint-cli
+          unstable.lua51Packages.luacheck
           sqls
           unstable.jdt-language-server
           unstable.glow # Dependency of glow.nvim

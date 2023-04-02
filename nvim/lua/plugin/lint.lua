@@ -5,10 +5,16 @@ if hlint_hint_file and hlint_hint_file ~= '' then
 end
 lint.linters_by_ft = {
   haskell = { 'hlint' },
+  markdown = { 'markdownlint' },
+  lua = { 'luacheck' },
 }
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = vim.api.nvim_create_augroup('lint-commands', {}),
-  pattern = { '*.hs' },
+  pattern = {
+    '*.hs',
+    '*.md',
+    '*.lua',
+  },
   callback = function()
     require('lint').try_lint()
   end,
