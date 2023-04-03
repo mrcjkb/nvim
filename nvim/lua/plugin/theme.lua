@@ -39,7 +39,7 @@ require('material').setup {
   custom_highlights = {
     LspCodeLens = { link = 'DiagnosticHint', italic = true },
     TermCursor = { link = 'Cursor' },
-    TermCursorNC = { bg = 'red', fg = 'white', ctermbg = 1, ctermfg = 15 },
+    TermCursorNC = { bg = '#FF5370', fg = 'white', ctermbg = 1, ctermfg = 15 },
     FidgetTitle = { link = 'DiagnosticHint' },
     IlluminatedWordRead = { link = 'TSDefinitionUsage' },
     IlluminatedWordWrite = { link = 'TSDefinitionUsage' },
@@ -52,6 +52,14 @@ require('material').setup {
     NeotestDir = { link = 'DiagnosticHint' },
     NeotestFile = { link = 'DiagnosticHint' },
     NeotestSkipped = { link = 'DiagnosticHint' },
+    EyelinerPrimary = {
+      link = 'DiagnosticWarn',
+      bold = true,
+      underline = true,
+      ctermfg = 155,
+      cterm = { underline = true },
+    },
+    EyelinerSecondary = { link = 'DiagnosticHint', underline = true, ctermfg = 155, cterm = { underline = true } },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'

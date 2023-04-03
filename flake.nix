@@ -60,9 +60,8 @@
       url = "github:ggandor/leap.nvim";
       flake = false;
     };
-    quick-scope = {
-      # Vimscript
-      url = "github:unblevable/quick-scope";
+    eyeliner-nvim = {
+      url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
     vim-textobj-user = {
@@ -546,7 +545,7 @@
           (withLuaModule vim-wordmotion "plugin.wordmotion")
           (withScheduledLuaSetup colorizer "colorizer")
           (withConfig leap "require('leap').set_default_keymaps()")
-          (withLuaModule quick-scope "plugin.quickscope")
+          (withLuaModule eyeliner-nvim "plugin.eyeliner")
           vim-textobj-user
           pkgs.unstable.vimPlugins.vim-fugitive
           (withLuaModule neogit "plugin.neogit")
