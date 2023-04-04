@@ -122,4 +122,4 @@ vim.api.nvim_create_autocmd('BufEnter', {
 
 vim.g.editorconfig = true
 
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = '100'
