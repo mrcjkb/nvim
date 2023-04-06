@@ -60,6 +60,10 @@
       url = "github:ggandor/leap.nvim";
       flake = false;
     };
+    nvim-treehopper = {
+      url = "github:mfussenegger/nvim-treehopper";
+      flake = false;
+    };
     eyeliner-nvim = {
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
@@ -545,6 +549,7 @@
           (withLuaModule vim-wordmotion "plugin.wordmotion")
           (withScheduledLuaSetup colorizer "colorizer")
           (withConfig leap "require('leap').set_default_keymaps()")
+          (withLuaModule nvim-treehopper "plugin.treehopper")
           (withLuaModule eyeliner-nvim "plugin.eyeliner")
           vim-textobj-user
           pkgs.unstable.vimPlugins.vim-fugitive
