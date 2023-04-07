@@ -417,11 +417,11 @@
     "fzf-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1680844598,
-        "narHash": "sha256-97zQp+zuCVe0uGNVWiy2OoA0uLAnfJQWwyzJg4MeFuo=",
+        "lastModified": 1680888722,
+        "narHash": "sha256-r0oJ8I5gAKwG90ZbzJ4THveUgWIJP5rUp++bVefIv9U=",
         "owner": "ibhagwan",
         "repo": "fzf-lua",
-        "rev": "ed41a475527f07a6e887146779e0ee6f0a779efd",
+        "rev": "b454e05d44530e50c0d049b87ca6eeece958ff6a",
         "type": "github"
       },
       "original": {
@@ -868,11 +868,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1680336751,
-        "narHash": "sha256-otSdFRXsNyPYOsbo+49vN4UGwZrVoLDrEp0EkyVJ/rY=",
+        "lastModified": 1680866776,
+        "narHash": "sha256-yGCZZ6yLbW5K/XZPgotPZB0mi5St+QLqfbVJuLvTHp8=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "d56f32281f4d6d74ce925a99946713dc6b5a0e30",
+        "rev": "26c965a256bf1f33d0c90e607d9438097cca149f",
         "type": "github"
       },
       "original": {
@@ -1092,11 +1092,11 @@
     "nvim-ts-rainbow2": {
       "flake": false,
       "locked": {
-        "lastModified": 1680869768,
-        "narHash": "sha256-ZRZJHExB0ojNVu1ZQzroX2HFrguj1ZA48W+GhbSopIk=",
+        "lastModified": 1680889197,
+        "narHash": "sha256-ZN+6PdG5aAOTs2JsA/BLqxiavw5r2TiPi4FuY0hfYbg=",
         "owner": "HiPhish",
         "repo": "nvim-ts-rainbow2",
-        "rev": "742c1576c014ef0299fd25f429eda83398ca1a09",
+        "rev": "2c82e0965be2baf67fa2d3d48f3747437fde7204",
         "type": "github"
       },
       "original": {
