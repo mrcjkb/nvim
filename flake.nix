@@ -427,7 +427,7 @@
       };
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
   in {
-    nixosModule = {
+    nixosModules.default = {
       pkgs,
       lib,
       defaultUser,
