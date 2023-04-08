@@ -643,14 +643,7 @@
         ];
       };
 
-      programs.fish.shellAliases = {
-        nv = "neovide";
-      };
-
       environment = with pkgs; {
-        systemPackages = [
-          neovide
-        ];
         sessionVariables = rec {
           LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
           LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
