@@ -1,3 +1,3 @@
-local lsp = require('mrcjk.lsp')
+local haskell = require('lang.haskell')
 
-lsp.start_or_attach_haskell_tools()
+haskell.start_or_attach()
