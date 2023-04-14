@@ -145,9 +145,9 @@ end
 function lsp.on_dap_attach(bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', '<F5>', dap.stop, opts)
-  keymap.set('n', '<F6>', dap.step_out, opts)
-  keymap.set('n', '<F7>', dap.step_into, opts)
-  keymap.set('n', '<F8>', dap.step_over, opts)
+  keymap.set('n', '<Up>', dap.step_out, opts)
+  keymap.set('n', '<Down>', dap.step_into, opts)
+  keymap.set('n', '<Right>', dap.step_over, opts)
   keymap.set('n', '<F9>', dap.continue, opts)
   keymap.set('n', '<leader>b', dap.toggle_breakpoint, opts)
   -- keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts) -- FIXME
