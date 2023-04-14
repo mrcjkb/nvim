@@ -478,9 +478,9 @@
           unstable.haskellPackages.hoogle
           unstable.haskellPackages.hlint
           unstable.haskell-language-server
-          unstable.haskellPackages.haskell-debug-adapter
-          unstable.haskellPackages.ghci-dap
-          unstable.haskellPackages.haskell-dap
+          # unstable.haskellPackages.haskell-debug-adapter
+          # unstable.haskellPackages.ghci-dap
+          # unstable.haskellPackages.haskell-dap
           unstable.haskellPackages.fast-tags # Fast tag generation
           unstable.nil
           unstable.rust-analyzer
