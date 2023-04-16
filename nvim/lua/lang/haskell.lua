@@ -30,10 +30,6 @@ function haskell.start_or_attach()
         vim.keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
         vim.keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
         vim.keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
-
-        if ht.dap then
-          ht.dap.add_configurations(bufnr)
-        end
       end,
       default_settings = {
         haskell = {
@@ -45,6 +41,11 @@ function haskell.start_or_attach()
   }
   vim.keymap.set('n', '<space>gp', ht.project.telescope_package_grep, keymap_opts)
   vim.keymap.set('n', '<space>gf', ht.project.telescope_package_files, keymap_opts)
+
+  if ht.dap then
+    local bufnr = vim.api.nvim_get_current_buf()
+    ht.dap.add_configurations(bufnr)
+  end
 end
 
 return haskell
