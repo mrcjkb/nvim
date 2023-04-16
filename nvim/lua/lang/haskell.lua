@@ -44,7 +44,7 @@ function haskell.start_or_attach()
 
   if ht.dap then
     local bufnr = vim.api.nvim_get_current_buf()
-    ht.dap.add_configurations(bufnr)
+    ht.dap.discover_configurations(bufnr)
   end
 end
 
