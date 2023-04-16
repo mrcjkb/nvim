@@ -467,47 +467,46 @@
         #     pylsp-mypy
         #     flake8
         #   ];
-        extraPackages = with pkgs; [
-          (unstable.python3.withPackages (ps:
+        extraPackages = with pkgs.unstable; [
+          (python3.withPackages (ps:
             with ps; [
               pynvim
               python-lsp-server
               pylsp-mypy
               flake8
             ]))
-          unstable.haskellPackages.hoogle
-          unstable.haskellPackages.hlint
-          unstable.haskell-language-server
-          # unstable.haskellPackages.haskell-debug-adapter
-          # unstable.haskellPackages.ghci-dap
-          # unstable.haskellPackages.haskell-dap
-          unstable.haskellPackages.fast-tags # Fast tag generation
-          unstable.nil
-          unstable.rust-analyzer
-          unstable.taplo # toml toolkit including a language server
-          unstable.lua-language-server
-          unstable.nodePackages.vim-language-server
-          unstable.nodePackages.yaml-language-server
-          unstable.nodePackages.dockerfile-language-server-nodejs
-          unstable.nodePackages.vscode-json-languageserver-bin
-          unstable.nodePackages.bash-language-server
-          unstable.nodePackages.markdownlint-cli
-          unstable.lua51Packages.luacheck
+          haskellPackages.hoogle
+          haskellPackages.hlint
+          haskell-language-server
+          haskellPackages.haskell-debug-adapter
+          haskellPackages.ghci-dap
+          haskellPackages.fast-tags # Fast tag generation
+          nil
+          rust-analyzer
+          taplo # toml toolkit including a language server
+          lua-language-server
+          nodePackages.vim-language-server
+          nodePackages.yaml-language-server
+          nodePackages.dockerfile-language-server-nodejs
+          nodePackages.vscode-json-languageserver-bin
+          nodePackages.bash-language-server
+          nodePackages.markdownlint-cli
+          lua51Packages.luacheck
           sqls
-          unstable.jdt-language-server
-          unstable.glow # Dependency of glow.nvim
-          unstable.bat
-          unstable.ueberzug # Display images in terminal
-          unstable.feh # Fast and light image viewer
-          unstable.fzf # Fuzzy search
-          unstable.xclip # Required so that neovim compiles with clipboard support
-          unstable.ripgrep
-          unstable.silver-searcher # Ag
-          unstable.fd
-          unstable.stylua
-          unstable.ctags
-          unstable.texlab
-          unstable.deno # Needed by peek.nvim
+          jdt-language-server
+          glow # Dependency of glow.nvim
+          bat
+          ueberzug # Display images in terminal
+          feh # Fast and light image viewer
+          fzf # Fuzzy search
+          xclip # Required so that neovim compiles with clipboard support
+          ripgrep
+          silver-searcher # Ag
+          fd
+          stylua
+          ctags
+          texlab
+          deno # Needed by peek.nvim
         ];
         extraConfigLua = ''
           require('mrcjk')
