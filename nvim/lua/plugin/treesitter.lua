@@ -1,8 +1,7 @@
 local configs = require('nvim-treesitter.configs')
 configs.setup {
-  -- ensure_installed = 'all',
-  -- ignore_install = { 'gitignore' }, -- broken
-  -- auto_install = true, -- Automatically install missing parsers when entering buffer
+  ensure_installed = 'all',
+  auto_install = false, -- Do not automatically install missing parsers when entering buffer
   highlight = {
     enable = true,
     disable = function(_, buf)
