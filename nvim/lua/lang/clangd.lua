@@ -8,4 +8,4 @@ lspconfig.clangd.setup {
   capabilities = lsp.capabilities,
 }
 
-return lspconfig.clangd
+return require('lspconfig.configs').clangd
