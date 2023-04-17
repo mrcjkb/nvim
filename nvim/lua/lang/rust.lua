@@ -1,3 +1,5 @@
+local rust = {}
+
 local rt = require('rust-tools')
 
 local lsp = require('mrcjk.lsp')
@@ -35,4 +37,7 @@ local rust_tools_opts = {
 
 rt.setup(rust_tools_opts)
 
-return rt
+rust.rust_analyzer = require('lspconfig').rust_analyzer
+rust.rust_tools = rt
+
+return rust
