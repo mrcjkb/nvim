@@ -23,4 +23,4 @@ lspconfig.texlab.setup {
   autostart = false,
 }
 
-return lspconfig.textlab
+return lspconfig.texlab
