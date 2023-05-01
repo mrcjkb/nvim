@@ -8,8 +8,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
+    neovim = {
+      url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
@@ -391,7 +391,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    neovim-nightly-overlay,
+    neovim,
     pre-commit-hooks,
     ...
   }: let
@@ -400,11 +400,16 @@
       "x86_64-linux"
     ];
     perSystem = nixpkgs.lib.genAttrs supportedSystems;
+    neovim-nightly-overlay = final: prev: {
+      neovim-unwrapped = neovim.packages.${prev.system}.neovim;
+      neovim-nightly = neovim.packages.${prev.system}.neovim;
+    };
+
     pkgsFor = system:
       import nixpkgs {
         inherit system;
         overlays = [
-          neovim-nightly-overlay.overlay
+          neovim-nightly-overlay
         ];
       };
     pre-commit-check-for = system:
@@ -637,7 +642,7 @@
 
       nixpkgs = {
         overlays = [
-          neovim-nightly-overlay.overlay
+          neovim-nightly-overlay
           plugin-overlay
         ];
       };
