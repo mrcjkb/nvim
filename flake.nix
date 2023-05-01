@@ -16,6 +16,7 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
     impatient = {
@@ -392,6 +393,7 @@
     self,
     nixpkgs,
     neovim,
+    flake-utils,
     pre-commit-hooks,
     ...
   }: let
@@ -399,273 +401,273 @@
       "aarch64-linux"
       "x86_64-linux"
     ];
-    perSystem = nixpkgs.lib.genAttrs supportedSystems;
     neovim-nightly-overlay = final: prev: {
       neovim-unwrapped = neovim.packages.${prev.system}.neovim;
       neovim-nightly = neovim.packages.${prev.system}.neovim;
     };
 
-    pkgsFor = system:
-      import nixpkgs {
+    plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
+  in
+    flake-utils.lib.eachSystem supportedSystems (system: let
+      pkgs = import nixpkgs {
         inherit system;
         overlays = [
           neovim-nightly-overlay
         ];
       };
-    pre-commit-check-for = system:
-      pre-commit-hooks.lib.${system}.run {
-        src = ./.;
+      shell = pkgs.mkShell {
+        name = "nvim-config-devShell";
+        buildInputs =
+          (with pkgs; [
+            lua-language-server
+          ])
+          ++ (with pre-commit-hooks.packages.${system}; [
+            alejandra
+            stylua
+            luacheck
+          ]);
+        shellHook = ''
+          ${self.checks.${system}.pre-commit-check.shellHook}
+        '';
+      };
+      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+        src = self;
         hooks = {
           alejandra.enable = true;
+          stylua.enable = true;
+          luacheck.enable = true;
         };
       };
-    shellFor = system: let
-      pkgs = pkgsFor system;
-      pre-commit-check = pre-commit-check-for system;
-    in
-      pkgs.mkShell {
-        name = "nvim-config-devShell";
-        inherit (pre-commit-check) shellHook;
-        buildInputs = with pkgs; [
-          alejandra
-        ];
+    in {
+      devShells = {
+        default = shell;
       };
-    plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
-  in {
-    nixosModules.default = {
-      pkgs,
-      lib,
-      defaultUser,
-      ...
-    }: {
-      imports = [
-        ./nix/nvim_module.nix
-      ];
-      programs.nvim = let
-        schedule = config: ''
-          vim.schedule(function()
-            ${config}
-          end)
-        '';
-        withConfig = plugin: config: {
-          inherit plugin config;
-        };
-        withLuaModule = plugin: module: withConfig plugin "require('${module}')";
-        withScheduledLuaModule = plugin: module: withConfig plugin (schedule "require('${module}')");
-        withLuaSetup = plugin: module: withConfig plugin "require('${module}').setup()";
-        withDefaultLuaSetup = plugin: module: withConfig plugin "require('${module}').setup {}";
-        withScheduledLuaSetup = plugin: module: withConfig plugin (schedule "require('${module}').setup()");
-      in {
-        enable = true;
-        defaultEditor = true;
-        package = pkgs.neovim-nightly;
-        vimAlias = true;
-        viAlias = true;
-        vimdiffAlias = true;
-        withNodeJs = true;
-        withRuby = true;
-        withPython3 = true;
-        # extraPython3Packages = ps:
-        #   with ps; [
-        #     pynvim
-        #     python-lsp-server
-        #     pylsp-mypy
-        #     flake8
-        #   ];
-        extraPackages = with pkgs.unstable; [
-          (python3.withPackages (ps:
-            with ps; [
-              pynvim
-              python-lsp-server
-              pylsp-mypy
-              flake8
-            ]))
-          haskellPackages.hoogle
-          haskellPackages.hlint
-          haskell-language-server
-          haskellPackages.haskell-debug-adapter
-          haskellPackages.ghci-dap
-          haskellPackages.fast-tags # Fast tag generation
-          nil
-          rust-analyzer
-          taplo # toml toolkit including a language server
-          lua-language-server
-          nodePackages.vim-language-server
-          nodePackages.yaml-language-server
-          nodePackages.dockerfile-language-server-nodejs
-          nodePackages.vscode-json-languageserver-bin
-          nodePackages.bash-language-server
-          nodePackages.markdownlint-cli
-          lua51Packages.luacheck
-          sqls
-          jdt-language-server
-          glow # Dependency of glow.nvim
-          bat
-          ueberzug # Display images in terminal
-          feh # Fast and light image viewer
-          fzf # Fuzzy search
-          xclip # Required so that neovim compiles with clipboard support
-          ripgrep
-          silver-searcher # Ag
-          fd
-          stylua
-          ctags
-          texlab
-          deno # Needed by peek.nvim
-        ];
-        extraConfigLua = ''
-          require('mrcjk')
-        '';
-        devPlugins = [
-          {
-            name = "haskell-tools.nvim";
-            url = "git@github.com:mrcjkb/haskell-tools.nvim.git";
-          }
-          {
-            name = "neotest-haskell";
-            url = "git@github.com:mrcjkb/neotest-haskell.git";
-          }
-          {
-            name = "telescope-manix";
-            url = "git@github.com:mrcjkb/telescope-manix.git";
-          }
-          {
-            name = "lsp-inject.nvim";
-            url = "git@github.com:mrcjkb/lsp-inject.nvim.git";
-          }
-        ];
-        plugins = with pkgs.nvimPlugins; [
-          (withLuaModule impatient "impatient")
-          plenary
-          (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
-          nvim-web-devicons
-          diffview
-          nvim-ts-context-commentstring
-          treesitter-playground
-          treesitter-textobjects
-          treesitter-context
-          treesitter-refactor
-          nvim-ts-rainbow2
-          (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
-          # TODO: Package with deno build
-          (withLuaModule peek "plugin.peek")
-          glow # TODO: Add glow dependency to overlay
-          (withLuaModule vim-wordmotion "plugin.wordmotion")
-          (withScheduledLuaSetup colorizer "colorizer")
-          (withConfig leap "require('leap').set_default_keymaps()")
-          (withLuaModule nvim-treehopper "plugin.treehopper")
-          (withLuaModule eyeliner-nvim "plugin.eyeliner")
-          vim-textobj-user
-          pkgs.unstable.vimPlugins.vim-fugitive
-          (withLuaModule neogit "plugin.neogit")
-          (withLuaModule gitlinker "plugin.gitlinker")
-          repeat
-          unimpaired
-          (withLuaSetup surround "nvim-surround")
-          (withLuaModule persistence "plugin.persistence")
-          (withLuaSetup comment "Comment")
-          (withLuaModule material-theme "plugin.theme")
-          neotest-python
-          neotest-plenary
-          neotest-rust
-          (withLuaModule neotest "plugin.neotest")
-          (withLuaModule nvim-dap "plugin.dap")
-          nvim-dap-ui
-          nvim-dap-virtual-text
-          (withLuaModule neodev-nvim "plugin.neodev")
-          (withLuaModule femaco "plugin.femaco")
-          jdtls
-          lsp-status
-          lsp_signature
-          nvim-lsp-selection-range
-          nvim-lightbulb
-          rust-tools
-          inlay-hints
-          one-small-step-for-vimkind
-          fidget
-          illuminate
-          (withLuaSetup neoconf-nvim "neoconf")
-          schemastore-nvim
-          lspconfig
-          cmp-buffer
-          cmp-path
-          cmp-cmdline
-          cmp-cmdline-history
-          cmp-nvim-lua
-          cmp-nvim-lsp
-          cmp-nvim-lsp-document-symbol
-          cmp-nvim-lsp-signature-help
-          cmp-omni
-          cmp-nvim-ultisnips
-          cmp-git
-          cmp-rg
-          lspkind-nvim
-          cmp-dap
-          cmp-conventionalcommits
-          (withScheduledLuaModule nvim-cmp "plugin.completion")
-          (withLuaModule nvim-lint "plugin.lint")
-          (withConfig ultisnips "vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'ultisnips' }")
-          (withLuaModule luasnip "plugin.luasnip")
-          (withLuaModule project "plugin.project")
-          telescope_hoogle
-          pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
-          telescope-smart-history
-          (withScheduledLuaModule telescope "plugin.telescope")
-          (withLuaSetup todo-comments "todo-comments")
-          fzf-lua
-          nvim-gps
-          (withLuaModule lualine "plugin.lualine")
-          (withLuaModule rnvimr "plugin.rnvimr")
-          (withDefaultLuaSetup dirbuf "dirbuf")
-          (withLuaModule toggleterm "plugin.toggleterm")
-          (withLuaModule harpoon "plugin.harpoon")
-          (withLuaModule gitsigns "plugin.gitsigns")
-          nvim-bqf
-          (withLuaModule formatter "plugin.formatter")
-          (withLuaModule yanky "plugin.yanky")
-          (withLuaModule iron "plugin.repl")
-          (withLuaModule venn "venn")
-          promise-async
-          (withLuaModule nvim-ufo "plugin.ufo")
-          (withLuaModule statuscol "plugin.statuscol")
-          nvim-unception
-        ];
+      checks = {
+        inherit pre-commit-check;
       };
-      home-manager.sharedModules = [
-        {
-          xdg.configFile."nvim" = {
-            source = ./nvim;
-            recursive = true;
+    })
+    // {
+      nixosModules.default = {
+        pkgs,
+        lib,
+        defaultUser,
+        ...
+      }: {
+        imports = [
+          ./nix/nvim_module.nix
+        ];
+        programs.nvim = let
+          schedule = config: ''
+            vim.schedule(function()
+              ${config}
+            end)
+          '';
+          withConfig = plugin: config: {
+            inherit plugin config;
           };
-        }
-      ];
-
-      nixpkgs = {
-        overlays = [
-          neovim-nightly-overlay
-          plugin-overlay
+          withLuaModule = plugin: module: withConfig plugin "require('${module}')";
+          withScheduledLuaModule = plugin: module: withConfig plugin (schedule "require('${module}')");
+          withLuaSetup = plugin: module: withConfig plugin "require('${module}').setup()";
+          withDefaultLuaSetup = plugin: module: withConfig plugin "require('${module}').setup {}";
+          withScheduledLuaSetup = plugin: module: withConfig plugin (schedule "require('${module}').setup()");
+        in {
+          enable = true;
+          defaultEditor = true;
+          package = pkgs.neovim-nightly;
+          vimAlias = true;
+          viAlias = true;
+          vimdiffAlias = true;
+          withNodeJs = true;
+          withRuby = true;
+          withPython3 = true;
+          # extraPython3Packages = ps:
+          #   with ps; [
+          #     pynvim
+          #     python-lsp-server
+          #     pylsp-mypy
+          #     flake8
+          #   ];
+          extraPackages = with pkgs.unstable; [
+            (python3.withPackages (ps:
+              with ps; [
+                pynvim
+                python-lsp-server
+                pylsp-mypy
+                flake8
+              ]))
+            haskellPackages.hoogle
+            haskellPackages.hlint
+            haskell-language-server
+            haskellPackages.haskell-debug-adapter
+            haskellPackages.ghci-dap
+            haskellPackages.fast-tags # Fast tag generation
+            nil
+            rust-analyzer
+            taplo # toml toolkit including a language server
+            lua-language-server
+            nodePackages.vim-language-server
+            nodePackages.yaml-language-server
+            nodePackages.dockerfile-language-server-nodejs
+            nodePackages.vscode-json-languageserver-bin
+            nodePackages.bash-language-server
+            nodePackages.markdownlint-cli
+            lua51Packages.luacheck
+            sqls
+            jdt-language-server
+            glow # Dependency of glow.nvim
+            bat
+            ueberzug # Display images in terminal
+            feh # Fast and light image viewer
+            fzf # Fuzzy search
+            xclip # Required so that neovim compiles with clipboard support
+            ripgrep
+            silver-searcher # Ag
+            fd
+            stylua
+            ctags
+            texlab
+            deno # Needed by peek.nvim
+          ];
+          extraConfigLua = ''
+            require('mrcjk')
+          '';
+          devPlugins = [
+            {
+              name = "haskell-tools.nvim";
+              url = "git@github.com:mrcjkb/haskell-tools.nvim.git";
+            }
+            {
+              name = "neotest-haskell";
+              url = "git@github.com:mrcjkb/neotest-haskell.git";
+            }
+            {
+              name = "telescope-manix";
+              url = "git@github.com:mrcjkb/telescope-manix.git";
+            }
+            {
+              name = "lsp-inject.nvim";
+              url = "git@github.com:mrcjkb/lsp-inject.nvim.git";
+            }
+          ];
+          plugins = with pkgs.nvimPlugins; [
+            (withLuaModule impatient "impatient")
+            plenary
+            (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
+            nvim-web-devicons
+            diffview
+            nvim-ts-context-commentstring
+            treesitter-playground
+            treesitter-textobjects
+            treesitter-context
+            treesitter-refactor
+            nvim-ts-rainbow2
+            (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
+            # TODO: Package with deno build
+            (withLuaModule peek "plugin.peek")
+            glow # TODO: Add glow dependency to overlay
+            (withLuaModule vim-wordmotion "plugin.wordmotion")
+            (withScheduledLuaSetup colorizer "colorizer")
+            (withConfig leap "require('leap').set_default_keymaps()")
+            (withLuaModule nvim-treehopper "plugin.treehopper")
+            (withLuaModule eyeliner-nvim "plugin.eyeliner")
+            vim-textobj-user
+            pkgs.unstable.vimPlugins.vim-fugitive
+            (withLuaModule neogit "plugin.neogit")
+            (withLuaModule gitlinker "plugin.gitlinker")
+            repeat
+            unimpaired
+            (withLuaSetup surround "nvim-surround")
+            (withLuaModule persistence "plugin.persistence")
+            (withLuaSetup comment "Comment")
+            (withLuaModule material-theme "plugin.theme")
+            neotest-python
+            neotest-plenary
+            neotest-rust
+            (withLuaModule neotest "plugin.neotest")
+            (withLuaModule nvim-dap "plugin.dap")
+            nvim-dap-ui
+            nvim-dap-virtual-text
+            (withLuaModule neodev-nvim "plugin.neodev")
+            (withLuaModule femaco "plugin.femaco")
+            jdtls
+            lsp-status
+            lsp_signature
+            nvim-lsp-selection-range
+            nvim-lightbulb
+            rust-tools
+            inlay-hints
+            one-small-step-for-vimkind
+            fidget
+            illuminate
+            (withLuaSetup neoconf-nvim "neoconf")
+            schemastore-nvim
+            lspconfig
+            cmp-buffer
+            cmp-path
+            cmp-cmdline
+            cmp-cmdline-history
+            cmp-nvim-lua
+            cmp-nvim-lsp
+            cmp-nvim-lsp-document-symbol
+            cmp-nvim-lsp-signature-help
+            cmp-omni
+            cmp-nvim-ultisnips
+            cmp-git
+            cmp-rg
+            lspkind-nvim
+            cmp-dap
+            cmp-conventionalcommits
+            (withScheduledLuaModule nvim-cmp "plugin.completion")
+            (withLuaModule nvim-lint "plugin.lint")
+            (withConfig ultisnips "vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'ultisnips' }")
+            (withLuaModule luasnip "plugin.luasnip")
+            (withLuaModule project "plugin.project")
+            telescope_hoogle
+            pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
+            telescope-smart-history
+            (withScheduledLuaModule telescope "plugin.telescope")
+            (withLuaSetup todo-comments "todo-comments")
+            fzf-lua
+            nvim-gps
+            (withLuaModule lualine "plugin.lualine")
+            (withLuaModule rnvimr "plugin.rnvimr")
+            (withDefaultLuaSetup dirbuf "dirbuf")
+            (withLuaModule toggleterm "plugin.toggleterm")
+            (withLuaModule harpoon "plugin.harpoon")
+            (withLuaModule gitsigns "plugin.gitsigns")
+            nvim-bqf
+            (withLuaModule formatter "plugin.formatter")
+            (withLuaModule yanky "plugin.yanky")
+            (withLuaModule iron "plugin.repl")
+            (withLuaModule venn "venn")
+            promise-async
+            (withLuaModule nvim-ufo "plugin.ufo")
+            (withLuaModule statuscol "plugin.statuscol")
+            nvim-unception
+          ];
+        };
+        home-manager.sharedModules = [
+          {
+            xdg.configFile."nvim" = {
+              source = ./nvim;
+              recursive = true;
+            };
+          }
         ];
-      };
 
-      environment = with pkgs; {
-        sessionVariables = rec {
-          LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
-          LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
+        nixpkgs = {
+          overlays = [
+            neovim-nightly-overlay
+            plugin-overlay
+          ];
+        };
+
+        environment = with pkgs; {
+          sessionVariables = rec {
+            LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
+            LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
+          };
         };
       };
     };
-
-    devShells = perSystem (system: {
-      default = shellFor system;
-    });
-
-    packages = perSystem (system: {
-      # Workaround for GitHub Actions
-      default = shellFor system;
-    });
-
-    checks = perSystem (system: {
-      formatting = pre-commit-check-for system;
-    });
-  };
 }
