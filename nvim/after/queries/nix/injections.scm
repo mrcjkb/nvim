@@ -5,7 +5,10 @@
     (binding_set
       (binding 
         ((attrpath) @_path) (#any-of? @_path "unpackPhase" "patchPhase" "configurePhase" "buildPhase" "checkPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase")
-        ((indented_string_expression) @bash)
+        ((indented_string_expression
+          (string_fragment) @bash
+         )
+        )
       )
     ) 
   )
@@ -27,11 +30,17 @@
   (apply_expression 
     (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
-  ((indented_string_expression) @bash)
+    ((indented_string_expression
+      (string_fragment) @bash
+     )
+    )
 )
 (apply_expression 
   (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
-  ((indented_string_expression) @bash)
+    ((indented_string_expression
+      (string_fragment) @bash
+     )
+    )
 )
 ;; writeShellScripBin (parenthesized)
 (apply_expression 
@@ -39,7 +48,10 @@
     (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
   (parenthesized_expression
-  ((indented_string_expression) @bash)
+    ((indented_string_expression
+      (string_fragment) @bash
+     )
+    )
   )
 )
 ;; writeShellApplication | writeShellScriptBinWith
@@ -49,7 +61,10 @@
       (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
     )
   )
-  ((indented_string_expression) @bash)
+    ((indented_string_expression
+      (string_fragment) @bash
+     )
+    )
 )
 ;; writeShellApplication | writeShellScriptBinWith (parenthesized)
 (apply_expression 
@@ -59,7 +74,10 @@
     )
   )
   (parenthesized_expression
-  ((indented_string_expression) @bash)
+    ((indented_string_expression
+      (string_fragment) @bash
+     )
+    )
   )
 )
 
