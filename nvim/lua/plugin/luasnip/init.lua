@@ -45,9 +45,10 @@ ls.setup {
 
 -- local ls = require('luasnip')
 local s = ls.snippet
--- local sn = ls.snippet_node
-local t = ls.text_node
-local i = ls.insert_node
+local sn = ls.snippet_node
+local text = ls.text_node
+local insert = ls.insert_node
+local choice = ls.choice_node
 -- local f = ls.function_node
 -- local d = ls.dynamic_node
 -- local fmt = require('luasnip.extras.fmt').fmt
@@ -60,8 +61,85 @@ local pragma = s({
   trig = 'prag',
   dscr = 'Compiler pragma',
 }, {
-  t('{-# ', i(1), ' #-}'),
+  text('{-# '),
+  choice(1, {
+    sn(nil, {
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('LANGUAGE '),
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('OPTIONS_GHC '),
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('OPTIONS_GHC -F -pgmF '),
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('INLINE '),
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('INLINABLE '),
+      insert(1),
+      text(' #-}'),
+    }),
+    sn(nil, {
+      text('NOINLINE '),
+      insert(1),
+      text(' #-}'),
+    }),
+  }),
 })
 table.insert(haskell_snippets, pragma)
+
+local language_pragma = s({
+  trig = 'lang',
+  dscr = 'LANGUAGE pragma',
+}, {
+  text('{-# LANGUAGE '),
+  insert(1),
+  text(' #-}'),
+})
+table.insert(haskell_snippets, language_pragma)
+
+local discover_pragma = s({
+  trig = 'discover',
+  dscr = 'hspec/sydtest discover GHC option',
+}, {
+  text('{-# OPTIONS_GHC -F -pgmF '),
+  choice(1, {
+    text('hspec'),
+    text('sydtest'),
+  }),
+  text('-discover -optF --module-name='),
+  insert(2, 'Spec'),
+  text(' #-}'),
+})
+table.insert(haskell_snippets, discover_pragma)
+
+local nowarn_pragma = s({
+  trig = 'nowarn',
+  dscr = 'GHC option to disable warnings',
+}, {
+  text('{-# OPTIONS_GHC -fno-warn-'),
+  choice(1, {
+    text('orphans'),
+    text('unused-binds'),
+    text('unused-matches'),
+    text('unused-imports'),
+    text('incomplete-patterns'),
+  }),
+  text(' #-}'),
+})
+table.insert(haskell_snippets, nowarn_pragma)
 
 ls.add_snippets('haskell', haskell_snippets, { key = 'haskell' })
