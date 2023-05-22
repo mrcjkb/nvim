@@ -40,7 +40,7 @@ ls.setup {
   -- treesitter-hl has 100, use something higher (default is 200).
   ext_base_prio = 300,
   -- Use treesitter to determine filetype - useful for treesitter injections
-  ft_func = require('luasnip.extras.filetype_functions').from_cursor,
+  ft_func = require('luasnip.extras.filetype_functions').from_cursor_pos,
 }
 
 -- local ls = require('luasnip')
@@ -57,7 +57,7 @@ local i = ls.insert_node
 local haskell_snippets = {}
 
 local pragma = s({
-  trig = 'pragma',
+  trig = 'prag',
   dscr = 'Compiler pragma',
 }, {
   t('{-# ', i(1), ' #-}'),
