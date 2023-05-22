@@ -22,8 +22,47 @@ vim.keymap.set('i', '<c-l>', function()
 end, { silent = true })
 
 -- Source luasnips config (for snippet development)
-vim.keymap.set(
-  'n',
-  '<leader><leader>s',
-  '<cmd>source ~/git/github/mrcjkb/nvim-config/nvim/lua/plugin/luasnip/init.lua<CR>'
-)
+vim.keymap.set('n', '<leader><leader>s', function()
+  vim.cmd([[
+      source /home/mrcjk/git/github/mrcjkb/nvim-config/nvim/lua/plugin/luasnip/init.lua
+    ]])
+  vim.print(require('plugin.luasnip.haskell'))
+end)
+
+ls.setup {
+  history = true,
+  -- Update more often, :h events for more info.
+  update_events = 'TextChanged,TextChangedI',
+  -- Snippets aren't automatically removed if their text is deleted.
+  -- `delete_check_events` determines on which events (:h events) a check for
+  -- deleted snippets is performed.
+  -- This can be especially useful when `history` is enabled.
+  delete_check_events = 'TextChanged',
+  -- treesitter-hl has 100, use something higher (default is 200).
+  ext_base_prio = 300,
+  -- Use treesitter to determine filetype - useful for treesitter injections
+  ft_func = require('luasnip.extras.filetype_functions').from_cursor,
+}
+
+-- local ls = require('luasnip')
+local s = ls.snippet
+-- local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+-- local f = ls.function_node
+-- local d = ls.dynamic_node
+-- local fmt = require('luasnip.extras.fmt').fmt
+-- local fmta = require('luasnip.extras.fmt').fmta
+-- local rep = require('luasnip.extras').rep
+
+local haskell_snippets = {}
+
+local pragma = s({
+  trig = 'pragma',
+  dscr = 'Compiler pragma',
+}, {
+  t('{-# ', i(1), ' #-}'),
+})
+table.insert(haskell_snippets, pragma)
+
+ls.add_snippets('haskell', haskell_snippets, { key = 'haskell' })
