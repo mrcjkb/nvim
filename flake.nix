@@ -242,6 +242,10 @@
       url = "github:quangnguyen30192/cmp-nvim-ultisnips";
       flake = false;
     };
+    cmp-luasnip = {
+      url = "github:saadparwaiz1/cmp_luasnip";
+      flake = false;
+    };
     cmp-git = {
       url = "github:petertriho/cmp-git";
       flake = false;
@@ -611,6 +615,7 @@
             cmp-nvim-lsp-signature-help
             cmp-omni
             cmp-nvim-ultisnips
+            cmp-luasnip
             cmp-git
             cmp-rg
             lspkind-nvim
@@ -619,6 +624,7 @@
             (withScheduledLuaModule nvim-cmp "plugin.completion")
             (withLuaModule nvim-lint "plugin.lint")
             (withConfig ultisnips "vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'ultisnips' }")
+            cmp-luasnip
             (withLuaModule luasnip "plugin.luasnip")
             (withLuaModule project "plugin.project")
             telescope_hoogle

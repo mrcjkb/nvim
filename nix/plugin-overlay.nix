@@ -60,6 +60,7 @@ in {
     cmp-nvim-lsp-signature-help = mkNvimPlugin inputs.cmp-nvim-lsp-signature-help "cmp-nvim-lsp-signature-help";
     cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
     cmp-nvim-ultisnips = mkNvimPlugin inputs.cmp-nvim-ultisnips "cmp-nvim-ultisnips";
+    cmp-luasnip = mkNvimPlugin inputs.cmp-luasnip "cmp-luasnip";
     cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
