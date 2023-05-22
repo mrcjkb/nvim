@@ -10,7 +10,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     neovim = {
       url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
