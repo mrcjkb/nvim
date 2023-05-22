@@ -26,7 +26,6 @@ vim.keymap.set('n', '<leader><leader>s', function()
   vim.cmd([[
       source /home/mrcjk/git/github/mrcjkb/nvim-config/nvim/lua/plugin/luasnip/init.lua
     ]])
-  vim.print(require('plugin.luasnip.haskell'))
 end)
 
 ls.setup {
