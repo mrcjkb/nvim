@@ -656,7 +656,7 @@
 
         nixpkgs = {
           overlays = [
-            neovim-nightly-overlay
+            neovim-nightly-overlay.overlay
             plugin-overlay
           ];
         };
