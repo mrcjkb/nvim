@@ -505,6 +505,7 @@
             haskellPackages.ghci-dap
             haskellPackages.fast-tags # Fast tag generation
             nil
+            dhall-lsp-server
             rust-analyzer
             taplo # toml toolkit including a language server
             lua-language-server
