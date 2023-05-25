@@ -69,7 +69,21 @@ local pragma = s({
     }),
     sn(nil, {
       text('LANGUAGE '),
-      insert(1),
+      choice(1, {
+        insert(1),
+        text('ScopedTypeVariables'),
+        text('RecordWildCards'),
+        text('LamdaCase'),
+        text('QuasiQuotes'),
+        text('ViewPatterns'),
+        text('DerivingVia'),
+        text('DeriveAnyClass'),
+        text('DeriveGeneric'),
+        text('MultiParamTypeClasses'),
+        text('TypeFamilies'),
+        text('DataKinds'),
+        text('OverloadedLists'),
+      }),
       text(' #-}'),
     }),
     sn(nil, {
