@@ -55,6 +55,35 @@ local choice = ls.choice_node
 -- local fmta = require('luasnip.extras.fmt').fmta
 -- local rep = require('luasnip.extras').rep
 
+-- NIX SNIPPETS
+
+local nix_snippets = {}
+
+local shellApp = s({
+  trig = 'shellApp',
+  descr = 'writeShellApplication',
+}, {
+  text('writeShellApplication {'),
+  text { '', '  name = "' },
+  insert(1),
+  text('";'),
+  choice(2, {
+    sn(nil, {
+      text { '', '  runtimeInputs = [', '    ' },
+      insert(1),
+      text { '', '  ];' },
+    }),
+    text { '', '  runtimeInputs = [];' },
+  }),
+  text { '', "  text = ''", '' },
+  text('    '),
+  insert(3),
+  text { '', "  '';", '};' },
+})
+table.insert(nix_snippets, shellApp)
+
+-- HASKELL SNIPPETS
+
 local haskell_snippets = {}
 
 local pragma = s({
@@ -156,4 +185,5 @@ local nowarn_pragma = s({
 })
 table.insert(haskell_snippets, nowarn_pragma)
 
+ls.add_snippets('nix', nix_snippets, { key = 'nix' })
 ls.add_snippets('haskell', haskell_snippets, { key = 'haskell' })
