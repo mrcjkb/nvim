@@ -184,10 +184,10 @@ vim.tbl_deep_extend('keep', capabilities, {
 })
 
 -- foldingRange capabilities provided by the nvim-ufo plugin
-capabilities.textDocument.foldingRange = {
-  dynamicRegistration = false,
-  lineFoldingOnly = true,
-}
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true,
+-- }
 
 lsp.capabilities = capabilities
 
