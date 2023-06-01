@@ -18,10 +18,6 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
-    impatient = {
-      url = "github:lewis6991/impatient.nvim";
-      flake = false;
-    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -558,7 +554,6 @@
             }
           ];
           plugins = with pkgs.nvimPlugins; [
-            (withLuaModule impatient "impatient")
             plenary
             (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
             nvim-web-devicons

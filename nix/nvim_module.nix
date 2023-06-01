@@ -106,6 +106,7 @@ with lib; let
 
   customRC =
     ''
+      vim.loader.enable()
       local pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
       local dev_plugins_dir = pack_path .. '/opt'
       local dev_plugin_path

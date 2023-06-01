@@ -6,7 +6,6 @@
     };
 in {
   nvimPlugins = {
-    impatient = mkNvimPlugin inputs.impatient "impatient.nvim";
     plenary = mkNvimPlugin inputs.plenary "plenary.nvim";
     sqlite = mkNvimPlugin inputs.sqlite "sqlite.nvim";
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";

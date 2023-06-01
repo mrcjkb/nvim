@@ -2,8 +2,8 @@ local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.o
 
-cmd('syntax on')
-cmd('syntax enable')
+cmd.syntax('on')
+cmd.syntax('enable')
 opt.compatible = false
 
 -- Enable true colour support
