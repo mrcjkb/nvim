@@ -42,19 +42,19 @@ local function handler(virtText, lnum, endLnum, width, truncate)
   return newVirtText
 end
 
-require('ufo').setup {
-  open_fold_hl_timeout = 150,
-  close_fold_kinds = { 'imports', 'comment' },
-  preview = {
-    win_config = {
-      border = { '', '─', '', '', '', '─', '', '' },
-      winhighlight = 'Normal:Folded',
-      winblend = 0,
-    },
-    mappings = {
-      scrollU = '<C-u>',
-      scrollD = '<C-d>',
-    },
-  },
-  fold_virt_text_handler = handler,
-}
+-- require('ufo').setup {
+--   open_fold_hl_timeout = 150,
+--   close_fold_kinds = { 'imports', 'comment' },
+--   preview = {
+--     win_config = {
+--       border = { '', '─', '', '', '', '─', '', '' },
+--       winhighlight = 'Normal:Folded',
+--       winblend = 0,
+--     },
+--     mappings = {
+--       scrollU = '<C-u>',
+--       scrollD = '<C-d>',
+--     },
+--   },
+--   fold_virt_text_handler = handler,
+-- }
