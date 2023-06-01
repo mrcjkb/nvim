@@ -32,7 +32,7 @@ illuminate.configure {
   delay = 200,
 }
 
-vim.fn.sign_define('LightBulbSign', { text = '', texthl = 'LspDiagnosticsDefaultInformation' })
+vim.fn.sign_define('LightBulbSign', { text = '󰌶', texthl = 'LspDiagnosticsDefaultInformation' })
 require('nvim-lightbulb').setup {
   autocmd = {
     enabled = true,

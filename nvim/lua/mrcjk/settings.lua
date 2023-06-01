@@ -74,10 +74,10 @@ local sign = function(opts)
     numhl = '',
   })
 end
-sign { name = 'DiagnosticSignError', text = '' }
+sign { name = 'DiagnosticSignError', text = '󰅚' }
 sign { name = 'DiagnosticSignWarn', text = '⚠' }
 sign { name = 'DiagnosticSignInfo', text = 'ⓘ' }
-sign { name = 'DiagnosticSignHint', text = '' }
+sign { name = 'DiagnosticSignHint', text = '󰌶' }
 
 vim.diagnostic.config {
   virtual_text = {
@@ -85,7 +85,7 @@ vim.diagnostic.config {
     format = function(diagnostic)
       local severity = diagnostic.severity
       if severity == vim.diagnostic.severity.ERROR then
-        return prefix_diagnostic('', diagnostic)
+        return prefix_diagnostic('󰅚', diagnostic)
       end
       if severity == vim.diagnostic.severity.WARN then
         return prefix_diagnostic('⚠', diagnostic)
@@ -94,7 +94,7 @@ vim.diagnostic.config {
         return prefix_diagnostic('ⓘ', diagnostic)
       end
       if severity == vim.diagnostic.severity.HINT then
-        return prefix_diagnostic('', diagnostic)
+        return prefix_diagnostic('󰌶', diagnostic)
       end
       return prefix_diagnostic('■', diagnostic)
     end,
