@@ -96,5 +96,6 @@ in {
     nvim-ufo = mkNvimPlugin inputs.nvim-ufo "nvim-ufo";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
+    tmux-nvim = mkNvimPlugin inputs.tmux-nvim "tmux.nvim";
   };
 }

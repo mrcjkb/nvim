@@ -1,0 +1,1 @@
+require("tmux").setup 

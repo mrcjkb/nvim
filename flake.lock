@@ -1699,6 +1699,7 @@
         "telescope": "telescope",
         "telescope-smart-history": "telescope-smart-history",
         "telescope_hoogle": "telescope_hoogle",
+        "tmux-nvim": "tmux-nvim",
         "todo-comments": "todo-comments",
         "toggleterm": "toggleterm",
         "treesitter-context": "treesitter-context",
@@ -1854,6 +1855,22 @@
       "original": {
         "owner": "luc-tielen",
         "repo": "telescope_hoogle",
+        "type": "github"
+      }
+    },
+    "tmux-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1685339965,
+        "narHash": "sha256-QfIoI5eaMXgxjP8SQ3n291SuhSLOf3fcbSm3WtBwKEM=",
+        "owner": "aserowy",
+        "repo": "tmux.nvim",
+        "rev": "03e28fdaa2ef54b975ba1930f1e69b5e231dedc9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aserowy",
+        "repo": "tmux.nvim",
         "type": "github"
       }
     },

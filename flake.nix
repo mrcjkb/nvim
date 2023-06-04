@@ -386,6 +386,10 @@
       url = "github:samjwill/nvim-unception";
       flake = false;
     };
+    tmux-nvim = {
+      url = "github:aserowy/tmux.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -649,6 +653,7 @@
             (withLuaModule nvim-ufo "plugin.ufo")
             (withLuaModule statuscol "plugin.statuscol")
             nvim-unception
+            (withDefaultLuaSetup tmux-nvim "tmux")
           ];
         };
         home-manager.sharedModules = [
