@@ -1,1 +1,1 @@
-require("tmux").setup 
+require('tmux').setup()
