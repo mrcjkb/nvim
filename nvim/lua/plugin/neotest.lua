@@ -5,7 +5,7 @@ neotest.setup {
       frameworks = {
         {
           framework = 'tasty',
-          modules = { 'Test.Tasty', 'T', 'TestUtil' },
+          modules = { 'Test.Tasty', 'T', 'Test.Util', 'TestUtil' },
         },
         'hspec',
         'sydtest',
