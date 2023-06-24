@@ -85,11 +85,17 @@
 )
 
 ;; (nixosTest) testScript
-(binding
- ((attrpath) @_func_name) (#eq? @_func_name "testScript")
- (_
-   (string_fragment) @python
- )
+(
+  (binding
+   ((attrpath) @_attr_name) 
+    (#eq? _attr_name "nodes")
+  )
+  (binding
+   ((attrpath) @_func_name) (#eq? @_func_name "testScript")
+   (_
+     (string_fragment) @python
+   )
+  )
 )
 
 ;; home-manager Neovim plugin config
