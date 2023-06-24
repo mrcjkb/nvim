@@ -1,10 +1,12 @@
 ; Bash mkDerivation
 (apply_expression 
-  (select_expression (attrpath (identifier) @_func_name) (#eq? @_func_name "mkDerivation"))
+  (select_expression (attrpath (identifier) @_func_name)
+  (#eq? @_func_name "mkDerivation"))
   (attrset_expression
     (binding_set
       (binding 
-        ((attrpath) @_path) (#any-of? @_path "unpackPhase" "patchPhase" "configurePhase" "buildPhase" "checkPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase")
+        ((attrpath) @_path)
+        (#any-of? @_path "unpackPhase" "patchPhase" "configurePhase" "buildPhase" "checkPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase")
         ((_
           (string_fragment) @bash
          )
@@ -13,10 +15,11 @@
     ) 
   )
 )
-;; writeShell*
+;; writeShell* (at various levels)
 (apply_expression 
   (apply_expression 
-    (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
+    (select_expression (attrpath (identifier) @_func_name)
+    (#any-of? @_func_name "writeShellScriptBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
     ((_
       (string_fragment) @bash
@@ -25,16 +28,31 @@
 )
 
 (apply_expression 
-  (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
+  (select_expression (attrpath (identifier) @_func_name)
+  (#any-of? @_func_name "writeShellScriptBin" "writeShellApplication" "writeShellScriptBinWith"))
     ((_
       (string_fragment) @bash
      )
     )
 )
-;; writeShellScripBin (parenthesized)
 (apply_expression 
   (apply_expression 
-    (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
+    (apply_expression 
+      (select_expression (attrpath (identifier) @_func_name)
+      (#any-of? @_func_name "writeShellScriptBin" "writeShellApplication" "writeShellScriptBinWith"))
+    )
+  )
+    ((_
+      (string_fragment) @bash
+     )
+    )
+)
+
+;; writeShell* (parenthesized, at various levels)
+(apply_expression 
+  (apply_expression 
+    (select_expression (attrpath (identifier) @_func_name)
+    (#any-of? @_func_name "writeShellScriptBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
   (parenthesized_expression
     ((_
@@ -43,23 +61,11 @@
     )
   )
 )
-;; writeShellApplication | writeShellScriptBinWith
 (apply_expression 
   (apply_expression 
     (apply_expression 
-      (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
-    )
-  )
-    ((_
-      (string_fragment) @bash
-     )
-    )
-)
-;; writeShellApplication | writeShellScriptBinWith (parenthesized)
-(apply_expression 
-  (apply_expression 
-    (apply_expression 
-      (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
+      (select_expression (attrpath (identifier) @_func_name)
+      (#any-of? @_func_name "writeShellScriptBin" "writeShellApplication" "writeShellScriptBinWith"))
     )
   )
   (parenthesized_expression
