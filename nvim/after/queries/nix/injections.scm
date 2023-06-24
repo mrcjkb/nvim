@@ -1,11 +1,11 @@
-; Bash mkDerivation (multi-line string)
+; Bash mkDerivation
 (apply_expression 
   (select_expression (attrpath (identifier) @_func_name) (#eq? @_func_name "mkDerivation"))
   (attrset_expression
     (binding_set
       (binding 
         ((attrpath) @_path) (#any-of? @_path "unpackPhase" "patchPhase" "configurePhase" "buildPhase" "checkPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase")
-        ((indented_string_expression
+        ((_
           (string_fragment) @bash
          )
         )
@@ -13,31 +13,20 @@
     ) 
   )
 )
-; Bash mkDerivation (single string)
-(apply_expression 
-  (select_expression (attrpath (identifier) @_func_name) (#eq? @_func_name "mkDerivation"))
-  (attrset_expression
-    (binding_set
-      (binding 
-        ((attrpath) @_path) (#any-of? @_path "unpackPhase" "patchPhase" "configurePhase" "buildPhase" "checkPhase" "installPhase" "fixupPhase" "installCheckPhase" "distPhase")
-        ((string_expression) @bash)
-      )
-    ) 
-  )
-)
-;; writeShellScripBin  
+;; writeShell*
 (apply_expression 
   (apply_expression 
     (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
-    ((indented_string_expression
+    ((_
       (string_fragment) @bash
      )
     )
 )
+
 (apply_expression 
   (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
-    ((indented_string_expression
+    ((_
       (string_fragment) @bash
      )
     )
@@ -48,7 +37,7 @@
     (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
   )
   (parenthesized_expression
-    ((indented_string_expression
+    ((_
       (string_fragment) @bash
      )
     )
@@ -61,7 +50,7 @@
       (select_expression (attrpath (identifier) @_func_name) (#any-of? @_func_name "writeShellScripBin" "writeShellApplication" "writeShellScriptBinWith"))
     )
   )
-    ((indented_string_expression
+    ((_
       (string_fragment) @bash
      )
     )
@@ -74,7 +63,7 @@
     )
   )
   (parenthesized_expression
-    ((indented_string_expression
+    ((_
       (string_fragment) @bash
      )
     )
@@ -90,10 +79,30 @@
 )
 
 ;; (nixosTest) testScript
-;; XXX this could be ambiguous
 (binding
  ((attrpath) @_func_name) (#eq? @_func_name "testScript")
  (_
    (string_fragment) @python
  )
+)
+
+;; home-manager Neovim plugin config
+(attrset_expression
+  (binding_set
+    (binding
+      (attrpath) @_ty_attr
+      (_
+        (string_fragment) @_ty
+      )
+      (#eq? @_ty_attr "type")
+      (#eq? @_ty "lua")
+    )
+    (binding
+      (attrpath) @_cfg_attr
+      (_
+        (string_fragment) @lua
+      )
+      (#eq? @_cfg_attr "config")
+    )
+  )
 )
