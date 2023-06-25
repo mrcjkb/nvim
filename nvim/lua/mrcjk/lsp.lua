@@ -65,8 +65,6 @@ function lsp.on_attach(client, bufnr)
     api.nvim_buf_set_var(bufnr, ...)
   end
 
-  -- Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
   buf_set_option('bufhidden', 'hide')
   buf_set_var('lsp_client_id', client.id)
 
