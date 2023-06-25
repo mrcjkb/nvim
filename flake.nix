@@ -538,98 +538,102 @@
               url = "git@github.com:mrcjkb/lsp-inject.nvim.git";
             }
           ];
-          plugins = with pkgs.nvimPlugins; [
-            plenary
-            (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
-            nvim-web-devicons
-            diffview
-            nvim-ts-context-commentstring
-            treesitter-playground
-            treesitter-textobjects
-            treesitter-context
-            treesitter-refactor
-            nvim-ts-rainbow2
-            (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
-            # TODO: Package with deno build
-            (withLuaModule peek "plugin.peek")
-            glow # TODO: Add glow dependency to overlay
-            (withLuaModule vim-wordmotion "plugin.wordmotion")
-            (withScheduledLuaSetup colorizer "colorizer")
-            (withConfig leap "require('leap').set_default_keymaps()")
-            (withLuaModule nvim-treehopper "plugin.treehopper")
-            (withLuaModule eyeliner-nvim "plugin.eyeliner")
-            vim-textobj-user
-            pkgs.unstable.vimPlugins.vim-fugitive
-            (withLuaModule neogit "plugin.neogit")
-            (withLuaModule gitlinker "plugin.gitlinker")
-            repeat
-            unimpaired
-            (withLuaSetup surround "nvim-surround")
-            (withLuaModule persistence "plugin.persistence")
-            (withLuaSetup comment "Comment")
-            (withLuaModule material-theme "plugin.theme")
-            neotest-python
-            neotest-plenary
-            neotest-rust
-            (withLuaModule neotest "plugin.neotest")
-            (withLuaModule nvim-dap "plugin.dap")
-            nvim-dap-ui
-            nvim-dap-virtual-text
-            (withLuaModule neodev-nvim "plugin.neodev")
-            (withLuaModule femaco "plugin.femaco")
-            jdtls
-            lsp-status
-            lsp_signature
-            nvim-lsp-selection-range
-            nvim-lightbulb
-            rust-tools
-            inlay-hints
-            fidget
-            illuminate
-            (withLuaSetup neoconf-nvim "neoconf")
-            schemastore-nvim
-            lspconfig
-            # cmp-buffer
-            # cmp-path
-            # cmp-cmdline
-            # cmp-cmdline-history
-            # cmp-nvim-lua
-            # cmp-nvim-lsp
-            # cmp-nvim-lsp-document-symbol
-            # cmp-nvim-lsp-signature-help
-            # cmp-omni
-            # cmp-luasnip
-            # cmp-git
-            # cmp-rg
-            # cmp-dap
-            # (withScheduledLuaModule nvim-cmp "plugin.completion")
-            lspkind-nvim
-            (withLuaModule nvim-lint "plugin.lint")
-            (withLuaModule luasnip "plugin.luasnip")
-            (withLuaModule project "plugin.project")
-            telescope_hoogle
-            pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
-            telescope-smart-history
-            (withScheduledLuaModule telescope "plugin.telescope")
-            (withLuaSetup todo-comments "todo-comments")
-            fzf-lua
-            nvim-gps
-            (withLuaModule lualine "plugin.lualine")
-            (withLuaModule rnvimr "plugin.rnvimr")
-            (withDefaultLuaSetup dirbuf "dirbuf")
-            (withLuaModule toggleterm "plugin.toggleterm")
-            (withLuaModule harpoon "plugin.harpoon")
-            (withLuaModule gitsigns "plugin.gitsigns")
-            nvim-bqf
-            (withLuaModule formatter "plugin.formatter")
-            (withLuaModule yanky "plugin.yanky")
-            (withLuaModule iron "plugin.repl")
-            promise-async
-            (withLuaModule nvim-ufo "plugin.ufo")
-            (withLuaModule statuscol "plugin.statuscol")
-            nvim-unception
-            (withDefaultLuaSetup tmux-nvim "tmux")
-          ];
+          plugins = with pkgs.nvimPlugins;
+            [
+              plenary
+              (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
+              nvim-web-devicons
+              diffview
+              nvim-ts-context-commentstring
+              treesitter-playground
+              treesitter-textobjects
+              treesitter-context
+              treesitter-refactor
+              nvim-ts-rainbow2
+              (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
+              # TODO: Package with deno build
+              (withLuaModule peek "plugin.peek")
+              glow # TODO: Add glow dependency to overlay
+              (withLuaModule vim-wordmotion "plugin.wordmotion")
+              (withScheduledLuaSetup colorizer "colorizer")
+              (withConfig leap "require('leap').set_default_keymaps()")
+              (withLuaModule nvim-treehopper "plugin.treehopper")
+              (withLuaModule eyeliner-nvim "plugin.eyeliner")
+              vim-textobj-user
+              pkgs.unstable.vimPlugins.vim-fugitive
+              (withLuaModule neogit "plugin.neogit")
+              (withLuaModule gitlinker "plugin.gitlinker")
+              repeat
+              unimpaired
+              (withLuaSetup surround "nvim-surround")
+              (withLuaModule persistence "plugin.persistence")
+              (withLuaSetup comment "Comment")
+              (withLuaModule material-theme "plugin.theme")
+              neotest-python
+              neotest-plenary
+              neotest-rust
+              (withLuaModule neotest "plugin.neotest")
+              (withLuaModule nvim-dap "plugin.dap")
+              nvim-dap-ui
+              nvim-dap-virtual-text
+              (withLuaModule neodev-nvim "plugin.neodev")
+              (withLuaModule femaco "plugin.femaco")
+              jdtls
+              lsp-status
+              lsp_signature
+              nvim-lsp-selection-range
+              nvim-lightbulb
+              rust-tools
+              inlay-hints
+              fidget
+              illuminate
+              (withLuaSetup neoconf-nvim "neoconf")
+              schemastore-nvim
+              lspconfig
+              lspkind-nvim
+              (withLuaModule nvim-lint "plugin.lint")
+              (withLuaModule luasnip "plugin.luasnip")
+              (withLuaModule project "plugin.project")
+              telescope_hoogle
+              pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
+              telescope-smart-history
+              (withScheduledLuaModule telescope "plugin.telescope")
+              (withLuaSetup todo-comments "todo-comments")
+              fzf-lua
+              nvim-gps
+              (withLuaModule lualine "plugin.lualine")
+              (withLuaModule rnvimr "plugin.rnvimr")
+              (withDefaultLuaSetup dirbuf "dirbuf")
+              (withLuaModule toggleterm "plugin.toggleterm")
+              (withLuaModule harpoon "plugin.harpoon")
+              (withLuaModule gitsigns "plugin.gitsigns")
+              nvim-bqf
+              (withLuaModule formatter "plugin.formatter")
+              (withLuaModule yanky "plugin.yanky")
+              (withLuaModule iron "plugin.repl")
+              promise-async
+              (withLuaModule nvim-ufo "plugin.ufo")
+              (withLuaModule statuscol "plugin.statuscol")
+              nvim-unception
+              (withDefaultLuaSetup tmux-nvim "tmux")
+            ]
+            ++ [
+              # nvim-cmp and plugins
+              cmp-buffer
+              cmp-path
+              cmp-cmdline
+              cmp-cmdline-history
+              cmp-nvim-lua
+              cmp-nvim-lsp
+              cmp-nvim-lsp-document-symbol
+              cmp-nvim-lsp-signature-help
+              cmp-omni
+              cmp-luasnip
+              cmp-git
+              cmp-rg
+              cmp-dap
+              (withScheduledLuaModule nvim-cmp "plugin.completion")
+            ];
         };
         home-manager.sharedModules = [
           {
