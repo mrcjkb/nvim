@@ -603,7 +603,7 @@
             cmp-rg
             lspkind-nvim
             cmp-dap
-            (withScheduledLuaModule nvim-cmp "plugin.completion")
+            # (withScheduledLuaModule nvim-cmp "plugin.completion")
             (withLuaModule nvim-lint "plugin.lint")
             cmp-luasnip
             (withLuaModule luasnip "plugin.luasnip")
