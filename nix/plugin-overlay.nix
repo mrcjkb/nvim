@@ -41,7 +41,6 @@ in {
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     nvim-dap-virtual-text = mkNvimPlugin inputs.nvim-dap-virtual-text "nvim-dap-virtual-text";
-    one-small-step-for-vimkind = mkNvimPlugin inputs.one-small-step-for-vimkind "neodev";
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
     nvim-lsp-selection-range = mkNvimPlugin inputs.nvim-lsp-selection-range "nvim-lsp-selection-range";
@@ -58,13 +57,11 @@ in {
     cmp-nvim-lsp-document-symbol = mkNvimPlugin inputs.cmp-nvim-lsp-document-symbol "cmp-nvim-lsp-document-symbol";
     cmp-nvim-lsp-signature-help = mkNvimPlugin inputs.cmp-nvim-lsp-signature-help "cmp-nvim-lsp-signature-help";
     cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
-    cmp-nvim-ultisnips = mkNvimPlugin inputs.cmp-nvim-ultisnips "cmp-nvim-ultisnips";
     cmp-luasnip = mkNvimPlugin inputs.cmp-luasnip "cmp-luasnip";
     cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
     cmp-dap = mkNvimPlugin inputs.cmp-dap "cmp-dap";
-    cmp-conventionalcommits = mkNvimPlugin inputs.cmp-conventionalcommits "cmp-conventionalcommits";
     treesitter-playground = mkNvimPlugin inputs.treesitter-playground "treesitter-playground";
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
     treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
@@ -72,7 +69,6 @@ in {
     treesitter-refactor = mkNvimPlugin inputs.treesitter-refactor "treesitter-refactor";
     nvim-ts-rainbow2 = mkNvimPlugin inputs.nvim-ts-rainbow2 "nvim-ts-rainbow2";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
-    ultisnips = mkNvimPlugin inputs.ultisnips "ultisnips";
     luasnip = mkNvimPlugin inputs.luasnip "LuaSnip";
     project = mkNvimPlugin inputs.project "project.nvim";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
@@ -91,7 +87,6 @@ in {
     formatter = mkNvimPlugin inputs.formatter "formatter.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
     iron = mkNvimPlugin inputs.iron "iron.nvim";
-    venn = mkNvimPlugin inputs.venn "venn.nvim";
     promise-async = mkNvimPlugin inputs.promise-async "promise-async";
     nvim-ufo = mkNvimPlugin inputs.nvim-ufo "nvim-ufo";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";

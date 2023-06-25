@@ -83,7 +83,7 @@
       flake = false;
     };
     unimpaired = {
-      # XXX: Do need this?
+      # bracket mappings
       url = "github:tpope/vim-unimpaired";
       flake = false;
     };
@@ -128,7 +128,6 @@
       flake = false;
     };
     lspconfig = {
-      # XXX: Do I need this?
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
@@ -163,10 +162,6 @@
     };
     nvim-dap-virtual-text = {
       url = "github:theHamsta/nvim-dap-virtual-text";
-      flake = false;
-    };
-    one-small-step-for-vimkind = {
-      url = "github:jbyuki/one-small-step-for-vimkind";
       flake = false;
     };
     lsp-status = {
@@ -233,11 +228,6 @@
       url = "github:hrsh7th/cmp-omni";
       flake = false;
     };
-    cmp-nvim-ultisnips = {
-      # TODO: Replace with LuaSnip
-      url = "github:quangnguyen30192/cmp-nvim-ultisnips";
-      flake = false;
-    };
     cmp-luasnip = {
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;
@@ -251,15 +241,12 @@
       flake = false;
     };
     lspkind-nvim = {
+      # vscode-style completion pictograms
       url = "github:onsails/lspkind-nvim";
       flake = false;
     };
     cmp-dap = {
       url = "github:rcarriga/cmp-dap";
-      flake = false;
-    };
-    cmp-conventionalcommits = {
-      url = "github:davidsierradz/cmp-conventionalcommits";
       flake = false;
     };
     treesitter-playground = {
@@ -288,10 +275,6 @@
     };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
-      flake = false;
-    };
-    ultisnips = {
-      url = "github:SirVer/ultisnips";
       flake = false;
     };
     luasnip = {
@@ -366,11 +349,8 @@
       url = "github:hkupty/iron.nvim";
       flake = false;
     };
-    venn = {
-      url = "github:jbyuki/venn.nvim";
-      flake = false;
-    };
     promise-async = {
+      # XXX: Is this a dependency?
       url = "github:kevinhwang91/promise-async";
       flake = false;
     };
@@ -383,6 +363,7 @@
       flake = false;
     };
     nvim-unception = {
+      # Prevent nested neovim instances
       url = "github:samjwill/nvim-unception";
       flake = false;
     };
@@ -603,7 +584,6 @@
             nvim-lightbulb
             rust-tools
             inlay-hints
-            one-small-step-for-vimkind
             fidget
             illuminate
             (withLuaSetup neoconf-nvim "neoconf")
@@ -618,16 +598,13 @@
             cmp-nvim-lsp-document-symbol
             cmp-nvim-lsp-signature-help
             cmp-omni
-            cmp-nvim-ultisnips
             cmp-luasnip
             cmp-git
             cmp-rg
             lspkind-nvim
             cmp-dap
-            cmp-conventionalcommits
             (withScheduledLuaModule nvim-cmp "plugin.completion")
             (withLuaModule nvim-lint "plugin.lint")
-            (withConfig ultisnips "vim.g.UltiSnipsSnippetDirectories = { 'UltiSnips', 'ultisnips' }")
             cmp-luasnip
             (withLuaModule luasnip "plugin.luasnip")
             (withLuaModule project "plugin.project")
@@ -648,7 +625,6 @@
             (withLuaModule formatter "plugin.formatter")
             (withLuaModule yanky "plugin.yanky")
             (withLuaModule iron "plugin.repl")
-            (withLuaModule venn "venn")
             promise-async
             (withLuaModule nvim-ufo "plugin.ufo")
             (withLuaModule statuscol "plugin.statuscol")
