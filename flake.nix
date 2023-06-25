@@ -589,23 +589,22 @@
             (withLuaSetup neoconf-nvim "neoconf")
             schemastore-nvim
             lspconfig
-            cmp-buffer
-            cmp-path
-            cmp-cmdline
-            cmp-cmdline-history
-            cmp-nvim-lua
-            cmp-nvim-lsp
-            cmp-nvim-lsp-document-symbol
-            cmp-nvim-lsp-signature-help
-            cmp-omni
-            cmp-luasnip
-            cmp-git
-            cmp-rg
-            lspkind-nvim
-            cmp-dap
+            # cmp-buffer
+            # cmp-path
+            # cmp-cmdline
+            # cmp-cmdline-history
+            # cmp-nvim-lua
+            # cmp-nvim-lsp
+            # cmp-nvim-lsp-document-symbol
+            # cmp-nvim-lsp-signature-help
+            # cmp-omni
+            # cmp-luasnip
+            # cmp-git
+            # cmp-rg
+            # cmp-dap
             # (withScheduledLuaModule nvim-cmp "plugin.completion")
+            lspkind-nvim
             (withLuaModule nvim-lint "plugin.lint")
-            cmp-luasnip
             (withLuaModule luasnip "plugin.luasnip")
             (withLuaModule project "plugin.project")
             telescope_hoogle
