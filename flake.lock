@@ -272,6 +272,22 @@
         "type": "github"
       }
     },
+    "eyeliner-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687897700,
+        "narHash": "sha256-KtRt5MIznpiROCiiIgReZRoT5hMFaHKvb/etzKlFHZs=",
+        "owner": "jinh0",
+        "repo": "eyeliner.nvim",
+        "rev": "0b21a862fa0782090350c13c8b32ccd58adc4d82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jinh0",
+        "repo": "eyeliner.nvim",
+        "type": "github"
+      }
+    },
     "femaco": {
       "flake": false,
       "locked": {
@@ -1438,6 +1454,7 @@
         "comment": "comment",
         "diffview": "diffview",
         "dirbuf": "dirbuf",
+        "eyeliner-nvim": "eyeliner-nvim",
         "femaco": "femaco",
         "fidget": "fidget",
         "flake-utils": "flake-utils",
