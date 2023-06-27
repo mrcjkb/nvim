@@ -52,12 +52,12 @@
       url = "github:NvChad/nvim-colorizer.lua";
       flake = false;
     };
-    leap = {
-      url = "github:ggandor/leap.nvim";
-      flake = false;
-    };
-    nvim-treehopper = {
-      url = "github:mfussenegger/nvim-treehopper";
+    # leap = {
+    #   url = "github:ggandor/leap.nvim";
+    #   flake = false;
+    # };
+    flash-nvim = {
+      url = "github:folke/flash.nvim";
       flake = false;
     };
     eyeliner-nvim = {
@@ -556,8 +556,8 @@
               glow # TODO: Add glow dependency to overlay
               (withLuaModule vim-wordmotion "plugin.wordmotion")
               (withScheduledLuaSetup colorizer "colorizer")
-              (withConfig leap "require('leap').set_default_keymaps()")
-              (withLuaModule nvim-treehopper "plugin.treehopper")
+              # (withConfig leap "require('leap').set_default_keymaps()")
+              (withLuaModule flash-nvim "plugin.flash")
               (withLuaModule eyeliner-nvim "plugin.eyeliner")
               vim-textobj-user
               pkgs.unstable.vimPlugins.vim-fugitive
