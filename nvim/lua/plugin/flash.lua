@@ -1,8 +1,6 @@
 local flash = require('flash')
 
-flash.setup {
-  labels = "asdfghjklqwertyuiopzxcvbnm",
-}
+flash.setup {}
 
 vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump)
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter)
