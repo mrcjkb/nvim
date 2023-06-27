@@ -60,10 +60,10 @@
       url = "github:folke/flash.nvim";
       flake = false;
     };
-    # eyeliner-nvim = {
-    #   url = "github:jinh0/eyeliner.nvim";
-    #   flake = false;
-    # };
+    eyeliner-nvim = {
+      url = "github:jinh0/eyeliner.nvim";
+      flake = false;
+    };
     vim-textobj-user = {
       # Vimscript
       # User-defined textobjects
@@ -558,7 +558,7 @@
               (withScheduledLuaSetup colorizer "colorizer")
               # (withConfig leap "require('leap').set_default_keymaps()")
               (withLuaModule flash-nvim "plugin.flash")
-              # (withLuaModule eyeliner-nvim "plugin.eyeliner")
+              (withLuaModule eyeliner-nvim "plugin.eyeliner")
               vim-textobj-user
               pkgs.unstable.vimPlugins.vim-fugitive
               (withLuaModule neogit "plugin.neogit")

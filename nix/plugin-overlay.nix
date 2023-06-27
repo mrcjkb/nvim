@@ -16,7 +16,7 @@ in {
     colorizer = mkNvimPlugin inputs.colorizer "nvim-colorizer.lua";
     # leap = mkNvimPlugin inputs.leap "leap.nvim";
     flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
-    # eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
+    eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
     vim-textobj-user = mkNvimPlugin inputs.vim-textobj-user "vim-textobj-user";
     neogit = mkNvimPlugin inputs.neogit "neogit";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
