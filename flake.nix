@@ -317,8 +317,8 @@
       url = "github:kevinhwang91/rnvimr";
       flake = false;
     };
-    dirbuf = {
-      url = "github:elihunter173/dirbuf.nvim";
+    mini-files = {
+      url = "github:echasnovski/mini.files";
       flake = false;
     };
     toggleterm = {
@@ -603,7 +603,7 @@
               nvim-gps
               (withLuaModule lualine "plugin.lualine")
               (withLuaModule rnvimr "plugin.rnvimr")
-              (withDefaultLuaSetup dirbuf "dirbuf")
+              (withDefaultLuaSetup mini-files "mini.files")
               (withLuaModule toggleterm "plugin.toggleterm")
               (withLuaModule harpoon "plugin.harpoon")
               (withLuaModule gitsigns "plugin.gitsigns")

@@ -256,22 +256,6 @@
         "type": "github"
       }
     },
-    "dirbuf": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1661712690,
-        "narHash": "sha256-35pNyVO0Yx+g5nvcFOmi2npb9Bnv83mkOtQJ2eKbSyc=",
-        "owner": "elihunter173",
-        "repo": "dirbuf.nvim",
-        "rev": "ac7ad3c8e61630d15af1f6266441984f54f54fd2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "elihunter173",
-        "repo": "dirbuf.nvim",
-        "type": "github"
-      }
-    },
     "eyeliner-nvim": {
       "flake": false,
       "locked": {
@@ -832,6 +816,22 @@
       "original": {
         "owner": "marko-cerovac",
         "repo": "material.nvim",
+        "type": "github"
+      }
+    },
+    "mini-files": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687854586,
+        "narHash": "sha256-R8+4ruFxBethtVyAALMG0dCAkGBlPr47KPzun32z+yM=",
+        "owner": "echasnovski",
+        "repo": "mini.files",
+        "rev": "50c93c1cf309a4f849cd749f1eb84b6942ede0e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "echasnovski",
+        "repo": "mini.files",
         "type": "github"
       }
     },
@@ -1453,7 +1453,6 @@
         "colorizer": "colorizer",
         "comment": "comment",
         "diffview": "diffview",
-        "dirbuf": "dirbuf",
         "eyeliner-nvim": "eyeliner-nvim",
         "femaco": "femaco",
         "fidget": "fidget",
@@ -1476,6 +1475,7 @@
         "lualine": "lualine",
         "luasnip": "luasnip",
         "material-theme": "material-theme",
+        "mini-files": "mini-files",
         "neoconf-nvim": "neoconf-nvim",
         "neodev-nvim": "neodev-nvim",
         "neogit": "neogit",

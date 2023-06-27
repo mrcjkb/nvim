@@ -79,7 +79,7 @@ in {
     lualine = mkNvimPlugin inputs.lualine "lualine";
     nvim-gps = mkNvimPlugin inputs.nvim-gps "nvim-gps";
     rnvimr = mkNvimPlugin inputs.rnvimr "rnvimr";
-    dirbuf = mkNvimPlugin inputs.dirbuf "dirbuf.nvim";
+    mini-files = mkNvimPlugin inputs.mini-files "mini.files";
     toggleterm = mkNvimPlugin inputs.toggleterm "toggleterm.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";
     gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";
