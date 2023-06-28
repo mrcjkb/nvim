@@ -243,15 +243,15 @@
     "diffview": {
       "flake": false,
       "locked": {
-        "lastModified": 1679837733,
-        "narHash": "sha256-nl026IvVmfdtWk8eHd8ZEnTzNwUZ3SFWkHMR3zIc1Ak=",
-        "owner": "3699394",
+        "lastModified": 1687803990,
+        "narHash": "sha256-Mm9xomY6BeaC9R9rJlBHhaWQ9nruGcTK7AGQkatC0CM=",
+        "owner": "sindrets",
         "repo": "diffview.nvim",
-        "rev": "6420a73b340fdb1f842479cd7640dcca9ec6f5d1",
+        "rev": "ff8e57a966618e973f443b2df177cab02e7f325c",
         "type": "github"
       },
       "original": {
-        "owner": "3699394",
+        "owner": "sindrets",
         "repo": "diffview.nvim",
         "type": "github"
       }
@@ -566,6 +566,22 @@
       "original": {
         "owner": "ellisonleao",
         "repo": "glow.nvim",
+        "type": "github"
+      }
+    },
+    "hardtime-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687913325,
+        "narHash": "sha256-AVHXVXUGTpxieqeURnTv8mN+SQAhjyro9WwwnhF5dI4=",
+        "owner": "m4xshen",
+        "repo": "hardtime.nvim",
+        "rev": "6346329e8d16350cefcec9a37f84386d0ad5de7e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "m4xshen",
+        "repo": "hardtime.nvim",
         "type": "github"
       }
     },
@@ -1463,6 +1479,7 @@
         "gitlinker": "gitlinker",
         "gitsigns": "gitsigns",
         "glow": "glow",
+        "hardtime-nvim": "hardtime-nvim",
         "harpoon": "harpoon",
         "illuminate": "illuminate",
         "inlay-hints": "inlay-hints",

@@ -93,5 +93,6 @@ in {
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
     tmux-nvim = mkNvimPlugin inputs.tmux-nvim "tmux.nvim";
+    hardtime-nvim = mkNvimPlugin inputs.hardtime-nvim "hardtime.nvim";
   };
 }

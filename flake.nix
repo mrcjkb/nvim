@@ -31,8 +31,7 @@
       flake = false;
     };
     diffview = {
-      # url = "github:sindrets/diffview.nvim";
-      url = "github:3699394/diffview.nvim";
+      url = "github:sindrets/diffview.nvim";
       flake = false;
     };
     peek = {
@@ -376,6 +375,10 @@
       url = "github:aserowy/tmux.nvim";
       flake = false;
     };
+    hardtime-nvim = {
+      url = "github:m4xshen/hardtime.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -622,6 +625,7 @@
               (withLuaModule statuscol "plugin.statuscol")
               nvim-unception
               (withDefaultLuaSetup tmux-nvim "tmux")
+              (withDefaultLuaSetup hardtime-nvim "hardtime")
             ]
             ++ [
               # nvim-cmp and plugins
