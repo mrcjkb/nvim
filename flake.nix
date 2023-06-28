@@ -273,6 +273,11 @@
       url = "github:HiPhish/nvim-ts-rainbow2";
       flake = false;
     };
+    vim-matchup = {
+      # tree-sitter powered % motions
+      url = "github:andymass/vim-matchup";
+      flake = false;
+    };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
       flake = false;
@@ -550,6 +555,7 @@
               treesitter-context
               treesitter-refactor
               nvim-ts-rainbow2
+              vim-matchup
               (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
               # TODO: Package with deno build
               (withLuaModule peek "plugin.peek")

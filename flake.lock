@@ -1523,6 +1523,7 @@
         "treesitter-refactor": "treesitter-refactor",
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
+        "vim-matchup": "vim-matchup",
         "vim-textobj-user": "vim-textobj-user",
         "vim-wordmotion": "vim-wordmotion",
         "yanky": "yanky"
@@ -1827,6 +1828,22 @@
       "original": {
         "owner": "tpope",
         "repo": "vim-unimpaired",
+        "type": "github"
+      }
+    },
+    "vim-matchup": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1687005355,
+        "narHash": "sha256-MG22wt7YI9bPeiabDDgtQGQqVqst1qEpw6jBkOcnbAI=",
+        "owner": "andymass",
+        "repo": "vim-matchup",
+        "rev": "3a17944bfa3942da805a381750a1be4b314c64d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andymass",
+        "repo": "vim-matchup",
         "type": "github"
       }
     },

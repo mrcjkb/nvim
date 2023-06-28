@@ -17,6 +17,9 @@ configs.setup {
     query = 'rainbow-parens',
     strategy = require('ts-rainbow').strategy['global'],
   },
+  matchup = {
+    enable = true,              -- mandatory, false will disable the whole extension
+  },
   textobjects = {
     select = {
       enable = true,
