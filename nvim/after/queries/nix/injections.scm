@@ -6,7 +6,9 @@
     )
   )
   argument: [
-    (string_expression (string_fragment) @bash)
-    (indented_string_expression (string_fragment) @bash)
-  ])
+    (string_expression (string_fragment) @injection.content)
+    (indented_string_expression (string_fragment) @injection.content)
+  ]
+  (#set! injection.language "nix")
+  )
   @combined
