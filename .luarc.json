@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "describe",
+        "it",
+        "assert",
+        "MiniFiles"
+    ]
+}

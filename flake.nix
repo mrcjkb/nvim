@@ -603,7 +603,7 @@
               nvim-gps
               (withLuaModule lualine "plugin.lualine")
               (withLuaModule rnvimr "plugin.rnvimr")
-              (withDefaultLuaSetup mini-files "mini.files")
+              (withLuaModule mini-files "plugin.filemanager")
               (withLuaModule toggleterm "plugin.toggleterm")
               (withLuaModule harpoon "plugin.harpoon")
               (withLuaModule gitsigns "plugin.gitsigns")
