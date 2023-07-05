@@ -61,7 +61,7 @@ vim.g.omni_sql_default_compl_type = 'syntax'
 opt.updatetime = 100
 
 -- Set default shell
-opt.shell = 'fish'
+opt.shell = 'zsh'
 
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
