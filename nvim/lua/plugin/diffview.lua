@@ -1,0 +1,6 @@
+vim.keymap.set('n', '<leader>glf', function()
+  vim.cmd.DiffviewFileHistory(vim.api.nvim_buf_get_name(0))
+end)
+vim.keymap.set('n', '<leader>gld', vim.cmd.DiffviewOpen)
+vim.keymap.set('n', '<leader>gd', vim.cmd.DiffviewOpen)
+vim.keymap.set('n', '<leader>df', vim.cmd.DiffviewToggleFiles)
