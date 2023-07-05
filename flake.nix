@@ -551,7 +551,7 @@
               plenary
               (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
               nvim-web-devicons
-              diffview
+              (withLuaModule diffview "plugin.diffview")
               nvim-ts-context-commentstring
               treesitter-playground
               treesitter-textobjects

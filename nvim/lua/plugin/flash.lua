@@ -3,10 +3,32 @@ local flash = require('flash')
 flash.setup {
   modes = {
     search = {
-      search = {
-        enabled = false,
-      },
+      enabled = false,
     },
+    char = {
+      enabled = false,
+    },
+  },
+  search = {
+    exclude = {
+      'notify',
+      'cmp_menu',
+      'noice',
+      'flash_prompt',
+      'NeogitStatus',
+      function(win)
+        -- exclude non-focusable windows
+        return not vim.api.nvim_win_get_config(win).focusable
+      end,
+    },
+  },
+  label = {
+    rainbow = {
+      enabled = true,
+    },
+  },
+  prompt = {
+    enabled = false,
   },
 }
 
