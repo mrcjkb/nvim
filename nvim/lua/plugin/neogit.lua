@@ -4,14 +4,6 @@ neogit.setup {
   integrations = {
     diffview = true,
   },
-  mappings = {
-    status = {
-      ['s'] = '', -- disable
-      ['<C-s>'] = '', -- disable
-      ['a'] = 'Stage',
-      ['A'] = 'StageAll',
-    },
-  },
   sections = {
     recent = {
       folded = false,
