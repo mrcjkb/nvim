@@ -625,7 +625,7 @@
               (withLuaModule statuscol "plugin.statuscol")
               nvim-unception
               (withDefaultLuaSetup tmux-nvim "tmux")
-              (withDefaultLuaSetup hardtime-nvim "hardtime")
+              (withLuaModule hardtime-nvim "plugin.hardtime")
             ]
             ++ [
               # nvim-cmp and plugins
