@@ -5,10 +5,12 @@ neogit.setup {
     diffview = true,
   },
   mappings = {
-    ['s'] = '', -- disable
-    ['<C-s>'] = '', -- disable
-    ['a'] = 'Stage',
-    ['A'] = 'StageAll',
+    status = {
+      ['s'] = '', -- disable
+      ['<C-s>'] = '', -- disable
+      ['a'] = 'Stage',
+      ['A'] = 'StageAll',
+    },
   },
   sections = {
     recent = {
