@@ -31,6 +31,7 @@ function haskell.start_or_attach()
         vim.keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
         vim.keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
       end,
+      capabilities = lsp.capabilities,
       default_settings = {
         haskell = {
           formattingProvider = 'stylish-haskell',
