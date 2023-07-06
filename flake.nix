@@ -479,7 +479,7 @@
           #     pylsp-mypy
           #     flake8
           #   ];
-          extraPackages = with pkgs.unstable; [
+          extraPackages = with pkgs; [
             (python3.withPackages (ps:
               with ps; [
                 pynvim
@@ -559,7 +559,7 @@
               treesitter-refactor
               nvim-ts-rainbow2
               vim-matchup
-              (withLuaModule pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
+              (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
               # TODO: Package with deno build
               (withLuaModule peek "plugin.peek")
               glow # TODO: Add glow dependency to overlay
@@ -569,7 +569,7 @@
               (withLuaModule flash-nvim "plugin.flash")
               (withLuaModule eyeliner-nvim "plugin.eyeliner")
               vim-textobj-user
-              pkgs.unstable.vimPlugins.vim-fugitive
+              pkgs.vimPlugins.vim-fugitive
               (withLuaModule neogit "plugin.neogit")
               (withLuaModule gitlinker "plugin.gitlinker")
               repeat
@@ -604,7 +604,7 @@
               (withLuaModule luasnip "plugin.luasnip")
               (withLuaModule project "plugin.project")
               telescope_hoogle
-              pkgs.unstable.vimPlugins.telescope-fzy-native-nvim
+              pkgs.vimPlugins.telescope-fzy-native-nvim
               telescope-smart-history
               (withScheduledLuaModule telescope "plugin.telescope")
               (withLuaSetup todo-comments "todo-comments")
@@ -663,7 +663,7 @@
 
         environment = with pkgs; {
           sessionVariables = rec {
-            LIBSQLITE_CLIB_PATH = "${unstable.sqlite.out}/lib/libsqlite3.so";
+            LIBSQLITE_CLIB_PATH = "${sqlite.out}/lib/libsqlite3.so";
             LIBSQLITE = LIBSQLITE_CLIB_PATH; # Expected by sqlite plugin
           };
         };
