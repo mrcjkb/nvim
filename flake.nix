@@ -387,6 +387,10 @@
       url = "github:m4xshen/hardtime.nvim";
       flake = false;
     };
+    term-edit-nvim = {
+      url = "github:chomosuke/term-edit.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -635,6 +639,7 @@
               nvim-unception
               (withDefaultLuaSetup tmux-nvim "tmux")
               (withLuaModule hardtime-nvim "plugin.hardtime")
+              (withLuaModule term-edit-nvim "plugin.term-edit")
             ]
             ++ [
               # nvim-cmp and plugins
