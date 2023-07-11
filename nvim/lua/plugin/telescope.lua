@@ -98,7 +98,7 @@ end
 telescope.setup {
   defaults = {
     path_display = {
-      'smart',
+      'truncate',
     },
     layout_strategy = 'vertical',
     layout_config = layout_config,
