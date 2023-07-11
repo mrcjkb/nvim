@@ -56,7 +56,7 @@ vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
 end
 
 function lsp.on_attach(client, bufnr)
-  api.nvim_command('setlocal signcolumn=yes')
+  vim.cmd.setlocal('signcolumn=yes')
 
   local function buf_set_option(...)
     api.nvim_buf_set_option(bufnr, ...)
