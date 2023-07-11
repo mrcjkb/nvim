@@ -199,6 +199,10 @@
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
     };
+    cmp-tmux = {
+      url = "github:andersevenrud/cmp-tmux";
+      flake = false;
+    };
     cmp-path = {
       url = "github:hrsh7th/cmp-path";
       flake = false;
@@ -635,6 +639,7 @@
             ++ [
               # nvim-cmp and plugins
               cmp-buffer
+              cmp-tmux
               cmp-path
               cmp-cmdline
               cmp-cmdline-history

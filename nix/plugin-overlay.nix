@@ -50,6 +50,7 @@ in {
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
     cmp-buffer = mkNvimPlugin inputs.cmp-buffer "cmp-buffer";
+    cmp-tmux = mkNvimPlugin inputs.cmp-tmux "cmp-tmux";
     cmp-path = mkNvimPlugin inputs.cmp-path "cmp-path";
     cmp-cmdline = mkNvimPlugin inputs.cmp-cmdline "cmp-cmdline";
     cmp-cmdline-history = mkNvimPlugin inputs.cmp-cmdline-history "cmp-cmdline-history";

@@ -27,7 +27,6 @@ cmp.setup {
         nvim_lua = '[API]',
         path = '[PATH]',
         luasnip = '[SNIP]',
-        ultisnips = '[ULTISNIP]',
         vsnip = '[VSNIP]',
         rg = '[RG]',
         cmdline = '[CMD]',
@@ -86,9 +85,13 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip' }, -- For luasnip users.
-    { name = 'ultisnips' }, -- For ultisnips users.
     { name = 'rg', keyword_length = 3 },
     { name = 'buffer', keyword_length = 3 },
+    {
+      name = 'tmux',
+      keyword_length = 3,
+      all_panes = true,
+    },
     { name = 'path' },
     -- { name = 'buffer-lines', keyword_length = 3 },
   },
