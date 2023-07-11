@@ -1,9 +1,11 @@
-require('mini.files').setup {
+local files = require('mini.files')
+
+files.setup {
   windows = {
     preview = true,
   },
 }
 
 vim.keymap.set('n', '-', function()
-  MiniFiles.open(vim.fn.expand('%:h'))
+  files.open(vim.fn.expand('%:h'))
 end, { desc = 'Open parent directory' })
