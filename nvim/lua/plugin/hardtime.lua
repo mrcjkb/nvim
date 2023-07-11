@@ -10,5 +10,6 @@ require('hardtime').setup {
     'netrw',
     'NeogitStatus',
     'DiffviewFilePanel',
+    'tsplayground',
   },
 }
