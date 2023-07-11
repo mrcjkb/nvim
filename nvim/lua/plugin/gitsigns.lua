@@ -44,7 +44,7 @@ vim.schedule(function()
       map('n', '<leader>hb', function()
         gs.blame_line { full = true }
       end)
-      map('n', '<leader>gb', gs.toggle_current_line_blame)
+      map('n', '<leader>glb', gs.toggle_current_line_blame)
       map('n', '<leader>hd', gs.diffthis)
       map('n', '<leader>hD', function()
         gs.diffthis('~')
