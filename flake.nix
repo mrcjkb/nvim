@@ -639,7 +639,7 @@
               (withDefaultLuaSetup tmux-nvim "tmux")
               (withLuaModule hardtime-nvim "plugin.hardtime")
               (withLuaModule term-edit-nvim "plugin.term-edit")
-              (withLuaModule mini-files "plugin.filemanager")
+              (withLuaModule mini-files "plugin.files")
             ]
             ++ [
               # nvim-cmp and plugins
