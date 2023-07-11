@@ -625,7 +625,6 @@
               nvim-gps
               (withLuaModule lualine "plugin.lualine")
               (withLuaModule rnvimr "plugin.rnvimr")
-              (withLuaModule mini-files "plugin.filemanager")
               (withLuaModule toggleterm "plugin.toggleterm")
               (withLuaModule harpoon "plugin.harpoon")
               (withLuaModule gitsigns "plugin.gitsigns")
@@ -640,6 +639,7 @@
               (withDefaultLuaSetup tmux-nvim "tmux")
               (withLuaModule hardtime-nvim "plugin.hardtime")
               (withLuaModule term-edit-nvim "plugin.term-edit")
+              (withLuaModule mini-files "plugin.filemanager")
             ]
             ++ [
               # nvim-cmp and plugins
