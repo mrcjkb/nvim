@@ -1902,15 +1902,16 @@
     "vim-matchup": {
       "flake": false,
       "locked": {
-        "lastModified": 1689039118,
-        "narHash": "sha256-Qgb4MsONjW+weZq6kzGzut+g8Lzu1iSk0HUfhSbF+1Y=",
-        "owner": "andymass",
+        "lastModified": 1689196190,
+        "narHash": "sha256-2sBinThn0ShHZj/+q11YA/9d5kXZzlq9BQZkzYnBmoo=",
+        "owner": "mrcjkb",
         "repo": "vim-matchup",
-        "rev": "3c4ccc489002fe72b5d2e2ffc4b3b5a7d3ab65d8",
+        "rev": "6f42b369751dae2dd8068531ed1fc6aa07da55a5",
         "type": "github"
       },
       "original": {
-        "owner": "andymass",
+        "owner": "mrcjkb",
+        "ref": "mrcjkb/haskell-queries",
         "repo": "vim-matchup",
         "type": "github"
       }

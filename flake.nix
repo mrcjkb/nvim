@@ -282,7 +282,8 @@
     };
     vim-matchup = {
       # tree-sitter powered % motions
-      url = "github:andymass/vim-matchup";
+      # url = "github:andymass/vim-matchup";
+      url = "github:mrcjkb/vim-matchup/mrcjkb/haskell-queries";
       flake = false;
     };
     nvim-lint = {
