@@ -276,8 +276,8 @@
       url = "github:nvim-treesitter/nvim-treesitter-refactor";
       flake = false;
     };
-    nvim-ts-rainbow2 = {
-      url = "github:HiPhish/nvim-ts-rainbow2";
+    rainbow-delimiters-nvim = {
+      url = "github:hiphish/rainbow-delimiters.nvim";
       flake = false;
     };
     vim-matchup = {
@@ -570,7 +570,7 @@
               treesitter-textobjects
               treesitter-context
               treesitter-refactor
-              nvim-ts-rainbow2
+              rainbow-delimiters-nvim
               vim-matchup
               (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
               # TODO: Package with deno build

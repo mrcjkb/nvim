@@ -12,11 +12,6 @@ configs.setup {
       end
     end,
   },
-  rainbow = {
-    enable = true,
-    query = 'rainbow-parens',
-    strategy = require('ts-rainbow').strategy['global'],
-  },
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
     disable = { 'python' },
