@@ -184,7 +184,7 @@
       flake = false;
     };
     fidget = {
-      url = "git+ssh://git@github.com/j-hui/fidget.nvim?ref=legacy";
+      url = "git+https://github.com/j-hui/fidget.nvim.git?ref=legacy";
       flake = false;
     };
     illuminate = {
