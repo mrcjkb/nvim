@@ -1902,11 +1902,11 @@
     "vim-matchup": {
       "flake": false,
       "locked": {
-        "lastModified": 1689827066,
-        "narHash": "sha256-x9ypPaeZn/vqRO9fuK//lIkgY+3zh5qRNJT8Tu1+pN8=",
+        "lastModified": 1689827348,
+        "narHash": "sha256-8POMC4eIkjjadarzPserDFDVhbev0Ctr4grgeavHMq0=",
         "owner": "mrcjkb",
         "repo": "vim-matchup",
-        "rev": "e7156dbb7539eb0e89d002abc1bae30420fcd1a0",
+        "rev": "41ecfa8f3cc13fefb274c676b8861fc597918977",
         "type": "github"
       },
       "original": {
