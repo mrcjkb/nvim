@@ -57,4 +57,10 @@ require('ufo').setup {
     },
   },
   fold_virt_text_handler = handler,
+  provider_selector = function(_bufnr, filetype, _buftype)
+    if filetype == 'cabal' then
+      return { 'treesitter', 'indent' }
+    end
+    return { 'lsp', 'treesitter', 'indent' }
+  end,
 }
