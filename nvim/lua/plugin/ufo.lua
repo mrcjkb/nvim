@@ -61,6 +61,6 @@ require('ufo').setup {
     if filetype == 'cabal' then
       return { 'treesitter', 'indent' }
     end
-    return { 'lsp', 'treesitter' }
+    return nil -- use default
   end,
 }
