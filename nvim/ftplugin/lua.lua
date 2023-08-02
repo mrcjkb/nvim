@@ -13,9 +13,15 @@ local root_files = {
   'selene.yml',
 }
 
+local lua_ls_cmd = 'lua-language-server'
+
+if vim.fn.executable(lua_ls_cmd) ~= 1
+  return
+end
+
 vim.lsp.start {
   name = 'luals',
-  cmd = { 'lua-language-server' },
+  cmd = { lua_ls_cmd },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
   on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,

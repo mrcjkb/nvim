@@ -1,5 +1,11 @@
 local lsp = require('mrcjk.lsp')
 
+local pylsp_cmd = 'pylsp'
+
+if vim.fn.executable(pylsp_cmd) ~= 1
+  return
+end
+
 -- local dap_python = require('dap-python')
 local on_pylsp_attach = function(client, bufnr)
   lsp.on_attach(client, bufnr)
@@ -11,7 +17,7 @@ local on_pylsp_attach = function(client, bufnr)
 end
 
 local config = {
-  cmd = { 'pylsp' },
+  cmd = { pylsp_cmd },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'setup.py', 'setup.cfg', 'pyproject.toml' }, { upward = true })[1]),
   on_attach = on_pylsp_attach,
   capabilities = lsp.capabilities,
