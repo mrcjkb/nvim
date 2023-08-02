@@ -500,39 +500,16 @@
                 pylsp-mypy
                 flake8
               ]))
-            haskellPackages.hoogle
-            haskellPackages.hlint
-            haskell-language-server
-            haskellPackages.haskell-debug-adapter
-            haskellPackages.ghci-dap
             haskellPackages.fast-tags # Fast tag generation
-            nil
-            dhall-lsp-server
-            rust-analyzer
-            taplo # toml toolkit including a language server
-            lua-language-server
-            nodePackages.vim-language-server
-            nodePackages.yaml-language-server
-            nodePackages.dockerfile-language-server-nodejs
-            nodePackages.vscode-json-languageserver-bin
-            nodePackages.bash-language-server
-            nodePackages.markdownlint-cli
-            lua51Packages.luacheck
-            sqls
-            jdt-language-server
             glow # Dependency of glow.nvim
             bat
             ueberzug # Display images in terminal
             feh # Fast and light image viewer
             fzf # Fuzzy search
-            xclip # Required so that neovim compiles with clipboard support
             ripgrep
             silver-searcher # Ag
             fd
-            stylua
             ctags
-            texlab
-            deno # Needed by peek.nvim
           ];
           extraConfigLua = ''
             require('mrcjk')

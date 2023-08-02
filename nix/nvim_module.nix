@@ -293,7 +293,10 @@ in {
   config = mkIf cfg.enable (mkMerge [
     {
       environment = {
-        systemPackages = [cfg.finalPackage];
+        systemPackages = with pkgs; [
+          cfg.finalPackage
+          xclip # Required for clipboard support
+        ];
         sessionVariables = mkIf cfg.defaultEditor {EDITOR = "nvim";};
       };
 
