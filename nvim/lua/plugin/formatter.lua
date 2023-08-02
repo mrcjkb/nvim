@@ -12,7 +12,7 @@ require('formatter').setup {
         })
       end,
     },
-    lua = {
+    lua = vim.fn.executable('stylua') == 1 and {
       -- "formatter.filetypes.lua" defines default configurations for the
       -- "lua" filetype
       require('formatter.filetypes.lua').stylua,

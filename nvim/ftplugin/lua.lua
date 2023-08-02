@@ -15,7 +15,7 @@ local root_files = {
 
 local lua_ls_cmd = 'lua-language-server'
 
-if vim.fn.executable(lua_ls_cmd) ~= 1
+if vim.fn.executable(lua_ls_cmd) ~= 1 then
   return
 end
 

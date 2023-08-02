@@ -2,7 +2,7 @@ local lsp = require('mrcjk.lsp')
 
 local pylsp_cmd = 'pylsp'
 
-if vim.fn.executable(pylsp_cmd) ~= 1
+if vim.fn.executable(pylsp_cmd) ~= 1 then
   return
 end
 
