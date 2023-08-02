@@ -418,15 +418,12 @@
       };
       shell = pkgs.mkShell {
         name = "nvim-config-devShell";
-        buildInputs =
-          (with pkgs; [
-            lua-language-server
-          ])
-          ++ (with pre-commit-hooks.packages.${system}; [
-            alejandra
-            stylua
-            luacheck
-          ]);
+        buildInputs = with pre-commit-hooks.packages.${system}; [
+          lua-language-server
+          alejandra
+          stylua
+          luacheck
+        ];
         shellHook = ''
           ${self.checks.${system}.pre-commit-check.shellHook}
         '';
