@@ -16,6 +16,6 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     '*.lua',
   },
   callback = function()
-    require('lint').try_lint()
+    pcall(lint.try_lint)
   end,
 })
