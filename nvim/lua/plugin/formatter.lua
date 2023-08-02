@@ -16,7 +16,7 @@ require('formatter').setup {
       -- "formatter.filetypes.lua" defines default configurations for the
       -- "lua" filetype
       require('formatter.filetypes.lua').stylua,
-    },
+    } or {},
   },
 }
 local pattern = { '*.lua' }
