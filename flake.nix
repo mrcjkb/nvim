@@ -499,6 +499,7 @@
                 python-lsp-server
                 pylsp-mypy
                 flake8
+                ueberzug
               ]))
             haskellPackages.fast-tags # Fast tag generation
             glow # Dependency of glow.nvim
