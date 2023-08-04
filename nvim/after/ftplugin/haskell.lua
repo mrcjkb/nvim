@@ -1,7 +1,5 @@
-local haskell = require('lang.haskell')
+require('lang.haskell')
 local ht = require('haskell-tools')
-
-haskell.start_or_attach()
 
 local bufnr = vim.api.nvim_get_current_buf()
 local keymap_opts = { noremap = true, silent = true, buffer = bufnr }
