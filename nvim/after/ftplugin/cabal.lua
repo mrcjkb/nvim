@@ -1,3 +1,1 @@
-local haskell = require('lang.haskell')
-
-haskell.start_or_attach()
+require('lang.haskell')
