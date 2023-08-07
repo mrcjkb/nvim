@@ -12,11 +12,13 @@ require('formatter').setup {
         })
       end,
     },
-    lua = vim.fn.executable('stylua') == 1 and {
-      -- "formatter.filetypes.lua" defines default configurations for the
-      -- "lua" filetype
-      require('formatter.filetypes.lua').stylua,
-    } or {},
+    lua = vim.fn.executable('stylua') == 1
+        and {
+          -- "formatter.filetypes.lua" defines default configurations for the
+          -- "lua" filetype
+          require('formatter.filetypes.lua').stylua,
+        }
+      or {},
   },
 }
 local pattern = { '*.lua' }
