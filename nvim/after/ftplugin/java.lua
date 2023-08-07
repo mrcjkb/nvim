@@ -24,12 +24,7 @@ local on_jdtls_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
 end
 
-local data_dir = vim.fn.stdpath('data')
-local root_dir = require('jdtls.setup').find_root { 'build.gradle', 'gradlew', 'mvnw', '.classpath' }
-local workspace_folder = data_dir .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
-local config_dir = data_dir .. '/jdtls'
-
-local cmd = { 'jdt-language-server', '-configuration', config_dir, '-data', workspace_folder }
+local cmd = { 'jdt-language-server' }
 
 if vim.fn.executable(cmd[1]) ~= 1 then
   return
