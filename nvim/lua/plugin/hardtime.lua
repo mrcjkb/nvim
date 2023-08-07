@@ -6,15 +6,8 @@ require('hardtime').setup {
   notification = true,
   allow_different_key = false,
   restricted_keys = {
-    ['h'] = { 'n', 'x' },
-    ['j'] = { 'n', 'x' },
-    ['k'] = { 'n', 'x' },
-    ['l'] = { 'n', 'x' },
-    ['gj'] = { 'n', 'x' },
-    ['gk'] = { 'n', 'x' },
-    ['<CR>'] = { 'n', 'x' },
-    ['<C-M>'] = { 'n', 'x' },
-    ['<C-N>'] = { 'n', 'x' },
+    ['-'] = nil,
+    ['<C-P>'] = nil,
   },
   disabled_filetypes = {
     'qf',
