@@ -30,9 +30,11 @@ if vim.fn.executable(cmd[1]) ~= 1 then
   return
 end
 
+local java_runtime_dir = os.getenv('JAVA_RUNTIME_DIR')
+
 local settings = {
   java = {
-    signatureHelp = { enabled = true },
+    -- signatureHelp = { enabled = true },
     contentProvider = { preferred = 'fernflower' },
     completion = {
       favoriteStaticMembers = {
@@ -54,6 +56,15 @@ local settings = {
     codeGeneration = {
       toString = {
         template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
+      },
+    },
+    configuration = {
+      runtimes = java_runtime_dir and {
+        {
+          name = 'Java',
+          path = java_runtime_dir,
+          -- path = '/usr/lib/jvm/java-8-openjdk/',
+        } or nil,
       },
     },
   },
