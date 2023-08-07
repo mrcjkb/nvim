@@ -24,14 +24,16 @@ local on_jdtls_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
 end
 
--- XXX: Duplicate.
--- TODO: Extract to lsp module.
-local cmp_lsp = require('cmp_nvim_lsp')
-local capabilities = cmp_lsp and cmp_lsp.default_capabilities() or vim.lsp.protocol.make_client_capabilities()
-capabilities = require('lsp-selection-range').update_capabilities(capabilities)
-
+local data_dir = vim.fn.stdpath('data')
 local root_dir = require('jdtls.setup').find_root { 'build.gradle', 'gradlew', 'mvnw', '.classpath' }
-local workspace_folder = vim.fn.stdpath('data') .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+local workspace_folder = data_dir .. '/.workspace/' .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+local config_dir = data_dir .. '/jdtls'
+
+local cmd = { 'jdt-language-server', '-configuration', config_dir, '-data', workspace_folder }
+
+if vim.fn.executable(cmd[1]) ~= 1 then
+  return
+end
 
 local settings = {
   java = {
@@ -63,8 +65,8 @@ local settings = {
 }
 
 jdtls.start_or_attach {
-  capabilities = capabilities,
-  cmd = { 'jdt-language-server', '-configuration', '-data', workspace_folder },
+  capabilities = lsp.capabilities,
+  cmd = cmd,
   settings = settings,
   on_attach = on_jdtls_attach,
   on_init = function(client, _)
