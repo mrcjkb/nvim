@@ -34,7 +34,7 @@ local java_runtime_dir = os.getenv('JAVA_RUNTIME_DIR')
 
 local settings = {
   java = {
-    -- signatureHelp = { enabled = true },
+    signatureHelp = { enabled = true },
     contentProvider = { preferred = 'fernflower' },
     completion = {
       favoriteStaticMembers = {
