@@ -63,7 +63,7 @@ vim.keymap.set('n', '<leader>ty', '<Cmd>Telescope yank_history<CR>', {})
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>tH', telescope.extensions.harpoon.marks, {})
+vim.keymap.set('n', '<leader>tm', telescope.extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>th', function()
   telescope.extensions.hoogle.hoogle {
     layout_strategy = 'vertical',
