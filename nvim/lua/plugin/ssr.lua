@@ -1,3 +1,8 @@
 local ssr = require('ssr')
+
 ssr.setup()
-vim.keymap.set({ 'n', 'x' }, '<leader>sr', ssr.open)
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set({ 'n', 'x' }, '<leader>sr', function()
+  pcall(ssr.open)
+end, opts)
