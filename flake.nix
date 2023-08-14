@@ -529,10 +529,6 @@
               name = "telescope-manix";
               url = "git@github.com:mrcjkb/telescope-manix.git";
             }
-            {
-              name = "lsp-inject.nvim";
-              url = "git@github.com:mrcjkb/lsp-inject.nvim.git";
-            }
           ];
           plugins = with pkgs.nvimPlugins;
             [
