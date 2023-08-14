@@ -170,6 +170,8 @@ cmp.setup.cmdline(':', {
   },
 })
 
+require('cmp_luasnip_choice').setup()
+
 local opts = { noremap = false }
 vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-p>', cmp.complete, opts)
