@@ -239,6 +239,10 @@
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;
     };
+    cmp-luasnip-choice = {
+      url = "github:L3MON4D3/cmp-luasnip-choice";
+      flake = false;
+    };
     cmp-git = {
       url = "github:petertriho/cmp-git";
       flake = false;
@@ -636,6 +640,7 @@
               cmp-nvim-lsp-signature-help
               cmp-omni
               cmp-luasnip
+              cmp-luasnip-choice
               cmp-git
               cmp-rg
               cmp-dap

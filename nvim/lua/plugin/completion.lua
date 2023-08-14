@@ -10,8 +10,13 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
-local function complete_with_source(name)
-  cmp.complete { config = { sources = { { name = name } } } }
+---@param source string|table
+local function complete_with_source(source)
+  if type(source) == 'string' then
+    cmp.complete { config = { sources = { { name = source } } } }
+  elseif type(source) == 'table' then
+    cmp.complete { config = { sources = { source } } }
+  end
 end
 
 local function complete_with_source_mapping(name, modes)
@@ -109,7 +114,8 @@ cmp.setup {
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'luasnip' }, -- snippets -> Triggered with <C-s>
+    { name = 'luasnip-choice' }, -- luasnip choice nodes
     { name = 'rg', keyword_length = 3 },
     { name = 'buffer', keyword_length = 3 },
     {
@@ -169,5 +175,15 @@ vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-p>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
   complete_with_source('path')
+end, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-g>', function()
+  complete_with_source('rg')
+end, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
+  complete_with_source {
+    name = 'tmux',
+    keyword_length = 3,
+    all_panes = true,
+  }
 end, opts)
 vim.keymap.set('i', '<C-l>', '<C-x><C-l>', opts)

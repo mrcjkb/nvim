@@ -96,6 +96,22 @@
         "type": "github"
       }
     },
+    "cmp-luasnip-choice": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1678136664,
+        "narHash": "sha256-/s1p/WLfrHZHX6fU1p2PUQ0GIocAB4mvhjZ0XUMzkaw=",
+        "owner": "L3MON4D3",
+        "repo": "cmp-luasnip-choice",
+        "rev": "4f49232e51c9df379b9daf43f25f7ee6320450f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "L3MON4D3",
+        "repo": "cmp-luasnip-choice",
+        "type": "github"
+      }
+    },
     "cmp-nvim-lsp": {
       "flake": false,
       "locked": {
@@ -1507,6 +1523,7 @@
         "cmp-dap": "cmp-dap",
         "cmp-git": "cmp-git",
         "cmp-luasnip": "cmp-luasnip",
+        "cmp-luasnip-choice": "cmp-luasnip-choice",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
