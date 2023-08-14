@@ -186,4 +186,3 @@ vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
     all_panes = true,
   }
 end, opts)
-vim.keymap.set('i', '<C-l>', '<C-x><C-l>', opts)
