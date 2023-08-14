@@ -10,10 +10,12 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
-local function mk_complete_with_source(name)
-  return function()
-    cmp.complete { config = { sources = { name = name } } }
-  end
+local function complete_with_source(name)
+  cmp.complete { config = { sources = { name = name } } }
+end
+
+local function complete_with_source_mapping(name)
+  return cmp.mapping.complete { config = { sources = { name = name } } }
 end
 
 cmp.setup {
@@ -51,14 +53,14 @@ cmp.setup {
       if cmp.visible() then
         cmp.scroll_docs(-4)
       else
-        mk_complete_with_source('buffer')()
+        complete_with_source('buffer')
       end
     end, { 'i', 'c', 's' }),
     ['<C-f>'] = cmp.mapping(function(_)
       if cmp.visible() then
         cmp.scroll_docs(4)
       else
-        mk_complete_with_source('path')()
+        complete_with_source('path')
       end
     end, { 'i', 'c', 's' }),
     ['<C-n>'] = cmp.mapping(function(fallback)
@@ -94,9 +96,9 @@ cmp.setup {
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
     },
-    ['<C-o>'] = cmp.mapping(mk_complete_with_source('omni'), { 'i' }),
-    ['<C-r>'] = cmp.mapping(mk_complete_with_source('rg'), { 'i' }),
-    ['<C-s>'] = cmp.mapping(mk_complete_with_source('luasnip'), { 'i' }),
+    ['<C-o>'] = complete_with_source_mapping('omni'),
+    ['<C-r>'] = complete_with_source_mapping('rg'),
+    ['<C-s>'] = complete_with_source_mapping('luasnip'),
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
