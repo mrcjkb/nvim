@@ -2,7 +2,7 @@ local gps = require('nvim-gps')
 gps.setup()
 
 ---@return string status
-local function macro_status()
+local function extra_mode_status()
   local reg_recording = vim.fn.reg_recording()
   if reg_recording ~= '' then
     return ' @' .. reg_recording
@@ -10,6 +10,10 @@ local function macro_status()
   local reg_executing = vim.fn.reg_executing()
   if reg_executing ~= '' then
     return ' @' .. reg_executing
+  end
+  local mode = vim.api.nvim_get_mode().mode
+  if mode == 'ix' then
+    return '^X: (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)'
   end
   return ''
 end
@@ -21,7 +25,7 @@ require('lualine').setup {
       { gps.get_location, cond = gps.is_available },
     },
     lualine_z = {
-      { macro_status },
+      { extra_mode_status },
     },
   },
   options = {
