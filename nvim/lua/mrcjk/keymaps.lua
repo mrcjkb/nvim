@@ -33,7 +33,7 @@ keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
 
 -- Toggle the quickfix list (only opens if it is populated)
-M.toggle_qf_list = function()
+local function toggle_qf_list()
   local qf_exists = false
   for _, win in pairs(fn.getwininfo()) do
     if win['quickfix'] == 1 then
@@ -49,8 +49,7 @@ M.toggle_qf_list = function()
   end
 end
 
--- NOTE: This has to be passed as an Ex command because of https://github.com/unblevable/quick-scope/issues/88
-keymap.set('n', '<C-c>', '<cmd>lua require("mrcjk.keymaps").toggle_qf_list()<CR>')
+keymap.set('n', '<C-c>', toggle_qf_list)
 
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
@@ -152,6 +151,7 @@ end, opts)
 keymap.set('n', ']d', function()
   diagnostic.goto_next {
     float = { focus = false },
+    scope = 'line',
   }
 end, opts)
 keymap.set('n', '[e', function()
