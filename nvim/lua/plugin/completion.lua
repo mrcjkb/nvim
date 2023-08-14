@@ -160,4 +160,6 @@ cmp.setup.cmdline(':', {
 })
 
 local opts = { noremap = false }
+vim.keymap.set('i', '<C-n>', cmp.complete, opts)
+vim.keymap.set('i', '<C-p>', cmp.complete, opts)
 vim.keymap.set('i', '<C-l>', '<C-x><C-l>', opts)
