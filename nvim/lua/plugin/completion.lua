@@ -14,8 +14,8 @@ local function complete_with_source(name)
   cmp.complete { config = { sources = { { name = name } } } }
 end
 
-local function complete_with_source_mapping(name)
-  return cmp.mapping.complete { config = { sources = { { name = name } } } }
+local function complete_with_source_mapping(name, modes)
+  return cmp.mapping.complete { config = { sources = { { name = name } } }, modes }
 end
 
 cmp.setup {
@@ -66,9 +66,9 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-      -- they way you will only jump inside the snippet region
-      elseif luasnip.expand_or_jumpable() then
+      -- expand_or_jumpable(): Jump outside the snippet region
+      -- expand_or_locally_jumpable(): Only jump inside the snippet region
+      elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       elseif has_words_before() then
         cmp.complete()
@@ -92,13 +92,13 @@ cmp.setup {
       else
         cmp.complete()
       end
-    end),
+    end, { 'i', 'c', 's' }),
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
     },
-    ['<C-o>'] = complete_with_source_mapping('omni'),
-    ['<C-r>'] = complete_with_source_mapping('rg'),
-    ['<C-s>'] = complete_with_source_mapping('luasnip'),
+    ['<C-o>'] = complete_with_source_mapping('omni', { 'i', 'c' }),
+    ['<C-r>'] = complete_with_source_mapping('rg', { 'i', 's' }),
+    ['<C-s>'] = complete_with_source_mapping('luasnip', { 'i', 's' }),
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
@@ -164,9 +164,6 @@ cmp.setup.cmdline(':', {
 local opts = { noremap = false }
 vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-p>', cmp.complete, opts)
--- vim.keymap.set('i', '<C-s>', function()
---   complete_with_source('luasnip')
--- end, opts)
 -- vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
 --   complete_with_source('path')
 -- end, opts)
