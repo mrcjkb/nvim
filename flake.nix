@@ -94,6 +94,10 @@
       url = "github:folke/persistence.nvim";
       flake = false;
     };
+    nvim-lastplace = {
+      url = "github:ethanholz/nvim-lastplace";
+      flake = false;
+    };
     comment = {
       url = "github:numToStr/Comment.nvim";
       flake = false;
@@ -565,6 +569,7 @@
               unimpaired
               (withLuaSetup surround "nvim-surround")
               (withLuaModule persistence "plugin.persistence")
+              (withLuaSetup nvim-lastplace "nvim-lastplace")
               (withLuaSetup comment "Comment")
               (withLuaModule material-theme "plugin.theme")
               neotest-python
