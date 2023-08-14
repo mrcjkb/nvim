@@ -13,6 +13,7 @@ end
 cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
+    autocomplete = false,
   },
   formatting = {
     format = lspkind.cmp_format {
@@ -138,3 +139,18 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' },
   },
 })
+
+-- local function mk_complete_with_source(name)
+--   return function()
+--     cmp.complete { config = { sources = { name = name } } }
+--   end
+-- end
+
+vim.keymap.set('i', '<C-p>', cmp.complete)
+-- FIXME:
+-- vim.keymap.set('i', '<C-x><C-o>', mk_complete_with_source('omni'))
+-- vim.keymap.set('i', '<C-x><C-f>', mk_complete_with_source('path'))
+-- vim.keymap.set('i', '<C-x><C-b>', mk_complete_with_source('buffer'))
+-- vim.keymap.set('i', '<C-x><C-r>', mk_complete_with_source('rg'))
+-- vim.keymap.set('i', '<C-x><C-s>', mk_complete_with_source('luasnip'))
+--
