@@ -141,26 +141,54 @@ keymap.set('n', 'tn', ':tabnew<CR>', {})
 local severity = diagnostic.severity
 
 local opts = { noremap = true, silent = true }
-keymap.set('n', '<space>e', diagnostic.open_float, opts)
-keymap.set('n', '[d', diagnostic.goto_prev, opts)
-keymap.set('n', ']d', diagnostic.goto_next, opts)
+keymap.set('n', '<space>e', function()
+  diagnostic.open_float(nil, { focus = false })
+end, opts)
+keymap.set('n', '[d', function()
+  diagnostic.goto_prev {
+    float = { focus = false },
+  }
+end, opts)
+keymap.set('n', ']d', function()
+  diagnostic.goto_next {
+    float = { focus = false },
+  }
+end, opts)
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev { severity = severity.ERROR }
+  diagnostic.goto_prev {
+    severity = severity.ERROR,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', ']e', function()
-  diagnostic.goto_next { severity = severity.ERROR }
+  diagnostic.goto_next {
+    severity = severity.ERROR,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev { severity = severity.WARN }
+  diagnostic.goto_prev {
+    severity = severity.WARN,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', ']w', function()
-  diagnostic.goto_next { severity = severity.WARN }
+  diagnostic.goto_next {
+    severity = severity.WARN,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', '[h', function()
-  diagnostic.goto_prev { severity = severity.HINT }
+  diagnostic.goto_prev {
+    severity = severity.HINT,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', ']h', function()
-  diagnostic.goto_next { severity = severity.HINT }
+  diagnostic.goto_next {
+    severity = severity.HINT,
+    float = { focus = false },
+  }
 end, opts)
 keymap.set('n', '<space>qa', function()
   diagnostic.setloclist { open = false }

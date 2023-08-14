@@ -147,10 +147,6 @@
       url = "github:folke/neodev.nvim";
       flake = false;
     };
-    diagflow-nvim = {
-      url = "github:dgagn/diagflow.nvim";
-      flake = false;
-    };
     femaco = {
       url = "github:AckslD/nvim-FeMaco.lua";
       flake = false;
@@ -574,7 +570,6 @@
               nvim-dap-ui
               nvim-dap-virtual-text
               (withLuaModule neodev-nvim "plugin.neodev")
-              (withLuaModule diagflow-nvim "plugin.diagflow")
               (withLuaModule femaco "plugin.femaco")
               jdtls
               lsp-status
