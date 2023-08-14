@@ -164,4 +164,13 @@ cmp.setup.cmdline(':', {
 local opts = { noremap = false }
 vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-p>', cmp.complete, opts)
+vim.keymap.set('i', '<C-s>', function()
+  complete_with_source('luasnip')
+end, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
+  complete_with_source('path')
+end, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-b>', function()
+  complete_with_source('buffer')
+end, opts)
 vim.keymap.set('i', '<C-l>', '<C-x><C-l>', opts)
