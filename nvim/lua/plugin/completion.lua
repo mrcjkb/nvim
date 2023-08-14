@@ -10,6 +10,12 @@ local function has_words_before()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
 end
 
+local function mk_complete_with_source(name)
+  return function()
+    cmp.complete { config = { sources = { name = name } } }
+  end
+end
+
 cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
@@ -41,8 +47,20 @@ cmp.setup {
     end,
   },
   mapping = {
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-b>'] = cmp.mapping(function(_)
+      if cmp.visible() then
+        cmp.scroll_docs(-4)
+      else
+        mk_complete_with_source('buffer')()
+      end
+    end, { 'i', 'c', 's' }),
+    ['<C-f>'] = cmp.mapping(function(_)
+      if cmp.visible() then
+        cmp.scroll_docs(4)
+      else
+        mk_complete_with_source('path')()
+      end
+    end, { 'i', 'c', 's' }),
     ['<C-n>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -65,12 +83,10 @@ cmp.setup {
         fallback()
       end
     end, { 'i', 'c', 's' }),
-    ['<C-Space>'] = cmp.mapping.complete(),
     -- toggle completion
-    ['<C-e>'] = cmp.mapping(function(fallback)
+    ['<C-e>'] = cmp.mapping(function(_)
       if cmp.visible() then
         cmp.close()
-        fallback()
       else
         cmp.complete()
       end
@@ -78,6 +94,9 @@ cmp.setup {
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
     },
+    ['<C-o>'] = cmp.mapping(mk_complete_with_source('omni'), { 'i' }),
+    ['<C-r>'] = cmp.mapping(mk_complete_with_source('rg'), { 'i' }),
+    ['<C-s>'] = cmp.mapping(mk_complete_with_source('luasnip'), { 'i' }),
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
@@ -140,17 +159,5 @@ cmp.setup.cmdline(':', {
   },
 })
 
--- local function mk_complete_with_source(name)
---   return function()
---     cmp.complete { config = { sources = { name = name } } }
---   end
--- end
-
-vim.keymap.set('i', '<C-p>', cmp.complete)
--- FIXME:
--- vim.keymap.set('i', '<C-x><C-o>', mk_complete_with_source('omni'))
--- vim.keymap.set('i', '<C-x><C-f>', mk_complete_with_source('path'))
--- vim.keymap.set('i', '<C-x><C-b>', mk_complete_with_source('buffer'))
--- vim.keymap.set('i', '<C-x><C-r>', mk_complete_with_source('rg'))
--- vim.keymap.set('i', '<C-x><C-s>', mk_complete_with_source('luasnip'))
---
+local opts = { noremap = false }
+vim.keymap.set('i', '<C-l>', '<C-x><C-l>', opts)
