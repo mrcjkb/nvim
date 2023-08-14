@@ -63,6 +63,7 @@ in {
     cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
+    nvim-code-action-menu = mkNvimPlugin inputs.nvim-code-action-menu "nvim-code-action-menu";
     cmp-dap = mkNvimPlugin inputs.cmp-dap "cmp-dap";
     treesitter-playground = mkNvimPlugin inputs.treesitter-playground "treesitter-playground";
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";

@@ -55,6 +55,13 @@ vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
   return default_on_codelens(err, lenses, ctx, _)
 end
 
+local function code_action()
+  if vim.cmd.CodeActionMenu then
+    return vim.cmd.CodeActionMenu()
+  end
+  return vim.lsp.buf.code_action()
+end
+
 function lsp.on_attach(client, bufnr)
   vim.cmd.setlocal('signcolumn=yes')
 
@@ -88,7 +95,7 @@ function lsp.on_attach(client, bufnr)
   keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
   keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, opts)
   keymap.set('n', '<space>d', vim.lsp.buf.document_symbol, opts)
-  keymap.set('n', '<M-CR>', vim.lsp.buf.code_action, opts)
+  keymap.set('n', '<M-CR>', code_action, opts)
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, opts)
   keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, opts)
   keymap.set('n', 'gr', vim.lsp.buf.references, opts)

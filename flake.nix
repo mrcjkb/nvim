@@ -252,6 +252,10 @@
       url = "github:onsails/lspkind-nvim";
       flake = false;
     };
+    nvim-code-action-menu = {
+      url = "github:weilbith/nvim-code-action-menu";
+      flake = false;
+    };
     cmp-dap = {
       url = "github:rcarriga/cmp-dap";
       flake = false;
@@ -585,6 +589,7 @@
               schemastore-nvim
               lspconfig
               lspkind-nvim
+              nvim-code-action-menu
               (withLuaModule nvim-lint "plugin.lint")
               (withLuaModule luasnip "plugin.luasnip")
               (withLuaModule project "plugin.project")
