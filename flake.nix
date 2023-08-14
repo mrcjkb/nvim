@@ -298,6 +298,10 @@
       url = "github:mrcjkb/vim-matchup/mrcjkb/haskell-queries";
       flake = false;
     };
+    ssr-nvim = {
+      url = "github:cshuaimin/ssr.nvim";
+      flake = false;
+    };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
       flake = false;
@@ -556,6 +560,7 @@
               (withLuaSetup wildfire-nvim "wildfire")
               rainbow-delimiters-nvim
               vim-matchup
+              (withLuaModule ssr-nvim "ssr")
               (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
               # TODO: Package with deno build
               (withLuaModule peek "plugin.peek")

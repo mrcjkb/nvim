@@ -74,6 +74,7 @@ in {
     wildfire-nvim = mkNvimPlugin inputs.wildfire-nvim "wildfire.nvim";
     rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
+    ssr-nvim = mkNvimPlugin inputs.ssr-nvim "ssr.nvim";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
     luasnip = mkNvimPlugin inputs.luasnip "LuaSnip";
     project = mkNvimPlugin inputs.project "project.nvim";
