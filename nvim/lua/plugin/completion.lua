@@ -102,7 +102,10 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
-    { name = 'omni' },
+    {
+      name = 'omni',
+      disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
+    },
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
