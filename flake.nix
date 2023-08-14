@@ -483,11 +483,26 @@
           withConfig = plugin: config: {
             inherit plugin config;
           };
-          withLuaModule = plugin: module: withConfig plugin "require('${module}')";
-          withScheduledLuaModule = plugin: module: withConfig plugin (schedule "require('${module}')");
-          withLuaSetup = plugin: module: withConfig plugin "require('${module}').setup()";
-          withDefaultLuaSetup = plugin: module: withConfig plugin "require('${module}').setup {}";
-          withScheduledLuaSetup = plugin: module: withConfig plugin (schedule "require('${module}').setup()");
+          withLuaModule = plugin: module:
+            withConfig plugin ''
+              local ok, err = pcall(require, '${module}')
+              if not ok then
+                vim.notify_once('Failed to load ${module}: ' .. err, vim.log.levels.ERROR)
+              end
+            '';
+          withScheduledLuaModule = plugin: module: withConfig plugin (schedule (withLuaModule plugin module));
+          withLuaSetup = plugin: module:
+            withConfig plugin ''
+              local ok, mod = pcall(require, '${module}')
+              if not ok then
+                vim.notify_once('Failed to load ${module}: ' .. err, vim.log.levels.ERROR)
+              end
+              ok, err = pcall(require, mod.setup)
+              if not ok then
+                vim.notify_once('Failed to setup ${module}: ' .. err, vim.log.levels.ERROR)
+              end
+            '';
+          withScheduledLuaSetup = plugin: module: withConfig plugin (schedule (withLuaSetup plugin module));
         in {
           enable = true;
           defaultEditor = true;
@@ -560,7 +575,7 @@
               (withLuaSetup wildfire-nvim "wildfire")
               rainbow-delimiters-nvim
               vim-matchup
-              (withLuaModule ssr-nvim "ssr")
+              (withLuaModule ssr-nvim "plugin.ssr")
               (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
               # TODO: Package with deno build
               (withLuaModule peek "plugin.peek")
@@ -627,7 +642,7 @@
               (withLuaModule nvim-ufo "plugin.ufo")
               (withLuaModule statuscol "plugin.statuscol")
               nvim-unception
-              (withDefaultLuaSetup tmux-nvim "tmux")
+              (withLuaSetup tmux-nvim "tmux")
               (withLuaModule hardtime-nvim "plugin.hardtime")
               (withLuaModule term-edit-nvim "plugin.term-edit")
               (withLuaModule mini-files "plugin.files")
