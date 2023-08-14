@@ -6,8 +6,11 @@ require('hardtime').setup {
   notification = true,
   allow_different_key = false,
   restricted_keys = {
-    ['-'] = nil,
-    ['<C-P>'] = nil,
+    ['-'] = {}, -- Remove from default list
+    ['<C-P>'] = {},
+  },
+  disabled_keys = {
+    ['<CR>'] = {},
   },
   disabled_filetypes = {
     'qf',
