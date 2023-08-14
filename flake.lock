@@ -256,22 +256,6 @@
         "type": "github"
       }
     },
-    "diagflow-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690646868,
-        "narHash": "sha256-BUF0OXu3EPOgzFxkuEBJkg/I/Mhime31uBXCvMBp+wU=",
-        "owner": "dgagn",
-        "repo": "diagflow.nvim",
-        "rev": "dafd9d4a76bd97a17dc7ea6d2f1a2675c65324e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dgagn",
-        "repo": "diagflow.nvim",
-        "type": "github"
-      }
-    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -1517,7 +1501,6 @@
         "cmp-tmux": "cmp-tmux",
         "colorizer": "colorizer",
         "comment": "comment",
-        "diagflow-nvim": "diagflow-nvim",
         "diffview": "diffview",
         "eyeliner-nvim": "eyeliner-nvim",
         "femaco": "femaco",
@@ -1595,6 +1578,7 @@
         "vim-matchup": "vim-matchup",
         "vim-textobj-user": "vim-textobj-user",
         "vim-wordmotion": "vim-wordmotion",
+        "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       }
     },
@@ -1962,6 +1946,22 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
+        "type": "github"
+      }
+    },
+    "wildfire-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691931045,
+        "narHash": "sha256-LA4UQ2uooccIt8JcqdA6lGW6tCGwveJA0s5gIG28oLg=",
+        "owner": "sustech-data",
+        "repo": "wildfire.nvim",
+        "rev": "fa2a7cf716160e96a205d9cf08ec39f33842f54f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sustech-data",
+        "repo": "wildfire.nvim",
         "type": "github"
       }
     },

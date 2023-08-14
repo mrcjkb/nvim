@@ -69,6 +69,7 @@ in {
     treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
     nvim-ts-context-commentstring = mkNvimPlugin inputs.nvim-ts-context-commentstring "nvim-ts-context-commentstring";
     treesitter-refactor = mkNvimPlugin inputs.treesitter-refactor "treesitter-refactor";
+    wildfire-nvim = mkNvimPlugin inputs.wildfire-nvim "wildfire.nvim";
     rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";

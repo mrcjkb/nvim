@@ -276,6 +276,10 @@
       url = "github:nvim-treesitter/nvim-treesitter-refactor";
       flake = false;
     };
+    wildfire-nvim = {
+      url = "github:sustech-data/wildfire.nvim";
+      flake = false;
+    };
     rainbow-delimiters-nvim = {
       url = "github:hiphish/rainbow-delimiters.nvim";
       flake = false;
@@ -541,6 +545,7 @@
               treesitter-textobjects
               treesitter-context
               treesitter-refactor
+              (withLuaSetup wildfire-nvim "wildfire")
               rainbow-delimiters-nvim
               vim-matchup
               (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
