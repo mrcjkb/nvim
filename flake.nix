@@ -483,26 +483,10 @@
           withConfig = plugin: config: {
             inherit plugin config;
           };
-          withLuaModule = plugin: module:
-            withConfig plugin ''
-              local ok, err = pcall(require, '${module}')
-              if not ok then
-                vim.notify_once('Failed to load ${module}: ' .. err, vim.log.levels.ERROR)
-              end
-            '';
-          withScheduledLuaModule = plugin: module: withConfig plugin (schedule (withLuaModule plugin module));
-          withLuaSetup = plugin: module:
-            withConfig plugin ''
-              local ok, mod = pcall(require, '${module}')
-              if not ok then
-                vim.notify_once('Failed to load ${module}: ' .. err, vim.log.levels.ERROR)
-              end
-              ok, err = pcall(require, mod.setup)
-              if not ok then
-                vim.notify_once('Failed to setup ${module}: ' .. err, vim.log.levels.ERROR)
-              end
-            '';
-          withScheduledLuaSetup = plugin: module: withConfig plugin (schedule (withLuaSetup plugin module));
+          withLuaModule = plugin: module: withConfig plugin "require('${module}')";
+          withScheduledLuaModule = plugin: module: withConfig plugin (schedule "require('${module}')");
+          withLuaSetup = plugin: module: withConfig plugin "require('${module}').setup()";
+          withScheduledLuaSetup = plugin: module: withConfig plugin (schedule "require('${module}').setup()");
         in {
           enable = true;
           defaultEditor = true;

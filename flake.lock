@@ -1595,6 +1595,7 @@
         "rust-tools": "rust-tools",
         "schemastore-nvim": "schemastore-nvim",
         "sqlite": "sqlite",
+        "ssr-nvim": "ssr-nvim",
         "statuscol": "statuscol",
         "surround": "surround",
         "telescope": "telescope",
@@ -1661,6 +1662,22 @@
       "original": {
         "owner": "kkharji",
         "repo": "sqlite.lua",
+        "type": "github"
+      }
+    },
+    "ssr-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691722362,
+        "narHash": "sha256-rV3DWYiNMd68xZzkpMkAGSPDbG/8xt9jeFOEuDGlFq0=",
+        "owner": "cshuaimin",
+        "repo": "ssr.nvim",
+        "rev": "027a89f84283a9051427d4f319720336535c2e82",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cshuaimin",
+        "repo": "ssr.nvim",
         "type": "github"
       }
     },
