@@ -41,6 +41,7 @@ cmp.setup {
         nvim_lua = '[API]',
         path = '[PATH]',
         luasnip = '[SNIP]',
+        luasnip_choice = '[SNIP]',
         vsnip = '[VSNIP]',
         rg = '[RG]',
         cmdline = '[CMD]',
@@ -115,7 +116,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     -- { name = 'luasnip' }, -- snippets -> Triggered with <C-s>
-    { name = 'luasnip-choice' }, -- luasnip choice nodes
+    { name = 'luasnip_choice' }, -- luasnip choice nodes
     { name = 'rg', keyword_length = 3 },
     { name = 'buffer', keyword_length = 3 },
     {
