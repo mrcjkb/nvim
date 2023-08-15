@@ -158,15 +158,18 @@ cmp.setup.cmdline({ '/', '?' }, {
     { name = 'buffer' },
     { name = 'cmdline_history' },
   },
+  view = {
+    entries = { name = 'wildmenu', separator = '|' },
+  },
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources {
+    { name = 'cmdline' },
     { name = 'cmdline_history' },
     { name = 'path' },
-    { name = 'cmdline' },
   },
 })
 
