@@ -189,7 +189,7 @@
   home-manager.sharedModules = [
     {
       xdg.configFile."nvim" = {
-        source = ./nvim;
+        source = ../nvim;
         recursive = true;
       };
     }
