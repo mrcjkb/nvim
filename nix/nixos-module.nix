@@ -83,6 +83,7 @@
     plugins = with pkgs.nvimPlugins;
       [
         plenary
+        nui-nvim
         (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
         nvim-web-devicons
         (withLuaModule diffview "plugin.diffview")
@@ -165,6 +166,7 @@
         (withLuaModule hardtime-nvim "plugin.hardtime")
         (withLuaModule term-edit-nvim "plugin.term-edit")
         (withLuaModule mini-files "plugin.files")
+        (withLuaModule chatgpt-nvim "plugin.chatgpt")
       ]
       ++ [
         # nvim-cmp and plugins

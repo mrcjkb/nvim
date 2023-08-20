@@ -7,6 +7,7 @@
 in {
   nvimPlugins = {
     plenary = mkNvimPlugin inputs.plenary "plenary.nvim";
+    nui-nvim = mkNvimPlugin inputs.nui-nvim "nui.nvim";
     sqlite = mkNvimPlugin inputs.sqlite "sqlite.nvim";
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     diffview = mkNvimPlugin inputs.diffview "diffview.nvim";
@@ -101,5 +102,6 @@ in {
     tmux-nvim = mkNvimPlugin inputs.tmux-nvim "tmux.nvim";
     hardtime-nvim = mkNvimPlugin inputs.hardtime-nvim "hardtime.nvim";
     term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
+    chatgpt-nvim = mkNvimPlugin inputs.chatgpt-nvim "chatgpt.nvim";
   };
 }

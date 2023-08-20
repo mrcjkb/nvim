@@ -22,6 +22,10 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
+    nui-nvim = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
     sqlite = {
       url = "github:kkharji/sqlite.lua";
       flake = false;
@@ -406,6 +410,10 @@
     };
     term-edit-nvim = {
       url = "github:chomosuke/term-edit.nvim";
+      flake = false;
+    };
+    chatgpt-nvim = {
+      url = "github:jackMort/ChatGPT.nvim";
       flake = false;
     };
   };
