@@ -106,7 +106,6 @@ cmp.setup {
       select = true,
     },
     ['<C-o>'] = complete_with_source_mapping('omni', { 'i', 'c' }),
-    ['<C-r>'] = complete_with_source_mapping('rg', { 'i', 's' }),
     ['<C-s>'] = complete_with_source_mapping('luasnip', { 'i', 's' }),
   },
   sources = cmp.config.sources {
