@@ -38,10 +38,6 @@
       url = "github:toppair/peek.nvim";
       flake = false;
     };
-    glow = {
-      url = "github:ellisonleao/glow.nvim";
-      flake = false;
-    };
     vim-wordmotion = {
       # Vimscript
       url = "github:chaoren/vim-wordmotion";
@@ -110,14 +106,6 @@
       url = "github:nvim-neotest/neotest";
       flake = false;
     };
-    neotest-python = {
-      url = "github:nvim-neotest/neotest-python";
-      flake = false;
-    };
-    neotest-plenary = {
-      url = "github:nvim-neotest/neotest-plenary";
-      flake = false;
-    };
     neotest-rust = {
       url = "github:rouge8/neotest-rust";
       flake = false;
@@ -149,10 +137,6 @@
     };
     neodev-nvim = {
       url = "github:folke/neodev.nvim";
-      flake = false;
-    };
-    femaco = {
-      url = "github:AckslD/nvim-FeMaco.lua";
       flake = false;
     };
     nvim-dap = {
@@ -298,10 +282,6 @@
       url = "github:mrcjkb/vim-matchup/mrcjkb/haskell-queries";
       flake = false;
     };
-    ssr-nvim = {
-      url = "github:cshuaimin/ssr.nvim";
-      flake = false;
-    };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
       flake = false;
@@ -372,10 +352,6 @@
     };
     yanky = {
       url = "github:gbprod/yanky.nvim";
-      flake = false;
-    };
-    iron = {
-      url = "github:hkupty/iron.nvim";
       flake = false;
     };
     promise-async = {

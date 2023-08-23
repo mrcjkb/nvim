@@ -11,14 +11,7 @@ neotest.setup {
         'sydtest',
       },
     },
-    require('neotest-python') {
-      dap = { justMyCode = false },
-    },
-    require('neotest-plenary'),
     require('neotest-rust'),
-    -- require("neotest-vim-test")({
-    --   ignore_file_types = { "haskell", "python", "vim", "lua", "rust" },
-    -- }),
   },
   icons = {
     failed = '',

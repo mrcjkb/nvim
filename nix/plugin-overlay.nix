@@ -11,7 +11,6 @@ in {
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     diffview = mkNvimPlugin inputs.diffview "diffview.nvim";
     peek = mkNvimPlugin inputs.peek "peek.nvim";
-    glow = mkNvimPlugin inputs.glow "glow.nvim";
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
     colorizer = mkNvimPlugin inputs.colorizer "nvim-colorizer.lua";
     # leap = mkNvimPlugin inputs.leap "leap.nvim";
@@ -28,8 +27,6 @@ in {
     comment = mkNvimPlugin inputs.comment "comment.nvim";
     material-theme = mkNvimPlugin inputs.material-theme "material.nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
-    neotest-python = mkNvimPlugin inputs.neotest-python "neotest-python";
-    neotest-plenary = mkNvimPlugin inputs.neotest-plenary "neotest-plenary";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
@@ -38,7 +35,6 @@ in {
     inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
-    femaco = mkNvimPlugin inputs.femaco "nvim-femaco.lua";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     nvim-dap-virtual-text = mkNvimPlugin inputs.nvim-dap-virtual-text "nvim-dap-virtual-text";
@@ -74,7 +70,6 @@ in {
     wildfire-nvim = mkNvimPlugin inputs.wildfire-nvim "wildfire.nvim";
     rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
-    ssr-nvim = mkNvimPlugin inputs.ssr-nvim "ssr.nvim";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
     luasnip = mkNvimPlugin inputs.luasnip "LuaSnip";
     project = mkNvimPlugin inputs.project "project.nvim";
@@ -93,7 +88,6 @@ in {
     nvim-bqf = mkNvimPlugin inputs.nvim-bqf "nvim-bqf";
     formatter = mkNvimPlugin inputs.formatter "formatter.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
-    iron = mkNvimPlugin inputs.iron "iron.nvim";
     promise-async = mkNvimPlugin inputs.promise-async "promise-async";
     nvim-ufo = mkNvimPlugin inputs.nvim-ufo "nvim-ufo";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";

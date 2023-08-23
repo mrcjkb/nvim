@@ -304,22 +304,6 @@
         "type": "github"
       }
     },
-    "femaco": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1684849445,
-        "narHash": "sha256-ud/odXvpoBPAcOTBn3X4k3qzwUJ2GVO2FhtXGFRemhM=",
-        "owner": "AckslD",
-        "repo": "nvim-FeMaco.lua",
-        "rev": "c06f8befe4b9438aa4f4b763e70d77cabf5093f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "AckslD",
-        "repo": "nvim-FeMaco.lua",
-        "type": "github"
-      }
-    },
     "fidget": {
       "flake": false,
       "locked": {
@@ -585,22 +569,6 @@
         "type": "github"
       }
     },
-    "glow": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1690579937,
-        "narHash": "sha256-ZDlQfSJHq9CbOpTDgmIoMq4gDzHxoUslFfN5XKtrDtM=",
-        "owner": "ellisonleao",
-        "repo": "glow.nvim",
-        "rev": "8942dfb05794f436af4fbc90a34393f1fd36f361",
-        "type": "github"
-      },
-      "original": {
-        "owner": "ellisonleao",
-        "repo": "glow.nvim",
-        "type": "github"
-      }
-    },
     "hardtime-nvim": {
       "flake": false,
       "locked": {
@@ -720,22 +688,6 @@
       "original": {
         "owner": "simrat39",
         "repo": "inlay-hints.nvim",
-        "type": "github"
-      }
-    },
-    "iron": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1689276899,
-        "narHash": "sha256-dPPMh/8lpJKj6V9jFZaKKVc59IjVwcu/rX83M6fXx3k=",
-        "owner": "hkupty",
-        "repo": "iron.nvim",
-        "rev": "7f876ee3e1f4ea1e5284b1b697cdad5b256e8046",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hkupty",
-        "repo": "iron.nvim",
         "type": "github"
       }
     },
@@ -944,38 +896,6 @@
       "original": {
         "owner": "nvim-neotest",
         "repo": "neotest",
-        "type": "github"
-      }
-    },
-    "neotest-plenary": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1682599088,
-        "narHash": "sha256-Im3dUg0C/ytAb3t+lL9OaBxh2jHdOXvuB8EhtqTxqrQ=",
-        "owner": "nvim-neotest",
-        "repo": "neotest-plenary",
-        "rev": "e0d9b1530307a03abcc52fc0ae28f054dea3f752",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-neotest",
-        "repo": "neotest-plenary",
-        "type": "github"
-      }
-    },
-    "neotest-python": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1688499945,
-        "narHash": "sha256-aTcmrEY9N5fB6TC7XMRxDyKpwWzzPrmD7LoF1DFHd5g=",
-        "owner": "nvim-neotest",
-        "repo": "neotest-python",
-        "rev": "054f22129405e747adfc2cbeddfcc59537df50ba",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-neotest",
-        "repo": "neotest-python",
         "type": "github"
       }
     },
@@ -1536,7 +1456,6 @@
         "comment": "comment",
         "diffview": "diffview",
         "eyeliner-nvim": "eyeliner-nvim",
-        "femaco": "femaco",
         "fidget": "fidget",
         "flake-utils": "flake-utils",
         "flash-nvim": "flash-nvim",
@@ -1544,12 +1463,10 @@
         "fzf-lua": "fzf-lua",
         "gitlinker": "gitlinker",
         "gitsigns": "gitsigns",
-        "glow": "glow",
         "hardtime-nvim": "hardtime-nvim",
         "harpoon": "harpoon",
         "illuminate": "illuminate",
         "inlay-hints": "inlay-hints",
-        "iron": "iron",
         "jdtls": "jdtls",
         "lsp-status": "lsp-status",
         "lsp_signature": "lsp_signature",
@@ -1563,8 +1480,6 @@
         "neodev-nvim": "neodev-nvim",
         "neogit": "neogit",
         "neotest": "neotest",
-        "neotest-plenary": "neotest-plenary",
-        "neotest-python": "neotest-python",
         "neotest-rust": "neotest-rust",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_3",
@@ -1595,7 +1510,6 @@
         "rust-tools": "rust-tools",
         "schemastore-nvim": "schemastore-nvim",
         "sqlite": "sqlite",
-        "ssr-nvim": "ssr-nvim",
         "statuscol": "statuscol",
         "surround": "surround",
         "telescope": "telescope",
@@ -1662,22 +1576,6 @@
       "original": {
         "owner": "kkharji",
         "repo": "sqlite.lua",
-        "type": "github"
-      }
-    },
-    "ssr-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1692501312,
-        "narHash": "sha256-pkjrmu6IKS3gW1xv8/AatbY4zPH+j5ozrz5ZKpD7d/4=",
-        "owner": "cshuaimin",
-        "repo": "ssr.nvim",
-        "rev": "b2f35df231c6b090f6eb023ddf2ad0cb88d90eb4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cshuaimin",
-        "repo": "ssr.nvim",
         "type": "github"
       }
     },

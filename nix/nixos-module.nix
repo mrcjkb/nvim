@@ -49,7 +49,6 @@
           ueberzug
         ]))
       haskellPackages.fast-tags # Fast tag generation
-      glow # Dependency of glow.nvim
       bat
       ueberzug # Display images in terminal
       feh # Fast and light image viewer
@@ -94,11 +93,9 @@
         (withLuaSetup wildfire-nvim "wildfire")
         rainbow-delimiters-nvim
         vim-matchup
-        (withLuaModule ssr-nvim "plugin.ssr")
         (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
         # TODO: Package with deno build
         (withLuaModule peek "plugin.peek")
-        glow # TODO: Add glow dependency to overlay
         (withLuaModule vim-wordmotion "plugin.wordmotion")
         (withScheduledLuaSetup colorizer "colorizer")
         # (withConfig leap "require('leap').set_default_keymaps()")
@@ -115,15 +112,12 @@
         (withLuaSetup nvim-lastplace "nvim-lastplace")
         (withLuaSetup comment "Comment")
         (withLuaModule material-theme "plugin.theme")
-        neotest-python
-        neotest-plenary
         neotest-rust
         (withLuaModule neotest "plugin.neotest")
         (withLuaModule nvim-dap "plugin.dap")
         nvim-dap-ui
         nvim-dap-virtual-text
         (withLuaModule neodev-nvim "plugin.neodev")
-        (withLuaModule femaco "plugin.femaco")
         jdtls
         lsp-status
         lsp_signature
@@ -156,7 +150,6 @@
         nvim-bqf
         (withLuaModule formatter "plugin.formatter")
         (withLuaModule yanky "plugin.yanky")
-        (withLuaModule iron "plugin.repl")
         promise-async
         (withLuaModule nvim-ufo "plugin.ufo")
         (withLuaModule statuscol "plugin.statuscol")
