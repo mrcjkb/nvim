@@ -43,7 +43,9 @@ vim.lsp.start {
           'duplicate-set-field',
         },
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
+      workspace = {
+        checkThirdParty = false,
+      },
       telemetry = {
         enable = false,
       },
