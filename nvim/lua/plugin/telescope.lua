@@ -1,7 +1,28 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
-local builtin = require('telescope.builtin')
--- local themes = require('telescope.themes')
+
+local function lazy_require(moduleName)
+  return setmetatable({}, {
+    __index = function(_, key)
+      return function(...)
+        local module = require(moduleName)
+        return module[key](...)
+      end
+    end,
+  })
+end
+
+local builtin = lazy_require('telescope.builtin')
+
+local extensions = setmetatable({}, {
+  __index = function(_, key)
+    if telescope.extensions[key] then
+      return telescope.extensions[key]
+    end
+    telescope.load_extension(key)
+    return telescope.extensions[key]
+  end,
+})
 
 local layout_config = {
   vertical = {
@@ -56,7 +77,9 @@ local function fuzzy_grep_current_file_type()
   grep_current_file_type(fuzzy_grep)
 end
 
-vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', function()
+  builtin.find_files()
+end, {})
 vim.keymap.set('n', '<M-p>', builtin.oldfiles, {})
 vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tf', fuzzy_grep, {})
@@ -69,21 +92,29 @@ vim.keymap.set('n', '<leader>tc', builtin.quickfix, {})
 vim.keymap.set('n', '<leader>tq', builtin.command_history, {})
 vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
 vim.keymap.set('n', '<leader>tr', builtin.registers, {})
-vim.keymap.set('n', '<leader>tP', telescope.extensions.projects.projects, {})
-vim.keymap.set('n', '<leader>ty', '<Cmd>Telescope yank_history<CR>', {})
+vim.keymap.set('n', '<leader>tP', function()
+  extensions.projects.projects()
+end, {})
+vim.keymap.set('n', '<leader>ty', function()
+  extensions.yank_history.yank_history()
+end, {})
 vim.keymap.set('n', '<leader>tbb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>tbf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>tm', telescope.extensions.harpoon.marks, {})
+vim.keymap.set('n', '<leader>tm', function()
+  extensions.harpoon.marks()
+end, {})
 vim.keymap.set('n', '<leader>th', function()
-  telescope.extensions.hoogle.hoogle {
+  extensions.hoogle.hoogle {
     layout_strategy = 'vertical',
     layout_config = layout_config,
   }
 end, {})
-vim.keymap.set('n', '<leader>tn', telescope.extensions.manix.manix, {})
+vim.keymap.set('n', '<leader>tn', function()
+  extensions.manix.manix()
+end, {})
 vim.keymap.set('n', '<leader>n*', function()
-  telescope.extensions.manix.manix { cword = true }
+  extensions.manix.manix { cword = true }
 end, {})
 vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, {})
 
@@ -156,19 +187,10 @@ telescope.setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
-    -- ['ui-select'] = {
-    --   themes.get_dropdown {},
-    -- },
   },
 }
 
-telescope.load_extension('ht')
-telescope.load_extension('hoogle')
-telescope.load_extension('manix')
 telescope.load_extension('fzy_native')
 telescope.load_extension('smart_history')
 -- telescope.load_extension('cheat')
-telescope.load_extension('yank_history')
-telescope.load_extension('projects')
-telescope.load_extension('harpoon')
 -- telescope.load_extension('ui-select')
