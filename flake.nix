@@ -399,7 +399,7 @@
       "x86_64-linux"
     ];
 
-    overlay = import ./nix/overlay.nix {inherit inputs;};
+    plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
     nvim-pkg-overlay = import ./nix/nvim-pkg-overlay.nix {inherit self;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
@@ -446,7 +446,7 @@
     // {
       nixosModules.default = import ./nix/nixos-module.nix {
         inherit neovim-nightly-overlay;
-        inherit overlay;
+        inherit plugin-overlay;
       };
     };
 }

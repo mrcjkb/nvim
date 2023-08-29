@@ -1,6 +1,6 @@
 {
   neovim-nightly-overlay,
-  overlay,
+  plugin-overlay,
 }: {
   pkgs,
   lib,
@@ -224,7 +224,7 @@
   nixpkgs = {
     overlays = [
       neovim-nightly-overlay.overlay
-      overlay
+      plugin-overlay
     ];
   };
 
