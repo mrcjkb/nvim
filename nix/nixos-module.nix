@@ -159,7 +159,7 @@
         rust-tools
         inlay-hints
         fidget
-        (optionalPlugin illuminate)
+        (withLuaModule illuminate "plugin.illuminate")
         (withLuaSetup neoconf-nvim "neoconf")
         schemastore-nvim
         lspconfig

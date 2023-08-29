@@ -58,15 +58,6 @@ local function code_action()
 end
 
 function lsp.on_attach(client, bufnr)
-  if not vim.g.plugin_illuminate then
-    vim.cmd.packadd('vim-illuminate')
-    vim.g.plugin_illuminate = true
-  end
-  local illuminate = require('illuminate')
-  illuminate.configure {
-    delay = 200,
-  }
-
   vim.cmd.setlocal('signcolumn=yes')
 
   local function buf_set_option(...)
@@ -112,12 +103,6 @@ function lsp.on_attach(client, bufnr)
   end, opts)
   keymap.set('v', 'vv', function()
     require('lsp-selection-range').expand()
-  end, opts)
-  keymap.set('n', ']]', function()
-    illuminate.goto_next_reference(true)
-  end, opts)
-  keymap.set('n', '[[', function()
-    illuminate.goto_prev_reference(true)
   end, opts)
 
   -- local navbuddy = require('nvim-navbuddy')
