@@ -31,6 +31,7 @@
       withConfig {
         inherit plugin;
         config = "require('plugin.${module}')";
+        optional = true;
       };
     withScheduledLuaModule = plugin: module:
       withConfig {
