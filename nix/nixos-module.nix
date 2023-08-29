@@ -172,7 +172,7 @@
         fzf-lua
         nvim-gps
         (withLuaModule lualine "plugin.lualine")
-        (withLazyPluginModule rnvimr "rnvimr")
+        (withLuaModule rnvimr "plugin.rnvimr")
         (withLuaModule toggleterm "plugin.toggleterm")
         (withLuaModule harpoon "plugin.harpoon")
         (withLuaModule gitsigns "plugin.gitsigns")

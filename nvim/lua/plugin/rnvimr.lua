@@ -13,10 +13,4 @@ vim.g.rnvimr_action = {
 }
 
 vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', { silent = true })
-vim.keymap.set({ 'n', 't' }, '<M-r>', function()
-  if not vim.g.plugins_rnvimr then
-    vim.cmd.packadd('rnvimr')
-    vim.g.plugins_rnvimr = true
-  end
-  vim.cmd.RnvimrToggle()
-end, { silent = true })
+vim.keymap.set({ 'n', 't' }, '<M-r>', vim.cmd.RnvimrToggle, { silent = true })
