@@ -107,7 +107,10 @@
     plugins = with pkgs.nvimPlugins;
       [
         plenary
-        (withConfig sqlite "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')")
+        (withConfig {
+          plugin = sqlite;
+          config = "vim.g.sqlite_clib_path = require('luv').os_getenv('LIBSQLITE')";
+        })
         nvim-web-devicons
         (withLuaModule diffview "plugin.diffview")
         nvim-ts-context-commentstring
