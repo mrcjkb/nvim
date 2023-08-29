@@ -15,13 +15,38 @@
         ${config}
       end)
     '';
-    withConfig = plugin: config: {
-      inherit plugin config;
+    withConfig = {
+      plugin,
+      config,
+      optional ? false,
+    }: {
+      inherit plugin config optional;
     };
-    withLuaModule = plugin: module: withConfig plugin "require('${module}')";
-    withScheduledLuaModule = plugin: module: withConfig plugin (schedule "require('${module}')");
-    withLuaSetup = plugin: module: withConfig plugin "require('${module}').setup()";
-    withScheduledLuaSetup = plugin: module: withConfig plugin (schedule "require('${module}').setup()");
+    withLuaModule = plugin: module:
+      withConfig {
+        inherit plugin;
+        config = "require('${module}')";
+      };
+    withLazyPluginModule = plugin: module:
+      withConfig {
+        inherit plugin;
+        config = "require('plugin.${module}')";
+      };
+    withScheduledLuaModule = plugin: module:
+      withConfig {
+        inherit plugin;
+        config = schedule "require('${module}')";
+      };
+    withLuaSetup = plugin: module:
+      withConfig {
+        inherit plugin;
+        config = "require('${module}').setup()";
+      };
+    withScheduledLuaSetup = plugin: module:
+      withConfig {
+        inherit plugin;
+        config = schedule "require('${module}').setup()";
+      };
   in {
     enable = true;
     defaultEditor = true;
@@ -143,7 +168,7 @@
         fzf-lua
         nvim-gps
         (withLuaModule lualine "plugin.lualine")
-        (withLuaModule rnvimr "plugin.rnvimr")
+        (withLazyPluginModule rnvimr "rnvimr")
         (withLuaModule toggleterm "plugin.toggleterm")
         (withLuaModule harpoon "plugin.harpoon")
         (withLuaModule gitsigns "plugin.gitsigns")
