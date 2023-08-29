@@ -396,6 +396,7 @@
     ];
 
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
+    neovim-overlay = import ./nix/neovim-overlay.nix;
     nvim-pkg-overlay = import ./nix/nvim-pkg-overlay.nix {inherit self;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
@@ -403,7 +404,8 @@
         inherit system;
         overlays = [
           neovim-nightly-overlay.overlay
-          nvim-pkg-overlay
+          plugin-overlay
+          neovim-overlay
         ];
       };
       shell = pkgs.mkShell {
@@ -429,7 +431,7 @@
     in {
       packages = {
         default = pkgs.neovim-nightly;
-        # nvim = pkgs.nvim-pkg; # FIXME:WIP
+        nvim = pkgs.nvim-pkg;
         inherit (pkgs) neovim-nightly;
       };
       devShells = {
@@ -443,6 +445,7 @@
       nixosModules.default = import ./nix/nixos-module.nix {
         inherit neovim-nightly-overlay;
         inherit plugin-overlay;
+        inherit neovim-overlay;
       };
     };
 }
