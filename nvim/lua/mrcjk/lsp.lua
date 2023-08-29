@@ -59,7 +59,7 @@ end
 
 function lsp.on_attach(client, bufnr)
   if not vim.g.plugin_illuminate then
-    vim.cmd.packadd('illuminate')
+    vim.cmd.packadd('vim-illuminate')
     vim.g.plugin_illuminate = true
   end
   local illuminate = require('illuminate')
