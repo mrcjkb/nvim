@@ -21,11 +21,11 @@ local project_files = function()
   end
 end
 
-local function grep_current_file_type(func)
+local function grep_current_file_type(func, extra_args)
   local current_file_ext = vim.fn.expand('%:e')
   local additional_vimgrep_arguments = {}
   if current_file_ext ~= '' then
-    additional_vimgrep_arguments = vim.list_extend(additional_vimgrep_arguments, {
+    additional_vimgrep_arguments = vim.list_extend(extra_args or {}, {
       '--type',
       current_file_ext,
     })
@@ -47,9 +47,20 @@ local function live_grep_current_file_type()
   grep_current_file_type(builtin.live_grep)
 end
 
+local function fuzzy_grep(opts)
+  opts = vim.tbl_extend('error', opts or {}, { search = '' })
+  builtin.grep_string(opts)
+end
+
+local function fuzzy_grep_current_file_type()
+  grep_current_file_type(fuzzy_grep)
+end
+
 vim.keymap.set('n', '<C-p>', builtin.find_files, {})
 vim.keymap.set('n', '<M-p>', builtin.oldfiles, {})
 vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>tf', fuzzy_grep, {})
+vim.keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, {})
 vim.keymap.set('n', '<M-g>', live_grep_current_file_type, {})
 vim.keymap.set('n', '<leader>t*', grep_string_current_file_type, {})
 vim.keymap.set('n', '<leader>*', builtin.grep_string, {})
@@ -60,8 +71,8 @@ vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
 vim.keymap.set('n', '<leader>tr', builtin.registers, {})
 vim.keymap.set('n', '<leader>tP', telescope.extensions.projects.projects, {})
 vim.keymap.set('n', '<leader>ty', '<Cmd>Telescope yank_history<CR>', {})
-vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>tf', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>tbb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>tbf', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, {})
 vim.keymap.set('n', '<leader>tm', telescope.extensions.harpoon.marks, {})
 vim.keymap.set('n', '<leader>th', function()
