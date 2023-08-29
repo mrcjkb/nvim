@@ -27,11 +27,6 @@ local dapui = require('dapui')
 local inlayhints = require('inlay-hints')
 inlayhints.setup()
 
-local illuminate = require('illuminate')
-illuminate.configure {
-  delay = 200,
-}
-
 vim.fn.sign_define('LightBulbSign', { text = '󰌶', texthl = 'LspDiagnosticsDefaultInformation' })
 require('nvim-lightbulb').setup {
   autocmd = {
@@ -63,6 +58,15 @@ local function code_action()
 end
 
 function lsp.on_attach(client, bufnr)
+  if not vim.g.plugin_illuminate then
+    vim.cmd.packadd('illuminate')
+    vim.g.plugin_illuminate = true
+  end
+  local illuminate = require('illuminate')
+  illuminate.configure {
+    delay = 200,
+  }
+
   vim.cmd.setlocal('signcolumn=yes')
 
   local function buf_set_option(...)

@@ -27,6 +27,10 @@
         inherit plugin;
         config = "require('${module}')";
       };
+    optionalPlugin = plugin: {
+      inherit plugin;
+      optional = true;
+    };
     withLazyPluginModule = plugin: module:
       withConfig {
         inherit plugin;
@@ -155,7 +159,7 @@
         rust-tools
         inlay-hints
         fidget
-        illuminate
+        (optionalPlugin illuminate)
         (withLuaSetup neoconf-nvim "neoconf")
         schemastore-nvim
         lspconfig
