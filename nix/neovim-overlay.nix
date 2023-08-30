@@ -1,5 +1,7 @@
 final: prev:
 with final.pkgs.lib; let
+  appName = null;
+
   pkgs = final.pkgs;
 
   wrapRc = true;
@@ -186,7 +188,9 @@ with final.pkgs.lib; let
     + neovimConfig.neovimRcContent;
 
   extraMakeWrapperArgs = builtins.concatStringsSep " " (
-    (optional (extraPackages != [])
+    (optional (appName != "nvim" && appName != null && appName != "")
+      ''--set NVIM_APPNAME ${appName}'')
+    ++ (optional (extraPackages != [])
       ''--prefix PATH : "${makeBinPath extraPackages}"'')
     ++ (optional wrapRc
       ''--add-flags -u --add-flags "${pkgs.writeText "init.lua" customRC}"'')
