@@ -1,5 +1,5 @@
 local open_mapping = '<M-t>'
-local opts = { silent = true }
+local opts = { silent = true, noremap = true }
 vim.keymap.set('n', open_mapping, function()
   vim.keymap.del('n', open_mapping, opts)
   require('toggleterm').setup {
