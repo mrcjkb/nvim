@@ -36,3 +36,6 @@ vim.g.haskell_tools = {
     },
   },
 }
+
+-- nvim-code-action-menu
+vim.g.code_action_menu_show_action_kind = false
