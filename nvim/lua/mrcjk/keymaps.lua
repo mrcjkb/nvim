@@ -35,7 +35,7 @@ keymap.set('v', 'K', ":m '>-2<CR>gv=gv")
 -- Toggle the quickfix list (only opens if it is populated)
 local function toggle_qf_list()
   local qf_exists = false
-  for _, win in pairs(fn.getwininfo()) do
+  for _, win in pairs(fn.getwininfo() or {}) do
     if win['quickfix'] == 1 then
       qf_exists = true
     end
