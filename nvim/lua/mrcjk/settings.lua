@@ -33,7 +33,7 @@ opt.softtabstop = 2
 -- When indenting with '>', use 2 spaces width
 opt.shiftwidth = 2
 opt.foldenable = true
--- opt.foldlevelstart = 10
+-- opt.foldlevelstart = 10 -- set in plugin.ufo
 -- opt.foldmethod = 'indent' -- fold based on indent level
 opt.history = 2000
 -- Increment numbers in decimal and hexadecimal formats
@@ -57,8 +57,6 @@ vim.g.markdown_syntax_conceal = 0
 
 -- See https://github.com/hrsh7th/nvim-compe/issues/286#issuecomment-805140394
 vim.g.omni_sql_default_compl_type = 'syntax'
-
-opt.updatetime = 100
 
 -- Set default shell
 opt.shell = 'nu'
