@@ -31,7 +31,9 @@ vim.fn.sign_define('LightBulbSign', { text = '󰌶', texthl = 'LspDiagnosticsDef
 require('nvim-lightbulb').setup {
   autocmd = {
     enabled = true,
-    events = { 'CursorHold', 'CursorHoldI', 'CursorMoved', 'TextChanged' },
+  },
+  sign = {
+    text = '󰌶',
   },
 }
 
