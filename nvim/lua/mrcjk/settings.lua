@@ -33,8 +33,8 @@ opt.softtabstop = 2
 -- When indenting with '>', use 2 spaces width
 opt.shiftwidth = 2
 opt.foldenable = true
-opt.foldlevelstart = 10
-opt.foldmethod = 'indent' -- fold based on indent level
+-- opt.foldlevelstart = 10
+-- opt.foldmethod = 'indent' -- fold based on indent level
 opt.history = 2000
 -- Increment numbers in decimal and hexadecimal formats
 opt.nrformats = 'bin,hex' -- 'octal'
