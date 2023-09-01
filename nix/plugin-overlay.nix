@@ -10,7 +10,12 @@ in {
     sqlite = mkNvimPlugin inputs.sqlite "sqlite.nvim";
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     diffview = mkNvimPlugin inputs.diffview "diffview.nvim";
-    peek = mkNvimPlugin inputs.peek "peek.nvim";
+    peek = (mkNvimPlugin inputs.peek "peek.nvim").overrideAttrs (oa: {
+      buildPhase = ''
+        ${oa.buildPhase}
+        exit 1
+      '';
+    });
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
     colorizer = mkNvimPlugin inputs.colorizer "nvim-colorizer.lua";
     # leap = mkNvimPlugin inputs.leap "leap.nvim";
