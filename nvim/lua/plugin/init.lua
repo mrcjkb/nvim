@@ -1,7 +1,6 @@
 -- require('plugin.misc')
 -- require('plugin.setups')
 -- require('plugin.treesitter')
--- require('plugin.peek')
 -- require('plugin.wordmotion')
 -- require('plugin.flash')
 -- require('plugin.eyeliner')
