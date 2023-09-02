@@ -26,8 +26,12 @@ local extensions = setmetatable({}, {
 
 local layout_config = {
   vertical = {
-    width = 1,
-    height = 1,
+    width = function(_, max_columns)
+      return max_columns
+    end,
+    height = function(_, _, max_lines)
+      return max_lines
+    end,
     prompt_position = 'bottom',
     preview_cutoff = 0,
   },
