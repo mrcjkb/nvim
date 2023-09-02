@@ -135,7 +135,8 @@ keymap.set('c', '%%', function()
   end
 end, { expr = true })
 
-keymap.set('n', 'tn', ':tabnew<CR>', {})
+keymap.set('n', '<space>tn', vim.cmd.tabnew, {})
+keymap.set('n', '<space>tq', vim.cmd.tabclose, {})
 
 local severity = diagnostic.severity
 
