@@ -1,18 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 
-local function lazy_require(moduleName)
-  return setmetatable({}, {
-    __index = function(_, key)
-      return function(...)
-        local module = require(moduleName)
-        return module[key](...)
-      end
-    end,
-  })
-end
-
-local builtin = lazy_require('telescope.builtin')
+local builtin = require('telescope.builtin')
 
 local extensions = setmetatable({}, {
   __index = function(_, key)
