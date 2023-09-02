@@ -41,7 +41,9 @@ local function init(fun)
 end
 
 vim.keymap.set('n', '<leader>nr', function()
-  init(require('neotest').run.run)
+  init(function()
+    require('neotest').run.run()
+  end)
 end, keymap_opts)
 vim.keymap.set('n', '<leader>nf', function()
   init(function()
