@@ -9,7 +9,7 @@ local function init(fun)
         frameworks = {
           {
             framework = 'tasty',
-            modules = { 'Test.Tasty', 'T', 'Test.Util', 'TestUtil' },
+            modules = { 'Test.Tasty', 'Tiko' },
           },
           'hspec',
           'sydtest',
