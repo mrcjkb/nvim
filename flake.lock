@@ -1283,22 +1283,6 @@
         "type": "github"
       }
     },
-    "peek": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1680366895,
-        "narHash": "sha256-CFUgGZLQk3NmnI0AfkQqxDw7e/uAc8Qk7jDmEAGxf9c=",
-        "owner": "toppair",
-        "repo": "peek.nvim",
-        "rev": "67752e7581f88da6899838985a05705b008e4185",
-        "type": "github"
-      },
-      "original": {
-        "owner": "toppair",
-        "repo": "peek.nvim",
-        "type": "github"
-      }
-    },
     "persistence": {
       "flake": false,
       "locked": {
@@ -1498,7 +1482,6 @@
         "nvim-ufo": "nvim-ufo",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
-        "peek": "peek",
         "persistence": "persistence",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",

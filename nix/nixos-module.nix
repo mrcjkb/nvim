@@ -127,8 +127,6 @@
         rainbow-delimiters-nvim
         vim-matchup
         (withLuaModule pkgs.vimPlugins.nvim-treesitter.withAllGrammars "plugin.treesitter")
-        # TODO: Package with deno build
-        (withLuaModule peek "plugin.peek")
         (withLuaModule vim-wordmotion "plugin.wordmotion")
         (withScheduledLuaSetup colorizer "colorizer")
         # (withConfig leap "require('leap').set_default_keymaps()")

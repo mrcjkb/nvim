@@ -34,10 +34,6 @@
       url = "github:sindrets/diffview.nvim";
       flake = false;
     };
-    peek = {
-      url = "github:toppair/peek.nvim";
-      flake = false;
-    };
     vim-wordmotion = {
       # Vimscript
       url = "github:chaoren/vim-wordmotion";
