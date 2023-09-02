@@ -100,7 +100,6 @@ vim.diagnostic.config {
   signs = true,
   update_in_insert = false,
   underline = true,
-  source = 'if_many',
   severity_sort = true,
   float = {
     focusable = false,
