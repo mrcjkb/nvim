@@ -141,6 +141,10 @@ configs.setup {
   },
 }
 
+require('treesitter-context').setup {
+  max_lines = 3,
+}
+
 -- Tree-sitter based folding
 -- disabled. Folding is managed by nvim-ufo
 -- vim.opt.foldmethod = 'expr'
