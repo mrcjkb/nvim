@@ -49,7 +49,7 @@ opt.splitbelow = true
 opt.cmdheight = 0
 
 -- Keep cursor in the middle of the pane while scrolling
-opt.scrolloff = 10000
+-- opt.scrolloff = 10000
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
