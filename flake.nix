@@ -18,6 +18,18 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Plugins
+    haskell-tools = {
+      url = "github:mrcjkb/haskell-tools.nvim";
+    };
+    haskell-snippets = {
+      url = "github:mrcjkb/haskell-snippets.nvim";
+    };
+    neotest-haskell = {
+      url = "github:mrcjkb/neotest-haskell";
+    };
+    telescope-manix = {
+      url = "github:mrcjkb/telescope-manix";
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -397,7 +409,6 @@
 
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
     neovim-overlay = import ./nix/neovim-overlay.nix;
-    nvim-pkg-overlay = import ./nix/nvim-pkg-overlay.nix {inherit self;};
   in
     flake-utils.lib.eachSystem supportedSystems (system: let
       pkgs = import nixpkgs {
@@ -406,6 +417,10 @@
           neovim-nightly-overlay.overlay
           plugin-overlay
           neovim-overlay
+          inputs.haskell-tools.overlays.default
+          inputs.haskell-snippets.overlays.default
+          inputs.neotest-haskell.overlays.default
+          inputs.telescope-manix.overlays.default
         ];
       };
       shell = pkgs.mkShell {
