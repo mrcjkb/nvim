@@ -23,6 +23,8 @@ with final.pkgs.lib; let
       runtime = {};
     };
 
+    externalPackages = extraPackages ++ [pkgs.sqlite];
+
     normalizedPlugins = map (x:
       defaultPlugin
       // (
@@ -69,11 +71,15 @@ with final.pkgs.lib; let
 
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
       (optional (appName != "nvim" && appName != null && appName != "")
-        ''--set NVIM_APPNAME ${appName}'')
-      ++ (optional (extraPackages != [])
-        ''--prefix PATH : "${makeBinPath extraPackages}"'')
+        ''--set NVIM_APPNAME "${appName}"'')
+      ++ (optional (externalPackages != [])
+        ''--prefix PATH : "${makeBinPath externalPackages}"'')
       ++ (optional wrapRc
         ''--add-flags -u --add-flags "${pkgs.writeText "init.lua" customRC}"'')
+      ++ [
+        ''--set LIBSQLITE_CLIB_PATH "${pkgs.sqlite.out}/lib/libsqlite3.so"''
+        ''--set LIBSQLITE "${pkgs.sqlite.out}/lib/libsqlite3.so"''
+      ]
     );
 
     extraMakeWrapperLuaCArgs = optionalString (resolvedExtraLuaPackages != []) ''

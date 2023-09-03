@@ -444,10 +444,10 @@
         };
       };
     in {
-      packages = {
-        default = pkgs.neovim-nightly;
+      packages = rec {
+        default = nvim;
         nvim = pkgs.nvim-pkg;
-        inherit (pkgs) neovim-nightly;
+        nvim-dev = pkgs.nvim-dev;
       };
       devShells = {
         default = shell;
@@ -457,10 +457,6 @@
       };
     })
     // {
-      nixosModules.default = import ./nix/nixos-module.nix {
-        inherit neovim-nightly-overlay;
-        inherit plugin-overlay;
-        inherit neovim-overlay;
-      };
+      overlays.default = neovim-overlay;
     };
 }
