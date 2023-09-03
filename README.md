@@ -1,4 +1,9 @@
-# nvim-config
-My NeoVim config
+# My Neovim Nix derivations
 
-See also: [My NixOS config](https://github.com/MrcJkb/nixfiles/)
+Can be run using
+
+```console
+nix run "github:mrcjkb/nvim"
+```
+
+See also: [My NixOS config](https://github.com/mrcjkb/nixfiles/)

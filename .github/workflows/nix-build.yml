@@ -26,7 +26,8 @@ jobs:
           - ubuntu-latest
         attribute:
           - .#devShells.x86_64-linux.default
-          - .#neovim-nightly
+          - .#nvim
+          - .#nvim-dev
     steps:
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v20
