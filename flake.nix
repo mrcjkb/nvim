@@ -424,7 +424,7 @@
         ];
       };
       shell = pkgs.mkShell {
-        name = "nvim-config-devShell";
+        name = "nvim-devShell";
         buildInputs = with pre-commit-hooks.packages.${system}; [
           lua-language-server
           alejandra
