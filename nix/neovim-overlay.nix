@@ -227,6 +227,7 @@ with final.pkgs.lib; let
         url = "git@github.com:mrcjkb/telescope-manix.git";
       }
     ];
+    extraPackages = with pkgs.haskellPackages; [fast-tags];
   };
 
   nvim-pkg = mkNeovim {
@@ -238,6 +239,7 @@ with final.pkgs.lib; let
         neotest-haskell-dev
         telescope-manix
       ]);
+    extraPackages = with pkgs.haskellPackages; [fast-tags];
   };
 in {
   inherit
