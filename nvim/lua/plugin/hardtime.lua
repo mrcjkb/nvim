@@ -20,6 +20,7 @@ require('hardtime').setup {
     'DiffviewFilePanel',
     'tsplayground',
     'harpoon',
+    'minifiles',
     'toggleterm',
     'dapui_stacks',
     'dapui_console',
