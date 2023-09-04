@@ -1,18 +1,44 @@
-local p = require('persistence')
+local is_setup = false
+local is_active = false
 
-p.setup()
+require('persistence.config').setup()
 
-vim.keymap.set('n', '<leader>ss', function()
-  p.save()
-  print('Saved session.')
-end, {})
+vim.api.nvim_create_autocmd('BufReadPre', {
+  group = vim.api.nvim_create_augroup('persistence', { clear = true }),
+  callback = function()
+    if is_setup then
+      return
+    end
+    local p = require('persistence')
+    p.setup()
+
+    vim.keymap.set('n', '<leader>ss', function()
+      p.save()
+      vim.notify('Saved session.', vim.log.levels.INFO)
+    end, {})
+
+    vim.keymap.set('n', '<leader>sx', function()
+      if is_active then
+        p.stop()
+        is_active = false
+        vim.notify('Stopped session recording.', vim.log.levels.INFO)
+      else
+        p.start()
+        is_active = true
+        vim.notify('Started session recording.', vim.log.levels.INFO)
+      end
+    end, {})
+
+    vim.keymap.set('n', '<leader>sx', function()
+      p.stop()
+      vim.notify('Stopped session recording.', vim.log.levels.INFO)
+    end, {})
+
+    is_setup = true
+  end,
+})
 
 vim.keymap.set('n', '<leader>sl', function()
-  p.load()
-  print('Loaded session.')
-end, {})
-
-vim.keymap.set('n', '<leader>sx', function()
-  p.stop()
-  print('Stopped session recording.')
+  require('persistence').load()
+  vim.notify('Loaded session.', vim.log.levels.INFO)
 end, {})
