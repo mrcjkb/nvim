@@ -19,5 +19,12 @@ require('hardtime').setup {
     'NeogitStatus',
     'DiffviewFilePanel',
     'tsplayground',
+    'harpoon',
+    'toggleterm',
+    'dapui_stacks',
+    'dapui_console',
+    'dapui-repl',
+    'dapui_watches',
+    'dapui_breakpoints',
   },
 }
