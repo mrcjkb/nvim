@@ -2774,6 +2774,22 @@
         "type": "github"
       }
     },
+    "other-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1691010396,
+        "narHash": "sha256-4HjSsjQX9iMYfs7bnyeZuqLVbB8IJLwtDjRB4ch/0Ng=",
+        "owner": "rgroli",
+        "repo": "other.nvim",
+        "rev": "cba4e5feb0c0a703acc9b78bc64422ac1469c468",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rgroli",
+        "repo": "other.nvim",
+        "type": "github"
+      }
+    },
     "persistence": {
       "flake": false,
       "locked": {
@@ -3213,6 +3229,7 @@
         "nvim-ufo": "nvim-ufo",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
+        "other-nvim": "other-nvim",
         "persistence": "persistence",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks_6",

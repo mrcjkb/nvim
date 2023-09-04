@@ -186,6 +186,7 @@ with final.pkgs.lib; let
       hardtime-nvim
       term-edit-nvim
       mini-files
+      other-nvim
     ]
     ++ [
       # nvim-cmp and plugins

@@ -392,6 +392,10 @@
       url = "github:chomosuke/term-edit.nvim";
       flake = false;
     };
+    other-nvim = {
+      url = "github:rgroli/other.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
