@@ -21,6 +21,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     '*.lua',
   },
   callback = function()
+    for _, client in pairs(vim.lsp.get_clients()) do
+      if vim.startswith(client.name, 'haskell-tools') then
+        return
+      end
+    end
     pcall(lint.try_lint)
   end,
 })
