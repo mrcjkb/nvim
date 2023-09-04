@@ -38,6 +38,7 @@ vim.lsp.start {
           'describe',
           'it',
           'assert',
+          'stub',
         },
         disable = {
           'duplicate-set-field',

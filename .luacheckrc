@@ -7,5 +7,6 @@ read_globals = {
   "describe",
   "it",
   "assert",
+  "stub",
   "Toggle_venn"
 }
