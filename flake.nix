@@ -8,8 +8,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
+    neorocks = {
+      url = "github:nvim-neorocks/neorocks";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -397,7 +397,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    neovim-nightly-overlay,
+    neorocks,
     flake-utils,
     pre-commit-hooks,
     ...
@@ -414,7 +414,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          neovim-nightly-overlay.overlay
+          neorocks.overlays.default
           plugin-overlay
           neovim-overlay
           inputs.haskell-tools.overlays.default
