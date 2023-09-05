@@ -64,9 +64,8 @@ with final.pkgs.lib; let
         devPlugins
       )
       + ''
-        vim.opt.rtp:prepend('${initSrc}')
         vim.opt.rtp:prepend('${initSrc}/lua')
-        require('mrcjk')
+        vim.opt.rtp:prepend('${initSrc}')
       ''
       + neovimConfig.neovimRcContent;
 
