@@ -44,12 +44,14 @@ with final.pkgs.lib; let
     customRC =
       ''
         vim.loader.enable()
-        local dev_pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
-        local dev_plugins_dir = dev_pack_path .. '/opt'
-        local dev_plugin_path
       ''
       + optionalString (devPlugins != []) (
-        strings.concatMapStringsSep
+        ''
+          local dev_pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
+          local dev_plugins_dir = dev_pack_path .. '/opt'
+          local dev_plugin_path
+        ''
+        + strings.concatMapStringsSep
         "\n"
         (plugin: ''
           dev_plugin_path = dev_plugins_dir .. '/${plugin.name}'
@@ -65,9 +67,13 @@ with final.pkgs.lib; let
         vim.opt.rtp:prepend('${initSrc}')
         vim.opt.rtp:prepend('${initSrc}/lua')
         require('mrcjk')
-        require('plugin')
       ''
       + neovimConfig.neovimRcContent;
+
+    # config-dir = builtins.path {
+    #   name = "config";
+    #   path = ../.;
+    # };
 
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
       (optional (appName != "nvim" && appName != null && appName != "")
@@ -79,6 +85,7 @@ with final.pkgs.lib; let
       ++ [
         ''--set LIBSQLITE_CLIB_PATH "${pkgs.sqlite.out}/lib/libsqlite3.so"''
         ''--set LIBSQLITE "${pkgs.sqlite.out}/lib/libsqlite3.so"''
+        # ''--set XDG_CONFIG_HOME "${config-dir}"''
       ]
     );
 
