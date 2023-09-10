@@ -1,6 +1,8 @@
 local cmd = vim.cmd
 local fn = vim.fn
 local opt = vim.o
+local keymap = vim.keymap
+local g = vim.g
 
 cmd.syntax('on')
 cmd.syntax('enable')
@@ -16,10 +18,6 @@ opt.path = vim.o.path .. '**'
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
--- Enable tab-completion
--- opt.wildmenu = true
--- opt.wildmode = 'full'
--- opt.complete = '.,w,b,u,t,i,kspell'
 opt.lazyredraw = true
 opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
@@ -53,10 +51,10 @@ opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-vim.g.markdown_syntax_conceal = 0
+g.markdown_syntax_conceal = 0
 
 -- See https://github.com/hrsh7th/nvim-compe/issues/286#issuecomment-805140394
-vim.g.omni_sql_default_compl_type = 'syntax'
+g.omni_sql_default_compl_type = 'syntax'
 
 -- Set default shell
 opt.shell = 'nu'
@@ -118,6 +116,49 @@ vim.api.nvim_create_autocmd('BufEnter', {
   end,
 })
 
-vim.g.editorconfig = true
+g.editorconfig = true
 
 vim.opt.colorcolumn = '100'
+
+-- Plugin settings
+local keymap_opts = { noremap = true, silent = true }
+local telescope = require('telescope')
+local lsp = require('mrcjk.lsp')
+
+g.haskell_tools = {
+  tools = {
+    repl = {
+      handler = 'toggleterm',
+      auto_focus = false,
+    },
+    codeLens = {
+      autoRefresh = false,
+    },
+    definition = {
+      hoogle_signature_fallback = true,
+    },
+  },
+  hls = {
+    on_attach = function(client, bufnr, ht)
+      lsp.on_attach(client, bufnr)
+      lsp.on_dap_attach(bufnr)
+      local opts = vim.tbl_extend('keep', keymap_opts, { buffer = bufnr })
+      keymap.set('n', 'gh', ht.hoogle.hoogle_signature, opts)
+      keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, opts)
+      keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
+      keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
+      keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
+      keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
+    end,
+    capabilities = lsp.capabilities,
+    default_settings = {
+      haskell = {
+        formattingProvider = 'stylish-haskell',
+        maxCompletions = 10,
+      },
+    },
+  },
+}
+
+-- nvim-code-action-menu
+g.code_action_menu_show_action_kind = false

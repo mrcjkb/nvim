@@ -67,12 +67,8 @@ with final.pkgs.lib; let
         vim.opt.rtp:prepend('${initSrc}/lua')
         vim.opt.rtp:prepend('${initSrc}')
       ''
+      + (builtins.readFile ../nvim/init.lua)
       + neovimConfig.neovimRcContent;
-
-    # config-dir = builtins.path {
-    #   name = "config";
-    #   path = ../.;
-    # };
 
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
       (optional (appName != "nvim" && appName != null && appName != "")
@@ -84,7 +80,6 @@ with final.pkgs.lib; let
       ++ [
         ''--set LIBSQLITE_CLIB_PATH "${pkgs.sqlite.out}/lib/libsqlite3.so"''
         ''--set LIBSQLITE "${pkgs.sqlite.out}/lib/libsqlite3.so"''
-        # ''--set XDG_CONFIG_HOME "${config-dir}"''
       ]
     );
 
