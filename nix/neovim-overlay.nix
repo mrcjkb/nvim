@@ -59,7 +59,7 @@ with final.pkgs.lib; let
             vim.notify('Bootstrapping dev plugin ${plugin.name} ...', vim.log.levels.INFO)
             vim.cmd('!${pkgs.git}/bin/git clone ${plugin.url} ' .. dev_plugin_path)
           end
-          vim.cmd.packadd('${plugin.name}')
+          vim.cmd('packadd! ${plugin.name}')
         '')
         devPlugins
       )
