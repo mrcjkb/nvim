@@ -19,18 +19,11 @@ end
 
 local api = vim.api
 local keymap = vim.keymap
-local dap = require('dap')
-local dap_widgets = require('dap.ui.widgets')
-local dap_utils = require('dap.utils')
-local dapui = require('dapui')
-
-local inlayhints = require('inlay-hints')
-inlayhints.setup()
 
 vim.fn.sign_define('LightBulbSign', { text = '󰌶', texthl = 'LspDiagnosticsDefaultInformation' })
 require('nvim-lightbulb').setup {
   autocmd = {
-    enabled = true,
+    enabled = false,
   },
   sign = {
     text = '󰌶',
@@ -111,12 +104,25 @@ function lsp.on_attach(client, bufnr)
   -- navbuddy.attach(client, bufnr)
   -- keymap.set('n', 'go', navbuddy.open, opts)
 
+  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+    pattern = { '*' },
+    buffer = bufnr,
+    group = vim.api.nvim_create_augroup('LightBulb', {}),
+    desc = "lua require('nvim-lightbulb').update_lightbulb()",
+    callback = require('nvim-lightbulb').update_lightbulb,
+  })
+
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
+  local inlayhints = require('inlay-hints')
+  if not vim.g.lsp_inlay_hints then
+    inlayhints.setup()
+    vim.g.lsp_inlay_hints = true
+  end
   inlayhints.on_attach(client, bufnr)
 
   local function get_active_clients(buf)
-    return vim.lsp.get_active_clients { bufnr = buf, name = client.name }
+    return vim.lsp.get_clients { bufnr = buf, name = client.name }
   end
   local function buf_refresh_codeLens()
     vim.schedule(function()
@@ -140,6 +146,10 @@ function lsp.on_attach(client, bufnr)
 end
 
 function lsp.on_dap_attach(bufnr)
+  local dap = require('dap')
+  local dap_widgets = require('dap.ui.widgets')
+  local dap_utils = require('dap.utils')
+  local dapui = require('dapui')
   local opts = { noremap = true, silent = true, buffer = bufnr }
   keymap.set('n', '<F5>', dap.stop, opts)
   keymap.set('n', '<Up>', dap.step_out, opts)
@@ -180,6 +190,7 @@ vim.tbl_deep_extend('keep', capabilities, {
 })
 
 -- foldingRange capabilities provided by the nvim-ufo plugin
+---@diagnostic disable-next-line: inject-field
 capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,

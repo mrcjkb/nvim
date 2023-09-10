@@ -7,9 +7,6 @@ vim.g.dap_virtual_text = true
 -- request variable values for all frames (experimental)
 vim.g.dap_virtual_text = 'all frames'
 
--- dap-ui
--- require("dapui").setup()
-
 -- dap
 
 dap.toggle_conditional_breakpoint = function()
@@ -49,4 +46,4 @@ dap.defaults.fallback.external_terminal = {
 }
 
 dapui.setup()
-dapvt.setup()
+dapvt.setup {}
