@@ -105,7 +105,6 @@ function lsp.on_attach(client, bufnr)
   -- keymap.set('n', 'go', navbuddy.open, opts)
 
   vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-    pattern = { '*' },
     buffer = bufnr,
     group = vim.api.nvim_create_augroup('LightBulb', {}),
     desc = "lua require('nvim-lightbulb').update_lightbulb()",
