@@ -17,6 +17,11 @@ vim.keymap.set('n', '<leader>tt', '<cmd>TermExec cmd="cabal v2-repl %"<CR>', key
 
 -- nvim-surround
 
+if not vim.g.nvim_surround_setup then
+  require('nvim-surround').setup()
+  vim.g.nvim_surround_setup = true
+end
+
 ---@param items string[]
 ---@param prompt string?
 ---@param label_fn (fun(item:string):string) | nil
