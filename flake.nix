@@ -363,7 +363,7 @@
       flake = false;
     };
     promise-async = {
-      # XXX: Is this a dependency?
+      # Dependency of nvim-ufo
       url = "github:kevinhwang91/promise-async";
       flake = false;
     };
