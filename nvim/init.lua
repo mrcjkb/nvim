@@ -24,6 +24,7 @@ opt.incsearch = true
 opt.hlsearch = true
 
 opt.spell = true
+opt.spelllang = 'en,de_ch'
 
 -- On pressing tab, insert spaces
 opt.expandtab = true
