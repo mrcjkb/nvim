@@ -39,12 +39,13 @@ with final.pkgs.lib; let
       plugins = normalizedPlugins;
     };
 
-    initSrc = ../nvim;
-
     customRC =
       ''
         vim.loader.enable()
+        vim.opt.rtp:prepend('${../lib}')
       ''
+      + (builtins.readFile ../nvim/init.lua)
+      + neovimConfig.neovimRcContent
       + optionalString (devPlugins != []) (
         ''
           local dev_pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
@@ -64,11 +65,8 @@ with final.pkgs.lib; let
         devPlugins
       )
       + ''
-        vim.opt.rtp:prepend('${initSrc}/lua')
-        vim.opt.rtp:prepend('${initSrc}')
-      ''
-      + (builtins.readFile ../nvim/init.lua)
-      + neovimConfig.neovimRcContent;
+        vim.opt.rtp:append('${../nvim}')
+      '';
 
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
       (optional (appName != "nvim" && appName != null && appName != "")
