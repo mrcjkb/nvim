@@ -169,6 +169,8 @@ g.haskell_tools = {
     },
   },
   hls = {
+    -- for hls development
+    -- cmd = { 'cabal', 'run', 'haskell-language-server' },
     on_attach = function(client, bufnr, ht)
       lsp.on_attach(client, bufnr)
       lsp.on_dap_attach(bufnr)
