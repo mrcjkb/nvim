@@ -196,4 +196,10 @@ keymap.set('n', '<space>ch', function()
   diagnostic.setqflist { open = false, severity = severity.HINT }
 end, opts)
 
+local function toggle_spell_check()
+  vim.opt.spell = not (vim.opt.spell:get())
+end
+
+keymap.set('n', '<leader>S', toggle_spell_check, opts)
+
 return M

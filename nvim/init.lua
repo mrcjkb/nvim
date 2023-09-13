@@ -23,6 +23,8 @@ opt.showmatch = true -- Highlight matching parentheses, etc
 opt.incsearch = true
 opt.hlsearch = true
 
+opt.spell = true
+
 -- On pressing tab, insert spaces
 opt.expandtab = true
 -- Show existing tab with 2 spaces width
