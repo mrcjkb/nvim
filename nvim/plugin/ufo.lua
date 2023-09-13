@@ -42,6 +42,7 @@ local function handler(virtText, lnum, endLnum, width, truncate)
   return newVirtText
 end
 
+---@diagnostic disable-next-line: missing-fields
 require('ufo').setup {
   open_fold_hl_timeout = 150,
   close_fold_kinds = { 'imports', 'comment' },
@@ -57,10 +58,28 @@ require('ufo').setup {
     },
   },
   fold_virt_text_handler = handler,
-  provider_selector = function(filetype)
+  provider_selector = function(_, filetype, buftype)
     if filetype == 'nix' or filetype == 'yaml' then
       return { 'treesitter', 'indent' }
     end
-    return nil -- use default
+    local function handleFallbackException(bufnr, err, providerName)
+      if type(err) == 'string' and err:match('UfoFallbackException') then
+        return require('ufo').getFolds(bufnr, providerName)
+      else
+        return require('ufo').getFolds(bufnr, 'indent')
+      end
+    end
+
+    return (filetype == '' or buftype == 'nofile') and 'indent' -- only use indent until a file is opened
+      or function(bufnr)
+        return require('ufo')
+          .getFolds(bufnr, 'lsp')
+          :catch(function(err)
+            return handleFallbackException(bufnr, err, 'treesitter')
+          end)
+          :catch(function(err)
+            return handleFallbackException(bufnr, err, 'indent')
+          end)
+      end
   end,
 }
