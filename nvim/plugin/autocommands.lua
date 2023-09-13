@@ -32,3 +32,22 @@ api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter'
     end
   end,
 })
+
+local nospell_group = api.nvim_create_augroup('nospell', { clear = true })
+
+api.nvim_create_autocmd('TermOpen', {
+  group = nospell_group,
+  callback = function()
+    vim.wo[0].spell = false
+  end,
+})
+
+api.nvim_create_autocmd('FileType', {
+  pattern = 'Neogit*',
+  group = nospell_group,
+  callback = function(ev)
+    if vim.bo[ev.buf].filetype ~= 'NeogitCommitMessage' then
+      vim.wo[0].spell = false
+    end
+  end,
+})
