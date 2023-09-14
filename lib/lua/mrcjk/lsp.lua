@@ -52,6 +52,24 @@ local function code_action()
   return vim.lsp.buf.code_action()
 end
 
+---@param filter 'Function' | 'Module' | 'Struct'
+local function filtered_document_symbol(filter)
+  vim.lsp.buf.document_symbol()
+  vim.cmd.Cfilter(('[[%s]]'):format(filter))
+end
+
+local function document_functions()
+  filtered_document_symbol('Function')
+end
+
+local function document_modules()
+  filtered_document_symbol('Module')
+end
+
+local function document_structs()
+  filtered_document_symbol('Struct')
+end
+
 function lsp.on_attach(client, bufnr)
   vim.cmd.setlocal('signcolumn=yes')
 
@@ -85,7 +103,10 @@ function lsp.on_attach(client, bufnr)
   end, opts)
   keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
   keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, opts)
-  keymap.set('n', '<space>d', vim.lsp.buf.document_symbol, opts)
+  keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, opts)
+  keymap.set('n', '<space>df', document_functions, opts)
+  keymap.set('n', '<space>ds', document_structs, opts)
+  keymap.set('n', '<space>di', document_modules, opts)
   keymap.set('n', '<M-CR>', code_action, opts)
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, opts)
   keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, opts)
