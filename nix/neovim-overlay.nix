@@ -207,6 +207,17 @@ with final.pkgs.lib; let
       nvim-cmp
     ];
 
+  extraPackages = with pkgs; [
+    haskellPackages.fast-tags
+    nodePackages.vim-language-server
+    nodePackages.yaml-language-server
+    nodePackages.dockerfile-language-server-nodejs
+    nodePackages.vscode-json-languageserver-bin
+    nodePackages.bash-language-server
+    taplo # toml toolkit including a language server
+    sqls
+  ];
+
   nvim-dev = mkNeovim {
     plugins = all-plugins;
     devPlugins = [
@@ -227,7 +238,7 @@ with final.pkgs.lib; let
         url = "git@github.com:mrcjkb/telescope-manix.git";
       }
     ];
-    extraPackages = with pkgs.haskellPackages; [fast-tags];
+    inherit extraPackages;
   };
 
   nvim-pkg = mkNeovim {
@@ -239,7 +250,7 @@ with final.pkgs.lib; let
         neotest-haskell-dev
         telescope-manix
       ]);
-    extraPackages = with pkgs.haskellPackages; [fast-tags];
+    inherit extraPackages;
   };
 in {
   inherit
