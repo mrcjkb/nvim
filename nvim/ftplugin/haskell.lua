@@ -13,7 +13,7 @@ vim.keymap.set('n', '<leader>rp', ht.repl.paste, keymap_opts)
 vim.keymap.set('n', '<leader>rt', ht.repl.paste_type, keymap_opts)
 vim.keymap.set('n', '<leader>rw', ht.repl.cword_type, keymap_opts)
 -- TODO: remove when ambiguous target issue is resolved
-vim.keymap.set('n', '<leader>tt', '<cmd>TermExec cmd="cabal v2-repl %"<CR>', keymap_opts)
+vim.keymap.set('n', '<leader>tt', '<cmd>TermExec cmd="cabal repl %"<CR>', keymap_opts)
 
 -- nvim-surround
 
