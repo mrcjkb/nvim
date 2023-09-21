@@ -13,6 +13,10 @@ require('other-nvim').setup {
           context = 'spec',
         },
         {
+          target = '%1/spec/%2/%3Spec.hs',
+          context = 'spec',
+        },
+        {
           target = '%1/test/%2/*%3Test.hs',
           context = 'test',
         },
@@ -22,6 +26,23 @@ require('other-nvim').setup {
         --   context = 'nix',
         --   transformer = 'lowercase',
         -- },
+      },
+    },
+    {
+      pattern = '(.+)/src/(.*)/(.*)/Internal.hs$',
+      target = {
+        {
+          target = '%1/test/%2/%3Spec.hs',
+          context = 'spec',
+        },
+        {
+          target = '%1/spec/%2/%3Spec.hs',
+          context = 'spec',
+        },
+        {
+          target = '%1/test/%2/*%3Test.hs',
+          context = 'test',
+        },
       },
     },
     {
