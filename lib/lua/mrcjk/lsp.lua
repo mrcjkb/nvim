@@ -134,12 +134,13 @@ function lsp.on_attach(client, bufnr)
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()
-  local inlayhints = require('inlay-hints')
-  if not vim.g.lsp_inlay_hints then
-    inlayhints.setup()
-    vim.g.lsp_inlay_hints = true
+
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint(bufnr, true)
+    keymap.set('n', '<space>h', function()
+      vim.lsp.inlay_hint(bufnr)
+    end, opts)
   end
-  inlayhints.on_attach(client, bufnr)
 
   local function get_active_clients(buf)
     return vim.lsp.get_clients { bufnr = buf, name = client.name }

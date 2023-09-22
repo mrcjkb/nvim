@@ -31,7 +31,6 @@ in {
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
     lspconfig = mkNvimPlugin inputs.lspconfig "nvim-lspconfig";
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
-    inlay-hints = mkNvimPlugin inputs.inlay-hints "inlay-hints";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";

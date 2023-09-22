@@ -151,7 +151,6 @@ with final.pkgs.lib; let
       nvim-lsp-selection-range
       nvim-lightbulb
       rust-tools
-      inlay-hints
       fidget
       illuminate
       neoconf-nvim

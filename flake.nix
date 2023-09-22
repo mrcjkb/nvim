@@ -134,10 +134,6 @@
       url = "github:simrat39/rust-tools.nvim";
       flake = false;
     };
-    inlay-hints = {
-      url = "github:simrat39/inlay-hints.nvim";
-      flake = false;
-    };
     jdtls = {
       # FIXME: Update setup in dotfiles
       url = "github:mfussenegger/nvim-jdtls";

@@ -50,6 +50,9 @@ vim.lsp.start {
       telemetry = {
         enable = false,
       },
+      hint = { -- inlay hints
+        enable = true,
+      },
     },
   },
 }
