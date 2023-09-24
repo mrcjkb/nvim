@@ -282,12 +282,13 @@
     };
     vim-matchup = {
       # tree-sitter powered % motions
-      # url = "github:andymass/vim-matchup";
-      url = "github:mrcjkb/vim-matchup/mrcjkb/haskell-queries";
+      url = "github:andymass/vim-matchup";
       flake = false;
     };
     iswap-nvim = {
-      url = "github:mizlan/iswap.nvim";
+      # url = "github:mizlan/iswap.nvim";
+      url = "github:mrcjkb/iswap.nvim";
+      # url = "/home/mrcjk/git/github/forks/iswap.nvim";
       flake = false;
     };
     nvim-lint = {
