@@ -1608,14 +1608,17 @@
     "iswap-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1695589629,
-        "narHash": "sha256-KxfStMFa4IePUHHtSN/VLwBGalfKB6Tq43SQtOlkamA=",
-        "path": "/home/mrcjk/git/github/forks/iswap.nvim",
-        "type": "path"
+        "lastModified": 1694466768,
+        "narHash": "sha256-yjQOBX5sKMTTpCCht66b0Kh0KEhZaNDrnLInZPZPpvQ=",
+        "owner": "mrcjkb",
+        "repo": "iswap.nvim",
+        "rev": "623f46106731d4a981b83f11cc567985fa94f516",
+        "type": "github"
       },
       "original": {
-        "path": "/home/mrcjk/git/github/forks/iswap.nvim",
-        "type": "path"
+        "owner": "mrcjkb",
+        "repo": "iswap.nvim",
+        "type": "github"
       }
     },
     "jdtls": {
@@ -3874,16 +3877,15 @@
     "vim-matchup": {
       "flake": false,
       "locked": {
-        "lastModified": 1689866307,
-        "narHash": "sha256-5l1XLr1Mc2yF3btlg6a5vaqwh+shnLN0aqwENhBNpXw=",
-        "owner": "mrcjkb",
+        "lastModified": 1693662630,
+        "narHash": "sha256-tHAJZyFvDFPfo7uWevIMAc+dMFi2qZI3vTnLC3KbGbA=",
+        "owner": "andymass",
         "repo": "vim-matchup",
-        "rev": "0748f3dfa80f7484f85b181e86e833a9945c8679",
+        "rev": "6dbe108230c7dbbf00555b7d4d9f6a891837ef07",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "mrcjkb/haskell-queries",
+        "owner": "andymass",
         "repo": "vim-matchup",
         "type": "github"
       }
