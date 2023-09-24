@@ -122,6 +122,7 @@ with final.pkgs.lib; let
       wildfire-nvim
       rainbow-delimiters-nvim
       vim-matchup
+      iswap-nvim
       pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       vim-wordmotion
       colorizer

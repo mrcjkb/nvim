@@ -286,6 +286,10 @@
       url = "github:mrcjkb/vim-matchup/mrcjkb/haskell-queries";
       flake = false;
     };
+    iswap-nvim = {
+      url = "github:mizlan/iswap.nvim";
+      flake = false;
+    };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
       flake = false;
