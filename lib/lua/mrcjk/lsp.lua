@@ -56,6 +56,23 @@ local function code_action()
   return vim.lsp.buf.code_action()
 end
 
+local function go_to_first_import()
+  vim.lsp.buf.document_symbol {
+    on_list = function(lst)
+      for _, results in pairs(lst) do
+        for _, result in ipairs(results) do
+          if result.kind == 'Module' then
+            local lnum = result.lnum
+            vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+            return
+          end
+        end
+      end
+      vim.notify('No imports found.', vim.log.levels.WARN)
+    end,
+  }
+end
+
 ---@param filter 'Function' | 'Module' | 'Struct'
 local function filtered_document_symbol(filter)
   vim.lsp.buf.document_symbol()
@@ -96,6 +113,7 @@ function lsp.on_attach(client, bufnr)
   keymap.set('n', '<space>pd', peek_definition, opts) -- overridden by nvim-ufo
   keymap.set('n', '<space>pt', peek_type_definition, opts) -- overridden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  keymap.set('n', '<space>gi', go_to_first_import, opts)
   keymap.set('n', '<M-d>', peek_type_definition, opts) -- overridden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
