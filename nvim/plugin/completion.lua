@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
@@ -110,13 +111,13 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
-    {
-      name = 'omni',
-      disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
-    },
+    -- {
+    --   name = 'omni',
+    --   disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
+    -- },
     { name = 'nvim_lua' },
-    { name = 'nvim_lsp' },
-    { name = 'nvim_lsp_signature_help' },
+    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'nvim_lsp_signature_help', keyword_length = 3 },
     -- { name = 'luasnip' }, -- snippets -> Triggered with <C-s>
     { name = 'luasnip_choice' }, -- luasnip choice nodes
     { name = 'rg', keyword_length = 3 },
@@ -157,7 +158,7 @@ cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
   sources = {
-    { name = 'nvim_lsp_document_symbol' },
+    { name = 'nvim_lsp_document_symbol', keyword_length = 3 },
     { name = 'buffer' },
     { name = 'cmdline_history' },
   },

@@ -176,22 +176,6 @@
         "type": "github"
       }
     },
-    "cmp-omni": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1695551166,
-        "narHash": "sha256-PyCZGb+54l9nLR0fXM2QXACGt25nH0IlucbTXIgbJp0=",
-        "owner": "hrsh7th",
-        "repo": "cmp-omni",
-        "rev": "4ef610bbd85a5ee4e97e09450c0daecbdc60de86",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hrsh7th",
-        "repo": "cmp-omni",
-        "type": "github"
-      }
-    },
     "cmp-path": {
       "flake": false,
       "locked": {
@@ -3176,7 +3160,6 @@
         "cmp-nvim-lsp-document-symbol": "cmp-nvim-lsp-document-symbol",
         "cmp-nvim-lsp-signature-help": "cmp-nvim-lsp-signature-help",
         "cmp-nvim-lua": "cmp-nvim-lua",
-        "cmp-omni": "cmp-omni",
         "cmp-path": "cmp-path",
         "cmp-rg": "cmp-rg",
         "cmp-tmux": "cmp-tmux",

@@ -219,10 +219,10 @@
       url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
       flake = false;
     };
-    cmp-omni = {
-      url = "github:hrsh7th/cmp-omni";
-      flake = false;
-    };
+    # cmp-omni = {
+    #   url = "github:hrsh7th/cmp-omni";
+    #   flake = false;
+    # };
     cmp-luasnip = {
       url = "github:saadparwaiz1/cmp_luasnip";
       flake = false;

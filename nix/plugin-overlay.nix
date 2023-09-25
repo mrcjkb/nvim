@@ -52,7 +52,7 @@ in {
     cmp-nvim-lsp = mkNvimPlugin inputs.cmp-nvim-lsp "cmp-nvim-lsp";
     cmp-nvim-lsp-document-symbol = mkNvimPlugin inputs.cmp-nvim-lsp-document-symbol "cmp-nvim-lsp-document-symbol";
     cmp-nvim-lsp-signature-help = mkNvimPlugin inputs.cmp-nvim-lsp-signature-help "cmp-nvim-lsp-signature-help";
-    cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
+    # cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
     cmp-luasnip = mkNvimPlugin inputs.cmp-luasnip "cmp-luasnip";
     cmp-luasnip-choice = mkNvimPlugin inputs.cmp-luasnip-choice "cmp-luasnip-choice";
     cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
