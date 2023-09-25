@@ -63,6 +63,7 @@ local function go_to_first_import()
         for _, result in ipairs(results) do
           if result.kind == 'Module' then
             local lnum = result.lnum
+            vim.api.nvim_input("m'")
             vim.api.nvim_win_set_cursor(0, { lnum, 0 })
             return
           end
