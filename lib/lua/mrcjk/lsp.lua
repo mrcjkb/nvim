@@ -4,7 +4,11 @@ local function preview_location_callback(_, result)
   if result == nil or vim.tbl_isempty(result) then
     return nil
   end
-  vim.lsp.util.preview_location(result[1])
+  local buf, _ = vim.lsp.util.preview_location(result[1])
+  if buf then
+    local cur_buf = vim.api.nvim_get_current_buf()
+    vim.bo[buf].filetype = vim.bo[cur_buf].filetype
+  end
 end
 
 local function peek_definition()
@@ -88,11 +92,11 @@ function lsp.on_attach(client, bufnr)
   keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, opts)
-  -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overriden by nvim-ufo
-  keymap.set('n', '<space>pd', peek_definition, opts) -- overriden by nvim-ufo
-  keymap.set('n', '<space>pt', peek_type_definition, opts) -- overriden by nvim-ufo
+  -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overridden by nvim-ufo
+  keymap.set('n', '<space>pd', peek_definition, opts) -- overridden by nvim-ufo
+  keymap.set('n', '<space>pt', peek_type_definition, opts) -- overridden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  keymap.set('n', '<M-d>', peek_type_definition, opts) -- overriden by nvim-ufo
+  keymap.set('n', '<M-d>', peek_type_definition, opts) -- overridden by nvim-ufo
   keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
   keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
   keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
