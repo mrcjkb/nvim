@@ -197,12 +197,14 @@ require('cmp_luasnip_choice').setup()
 
 local opts = { noremap = false }
 vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
-vim.keymap.set({ 'i', 'c', 's' }, '<C-p>', cmp.complete, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
   complete_with_source('path')
 end, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-g>', function()
   complete_with_source('rg')
+end, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-o>', function()
+  complete_with_source('nvim_lsp')
 end, opts)
 vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
   complete_with_source {
@@ -210,4 +212,10 @@ vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
     keyword_length = 3,
     all_panes = true,
   }
+end, opts)
+vim.keymap.set({ 'c' }, '<C-h>', function()
+  complete_with_source('cmdline_history')
+end, opts)
+vim.keymap.set({ 'c' }, '<C-c>', function()
+  complete_with_source('cmdline')
 end, opts)
