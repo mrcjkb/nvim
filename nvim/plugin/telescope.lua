@@ -73,7 +73,7 @@ local function live_grep_current_file_type()
 end
 
 local function fuzzy_grep(opts)
-  opts = vim.tbl_extend('error', opts or {}, { search = '' })
+  opts = vim.tbl_extend('error', opts or {}, { search = '', prompt_title = 'Fuzzy grep' })
   builtin.grep_string(opts)
 end
 
@@ -81,7 +81,7 @@ local function fuzzy_grep_current_file_type()
   grep_current_file_type(fuzzy_grep)
 end
 
-vim.keymap.set('n', '<C-p>', function()
+vim.keymap.set('n', '<leader>tp', function()
   builtin.find_files()
 end, {})
 vim.keymap.set('n', '<M-p>', builtin.oldfiles, {})
