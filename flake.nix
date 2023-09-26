@@ -252,6 +252,10 @@
       url = "github:rcarriga/cmp-dap";
       flake = false;
     };
+    nvim-treesitter = {
+      url = "github:nvim-treesitter/nvim-treesitter";
+      flake = false;
+    };
     treesitter-playground = {
       url = "github:nvim-treesitter/playground";
       flake = false;

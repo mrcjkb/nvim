@@ -123,7 +123,7 @@ with final.pkgs.lib; let
       rainbow-delimiters-nvim
       vim-matchup
       iswap-nvim
-      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      nvim-treesitter.withAllGrammars
       vim-wordmotion
       colorizer
       # (withConfig leap "require('leap').set_default_keymaps()")

@@ -2695,6 +2695,22 @@
         "type": "github"
       }
     },
+    "nvim-treesitter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695713704,
+        "narHash": "sha256-fqOtw/PGiqEvhzX1kSbbUhoQ4lnXTo1kz/qJr0pf2oo=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "rev": "b5873bacb4ce44e0aac313abb28bb72e67fc9a53",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter",
+        "type": "github"
+      }
+    },
     "nvim-ts-context-commentstring": {
       "flake": false,
       "locked": {
@@ -3209,6 +3225,7 @@
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
+        "nvim-treesitter": "nvim-treesitter",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-ufo": "nvim-ufo",
         "nvim-unception": "nvim-unception",
