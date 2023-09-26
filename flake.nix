@@ -287,7 +287,7 @@
     };
     iswap-nvim = {
       # url = "github:mizlan/iswap.nvim";
-      url = "github:mrcjkb/iswap.nvim";
+      url = "github:mrcjkb/iswap.nvim/haskell-nix";
       # url = "/home/mrcjk/git/github/forks/iswap.nvim";
       flake = false;
     };
