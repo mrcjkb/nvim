@@ -60,6 +60,9 @@ local function go_to_first_import()
   vim.lsp.buf.document_symbol {
     on_list = function(lst)
       for _, results in pairs(lst) do
+        if type(results) ~= 'table' then
+          goto Skip
+        end
         for _, result in ipairs(results) do
           if result.kind == 'Module' then
             local lnum = result.lnum
@@ -69,6 +72,7 @@ local function go_to_first_import()
           end
         end
       end
+      ::Skip::
       vim.notify('No imports found.', vim.log.levels.WARN)
     end,
   }
