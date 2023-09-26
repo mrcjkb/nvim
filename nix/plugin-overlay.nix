@@ -60,7 +60,7 @@ in {
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
     nvim-code-action-menu = mkNvimPlugin inputs.nvim-code-action-menu "nvim-code-action-menu";
     cmp-dap = mkNvimPlugin inputs.cmp-dap "cmp-dap";
-    nvim-treesitter = prev.pkgs.vimPlugins.nvim-treesitter.overrideAttrs (_: _: {
+    nvim-treesitter = prev.pkgs.vimPlugins.nvim-treesitter.withAllGrammars.overrideAttrs (_: _: {
       src = inputs.nvim-treesitter;
     });
     treesitter-playground = mkNvimPlugin inputs.treesitter-playground "treesitter-playground";

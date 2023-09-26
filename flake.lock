@@ -2698,17 +2698,14 @@
     "nvim-treesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1695713704,
-        "narHash": "sha256-fqOtw/PGiqEvhzX1kSbbUhoQ4lnXTo1kz/qJr0pf2oo=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "rev": "b5873bacb4ce44e0aac313abb28bb72e67fc9a53",
-        "type": "github"
+        "lastModified": 1695762421,
+        "narHash": "sha256-dzaigwOD6Ynd01B2dxvUWlUQMdXIXgOSHNvUb1Gpdqc=",
+        "path": "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork",
+        "type": "path"
       },
       "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "type": "github"
+        "path": "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork",
+        "type": "path"
       }
     },
     "nvim-ts-context-commentstring": {
