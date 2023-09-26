@@ -32,7 +32,16 @@ flash.setup {
   },
 }
 
+local function jump_to_line()
+  flash.jump {
+    search = { mode = 'search', max_length = 0 },
+    label = { after = { 0, 0 } },
+    pattern = '^',
+  }
+end
+
 vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump)
 vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter)
 vim.keymap.set({ 'o' }, 'r', flash.remote)
 vim.keymap.set({ 'n', 'x', 'o' }, 'R', flash.treesitter_search)
+vim.keymap.set({ 'n', 'x', 'o' }, 'gl', jump_to_line)
