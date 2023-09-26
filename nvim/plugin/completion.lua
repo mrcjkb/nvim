@@ -106,7 +106,7 @@ cmp.setup {
     ['<C-y>'] = cmp.mapping.confirm {
       select = true,
     },
-    ['<C-o>'] = complete_with_source_mapping('omni', { 'i', 'c' }),
+    -- ['<C-o>'] = complete_with_source_mapping('omni', { 'i', 'c' }),
     ['<C-s>'] = complete_with_source_mapping('luasnip', { 'i', 's' }),
   },
   sources = cmp.config.sources {
@@ -115,13 +115,11 @@ cmp.setup {
     --   name = 'omni',
     --   disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
     -- },
-    { name = 'nvim_lua' },
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help', keyword_length = 3 },
-    -- { name = 'luasnip' }, -- snippets -> Triggered with <C-s>
     { name = 'luasnip_choice' }, -- luasnip choice nodes
+    { name = 'buffer' },
     { name = 'rg', keyword_length = 3 },
-    { name = 'buffer', keyword_length = 3 },
     {
       name = 'tmux',
       keyword_length = 3,
@@ -138,6 +136,24 @@ cmp.setup {
     ghost_text = true,
   },
 }
+
+cmp.setup.filetype('lua', {
+  sources = cmp.config.sources {
+    { name = 'nvim_lua' },
+    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'nvim_lsp_signature_help', keyword_length = 3 },
+    { name = 'luasnip_choice' }, -- luasnip choice nodes
+    { name = 'rg', keyword_length = 3 },
+    { name = 'buffer', keyword_length = 3 },
+    {
+      name = 'tmux',
+      keyword_length = 3,
+      all_panes = true,
+    },
+    { name = 'path' },
+    -- { name = 'buffer-lines', keyword_length = 3 },
+  },
+})
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
