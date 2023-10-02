@@ -1125,11 +1125,11 @@
     "fzf-lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1696003205,
-        "narHash": "sha256-qg4/N9F4vlKNyaSjwbRv1WxHBHAAuc/Cn7KlysiUiOA=",
+        "lastModified": 1696248185,
+        "narHash": "sha256-eh2damR3+mVVcw5TdKSYEiyTSHZa/7uzXrrJ4GTVTT8=",
         "owner": "ibhagwan",
         "repo": "fzf-lua",
-        "rev": "f4091b9fa05ae6c2eab2823c0b345be2a27208c6",
+        "rev": "1ff0278882db9786fef6f77cbcea7d8fa4b9ccee",
         "type": "github"
       },
       "original": {
@@ -1359,11 +1359,11 @@
     "gitsigns": {
       "flake": false,
       "locked": {
-        "lastModified": 1696242162,
-        "narHash": "sha256-ernq9Iopzqlb8qCssDES5jDHDgJy/ffpuqpEEn5j3CM=",
+        "lastModified": 1696248157,
+        "narHash": "sha256-yXOpDrrj5LJ03gO8ze95GuvnFHHzzcmnYzLn/SktmXg=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "8aedc8b15a2429802114f18da6eadc04ae92efb2",
+        "rev": "61e0130d4bd255d4a447656ec6e6c11bfeeb20a4",
         "type": "github"
       },
       "original": {
@@ -3782,11 +3782,11 @@
     "toggleterm_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1695636801,
-        "narHash": "sha256-8rK2PJb/aoUYGv26bD2Tg6T1qyhgn3Aqs4TbtbGimDM=",
+        "lastModified": 1696244719,
+        "narHash": "sha256-y+xMqHUJEBvZuE2+JRlfqZX9enWV0+qyTzuwU9PAK6c=",
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
-        "rev": "61e8ad370d4da5d84c77e31671027bc094ac06ca",
+        "rev": "c80844fd52ba76f48fabf83e2b9f9b93273f418d",
         "type": "github"
       },
       "original": {
