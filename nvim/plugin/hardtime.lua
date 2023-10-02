@@ -10,6 +10,10 @@ require('hardtime').setup {
     ['<C-P>'] = {},
     ['<CR>'] = {},
   },
+  resetting_keys = {
+    ['s'] = {},
+    ['S'] = {},
+  },
   disabled_keys = {
     ['<CR>'] = {},
   },
