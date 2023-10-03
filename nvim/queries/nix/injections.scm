@@ -1,3 +1,5 @@
+;; extends
+
 (apply_expression
   function: (_
     function: (_
