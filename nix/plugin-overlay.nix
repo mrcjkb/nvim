@@ -1,6 +1,6 @@
 {inputs}: final: prev: let
   mkNvimPlugin = src: pname:
-    prev.pkgs.vimUtils.buildVimPluginFrom2Nix {
+    prev.pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
     };
