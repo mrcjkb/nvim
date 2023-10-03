@@ -72,6 +72,12 @@ require('material').setup {
       cterm = { underline = true },
     },
     EyelinerSecondary = { link = 'DiagnosticHint', underline = true, ctermfg = 155, cterm = { underline = true } },
+    ['@field'] = { fg = '#DDDDDD' },
+    ['@parameter'] = { fg = '#EEEEEE', italic = true },
+    -- ['@function.call'] = { fg = '#82AAFF', italic = true }, -- blue
+    ['@function.call'] = { fg = '#B0C9FF' }, -- paleblue
+    ['@function.builtin'] = { fg = '#B0C9FF' }, -- paleblue
+    ['@comment.documentation'] = { link = '@comment', italic = false },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
