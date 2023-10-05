@@ -1472,11 +1472,11 @@
         "toggleterm": "toggleterm"
       },
       "locked": {
-        "lastModified": 1696262914,
-        "narHash": "sha256-eB9XV8XrpMEtmWLYbRQJNGRSVzzGGsPr/n/+Dp+DRS4=",
+        "lastModified": 1696548742,
+        "narHash": "sha256-yklSVjeYW4JX+Dy1Xdn+R0nq7K+3EjhhZV1eo2CNBwg=",
         "owner": "mrcjkb",
         "repo": "haskell-tools.nvim",
-        "rev": "74135a0e4017b97b0578d258d7a610d5252f0697",
+        "rev": "e9a0984db6778bb7ac44bc99231caabf7fdc64d9",
         "type": "github"
       },
       "original": {

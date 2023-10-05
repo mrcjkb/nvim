@@ -155,48 +155,50 @@ local keymap_opts = { noremap = true, silent = true }
 local telescope = require('telescope')
 local lsp = require('mrcjk.lsp')
 
-g.haskell_tools = {
-  tools = {
-    repl = {
-      handler = 'toggleterm',
-      auto_focus = false,
-    },
-    codeLens = {
-      autoRefresh = false,
-    },
-    definition = {
-      hoogle_signature_fallback = true,
-    },
-  },
-  hls = {
-    -- for hls development
-    -- cmd = { 'cabal', 'run', 'haskell-language-server' },
-    on_attach = function(client, bufnr, ht)
-      lsp.on_attach(client, bufnr)
-      lsp.on_dap_attach(bufnr)
-      local desc = function(description)
-        return vim.tbl_extend('keep', keymap_opts, { buffer = bufnr, desc = description })
-      end
-      keymap.set('n', 'gh', ht.hoogle.hoogle_signature, desc('[haskell] hoogle signature search'))
-      keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, desc('[haskell] package grep - telescope'))
-      keymap.set(
-        'n',
-        '<space>th',
-        telescope.extensions.ht.package_hsgrep,
-        desc('[haskell] package grep haskell files - telescope')
-      )
-      keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, desc('[haskell] package files - telescope'))
-      keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, desc('[haskell] evaluate all'))
-    end,
-    capabilities = lsp.capabilities,
-    default_settings = {
-      haskell = {
-        formattingProvider = 'stylish-haskell',
-        maxCompletions = 10,
+g.haskell_tools = function()
+  return {
+    tools = {
+      repl = {
+        handler = 'toggleterm',
+        auto_focus = false,
+      },
+      codeLens = {
+        autoRefresh = false,
+      },
+      definition = {
+        hoogle_signature_fallback = true,
       },
     },
-  },
-}
+    hls = {
+      -- for hls development
+      -- cmd = { 'cabal', 'run', 'haskell-language-server' },
+      on_attach = function(client, bufnr, ht)
+        lsp.on_attach(client, bufnr)
+        lsp.on_dap_attach(bufnr)
+        local desc = function(description)
+          return vim.tbl_extend('keep', keymap_opts, { buffer = bufnr, desc = description })
+        end
+        keymap.set('n', 'gh', ht.hoogle.hoogle_signature, desc('[haskell] hoogle signature search'))
+        keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, desc('[haskell] package grep - telescope'))
+        keymap.set(
+          'n',
+          '<space>th',
+          telescope.extensions.ht.package_hsgrep,
+          desc('[haskell] package grep haskell files - telescope')
+        )
+        keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, desc('[haskell] package files - telescope'))
+        keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, desc('[haskell] evaluate all'))
+      end,
+      capabilities = lsp.capabilities,
+      default_settings = {
+        haskell = {
+          formattingProvider = 'stylish-haskell',
+          maxCompletions = 10,
+        },
+      },
+    },
+  }
+end
 
 -- nvim-code-action-menu
 g.code_action_menu_show_action_kind = false
