@@ -98,5 +98,6 @@ in {
     hardtime-nvim = mkNvimPlugin inputs.hardtime-nvim "hardtime.nvim";
     term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
+    wf-nvim = mkNvimPlugin inputs.wf-nvim "wf.nvim";
   };
 }

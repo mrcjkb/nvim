@@ -402,6 +402,10 @@
       url = "github:rgroli/other.nvim";
       flake = false;
     };
+    wf-nvim = {
+      url = "github:Cassin01/wf.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {

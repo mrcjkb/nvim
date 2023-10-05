@@ -3260,6 +3260,7 @@
         "vim-matchup": "vim-matchup",
         "vim-textobj-user": "vim-textobj-user",
         "vim-wordmotion": "vim-wordmotion",
+        "wf-nvim": "wf-nvim",
         "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       }
@@ -3920,6 +3921,22 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
+        "type": "github"
+      }
+    },
+    "wf-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694084982,
+        "narHash": "sha256-C5y171FySVSZ6iGE1lDBR/l6gly9PiY9EKy4CVEfqY4=",
+        "owner": "Cassin01",
+        "repo": "wf.nvim",
+        "rev": "d7de32119e933ddd4c006324475d487c87b8d80b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Cassin01",
+        "repo": "wf.nvim",
         "type": "github"
       }
     },

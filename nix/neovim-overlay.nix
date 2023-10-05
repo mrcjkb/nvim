@@ -186,6 +186,7 @@ with final.pkgs.lib; let
       term-edit-nvim
       mini-files
       other-nvim
+      wf-nvim
     ]
     ++ [
       # nvim-cmp and plugins
