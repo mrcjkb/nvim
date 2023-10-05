@@ -1592,16 +1592,15 @@
     "iswap-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1695589684,
+        "lastModified": 1696543742,
         "narHash": "sha256-EOzO/q5huJ3BuqHM5HkRLGyRPUPAeQd4Nd+CMhuc9MU=",
-        "owner": "mrcjkb",
+        "owner": "mizlan",
         "repo": "iswap.nvim",
-        "rev": "a477f5e2a48d2817c934e741a348312b218d9182",
+        "rev": "8b038cb10585713b4c3918d44d6c329effad2a5d",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "haskell-nix",
+        "owner": "mizlan",
         "repo": "iswap.nvim",
         "type": "github"
       }
