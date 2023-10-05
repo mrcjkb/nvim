@@ -9,16 +9,17 @@ local on_jdtls_attach = function(client, bufnr)
   -- jdtls.setup_dap {
   --   hotcodereplace = 'auto',
   -- }
-  jdtls.setup.add_commands()
-  local opts = { noremap = true, silent = true }
-  vim.keymap.set('n', '<A-o>', jdtls.organize_imports, opts)
-  vim.keymap.set('n', '<A-v>', jdtls.extract_variable, opts)
+  local function desc(description)
+    return { noremap = true, silent = true, desc = description }
+  end
+  vim.keymap.set('n', '<A-o>', jdtls.organize_imports, desc('[lsp] organize imports'))
+  vim.keymap.set('n', '<A-v>', jdtls.extract_variable, desc('[lsp] extract variable'))
   vim.keymap.set('v', '<A-v>', function()
-    jdtls.extract_variable(true)
-  end, opts)
+    jdtls.extract_variable { visual = true }
+  end, desc('[lsp] extract variable (visual)'))
   vim.keymap.set('v', '<A-m>', function()
-    jdtls.extract_method(true)
-  end, opts)
+    jdtls.extract_method { visual = true }
+  end, desc('[lsp] extract method (visual)'))
   -- nvim-dap (requires java-debug and vscode-java-test bundles)
   -- vim.keymap.set('n', '<leader>df', jdtls.test_class, opts)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)

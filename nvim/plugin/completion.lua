@@ -129,7 +129,7 @@ cmp.setup {
     -- { name = 'buffer-lines', keyword_length = 3 },
   },
   enabled = function()
-    return vim.api.nvim_buf_get_option(0, 'buftype') ~= 'prompt' or require('cmp_dap').is_dap_buffer()
+    return vim.bo[0].buftype ~= 'prompt' or require('cmp_dap').is_dap_buffer()
   end,
   experimental = {
     native_menu = false,
@@ -195,27 +195,26 @@ cmp.setup.cmdline(':', {
 
 require('cmp_luasnip_choice').setup()
 
-local opts = { noremap = false }
-vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, opts)
+vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, { noremap = false, desc = '[cmp] complete' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
   complete_with_source('path')
-end, opts)
+end, { noremap = false, desc = '[cmp] path' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-g>', function()
   complete_with_source('rg')
-end, opts)
+end, { noremap = false, desc = '[cmp] rg' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-o>', function()
   complete_with_source('nvim_lsp')
-end, opts)
+end, { noremap = false, desc = '[cmp] lsp' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
   complete_with_source {
     name = 'tmux',
     keyword_length = 3,
     all_panes = true,
   }
-end, opts)
+end, { noremap = false, desc = '[cmp] tmux' })
 vim.keymap.set({ 'c' }, '<C-h>', function()
   complete_with_source('cmdline_history')
-end, opts)
+end, { noremap = false, desc = '[cmp] cmdline history' })
 vim.keymap.set({ 'c' }, '<C-c>', function()
   complete_with_source('cmdline')
-end, opts)
+end, { noremap = false, desc = '[cmp] cmdline' })

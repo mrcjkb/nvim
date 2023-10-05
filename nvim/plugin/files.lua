@@ -7,5 +7,6 @@ files.setup {
 }
 
 vim.keymap.set('n', '-', function()
-  files.open(vim.fn.expand('%:h'))
-end, { desc = 'Open parent directory' })
+  local path = vim.fn.expand('%:h') or vim.fn.getcwd()
+  return type(path) == 'string' and files.open(path)
+end, { desc = 'open parent directory' })

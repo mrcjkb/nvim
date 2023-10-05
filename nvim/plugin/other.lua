@@ -60,16 +60,18 @@ require('other-nvim').setup {
   },
 }
 
-local opts = { noremap = true, silent = true }
+local function desc(description)
+  return { noremap = true, silent = true, desc = description }
+end
 
 vim.keymap.set('n', '<leader>oo', function()
   vim.cmd.Other()
-end, opts)
+end, desc('[other]'))
 
 vim.keymap.set('n', '<leader>os', function()
   vim.cmd.Other('spec')
-end, opts)
+end, desc('[other] spec'))
 
 vim.keymap.set('n', '<leader>ot', function()
   vim.cmd.Other('test')
-end, opts)
+end, desc('[other] test'))

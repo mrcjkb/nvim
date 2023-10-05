@@ -4,9 +4,9 @@ local lsp = require('mrcjk.lsp')
 local on_latex_attach = function(client, bufnr)
   vim.keymap.set(
     'n',
-    '<space>b',
+    '<space>lb',
     '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>',
-    { noremap = true, silent = true }
+    { noremap = true, silent = true, desc = 'latex build' }
   )
   lsp.on_attach(client, bufnr)
 end

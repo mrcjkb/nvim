@@ -83,44 +83,49 @@ end
 
 vim.keymap.set('n', '<leader>tp', function()
   builtin.find_files()
-end, {})
-vim.keymap.set('n', '<M-p>', builtin.oldfiles, {})
-vim.keymap.set('n', '<C-g>', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>tf', fuzzy_grep, {})
-vim.keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, {})
-vim.keymap.set('n', '<M-g>', live_grep_current_file_type, {})
-vim.keymap.set('n', '<leader>t*', grep_string_current_file_type, {})
-vim.keymap.set('n', '<leader>*', builtin.grep_string, {})
-vim.keymap.set('n', '<leader>tg', project_files, {})
-vim.keymap.set('n', '<leader>tc', builtin.quickfix, {})
-vim.keymap.set('n', '<leader>tq', builtin.command_history, {})
-vim.keymap.set('n', '<leader>tl', builtin.loclist, {})
-vim.keymap.set('n', '<leader>tr', builtin.registers, {})
+end, { desc = '[telescope] find files' })
+vim.keymap.set('n', '<M-p>', builtin.oldfiles, { desc = '[telescope] old files' })
+vim.keymap.set('n', '<C-g>', builtin.live_grep, { desc = '[telescope] live grep' })
+vim.keymap.set('n', '<leader>tf', fuzzy_grep, { desc = '[telescope] fuzzy grep' })
+vim.keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, { desc = '[telescope] fuzzy grep filetype' })
+vim.keymap.set('n', '<M-g>', live_grep_current_file_type, { desc = '[telescope] live grep filetype' })
+vim.keymap.set('n', '<leader>t*', grep_string_current_file_type, { desc = '[telescope] grep string filetype' })
+vim.keymap.set('n', '<leader>*', builtin.grep_string, { desc = '[telescope] grep string' })
+vim.keymap.set('n', '<leader>tg', project_files, { desc = '[telescope] project files' })
+vim.keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[telescope] quickfix list' })
+vim.keymap.set('n', '<leader>tq', builtin.command_history, { desc = '[telescope] command history' })
+vim.keymap.set('n', '<leader>tl', builtin.loclist, { desc = '[telescope] loclist' })
+vim.keymap.set('n', '<leader>tr', builtin.registers, { desc = '[telescope] registers' })
 vim.keymap.set('n', '<leader>tP', function()
   extensions.projects.projects()
-end, {})
+end, { desc = '[telescope] projects' })
 vim.keymap.set('n', '<leader>ty', function()
   extensions.yank_history.yank_history()
-end, {})
-vim.keymap.set('n', '<leader>tbb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>tbf', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, {})
+end, { desc = '[telescope] yank history' })
+vim.keymap.set('n', '<leader>tbb', builtin.buffers, { desc = '[telescope] buffers' })
+vim.keymap.set('n', '<leader>tbf', builtin.current_buffer_fuzzy_find, { desc = '[telescope] fuzzy find (buffer)' })
+vim.keymap.set('n', '<leader>td', builtin.lsp_document_symbols, { desc = '[telescope] lsp document symbols' })
 vim.keymap.set('n', '<leader>tm', function()
   extensions.harpoon.marks()
-end, {})
+end, { desc = '[telescope] harpoon marks' })
 vim.keymap.set('n', '<leader>th', function()
   extensions.hoogle.hoogle {
     layout_strategy = 'vertical',
     layout_config = layout_config,
   }
-end, {})
+end, { desc = '[telescope] hoogle' })
 vim.keymap.set('n', '<leader>tn', function()
   extensions.manix.manix()
-end, {})
+end, { desc = '[telescope] manix' })
 vim.keymap.set('n', '<leader>n*', function()
   extensions.manix.manix { cword = true }
-end, {})
-vim.keymap.set('n', '<leader>to', builtin.lsp_dynamic_workspace_symbols, {})
+end, { desc = '[telescope] manix <cword>' })
+vim.keymap.set(
+  'n',
+  '<leader>to',
+  builtin.lsp_dynamic_workspace_symbols,
+  { desc = '[telescope] lsp dynamic workspace symbols' }
+)
 
 local function flash(prompt_bufnr)
   require('flash').jump {

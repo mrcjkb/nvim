@@ -99,54 +99,53 @@ end
 function lsp.on_attach(client, bufnr)
   vim.cmd.setlocal('signcolumn=yes')
 
-  local function buf_set_option(...)
-    api.nvim_buf_set_option(bufnr, ...)
-  end
   local function buf_set_var(...)
     api.nvim_buf_set_var(bufnr, ...)
   end
 
-  buf_set_option('bufhidden', 'hide')
+  vim.bo[bufnr].bufhidden = 'hide'
+
   buf_set_var('lsp_client_id', client.id)
 
+  local function desc(description)
+    return { noremap = true, silent = true, buffer = bufnr, desc = description }
+  end
+
   -- Mappings.
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-  keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, opts)
+  keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('[lsp] go to declaration'))
+  keymap.set('n', 'gd', vim.lsp.buf.definition, desc('[lsp] go to definition'))
+  keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, desc('[lsp] go to type definition'))
   -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overridden by nvim-ufo
-  keymap.set('n', '<space>pd', peek_definition, opts) -- overridden by nvim-ufo
-  keymap.set('n', '<space>pt', peek_type_definition, opts) -- overridden by nvim-ufo
-  keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  keymap.set('n', '<space>gi', go_to_first_import, opts)
-  keymap.set('n', '<M-d>', peek_type_definition, opts) -- overridden by nvim-ufo
-  keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-  keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+  keymap.set('n', '<space>pd', peek_definition, desc('[lsp] peek definition')) -- overridden by nvim-ufo
+  keymap.set('n', '<space>pt', peek_type_definition, desc('[lsp] peek type definition')) -- overridden by nvim-ufo
+  keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('[lsp] go to implementation'))
+  keymap.set('n', '<space>gi', go_to_first_import, desc('[lsp] go to fist import'))
+  keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, desc('[lsp] signature help'))
+  keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, desc('[lsp] add workspace folder'))
+  keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, desc('[lsp] remove workspace folder'))
   keymap.set('n', '<space>wl', function()
     -- TODO: Replace this with a Telescope extension?
     vim.print(vim.lsp.buf.list_workspace_folders())
-  end, opts)
-  keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-  keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, opts)
-  keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, opts)
-  keymap.set('n', '<space>df', document_functions, opts)
-  keymap.set('n', '<space>ds', document_structs, opts)
-  keymap.set('n', '<space>di', document_modules, opts)
-  keymap.set('n', '<M-CR>', code_action, opts)
-  keymap.set('n', '<M-l>', vim.lsp.codelens.run, opts)
-  keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, opts)
-  keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  end, desc('[lsp] list workspace folders'))
+  keymap.set('n', '<space>rn', vim.lsp.buf.rename, desc('[lsp] rename'))
+  keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, desc('[lsp] workspace symbol'))
+  keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, desc('[lsp] document symbol'))
+  keymap.set('n', '<space>df', document_functions, desc('[lsp] document functions'))
+  keymap.set('n', '<space>ds', document_structs, desc('[lsp] document structs'))
+  keymap.set('n', '<space>di', document_modules, desc('[lsp] document modules/imports'))
+  keymap.set('n', '<M-CR>', code_action, desc('[lsp] code action'))
+  keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
+  keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('[lsp] refresh code lenses'))
+  keymap.set('n', 'gr', vim.lsp.buf.references, desc('[lsp] find references'))
   keymap.set('n', '<space>f', function()
     vim.lsp.buf.format { async = true }
-  end, opts)
+  end, desc('[lsp] format buffer'))
   keymap.set('n', 'vv', function()
     require('lsp-selection-range').trigger()
-  end, opts)
+  end, desc('[lsp] trigger selection range'))
   keymap.set('v', 'vv', function()
     require('lsp-selection-range').expand()
-  end, opts)
+  end, desc('[lsp] expand selection range'))
 
   -- local navbuddy = require('nvim-navbuddy')
   -- navbuddy.attach(client, bufnr)
@@ -166,7 +165,7 @@ function lsp.on_attach(client, bufnr)
     vim.lsp.inlay_hint(bufnr, true)
     keymap.set('n', '<space>h', function()
       vim.lsp.inlay_hint(bufnr)
-    end, opts)
+    end, desc('[lsp] toggle inlay hints'))
   end
 
   local function get_active_clients(buf)
@@ -198,31 +197,33 @@ function lsp.on_dap_attach(bufnr)
   local dap_widgets = require('dap.ui.widgets')
   local dap_utils = require('dap.utils')
   local dapui = require('dapui')
-  local opts = { noremap = true, silent = true, buffer = bufnr }
-  keymap.set('n', '<F5>', dap.stop, opts)
-  keymap.set('n', '<Up>', dap.step_out, opts)
-  keymap.set('n', '<Down>', dap.step_into, opts)
-  keymap.set('n', '<Right>', dap.step_over, opts)
-  keymap.set('n', '<F9>', dap.continue, opts)
-  keymap.set('n', '<leader>b', dap.toggle_breakpoint, opts)
+  local function desc(description)
+    return { noremap = true, silent = true, buffer = bufnr, desc = description }
+  end
+  keymap.set('n', '<F5>', dap.stop, desc('[dap] stop'))
+  keymap.set('n', '<Up>', dap.step_out, desc('[dap] step out'))
+  keymap.set('n', '<Down>', dap.step_into, desc('[dap] sep into'))
+  keymap.set('n', '<Right>', dap.step_over, desc('[dap] step over'))
+  keymap.set('n', '<F9>', dap.continue, desc('[dap] continue'))
+  keymap.set('n', '<leader>b', dap.toggle_breakpoint, desc('[dap] toggle breakpoint'))
   -- keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts) -- FIXME
   keymap.set('n', '<leader>dr', function()
     dap.repl.toggle { height = 15 }
-  end, opts)
-  keymap.set('n', '<leader>dl', dap.run_last, opts)
+  end, desc('[dap] toggl repl'))
+  keymap.set('n', '<leader>dl', dap.run_last, desc('[dap] run last debug session again'))
   keymap.set('n', '<leader>dS', function()
     dap_widgets.centered_float(dap_widgets.frames)
-  end, opts)
+  end, desc('[dap] centered floating widget (frames)'))
   keymap.set('n', '<leader>ds', function()
     dap_widgets.centered_float(dap_widgets.scopes)
-  end, opts)
-  keymap.set('n', '<leader>dh', dap_widgets.hover, opts)
+  end, desc('[dap] centered floating widget (scopes)'))
+  keymap.set('n', '<leader>dh', dap_widgets.hover, desc('[dap] hover'))
   keymap.set('v', '<leader>dH', function()
     dap_widgets.hover(dap_utils.get_visual_selection_text)
-  end, opts)
-  keymap.set('v', '<M-e>', dapui.eval, opts)
-  keymap.set('v', '<M-k>', dapui.float_element, opts)
-  keymap.set('n', '<leader>du', dapui.toggle, opts)
+  end, desc('[dap] hover'))
+  keymap.set('v', '<M-e>', dapui.eval, desc('[dap] evaluate'))
+  keymap.set('v', '<M-k>', dapui.float_element, desc('[dap] show element in floating window'))
+  keymap.set('n', '<leader>du', dapui.toggle, desc('[dap] toggle window layouts'))
 end
 
 local has_cmp_lsp, cmp_lsp = pcall(require, 'cmp_nvim_lsp')

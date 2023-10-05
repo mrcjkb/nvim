@@ -12,5 +12,5 @@ vim.g.rnvimr_action = {
   ['yw'] = 'EmitRangerCwd',
 }
 
-vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', { silent = true })
-vim.keymap.set({ 'n', 't' }, '<M-r>', vim.cmd.RnvimrToggle, { silent = true })
+vim.keymap.set('t', '<M-i>', '<C-\\><C-n>:RnvimrResize<CR>', { silent = true, desc = 'rnvimr resize' })
+vim.keymap.set({ 'n', 't' }, '<M-r>', vim.cmd.RnvimrToggle, { silent = true, desc = 'rnvimr toggle' })

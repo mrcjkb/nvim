@@ -18,15 +18,18 @@ require('harpoon').setup {
   },
 }
 
-local function nnoremap(keybinding, cmd)
-  vim.keymap.set('n', keybinding, cmd, { noremap = true, silent = true })
+---@param keybinding string
+---@param cmd function | string
+---@param description string
+local function nnoremap(keybinding, cmd, description)
+  vim.keymap.set('n', keybinding, cmd, { noremap = true, silent = true, desc = description })
 end
 
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
 local cmd_ui = require('harpoon.cmd-ui')
-nnoremap('<leader>mm', mark.add_file)
-nnoremap('<leader>hm', ui.toggle_quick_menu)
-nnoremap('<leader>hc', cmd_ui.toggle_quick_menu)
-nnoremap('[h', ui.nav_prev)
-nnoremap(']h', ui.nav_next)
+nnoremap('<leader>mm', mark.add_file, '[harpoon] mark')
+nnoremap('<leader>hm', ui.toggle_quick_menu, '[harpoon] toggle menu')
+nnoremap('<leader>hc', cmd_ui.toggle_quick_menu, '[harpoon] toggle command menu')
+nnoremap('[h', ui.nav_prev, '[harpoon] previous')
+nnoremap(']h', ui.nav_next, '[harpoon] next')

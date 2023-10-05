@@ -20,24 +20,24 @@ local function init(open_args)
     },
   }
   vim.keymap.del('n', '<leader>go', keymap_opts)
-  vim.keymap.set('n', '<leader>go', neogit.open, keymap_opts)
+  vim.keymap.set('n', '<leader>go', neogit.open, { noremap = true, silent = true, desc = '[neogit] open' })
   vim.keymap.del('n', '<leader>gs', keymap_opts)
   vim.keymap.set('n', '<leader>gs', function()
     neogit.open { kind = 'auto' }
-  end, keymap_opts)
+  end, { noremap = true, silent = true, desc = '[neogit] open (split)' })
   vim.keymap.del('n', '<leader>gc', keymap_opts)
   vim.keymap.set('n', '<leader>gc', function()
     neogit.open { 'commit' }
-  end, keymap_opts)
+  end, { noremap = true, silent = true, desc = '[neogit] commit' })
   neogit.open(open_args)
 end
 
 vim.keymap.set('n', '<leader>go', function()
   init()
-end, keymap_opts)
+end, { noremap = true, silent = true, desc = '[neogit] open' })
 vim.keymap.set('n', '<leader>gs', function()
   init { kind = 'auto' }
-end, keymap_opts)
+end, { noremap = true, silent = true, desc = '[neogit] open (split)' })
 vim.keymap.set('n', '<leader>gc', function()
   init { 'commit' }
-end, keymap_opts)
+end, { noremap = true, silent = true, desc = '[neogit] commit' })

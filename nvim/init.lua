@@ -174,13 +174,19 @@ g.haskell_tools = {
     on_attach = function(client, bufnr, ht)
       lsp.on_attach(client, bufnr)
       lsp.on_dap_attach(bufnr)
-      local opts = vim.tbl_extend('keep', keymap_opts, { buffer = bufnr })
-      keymap.set('n', 'gh', ht.hoogle.hoogle_signature, opts)
-      keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, opts)
-      keymap.set('n', '<space>th', telescope.extensions.ht.package_hsgrep, opts)
-      keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, opts)
-      keymap.set('n', 'gp', ht.project.open_package_yaml, opts)
-      keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, opts)
+      local desc = function(description)
+        return vim.tbl_extend('keep', keymap_opts, { buffer = bufnr, desc = description })
+      end
+      keymap.set('n', 'gh', ht.hoogle.hoogle_signature, desc('[haskell] hoogle signature search'))
+      keymap.set('n', '<space>tg', telescope.extensions.ht.package_grep, desc('[haskell] package grep - telescope'))
+      keymap.set(
+        'n',
+        '<space>th',
+        telescope.extensions.ht.package_hsgrep,
+        desc('[haskell] package grep haskell files - telescope')
+      )
+      keymap.set('n', '<space>tf', telescope.extensions.ht.package_files, desc('[haskell] package files - telescope'))
+      keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, desc('[haskell] evaluate all'))
     end,
     capabilities = lsp.capabilities,
     default_settings = {

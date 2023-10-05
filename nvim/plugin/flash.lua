@@ -40,9 +40,11 @@ local function jump_to_line()
   }
 end
 
-local keymap_opts = { noremap = true, silent = true }
-vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, keymap_opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter, keymap_opts)
-vim.keymap.set({ 'o' }, 'r', flash.remote, keymap_opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'R', flash.treesitter_search, keymap_opts)
-vim.keymap.set({ 'n', 'x', 'o' }, 'gl', jump_to_line)
+local function desc(description)
+  return { noremap = true, silent = true, desc = description }
+end
+vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, desc('[flash] jump'))
+vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter, desc('[flash] treesitter'))
+vim.keymap.set({ 'o' }, 'r', flash.remote, desc('[flash] remote'))
+vim.keymap.set({ 'n', 'x', 'o' }, 'R', flash.treesitter_search, desc('[flash] treesitter search'))
+vim.keymap.set({ 'n', 'x', 'o' }, 'gl', jump_to_line, desc('[flash] jump to line'))
