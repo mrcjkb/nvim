@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local wf = require('wf')
 wf.setup()
 
@@ -27,5 +28,12 @@ vim.keymap.set(
   'n',
   '<leader>',
   which_key { text_insert_in_advance = '<Leader>' },
+  { noremap = true, silent = true, desc = '[wf.nvim] which-key /' }
+)
+
+vim.keymap.set(
+  'n',
+  '<space>',
+  which_key { text_insert_in_advance = '<Space>' },
   { noremap = true, silent = true, desc = '[wf.nvim] which-key /' }
 )
