@@ -2614,22 +2614,6 @@
         "type": "github"
       }
     },
-    "nvim-gps": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1656991502,
-        "narHash": "sha256-o0pgk0IyeWmb4DOqlrpsWWl//E8geSUfoT06754Fz0k=",
-        "owner": "SmiteshP",
-        "repo": "nvim-gps",
-        "rev": "f4734dff6fc2f33b5fd13412e56c4fce06650a74",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SmiteshP",
-        "repo": "nvim-gps",
-        "type": "github"
-      }
-    },
     "nvim-lastplace": {
       "flake": false,
       "locked": {
@@ -2691,6 +2675,22 @@
       "original": {
         "owner": "camilledejoye",
         "repo": "nvim-lsp-selection-range",
+        "type": "github"
+      }
+    },
+    "nvim-navic": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1695007994,
+        "narHash": "sha256-X4CFFihI5PFIiHlwQt6VoUIxhm5oBuUvIQxCo9k7zRE=",
+        "owner": "SmiteshP",
+        "repo": "nvim-navic",
+        "rev": "0ffa7ffe6588f3417e680439872f5049e38a24db",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SmiteshP",
+        "repo": "nvim-navic",
         "type": "github"
       }
     },
@@ -3219,11 +3219,11 @@
         "nvim-dap": "nvim-dap_2",
         "nvim-dap-ui": "nvim-dap-ui",
         "nvim-dap-virtual-text": "nvim-dap-virtual-text",
-        "nvim-gps": "nvim-gps",
         "nvim-lastplace": "nvim-lastplace",
         "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
+        "nvim-navic": "nvim-navic",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-ufo": "nvim-ufo",

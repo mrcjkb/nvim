@@ -168,7 +168,7 @@ with final.pkgs.lib; let
       telescope
       todo-comments
       fzf-lua
-      nvim-gps
+      nvim-navic
       lualine
       rnvimr
       toggleterm

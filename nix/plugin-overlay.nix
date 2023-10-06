@@ -81,7 +81,7 @@ in {
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     fzf-lua = mkNvimPlugin inputs.fzf-lua "fzf-lua";
     lualine = mkNvimPlugin inputs.lualine "lualine";
-    nvim-gps = mkNvimPlugin inputs.nvim-gps "nvim-gps";
+    nvim-navic = mkNvimPlugin inputs.nvim-navic "nvim-navic";
     rnvimr = mkNvimPlugin inputs.rnvimr "rnvimr";
     mini-files = mkNvimPlugin inputs.mini-files "mini.files";
     toggleterm = mkNvimPlugin inputs.toggleterm "toggleterm.nvim";

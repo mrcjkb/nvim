@@ -1,5 +1,4 @@
-local gps = require('nvim-gps')
-gps.setup()
+local navic = require('nvim-navic')
 
 ---@return string status
 local function extra_mode_status()
@@ -22,7 +21,7 @@ require('lualine').setup {
   globalstatus = true,
   sections = {
     lualine_c = {
-      { gps.get_location, cond = gps.is_available },
+      { navic.get_location, cond = navic.is_available },
     },
     lualine_z = {
       { extra_mode_status },

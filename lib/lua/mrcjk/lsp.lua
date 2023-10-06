@@ -97,6 +97,7 @@ local function document_structs()
 end
 
 function lsp.on_attach(client, bufnr)
+  require('nvim-navic').attach(client, bufnr)
   vim.cmd.setlocal('signcolumn=yes')
 
   local function buf_set_var(...)

@@ -333,8 +333,8 @@
       url = "github:hoob3rt/lualine.nvim";
       flake = false;
     };
-    nvim-gps = {
-      url = "github:SmiteshP/nvim-gps";
+    nvim-navic = {
+      url = "github:SmiteshP/nvim-navic";
       flake = false;
     };
     rnvimr = {
