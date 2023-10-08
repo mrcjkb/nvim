@@ -1,3 +1,4 @@
+---@diagnostic disable: cast-local-type
 local lsp = {}
 
 local function preview_location_callback(_, result)
@@ -163,7 +164,6 @@ function lsp.on_attach(client, bufnr)
   require('lsp_signature').on_attach()
 
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint(bufnr, true)
     keymap.set('n', '<space>h', function()
       vim.lsp.inlay_hint(bufnr)
     end, desc('[lsp] toggle inlay hints'))
@@ -227,11 +227,13 @@ function lsp.on_dap_attach(bufnr)
   keymap.set('n', '<leader>du', dapui.toggle, desc('[dap] toggle window layouts'))
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 local has_cmp_lsp, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
-local capabilities = has_cmp_lsp and cmp_lsp.default_capabilities() or vim.lsp.protocol.make_client_capabilities()
+local cmp_lsp_capabilities = has_cmp_lsp and cmp_lsp.default_capabilities()
+capabilities = vim.tbl_deep_extend('keep', capabilities, cmp_lsp_capabilities)
 capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 -- Enable preliminary support for workspace/didChangeWatchedFiles
-vim.tbl_deep_extend('keep', capabilities, {
+capabilities = vim.tbl_deep_extend('keep', capabilities, {
   workspace = {
     didChangeWatchedFiles = {
       dynamicRegistration = true,
