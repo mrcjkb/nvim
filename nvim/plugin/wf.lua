@@ -26,6 +26,14 @@ vim.keymap.set('n', "'", mark(), { nowait = true, noremap = true, silent = true,
 -- Which Key
 vim.keymap.set(
   'n',
+  '<leader>ww',
+  which_key { text_insert_in_advance = '' },
+  { noremap = true, silent = true, desc = '[wf.nvim] which-key' }
+)
+
+-- Which Key
+vim.keymap.set(
+  'n',
   '<leader>',
   which_key { text_insert_in_advance = '<Leader>' },
   { noremap = true, silent = true, desc = '[wf.nvim] which-key /' }
