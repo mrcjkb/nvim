@@ -4,7 +4,7 @@ vim.g.wordmotion_mappings = {
   ['b'] = '<M-b>',
   ['e'] = '<M-e>',
   ['ge'] = 'g<M-e>',
-  ['aw'] = 'a<M-w>',
-  ['iw'] = 'i<M-w>',
-  ['<C-R><C-W>'] = '<C-R><M-w>',
+  ['aw'] = 'av',
+  ['iw'] = 'iv',
+  ['<C-R><C-W>'] = '<C-R><C-v>',
 }
