@@ -6,4 +6,13 @@ vim.lsp.start {
   root_dir = vim.fs.dirname(vim.fs.find({ 'flake.nix', '.git' }, { upward = true })[1]),
   on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
+  settings = {
+    formatting = {
+      command = { 'alejandra', '-qq' },
+    },
+    flake = {
+      autoArchive = true,
+      autoEvalInputs = true,
+    },
+  },
 }
