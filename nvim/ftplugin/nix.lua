@@ -16,3 +16,6 @@ vim.lsp.start {
     },
   },
 }
+
+vim.api.nvim_set_hl(0, '@lsp.type.property.nix', {})
+vim.api.nvim_set_hl(0, '@lsp.type.variable.nix', {})
