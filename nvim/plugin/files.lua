@@ -1,12 +1,12 @@
-local files = require('mini.files')
+local oil = require('oil')
 
-files.setup {
-  windows = {
-    preview = true,
+oil.setup {
+  view_options = {
+    -- Show files and directories that start with "."
+    show_hidden = true,
   },
 }
 
 vim.keymap.set('n', '-', function()
-  local path = vim.fn.expand('%:h') or vim.fn.getcwd()
-  return type(path) == 'string' and files.open(path)
+  vim.cmd.Oil()
 end, { desc = 'open parent directory' })

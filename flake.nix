@@ -341,8 +341,8 @@
       url = "github:kevinhwang91/rnvimr";
       flake = false;
     };
-    mini-files = {
-      url = "github:echasnovski/mini.files";
+    oil-nvim = {
+      url = "github:stevearc/oil.nvim";
       flake = false;
     };
     toggleterm = {

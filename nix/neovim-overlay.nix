@@ -184,7 +184,7 @@ with final.pkgs.lib; let
       tmux-nvim
       hardtime-nvim
       term-edit-nvim
-      mini-files
+      oil-nvim
       other-nvim
       wf-nvim
     ]
