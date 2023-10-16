@@ -20,6 +20,10 @@ require('other-nvim').setup {
           target = '%1/test/%2/*%3Test.hs',
           context = 'test',
         },
+        {
+          target = '%1/src/%2/*%3.Internal.hs',
+          context = 'internal',
+        },
         -- FIXME:
         -- {
         --   target = '/nix/configs/**/.*%3*.nix',
@@ -31,6 +35,10 @@ require('other-nvim').setup {
     {
       pattern = '(.+)/src/(.*)/(.*)/Internal.hs$',
       target = {
+        {
+          target = '%1/src/%2/%3.hs',
+          context = 'public',
+        },
         {
           target = '%1/test/%2/%3Spec.hs',
           context = 'spec',
