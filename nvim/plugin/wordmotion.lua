@@ -1,6 +1,6 @@
 -- Use Alt as prefix for word motion mappings
 vim.g.wordmotion_mappings = {
-  ['w'] = '<M-w>',
+  ['w'] = 'v',
   ['b'] = '<M-b>',
   ['e'] = '<M-e>',
   ['ge'] = 'g<M-e>',
