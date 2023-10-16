@@ -254,8 +254,8 @@
       flake = false;
     };
     nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter";
-      # url = "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork/";
+      # url = "github:nvim-treesitter/nvim-treesitter";
+      url = "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork/";
       flake = false;
     };
     treesitter-playground = {

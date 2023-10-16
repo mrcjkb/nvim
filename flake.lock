@@ -2705,9 +2705,8 @@
         "type": "github"
       },
       "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter",
-        "type": "github"
+        "path": "/home/mrcjk/git/github/forks/nvim/nvim-treesitter-fork",
+        "type": "path"
       }
     },
     "nvim-ts-context-commentstring": {
