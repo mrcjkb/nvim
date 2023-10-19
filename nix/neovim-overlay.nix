@@ -125,7 +125,7 @@ with final.pkgs.lib; let
       iswap-nvim
       nvim-treesitter
       vim-wordmotion
-      colorizer
+      nvim-highlight-colors
       # (withConfig leap "require('leap').set_default_keymaps()")
       flash-nvim
       eyeliner-nvim

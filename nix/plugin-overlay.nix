@@ -11,7 +11,7 @@ in {
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     diffview = mkNvimPlugin inputs.diffview "diffview.nvim";
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
-    colorizer = mkNvimPlugin inputs.colorizer "nvim-colorizer.lua";
+    nvim-highlight-colors = mkNvimPlugin inputs.nvim-highlight-colors "nvim-highlight-colors";
     # leap = mkNvimPlugin inputs.leap "leap.nvim";
     flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";

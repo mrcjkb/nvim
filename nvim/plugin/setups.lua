@@ -13,6 +13,7 @@ try_setup('Comment')
 try_setup('neoconf')
 try_setup('todo-comments')
 try_setup('tmux')
+try_setup('nvim-highlight-colors')
 
 if not vim.g.nvim_surround_setup then
   try_setup('nvim-surround')
