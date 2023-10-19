@@ -238,6 +238,10 @@ with final.pkgs.lib; let
         name = "telescope-manix";
         url = "git@github.com:mrcjkb/telescope-manix.git";
       }
+      {
+        name = "ferris.nvim";
+        url = "git@github.com:mrcjkb/ferris.nvim.git";
+      }
     ];
     inherit extraPackages;
   };
