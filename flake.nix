@@ -52,8 +52,8 @@
       url = "github:chaoren/vim-wordmotion";
       flake = false;
     };
-    colorizer = {
-      url = "github:NvChad/nvim-colorizer.lua";
+    nvim-highlight-colors = {
+      url = "github:brenoprata10/nvim-highlight-colors";
       flake = false;
     };
     # leap = {
@@ -109,6 +109,7 @@
     };
     material-theme = {
       url = "github:marko-cerovac/material.nvim";
+      # url = "/home/mrcjk/git/github/forks/nvim/material.nvim.fork/";
       flake = false;
     };
     neotest = {
