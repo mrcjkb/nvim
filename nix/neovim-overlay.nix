@@ -151,7 +151,7 @@ with final.pkgs.lib; let
       lsp_signature
       nvim-lsp-selection-range
       nvim-lightbulb
-      rust-tools
+      # rust-tools
       fidget
       illuminate
       neoconf-nvim
