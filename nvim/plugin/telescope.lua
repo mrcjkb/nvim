@@ -190,6 +190,7 @@ telescope.setup {
       '--column',
       '--smart-case',
     },
+    borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
   },
   extensions = {
     fzy_native = {
