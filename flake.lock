@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "catppuccin-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697463324,
+        "narHash": "sha256-kWbWPbsXJlXgsorUIe6wcHBcEKK4NDh+TsiPZaCIDLA=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "dcef0a062de380885193fb0f919217d58b979753",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -1717,22 +1733,6 @@
         "type": "github"
       }
     },
-    "material-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1697401210,
-        "narHash": "sha256-QiFm9aVqcnGN+q3OaZZOJLCNzT6v9RTtCVfCs10CMps=",
-        "owner": "marko-cerovac",
-        "repo": "material.nvim",
-        "rev": "dfa4bc5340a0f0d2dd5b1bf6c2ebd5bb570a9d71",
-        "type": "github"
-      },
-      "original": {
-        "owner": "marko-cerovac",
-        "repo": "material.nvim",
-        "type": "github"
-      }
-    },
     "neoconf-nvim": {
       "flake": false,
       "locked": {
@@ -3165,6 +3165,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-theme": "catppuccin-theme",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-cmdline-history": "cmp-cmdline-history",
@@ -3203,7 +3204,6 @@
         "lspkind-nvim": "lspkind-nvim",
         "lualine": "lualine",
         "luasnip": "luasnip",
-        "material-theme": "material-theme",
         "neoconf-nvim": "neoconf-nvim",
         "neodev-nvim": "neodev-nvim_2",
         "neogit": "neogit",

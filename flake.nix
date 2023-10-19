@@ -107,8 +107,8 @@
       url = "github:numToStr/Comment.nvim";
       flake = false;
     };
-    material-theme = {
-      url = "github:marko-cerovac/material.nvim";
+    catppuccin-theme = {
+      url = "github:catppuccin/nvim";
       flake = false;
     };
     neotest = {

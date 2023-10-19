@@ -28,7 +28,7 @@ require('lualine').setup {
     },
   },
   options = {
-    theme = 'material-nvim',
+    theme = 'auto',
   },
   tabline = {
     lualine_a = {

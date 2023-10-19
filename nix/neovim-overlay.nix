@@ -139,7 +139,7 @@ with final.pkgs.lib; let
       persistence
       nvim-lastplace
       comment
-      material-theme
+      catppuccin-theme
       neotest-rust
       neotest
       nvim-dap
