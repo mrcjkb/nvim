@@ -33,7 +33,7 @@ require('material').setup {
   },
   async_loading = true,
   custom_highlights = {
-    LspCodeLens = { link = 'DiagnosticHint', italic = true },
+    LspCodeLens = { fg = '#B480D6', italic = true },
     TermCursor = { link = 'Cursor' },
     TermCursorNC = { bg = '#FF5370', fg = 'white', ctermbg = 1, ctermfg = 15 },
     FidgetTitle = { link = 'DiagnosticHint' },
@@ -74,6 +74,7 @@ require('material').setup {
     ['@function.call'] = { fg = '#B0C9FF' }, -- paleblue
     ['@function.builtin'] = { fg = '#B0C9FF' }, -- paleblue
     ['@comment.documentation'] = { link = '@comment', italic = false },
+    ['@lsp.type.interface'] = { fg = '#B480D6', italic = false },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
