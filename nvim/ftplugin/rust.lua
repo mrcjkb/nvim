@@ -1,1 +1,1 @@
-require('lang.rust_analyzer').launch()
+-- require('lang.rust_analyzer').launch()
