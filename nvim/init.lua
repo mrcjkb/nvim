@@ -200,5 +200,16 @@ g.haskell_tools = function()
   }
 end
 
+g.rustaceanvim = function()
+  return {
+    server = {
+      on_attach = function(client, bufnr)
+        lsp.on_attach(client, bufnr)
+        lsp.on_dap_attach(bufnr)
+      end,
+    },
+  }
+end
+
 -- nvim-code-action-menu
 g.code_action_menu_show_action_kind = false

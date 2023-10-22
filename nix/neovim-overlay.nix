@@ -151,7 +151,6 @@ with final.pkgs.lib; let
       lsp_signature
       nvim-lsp-selection-range
       nvim-lightbulb
-      # rust-tools
       fidget
       illuminate
       neoconf-nvim
@@ -254,6 +253,7 @@ with final.pkgs.lib; let
         haskell-snippets-nvim
         neotest-haskell-dev
         telescope-manix
+        rustaceanvim
       ]);
     inherit extraPackages;
   };

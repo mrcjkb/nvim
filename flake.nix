@@ -31,6 +31,9 @@
     telescope-manix = {
       url = "github:mrcjkb/telescope-manix";
     };
+    rustaceanvim = {
+      url = "github:mrcjkb/rustaceanvim";
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -130,10 +133,6 @@
     };
     lspconfig = {
       url = "github:neovim/nvim-lspconfig";
-      flake = false;
-    };
-    rust-tools = {
-      url = "github:simrat39/rust-tools.nvim";
       flake = false;
     };
     jdtls = {
@@ -437,6 +436,7 @@
           inputs.haskell-snippets.overlays.default
           inputs.neotest-haskell.overlays.default
           inputs.telescope-manix.overlays.default
+          inputs.rustaceanvim.overlays.default
         ];
       };
       shell = pkgs.mkShell {
