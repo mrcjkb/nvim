@@ -1456,11 +1456,11 @@
         "toggleterm": "toggleterm"
       },
       "locked": {
-        "lastModified": 1697890617,
-        "narHash": "sha256-2w3GkO0rlwBKv/BHMVrKYn5Y7DlTYJcz5DFZVx6mEI4=",
+        "lastModified": 1697919054,
+        "narHash": "sha256-w5Z9OhubOQzc+5+sZJyQLWbdumNDKfjx88BLJeFhHfM=",
         "owner": "mrcjkb",
         "repo": "haskell-tools.nvim",
-        "rev": "5cb31c5553862e15ce8a4a73ed2698ad42323020",
+        "rev": "9d8a6c10d857ec13ed052231da119b7407ebb8c3",
         "type": "github"
       },
       "original": {
@@ -1704,11 +1704,11 @@
     "material-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1697914652,
-        "narHash": "sha256-tyn33EljitWTJsAg6YawRCMjT6Feyx929+CUs9uDvYU=",
+        "lastModified": 1697918349,
+        "narHash": "sha256-WDl7xMz4ICiDPrvotunDT4NVZmg+XAizFSTG/PrO0jo=",
         "owner": "marko-cerovac",
         "repo": "material.nvim",
-        "rev": "8c19830941f5694b82a5bb86d1c3e8c2ac7ca8a6",
+        "rev": "5485e2e91b4117d9a4977c4afb6d70504559e1ac",
         "type": "github"
       },
       "original": {
@@ -3846,11 +3846,11 @@
     "treesitter-textobjects": {
       "flake": false,
       "locked": {
-        "lastModified": 1697720797,
-        "narHash": "sha256-cIsv7tnBSj9Nhx1B210WdXblxF/y0ySSIpd4zvXaFrk=",
+        "lastModified": 1697929015,
+        "narHash": "sha256-UG2HRtS9Jl+6XOnfuKpP8dgvEJCJ7GxYW+YDdYQMNWE=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-textobjects",
-        "rev": "23f3840b7520e009121b3175f528178136dd9834",
+        "rev": "ab21cd184674be552182e95f86aab1e3d1278791",
         "type": "github"
       },
       "original": {
