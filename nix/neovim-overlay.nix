@@ -239,8 +239,8 @@ with final.pkgs.lib; let
         url = "git@github.com:mrcjkb/telescope-manix.git";
       }
       {
-        name = "ferris.nvim";
-        url = "git@github.com:mrcjkb/ferris.nvim.git";
+        name = "rustaceanvim";
+        url = "git@github.com:mrcjkb/rustaceanvim.git";
       }
     ];
     inherit extraPackages;
