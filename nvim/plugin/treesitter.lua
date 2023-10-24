@@ -3,6 +3,7 @@ local disabled_files = {
   'Enums.hs',
   'all-packages.nix',
   'hackage-packages.nix',
+  'generated.nix',
 }
 
 ---@diagnostic disable: missing-fields
