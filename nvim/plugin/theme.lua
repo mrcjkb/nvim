@@ -69,6 +69,7 @@ require('material').setup {
     colors.editor.fg = '#FFFFFF'
     colors.editor.fg_dark = colors.main.white
     colors.editor.accent = colors.main.darkpurple
+    colors.syntax.string = colors.main.darkgreen
   end,
 }
 vim.cmd.colorscheme('material')
