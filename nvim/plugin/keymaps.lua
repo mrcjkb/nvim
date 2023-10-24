@@ -214,4 +214,14 @@ keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move up half-page and center' })
 keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move down full-page and center' })
 keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move up full-page and center' })
 
+-- plugin keymaps
+
+keymap.set('n', '<leader>fg', function()
+  vim.cmd.FzfLua('grep')
+end, { desc = 'FzfLua grep' })
+
+keymap.set('n', '<leader>ff', function()
+  vim.cmd.FzfLua()
+end, { desc = 'FzfLua' })
+
 return M
