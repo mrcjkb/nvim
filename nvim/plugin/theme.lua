@@ -62,8 +62,7 @@ require('material').setup {
     ['@function.call'] = { fg = '#B0C9FF' }, -- paleblue
     ['@function.builtin'] = { fg = '#B0C9FF' }, -- paleblue
     ['@comment.documentation'] = { link = '@comment', italic = false },
-    ['@lsp.type.interface'] = { fg = '#C3E88D', italic = false },
-    ['@lsp.type.abstract'] = { fg = '#C3E88D', italic = false },
+    ['@lsp.type.interface'] = { fg = '#B480D6', italic = false },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
