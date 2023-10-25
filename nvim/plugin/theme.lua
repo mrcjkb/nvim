@@ -1,4 +1,3 @@
-vim.g.material_style = 'darker'
 vim.g.material_terminal_italics = 1
 
 require('material').setup {
@@ -69,7 +68,6 @@ require('material').setup {
     colors.editor.fg = '#FFFFFF'
     colors.editor.fg_dark = colors.main.white
     colors.editor.accent = colors.main.darkpurple
-    colors.syntax.string = colors.main.darkgreen
   end,
 }
 vim.cmd.colorscheme('material')
