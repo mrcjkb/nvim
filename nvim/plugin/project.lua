@@ -1,10 +1,12 @@
 require('project_nvim').setup {
   patterns = {
+    '.envrc',
     '.git',
     '_darcs',
     '.hg',
     '.bzr',
     '.svn',
+    'flake.nix',
     'Makefile',
     'package.json',
     'cabal.project',
