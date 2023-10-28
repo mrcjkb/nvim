@@ -464,6 +464,7 @@
         default = nvim;
         nvim = pkgs.nvim-pkg;
         nvim-dev = pkgs.nvim-dev;
+        nightly = pkgs.neovim-nightly;
       };
       devShells = {
         default = shell;
