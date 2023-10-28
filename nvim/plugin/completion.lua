@@ -103,9 +103,11 @@ cmp.setup {
         cmp.complete()
       end
     end, { 'i', 'c', 's' }),
-    ['<C-y>'] = cmp.mapping.confirm {
-      select = true,
-    },
+    ['<C-y>'] = cmp.mapping(function(_)
+      cmp.confirm {
+        select = true,
+      }
+    end, { 'i', 'c', 's' }),
     -- ['<C-o>'] = complete_with_source_mapping('omni', { 'i', 'c' }),
     ['<C-s>'] = complete_with_source_mapping('luasnip', { 'i', 's' }),
   },
