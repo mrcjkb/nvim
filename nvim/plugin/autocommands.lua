@@ -16,7 +16,7 @@ api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeav
   pattern = '*',
   group = numbertoggle,
   callback = function()
-    if vim.o.nu and vim.api.nvim_get_mode().mode ~= 'i' then
+    if vim.o.nu and api.nvim_get_mode().mode ~= 'i' then
       vim.opt.relativenumber = true
     end
   end,
@@ -51,3 +51,70 @@ api.nvim_create_autocmd('FileType', {
     end
   end,
 })
+
+local highlight_cur_n_group = api.nvim_create_augroup('highlight-current-n', { clear = true })
+api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    local search = api.nvim_get_hl(0, { name = 'Search' })
+    api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
+    api.nvim_set_hl(0, 'SearchCurrentN', search)
+    return api.nvim_set_hl(0, 'Search', { link = 'SearchCurrentN' })
+  end,
+  group = highlight_cur_n_group,
+})
+api.nvim_create_autocmd('CmdlineEnter', {
+  pattern = '/,\\?',
+  callback = function()
+    vim.opt.hlsearch = true
+    vim.opt.incsearch = true
+    return api.nvim_set_hl(0, 'Search', { link = 'SearchCurrentN' })
+  end,
+  group = highlight_cur_n_group,
+})
+api.nvim_create_autocmd('CmdlineLeave', {
+  pattern = '/,\\?',
+  callback = function()
+    api.nvim_set_hl(0, 'Search', {})
+    local function _4_()
+      vim.opt.hlsearch = true
+      return nil
+    end
+    return vim.defer_fn(_4_, 5)
+  end,
+  group = highlight_cur_n_group,
+})
+api.nvim_create_autocmd({ 'InsertEnter', 'CursorMoved' }, {
+  callback = vim.schedule_wrap(vim.cmd.nohlsearch),
+  group = highlight_cur_n_group,
+})
+local function handle_n_N(key)
+  do
+    local function other(mode)
+      if mode == 'n' then
+        return 'N'
+      elseif mode == 'N' then
+        return 'n'
+      else
+        return nil
+      end
+    end
+    local function feed(keys)
+      return api.nvim_feedkeys(keys, 'n', true)
+    end
+    if vim.v.searchforward == 0 then
+      feed(other(key))
+    elseif vim.v.searchforward == 1 then
+      feed(key)
+    end
+  end
+  return vim.defer_fn(function()
+    vim.opt.hlsearch = true
+    return nil
+  end, 5)
+end
+vim.keymap.set({ 'n' }, 'n', function()
+  return handle_n_N('n')
+end)
+return vim.keymap.set({ 'n' }, 'N', function()
+  return handle_n_N('N')
+end)
