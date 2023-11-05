@@ -62,6 +62,9 @@ g.omni_sql_default_compl_type = 'syntax'
 -- Set default shell
 opt.shell = 'nu'
 
+opt.timeout = true
+opt.timeoutlen = 300
+
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end

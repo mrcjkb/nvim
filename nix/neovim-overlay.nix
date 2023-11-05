@@ -186,6 +186,7 @@ with final.pkgs.lib; let
         oil-nvim
         other-nvim
         wf-nvim
+        which-key-nvim
       ]
       ++ [
         # nvim-cmp and plugins
