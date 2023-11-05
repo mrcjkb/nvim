@@ -84,7 +84,9 @@ api.nvim_create_autocmd('CmdlineLeave', {
   group = highlight_cur_n_group,
 })
 api.nvim_create_autocmd({ 'InsertEnter', 'CursorMoved' }, {
-  callback = vim.schedule_wrap(vim.cmd.nohlsearch),
+  callback = vim.schedule_wrap(function()
+    vim.cmd.nohlsearch()
+  end),
   group = highlight_cur_n_group,
 })
 local function handle_n_N(key)
