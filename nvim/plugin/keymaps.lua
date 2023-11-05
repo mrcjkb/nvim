@@ -203,8 +203,7 @@ keymap.set('n', '<space>ch', function()
 end, { noremap = true, silent = true, desc = 'hint diagnostics to quickfix list' })
 
 local function toggle_spell_check()
-  ---@diagnostic disable-next-line: param-type-mismatch
-  vim.opt.spell = not (vim.opt.spell:get())
+  ---@diagnostic disable-next-line: param-type-mismatch vim.opt.spell = not (vim.opt.spell:get())
 end
 
 keymap.set('n', '<leader>S', toggle_spell_check, { noremap = true, silent = true, desc = 'toggle spell' })
@@ -216,9 +215,11 @@ keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move up full-page and center' })
 
 -- Helix 23.10 style smart tab
 
-local function is_blank_line()
+local function is_line_start()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col == 0 or vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:match('%S') == nil
+  local current_line_text = vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+  local preceding_text = vim.print(current_line_text:sub(1, col))
+  return preceding_text:match('%S') == nil
 end
 
 local skips = { 'string_content' }
@@ -235,30 +236,36 @@ local function should_skip(node_type)
   return false
 end
 
-local function smart_tab()
+local function smart_tab(check)
   local node = vim.treesitter.get_node()
   if not node then
-    return
+    return check and '<tab>' or nil
   end
   while should_skip(node:type()) do
     node = node:parent()
     if not node then
-      return
+      return check and '<tab>' or nil
     end
   end
+  if check then
+    return '<plug>(smart-tab)'
+  end
   local row, col = node:end_()
-  vim.api.nvim_win_set_cursor(0, { row + 1, col })
+  local ok = pcall(api.nvim_win_set_cursor, 0, { row + 1, col })
+  if not ok then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<tab>', true, true, true), 'n', true)
+  end
 end
 
 -- NOTE: this allows cursor movement on expr mapping
-vim.keymap.set('i', '<plug>(smart-tab)', smart_tab)
+keymap.set('i', '<plug>(smart-tab)', smart_tab)
 
-vim.keymap.set('i', '<tab>', function()
+keymap.set('i', '<tab>', function()
   local non_treesitter = not pcall(vim.treesitter.get_node)
-  if non_treesitter or is_blank_line() then
+  if non_treesitter or is_line_start() then
     return '<tab>'
   else
-    return '<plug>(smart-tab)'
+    return smart_tab(true)
   end
 end, { desc = 'smart-tab', expr = true })
 
