@@ -25,7 +25,12 @@ local on_jdtls_attach = function(client, bufnr)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
 end
 
-local cmd = { 'jdt-language-server' }
+local cache_dir = vim.fn.stdpath('cache')
+---@cast cache_dir string
+local workspace_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', 'mvnw', '.git' }, { upward = true })[1])
+local data_dir = vim.fs.joinpath(cache_dir, 'jdtls', workspace_dir)
+
+local cmd = { 'jdt-language-server', '-data', data_dir }
 
 if vim.fn.executable(cmd[1]) ~= 1 then
   return
@@ -74,6 +79,7 @@ local settings = {
 jdtls.start_or_attach {
   capabilities = lsp.capabilities,
   cmd = cmd,
+  root_dir = workspace_dir,
   settings = settings,
   on_attach = on_jdtls_attach,
   on_init = function(client, _)
