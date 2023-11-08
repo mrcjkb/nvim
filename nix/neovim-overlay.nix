@@ -1,7 +1,5 @@
 final: prev:
-with final.pkgs.lib; let
-  pkgs = final.pkgs;
-
+with final.lib; let
   mkNeovim = {
     appName ? null,
     wrapRc ? true,
@@ -23,7 +21,7 @@ with final.pkgs.lib; let
       runtime = {};
     };
 
-    externalPackages = extraPackages ++ [pkgs.sqlite];
+    externalPackages = extraPackages ++ [final.sqlite];
 
     normalizedPlugins = map (x:
       defaultPlugin
@@ -34,7 +32,7 @@ with final.pkgs.lib; let
       ))
     plugins;
 
-    neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
+    neovimConfig = final.neovimUtils.makeNeovimConfig {
       inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
       plugins = normalizedPlugins;
     };
@@ -58,7 +56,7 @@ with final.pkgs.lib; let
           dev_plugin_path = dev_plugins_dir .. '/${plugin.name}'
           if vim.fn.empty(vim.fn.glob(dev_plugin_path)) > 0 then
             vim.notify('Bootstrapping dev plugin ${plugin.name} ...', vim.log.levels.INFO)
-            vim.cmd('!${pkgs.git}/bin/git clone ${plugin.url} ' .. dev_plugin_path)
+            vim.cmd('!${final.git}/bin/git clone ${plugin.url} ' .. dev_plugin_path)
           end
           vim.cmd('packadd! ${plugin.name}')
         '')
@@ -74,16 +72,16 @@ with final.pkgs.lib; let
       ++ (optional (externalPackages != [])
         ''--prefix PATH : "${makeBinPath externalPackages}"'')
       ++ (optional wrapRc
-        ''--add-flags -u --add-flags "${pkgs.writeText "init.lua" customRC}"'')
+        ''--add-flags -u --add-flags "${final.writeText "init.lua" customRC}"'')
       ++ [
-        ''--set LIBSQLITE_CLIB_PATH "${pkgs.sqlite.out}/lib/libsqlite3.so"''
-        ''--set LIBSQLITE "${pkgs.sqlite.out}/lib/libsqlite3.so"''
+        ''--set LIBSQLITE_CLIB_PATH "${final.sqlite.out}/lib/libsqlite3.so"''
+        ''--set LIBSQLITE "${final.sqlite.out}/lib/libsqlite3.so"''
       ]
     );
 
     extraMakeWrapperLuaCArgs = optionalString (resolvedExtraLuaPackages != []) ''
       --suffix LUA_CPATH ";" "${
-        lib.concatMapStringsSep ";" pkgs.luaPackages.getLuaCPath
+        lib.concatMapStringsSep ";" final.luaPackages.getLuaCPath
         resolvedExtraLuaPackages
       }"'';
 
@@ -91,11 +89,11 @@ with final.pkgs.lib; let
       optionalString (resolvedExtraLuaPackages != [])
       ''
         --suffix LUA_PATH ";" "${
-          concatMapStringsSep ";" pkgs.luaPackages.getLuaPath
+          concatMapStringsSep ";" final.luaPackages.getLuaPath
           resolvedExtraLuaPackages
         }"'';
   in
-    pkgs.wrapNeovimUnstable pkgs.neovim-nightly (neovimConfig
+    final.wrapNeovimUnstable final.neovim-nightly (neovimConfig
       // {
         wrapperArgs =
           escapeShellArgs neovimConfig.wrapperArgs
@@ -108,7 +106,7 @@ with final.pkgs.lib; let
         wrapRc = false;
       });
 
-  all-plugins = with pkgs.nvimPlugins;
+  all-plugins = with final.nvimPlugins;
     ([
         plenary
         sqlite
@@ -130,7 +128,6 @@ with final.pkgs.lib; let
         flash-nvim
         eyeliner-nvim
         vim-textobj-user
-        pkgs.vimPlugins.vim-fugitive
         neogit
         gitlinker
         repeat
@@ -162,7 +159,6 @@ with final.pkgs.lib; let
         luasnip
         project
         telescope_hoogle
-        pkgs.vimPlugins.telescope-fzy-native-nvim
         telescope-smart-history
         telescope
         todo-comments
@@ -207,11 +203,13 @@ with final.pkgs.lib; let
         cmp-dap
         nvim-cmp
       ])
-    ++ (with pkgs.vimPlugins; [
+    ++ (with prev.vimPlugins; [
       markdown-preview-nvim
+      vim-fugitive
+      telescope-fzy-native-nvim
     ]);
 
-  extraPackages = with pkgs; [
+  extraPackages = with final; [
     haskellPackages.fast-tags
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
@@ -252,7 +250,7 @@ with final.pkgs.lib; let
   nvim-pkg = mkNeovim {
     plugins =
       all-plugins
-      ++ (with pkgs; [
+      ++ (with final; [
         haskell-tools-nvim-dev
         haskell-snippets-nvim
         neotest-haskell-dev
