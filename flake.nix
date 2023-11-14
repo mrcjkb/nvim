@@ -173,7 +173,7 @@
       flake = false;
     };
     fidget = {
-      url = "git+https://github.com/j-hui/fidget.nvim.git?ref=legacy";
+      url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;
     };
     illuminate = {
