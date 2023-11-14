@@ -1,10 +1,6 @@
 -- Files that have trouble with syntax highlighting
-local disabled_files = {
-  'Enums.hs',
-  'all-packages.nix',
-  'hackage-packages.nix',
-  'generated.nix',
-}
+
+local files = require('mrcjk.files')
 
 ---@diagnostic disable: missing-fields
 local configs = require('nvim-treesitter.configs')
@@ -14,11 +10,10 @@ configs.setup {
   highlight = {
     enable = true,
     disable = function(_, buf)
-      local fname = vim.api.nvim_buf_get_name(buf)
-      local short_name = vim.fn.fnamemodify(fname, ':t')
-      if vim.tbl_contains(disabled_files, short_name) then
+      if files.disable_treesitter_features(buf) then
         return true
       end
+      local fname = vim.api.nvim_buf_get_name(buf)
       local max_filesize = 100 * 1024 -- 100 KiB
       local ok, stats = pcall(vim.loop.fs_stat, fname)
       if ok and stats and stats.size > max_filesize then
