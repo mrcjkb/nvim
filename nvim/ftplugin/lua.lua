@@ -46,6 +46,10 @@ vim.lsp.start {
       },
       workspace = {
         checkThirdParty = false,
+        library = {
+          '${3rd}/busted/library',
+          '${3rd}/luassert/library',
+        },
       },
       telemetry = {
         enable = false,
