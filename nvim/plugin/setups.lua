@@ -9,7 +9,6 @@ setup('neoconf')
 setup('todo-comments')
 setup('tmux')
 setup('nvim-highlight-colors')
-setup('which-key')
 
 if not vim.g.nvim_surround_setup then
   setup('nvim-surround')
