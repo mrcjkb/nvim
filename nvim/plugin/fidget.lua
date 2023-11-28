@@ -5,7 +5,7 @@ require('fidget').setup {
 
     -- Options related to how LSP progress messages are displayed as notifications
     display = {
-      render_limit = 2, -- How many LSP messages to show at once
+      render_limit = 0, -- How many LSP messages to show at once
     },
   },
 }
