@@ -156,7 +156,6 @@ with final.lib; let
         lspkind-nvim
         nvim-code-action-menu
         nvim-lint
-        luasnip
         project
         telescope_hoogle
         telescope-smart-history
@@ -204,6 +203,7 @@ with final.lib; let
         nvim-cmp
       ])
     ++ (with prev.vimPlugins; [
+      luasnip
       markdown-preview-nvim
       vim-fugitive
       telescope-fzy-native-nvim

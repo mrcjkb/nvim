@@ -301,10 +301,6 @@
       url = "github:mfussenegger/nvim-lint";
       flake = false;
     };
-    luasnip = {
-      url = "github:L3MON4D3/LuaSnip";
-      flake = false;
-    };
     project = {
       url = "github:ahmedkhalf/project.nvim";
       flake = false;
