@@ -721,11 +721,11 @@
         "systems": "systems_10"
       },
       "locked": {
-        "lastModified": 1694529238,
-        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "lastModified": 1701680307,
+        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
         "type": "github"
       },
       "original": {
@@ -1469,15 +1469,16 @@
     "harpoon": {
       "flake": false,
       "locked": {
-        "lastModified": 1701558082,
-        "narHash": "sha256-man4zWgQQEosvpFwcCjaLfiGiu/OAqGSaxhUnTWX3bo=",
+        "lastModified": 1701736887,
+        "narHash": "sha256-1bI4KyBWXdtNHBlN7uP3xl0ejyr3rXlWKIZbLf8yRtU=",
         "owner": "ThePrimeagen",
         "repo": "harpoon",
-        "rev": "581da797f9d66485f841525af596255270c2bcf5",
+        "rev": "ec03b3cc4ba16e6411f35f15230e1e4e776ebe3d",
         "type": "github"
       },
       "original": {
         "owner": "ThePrimeagen",
+        "ref": "harpoon2",
         "repo": "harpoon",
         "type": "github"
       }
@@ -1492,11 +1493,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1701683625,
-        "narHash": "sha256-OqXWmUPxWsZ9+QWlZ+sE7sECPhcdXzd8WlIFOhNDH7Q=",
+        "lastModified": 1701769650,
+        "narHash": "sha256-3F0ERwbqJ9nmLNacKtWDzM7kQMpLisvd/msrY9gGA3g=",
         "owner": "mrcjkb",
         "repo": "haskell-snippets.nvim",
-        "rev": "ae6266e021ba4ea4474bf2b510068e986c6bde29",
+        "rev": "77a743f430ec8ab38a4c2fe93623a024620b98ae",
         "type": "github"
       },
       "original": {
@@ -1518,11 +1519,11 @@
         "toggleterm": "toggleterm"
       },
       "locked": {
-        "lastModified": 1701562660,
-        "narHash": "sha256-Feisg0hF3LC+gjlXTvp0qLurLFqI8vq8oDa53NJV7Ps=",
+        "lastModified": 1701721762,
+        "narHash": "sha256-v6wxV3qnK67NXvl0Rjngw3EdX5fJg41nDf2lk1UXTLc=",
         "owner": "mrcjkb",
         "repo": "haskell-tools.nvim",
-        "rev": "b345179204a3c4fd38b8d7699989d51d7d6febfe",
+        "rev": "96795059918c0735cfab26eab71536e6eb023d9c",
         "type": "github"
       },
       "original": {
@@ -1804,11 +1805,11 @@
     "neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1701466183,
-        "narHash": "sha256-ERNjPAhoR9GgUaO717BMTGAxKC74r76VzBLNgSzMtZo=",
+        "lastModified": 1701727850,
+        "narHash": "sha256-azp5naF6/WVUlmEIrn/t5Tms8LKlUahK1vdLJJMl/rw=",
         "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "d0e87541130b2cf62d7f8a54487ef99560232fb6",
+        "rev": "f59b0e9648254ccc125e5ddb411711a8438476b3",
         "type": "github"
       },
       "original": {
@@ -1848,11 +1849,11 @@
         "pre-commit-hooks": "pre-commit-hooks_4"
       },
       "locked": {
-        "lastModified": 1701674652,
-        "narHash": "sha256-EeED7IS2EYGJTLgoDKzbBPwUMtopSmwX46roU0BydwM=",
+        "lastModified": 1701753780,
+        "narHash": "sha256-T2WyspCGUJnOYDa24QtlLqmap4m9UqiSZHY8K53IpgU=",
         "owner": "nvim-neorocks",
         "repo": "neorocks",
-        "rev": "f4118393f0f70a35eb4d5f9e9d2b8c440a58143f",
+        "rev": "317b9f12d6502eedcfab58ee796eec26a8243f78",
         "type": "github"
       },
       "original": {
@@ -2110,11 +2111,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1701643367,
-        "narHash": "sha256-1R/BkHjrmqxQC0rE2kQu8b2L3G1Ap6GfdiiH6LUVeek=",
+        "lastModified": 1701736848,
+        "narHash": "sha256-UtT0aNYjBp3cH4HdFO7AZtg9W++PW+TbZG7x4226FfI=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "5651c1ff27a1eb59d120637ba5cbd90f08a3f1d2",
+        "rev": "3159a2c28f5ea8797cb525c74dedd622bfe4a0a1",
         "type": "github"
       },
       "original": {
@@ -2755,11 +2756,11 @@
     "nvim-treesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1701674754,
-        "narHash": "sha256-mPU39RzPTCzQMzXd0r4H+abvmCzDzLe/N9F/JVuNjyU=",
+        "lastModified": 1701764688,
+        "narHash": "sha256-ayieozGx/LiQi5+Z39VKwXFEI27o1AybXAZB3Yhgx4o=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "67536f4057e4901e37805708bcfdd3d9abacfd26",
+        "rev": "c203884c80ef31b6a3993398734fbe008addcb27",
         "type": "github"
       },
       "original": {
@@ -2851,11 +2852,11 @@
     "other-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1691010396,
-        "narHash": "sha256-4HjSsjQX9iMYfs7bnyeZuqLVbB8IJLwtDjRB4ch/0Ng=",
+        "lastModified": 1701717001,
+        "narHash": "sha256-IeDj3Eecpm+LwXny6sLrurG/78MtgDvWk+TcMrYGGt8=",
         "owner": "rgroli",
         "repo": "other.nvim",
-        "rev": "cba4e5feb0c0a703acc9b78bc64422ac1469c468",
+        "rev": "d4d926dec6d0e037c1a5f092793b474947ed357e",
         "type": "github"
       },
       "original": {
@@ -3383,11 +3384,11 @@
     "schemastore-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1701525638,
-        "narHash": "sha256-ZoH6PQDqPHNipyloI6TTaCLUmUtdSoUOWQmWq8uzOEg=",
+        "lastModified": 1701716442,
+        "narHash": "sha256-vTU/RXjWPMSpXmKqZEsehsD5pmI/5iT2sHKndzRptSk=",
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
-        "rev": "c4f2d408542f07592a34c3a68171d36c612741b9",
+        "rev": "02cbeccdcaa8bc11e849b61a08a11b9b8a5dde7d",
         "type": "github"
       },
       "original": {
@@ -3431,11 +3432,11 @@
     "surround": {
       "flake": false,
       "locked": {
-        "lastModified": 1699902149,
-        "narHash": "sha256-NiAuOAEXuUtIfZb/IeF8zOiHpEHIq1OGztYkKKWNMSc=",
+        "lastModified": 1701725242,
+        "narHash": "sha256-ph4obOW+l+TGZp6B4R4ZZtjiFMKWKFKigV3aLLPhbGs=",
         "owner": "kylechui",
         "repo": "nvim-surround",
-        "rev": "0855a89e00a5822c3a482a82e5223fcf2e9ede13",
+        "rev": "633a0ab03159569a66b65671b0ffb1a6aed6cf18",
         "type": "github"
       },
       "original": {
@@ -3844,11 +3845,11 @@
         "pre-commit-hooks": "pre-commit-hooks_10"
       },
       "locked": {
-        "lastModified": 1700005773,
-        "narHash": "sha256-D4wJKQjOK+eIriWStUVcZX09C9zTmzGacL/HtM84Cuo=",
+        "lastModified": 1701727956,
+        "narHash": "sha256-SVgIGUCKHo4lUXUntGd9oHJDgRUiCd8Nvbo3uPfwIoY=",
         "owner": "mrcjkb",
         "repo": "telescope-manix",
-        "rev": "d946dba3dbf71005434aeae5a4aa5589b09649bc",
+        "rev": "f9657fd3f8e26c8035eacd63d95dc487ae6439b5",
         "type": "github"
       },
       "original": {

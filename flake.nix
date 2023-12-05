@@ -346,7 +346,7 @@
       flake = false;
     };
     harpoon = {
-      url = "github:ThePrimeagen/harpoon";
+      url = "github:ThePrimeagen/harpoon/harpoon2";
       flake = false;
     };
     gitsigns = {

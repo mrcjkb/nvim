@@ -1,20 +1,8 @@
-local home = os.getenv('HOME')
-local git_home = home .. '/git'
-local github_home = git_home .. '/github'
-local github_mrcjkb = github_home .. '/mrcjkb'
-local nix_flake_check_cmd = 'nix flake check -L'
-local nix_flake_update_cmd = 'nix flake update --commit-lock-file'
+local harpoon = require('harpoon')
 
-require('harpoon').setup {
-  projects = {
-    [github_mrcjkb .. '/nvim-config'] = {
-      term = {
-        cmds = {
-          nix_flake_check_cmd,
-          nix_flake_update_cmd,
-        },
-      },
-    },
+harpoon:setup {
+  settings = {
+    save_on_toggle = true,
   },
 }
 
@@ -25,11 +13,15 @@ local function nnoremap(keybinding, cmd, description)
   vim.keymap.set('n', keybinding, cmd, { noremap = true, silent = true, desc = description })
 end
 
-local mark = require('harpoon.mark')
-local ui = require('harpoon.ui')
-local cmd_ui = require('harpoon.cmd-ui')
-nnoremap('<leader>mm', mark.add_file, '[harpoon] mark')
-nnoremap('<leader>hm', ui.toggle_quick_menu, '[harpoon] toggle menu')
-nnoremap('<leader>hc', cmd_ui.toggle_quick_menu, '[harpoon] toggle command menu')
-nnoremap('[h', ui.nav_prev, '[harpoon] previous')
-nnoremap(']h', ui.nav_next, '[harpoon] next')
+nnoremap('<leader>mm', function()
+  harpoon:list():append()
+end, '[harpoon] mark')
+nnoremap('<leader>hm', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, '[harpoon] toggle menu')
+nnoremap('[h', function()
+  harpoon:list():prev()
+end, '[harpoon] previous')
+nnoremap(']h', function()
+  harpoon:list():prev()
+end, '[harpoon] next')
