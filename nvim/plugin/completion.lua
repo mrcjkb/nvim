@@ -157,6 +157,15 @@ cmp.setup.filetype('lua', {
   },
 })
 
+cmp.setup.filetype('norg', {
+  sources = cmp.config.sources {
+    { name = 'neorg' },
+    { name = 'rg' },
+    { name = 'buffer' },
+    { name = 'path' },
+  },
+})
+
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources {
