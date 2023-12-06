@@ -196,7 +196,12 @@ cmp.setup.cmdline({ '/', '?' }, {
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping.preset.cmdline {
+    ['<tab>'] = {
+      i = ...,
+      c = cmp.config.disable,
+    },
+  },
   sources = cmp.config.sources {
     { name = 'cmdline' },
     { name = 'cmdline_history' },
@@ -227,5 +232,8 @@ vim.keymap.set({ 'c' }, '<C-h>', function()
   complete_with_source('cmdline_history')
 end, { noremap = false, desc = '[cmp] cmdline history' })
 vim.keymap.set({ 'c' }, '<C-c>', function()
+  complete_with_source('cmdline')
+end, { noremap = false, desc = '[cmp] cmdline' })
+vim.keymap.set({ 'c' }, '<tab>', function()
   complete_with_source('cmdline')
 end, { noremap = false, desc = '[cmp] cmdline' })
