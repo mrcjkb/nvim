@@ -1,4 +1,4 @@
-final: prev:
+{inputs}: final: prev:
 with final.lib; let
   mkNeovim = {
     appName ? null,
@@ -93,6 +93,7 @@ with final.lib; let
           resolvedExtraLuaPackages
         }"'';
   in
+    # final.wrapNeovimUnstable inputs.packages.${prev.system}.neovim (neovimConfig
     final.wrapNeovimUnstable final.neovim-nightly (neovimConfig
       // {
         wrapperArgs =
