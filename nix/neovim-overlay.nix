@@ -204,6 +204,7 @@ with final.lib; let
         nvim-cmp
       ])
     ++ (with prev.vimPlugins; [
+      # catppuccin-nvim
       luasnip
       markdown-preview-nvim
       vim-fugitive
