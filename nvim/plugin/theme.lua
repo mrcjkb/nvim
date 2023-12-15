@@ -57,6 +57,7 @@ require('material').setup {
     TelescopeResultsTitle = { bg = '#E6B455' },
     TelescopePromptTitle = { bg = '#B480D6' },
     TelescopePreviewTitle = { bg = '#ABCF76' },
+    ['@variable'] = { link = 'Identifier' },
     ['@field'] = { fg = '#DDDDDD' },
     ['@parameter'] = { fg = '#EEEEEE', italic = true },
     -- ['@function.call'] = { fg = '#82AAFF', italic = true }, -- blue

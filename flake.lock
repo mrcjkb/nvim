@@ -1709,11 +1709,11 @@
     "material-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1700788202,
-        "narHash": "sha256-AJfZ9ai2PcAyI/2eSMo7Nl1xddWFQcjuVz5yiCLUUss=",
+        "lastModified": 1702488202,
+        "narHash": "sha256-UR876OpLSUTGwVIMxzs3UcT6sHvc/CcBEbkk2FJlHpg=",
         "owner": "marko-cerovac",
         "repo": "material.nvim",
-        "rev": "d61da5decc7768769314c121a3232b6eadc73f2d",
+        "rev": "60416124a07a3358f3b93915092db50fcb712b41",
         "type": "github"
       },
       "original": {
