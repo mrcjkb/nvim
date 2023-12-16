@@ -3,7 +3,6 @@ local function setup(mod)
 end
 
 setup('wildfire')
-setup('nvim-lastplace')
 setup('Comment')
 setup('neoconf')
 setup('todo-comments')

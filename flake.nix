@@ -103,8 +103,8 @@
       flake = false;
     };
     nvim-lastplace = {
-      url = "github:ethanholz/nvim-lastplace";
-      flake = false;
+      url = "github:mrcjkb/nvim-lastplace";
+      # url = "/home/mrcjk/git/github/forks/nvim/nvim-lastplace/";
     };
     comment = {
       url = "github:numToStr/Comment.nvim";
