@@ -128,7 +128,6 @@ with final.lib; let
         # (withConfig leap "require('leap').set_default_keymaps()")
         flash-nvim
         eyeliner-nvim
-        vim-textobj-user
         neogit
         gitlinker
         repeat

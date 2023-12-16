@@ -77,12 +77,6 @@
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
-    vim-textobj-user = {
-      # Vimscript
-      # User-defined textobjects
-      url = "github:kana/vim-textobj-user";
-      flake = false;
-    };
     neogit = {
       url = "github:NeogitOrg/neogit";
       flake = false;
