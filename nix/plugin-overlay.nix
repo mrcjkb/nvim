@@ -63,7 +63,6 @@ in {
       # TODO: re-enable when sql highlights are fixed
       # src = inputs.nvim-treesitter;
     });
-    treesitter-playground = mkNvimPlugin inputs.treesitter-playground "treesitter-playground";
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
     treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
     nvim-ts-context-commentstring = mkNvimPlugin inputs.nvim-ts-context-commentstring "nvim-ts-context-commentstring";

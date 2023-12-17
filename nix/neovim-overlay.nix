@@ -114,7 +114,6 @@ with final.lib; let
         nvim-web-devicons
         diffview
         nvim-ts-context-commentstring
-        treesitter-playground
         treesitter-textobjects
         treesitter-context
         treesitter-refactor

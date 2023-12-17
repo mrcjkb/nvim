@@ -22,7 +22,7 @@ require('hardtime').setup {
     'netrw',
     'NeogitStatus',
     'DiffviewFilePanel',
-    'tsplayground',
+    'query',
     'harpoon',
     'minifiles',
     'toggleterm',

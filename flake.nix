@@ -258,10 +258,6 @@
       # url = "/home/mrcjk/git/github/forks/nvim/nvim-treesitter/";
       flake = false;
     };
-    treesitter-playground = {
-      url = "github:nvim-treesitter/playground";
-      flake = false;
-    };
     treesitter-textobjects = {
       url = "github:nvim-treesitter/nvim-treesitter-textobjects";
       flake = false;
