@@ -123,6 +123,10 @@
       url = "github:rouge8/neotest-rust";
       flake = false;
     };
+    neotest-java = {
+      url = "github:rcasia/neotest-java";
+      flake = false;
+    };
     neoconf-nvim = {
       url = "github:folke/neoconf.nvim";
       flake = false;

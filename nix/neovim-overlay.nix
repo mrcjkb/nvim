@@ -137,6 +137,7 @@ with final.lib; let
         comment
         material-theme
         neotest-rust
+        neotest-java
         neotest
         nvim-dap
         nvim-dap-ui

@@ -1965,6 +1965,22 @@
         "type": "github"
       }
     },
+    "neotest-java": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1702157879,
+        "narHash": "sha256-GZABYBnsNGIfBzkkHQba0lCXFLYBLfdeilfhwSLernA=",
+        "owner": "rcasia",
+        "repo": "neotest-java",
+        "rev": "2234bfa8044dc39a8baf90470747c65e4623a222",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcasia",
+        "repo": "neotest-java",
+        "type": "github"
+      }
+    },
     "neotest-rust": {
       "flake": false,
       "locked": {
@@ -3358,6 +3374,7 @@
         "neorocks": "neorocks_2",
         "neotest": "neotest",
         "neotest-haskell": "neotest-haskell",
+        "neotest-java": "neotest-java",
         "neotest-rust": "neotest-rust",
         "nixpkgs": "nixpkgs_7",
         "nvim-bqf": "nvim-bqf",

@@ -26,6 +26,7 @@ in {
     material-theme = mkNvimPlugin inputs.material-theme "material.nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
+    neotest-java = mkNvimPlugin inputs.neotest-java "neotest-java";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
     lspconfig = mkNvimPlugin inputs.lspconfig "nvim-lspconfig";

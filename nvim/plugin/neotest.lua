@@ -19,6 +19,7 @@ local function init(fun)
         },
       },
       require('neotest-rust'),
+      require('neotest-java'),
     },
     icons = {
       failed = '',
