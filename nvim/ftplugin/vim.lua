@@ -1,5 +1,9 @@
 local lsp = require('mrcjk.lsp')
 
+if vim.fn.executable('vimls') ~= 1 then
+  return
+end
+
 vim.lsp.start {
   name = 'vimls',
   cmd = { 'vim-language-server', '--stdio' },

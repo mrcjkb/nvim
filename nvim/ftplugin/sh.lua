@@ -1,5 +1,9 @@
 local lsp = require('mrcjk.lsp')
 
+if vim.fn.executable('bash-language-server') ~= 1 then
+  return
+end
+
 vim.lsp.start {
   cmd = { 'bash-language-server', 'start' },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),

@@ -2209,6 +2209,22 @@
         "type": "github"
       }
     },
+    "nio": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703242132,
+        "narHash": "sha256-b9CKCckBw3eH/SqbsGQ8Ws5+PL3judmm2HJ+Y0Iv+GE=",
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
+        "rev": "0d1ccb583b54a2e02f482b48cc884dc29faa967f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1699186365,
@@ -3376,6 +3392,7 @@
         "neotest-haskell": "neotest-haskell",
         "neotest-java": "neotest-java",
         "neotest-rust": "neotest-rust",
+        "nio": "nio",
         "nixpkgs": "nixpkgs_7",
         "nvim-bqf": "nvim-bqf",
         "nvim-cmp": "nvim-cmp",

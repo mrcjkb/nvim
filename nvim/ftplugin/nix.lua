@@ -1,5 +1,9 @@
 local lsp = require('mrcjk.lsp')
 
+if vim.fn.executable('nil') ~= 1 then
+  return
+end
+
 vim.lsp.start {
   name = 'nil_ls',
   cmd = { 'nil' },

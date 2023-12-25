@@ -25,6 +25,7 @@ in {
     comment = mkNvimPlugin inputs.comment "comment.nvim";
     material-theme = mkNvimPlugin inputs.material-theme "material.nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
+    nio = mkNvimPlugin inputs.nio "nio";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
     neotest-java = mkNvimPlugin inputs.neotest-java "neotest-java";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";

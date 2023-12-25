@@ -1,4 +1,9 @@
 local lsp = require('mrcjk.lsp')
+
+if vim.fn.executable('taplo') ~= 1 then
+  return
+end
+
 vim.lsp.start {
   name = 'taplo',
   cmd = { 'taplo', 'lsp', 'stdio' },

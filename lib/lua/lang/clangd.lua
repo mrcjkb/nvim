@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
 local lsp = require('mrcjk.lsp')
 
+local M = {}
+
 -- C/C++ -- TODO: Complete
 lspconfig.clangd.setup {
   autostart = false,
@@ -8,4 +10,10 @@ lspconfig.clangd.setup {
   capabilities = lsp.capabilities,
 }
 
-return require('lspconfig.configs').clangd
+M.launch = function()
+  if vim.fn.executable('clangd') then
+    require('lspconfig.configs').clangd.launch()
+  end
+end
+
+return M

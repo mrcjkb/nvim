@@ -119,6 +119,10 @@
       url = "github:nvim-neotest/neotest";
       flake = false;
     };
+    nio = {
+      url = "github:nvim-neotest/nvim-nio";
+      flake = false;
+    };
     neotest-rust = {
       url = "github:rouge8/neotest-rust";
       flake = false;

@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
 local lsp = require('mrcjk.lsp')
 
+local M = {}
+
 local on_latex_attach = function(client, bufnr)
   vim.keymap.set(
     'n',
@@ -23,4 +25,10 @@ lspconfig.texlab.setup {
   autostart = false,
 }
 
-return require('lspconfig.configs').texlab
+M.launch = function()
+  if vim.fn.executable('texlab') == 1 then
+    require('lspconfig.configs').texlab.launch()
+  end
+end
+
+return M

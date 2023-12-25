@@ -139,6 +139,7 @@ with final.lib; let
         neotest-rust
         neotest-java
         neotest
+        nio # TODO: Remove when rocks-dev is ready
         nvim-dap
         nvim-dap-ui
         nvim-dap-virtual-text
