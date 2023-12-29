@@ -3,7 +3,6 @@
         "vim",
         "describe",
         "it",
-        "assert",
-        "MiniFiles"
+        "assert"
     ]
 }
