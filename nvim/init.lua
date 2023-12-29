@@ -211,7 +211,13 @@ g.rustaceanvim = function()
         lsp.on_dap_attach(bufnr)
       end,
       settings = {
-        ['rust-analyzer'] = {},
+        ['rust-analyzer'] = {
+          cargo = {
+            allFeatures = true,
+            loadOutDirsFromCheck = true,
+            runBuildScripts = true,
+          },
+        },
       },
     },
   }
