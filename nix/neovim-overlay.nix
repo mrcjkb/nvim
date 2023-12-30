@@ -37,6 +37,22 @@ with final.lib; let
       plugins = normalizedPlugins;
     };
 
+    nvimConfig = final.stdenv.mkDerivation {
+      name = "nvim-config";
+      src = ../nvim;
+
+      buildPhase = ''
+        mkdir -p $out/nvim
+        rm init.lua
+      '';
+
+      installPhase = ''
+        cp -r * $out/nvim
+        rm -r $out/nvim/after
+        cp -r after $out/after
+      '';
+    };
+
     customRC =
       ''
         vim.loader.enable()
@@ -63,8 +79,8 @@ with final.lib; let
         devPlugins
       )
       + ''
-        vim.opt.rtp:append('${../nvim}')
-        vim.opt.rtp:append('${../nvim/after}')
+        vim.opt.rtp:append('${nvimConfig}/nvim')
+        vim.opt.rtp:append('${nvimConfig}/after')
       '';
 
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
