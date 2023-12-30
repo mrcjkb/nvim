@@ -2,7 +2,6 @@
 with final.lib; let
   mkNeovim = {
     appName ? null,
-    wrapRc ? true,
     plugins ? [],
     devPlugins ? [],
     extraPackages ? [],
@@ -53,13 +52,14 @@ with final.lib; let
       '';
     };
 
-    customRC =
+    customRc =
       ''
         vim.loader.enable()
         vim.opt.rtp:prepend('${../lib}')
       ''
+      + ""
       + (builtins.readFile ../nvim/init.lua)
-      + neovimConfig.neovimRcContent
+      + ""
       + optionalString (devPlugins != []) (
         ''
           local dev_pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
@@ -88,8 +88,6 @@ with final.lib; let
         ''--set NVIM_APPNAME "${appName}"'')
       ++ (optional (externalPackages != [])
         ''--prefix PATH : "${makeBinPath externalPackages}"'')
-      ++ (optional wrapRc
-        ''--add-flags -u --add-flags "${final.writeText "init.lua" customRC}"'')
       ++ [
         ''--set LIBSQLITE_CLIB_PATH "${final.sqlite.out}/lib/libsqlite3.so"''
         ''--set LIBSQLITE "${final.sqlite.out}/lib/libsqlite3.so"''
@@ -113,6 +111,7 @@ with final.lib; let
     # final.wrapNeovimUnstable inputs.packages.${prev.system}.neovim (neovimConfig
     final.wrapNeovimUnstable final.neovim-nightly (neovimConfig
       // {
+        luaRcContent = customRc;
         wrapperArgs =
           escapeShellArgs neovimConfig.wrapperArgs
           + " "
@@ -121,7 +120,7 @@ with final.lib; let
           + extraMakeWrapperLuaCArgs
           + " "
           + extraMakeWrapperLuaArgs;
-        wrapRc = false;
+        wrapRc = true;
       });
 
   all-plugins = with final.nvimPlugins;
