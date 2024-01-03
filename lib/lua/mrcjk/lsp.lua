@@ -139,7 +139,7 @@ function lsp.on_attach(client, bufnr)
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
   keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('[lsp] refresh code lenses'))
   keymap.set('n', 'gr', vim.lsp.buf.references, desc('[lsp] find references'))
-  keymap.set('n', '<space>f', function()
+  keymap.set({ 'n', 'v' }, '<space>f', function()
     vim.lsp.buf.format { async = true }
   end, desc('[lsp] format buffer'))
   keymap.set('n', 'vv', function()
