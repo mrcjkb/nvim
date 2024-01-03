@@ -4,8 +4,6 @@ local opt = vim.o
 local keymap = vim.keymap
 local g = vim.g
 
-cmd.syntax('on')
-cmd.syntax('enable')
 opt.compatible = false
 
 -- Enable true colour support
@@ -228,3 +226,8 @@ g.code_action_menu_show_action_kind = false
 
 -- nvim-ts-context-commentstring
 g.skip_ts_context_commentstring_module = true
+
+-- For some reason, this causes plugins' ftplugin
+-- to be sourced.
+cmd.syntax('on')
+cmd.syntax('enable')
