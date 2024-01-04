@@ -52,7 +52,7 @@ with final.lib; let
       '';
     };
 
-    customRc =
+    initLua =
       ''
         vim.loader.enable()
         vim.opt.rtp:prepend('${../lib}')
@@ -111,7 +111,7 @@ with final.lib; let
     # final.wrapNeovimUnstable inputs.packages.${prev.system}.neovim (neovimConfig
     final.wrapNeovimUnstable final.neovim-nightly (neovimConfig
       // {
-        luaRcContent = customRc;
+        luaRcContent = initLua;
         wrapperArgs =
           escapeShellArgs neovimConfig.wrapperArgs
           + " "
