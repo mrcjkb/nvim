@@ -226,6 +226,7 @@ with final.lib; let
       vim-fugitive
       telescope-fzy-native-nvim
       neorg
+      dial-nvim
     ]);
 
   extraPackages = with final; [
