@@ -82,7 +82,6 @@ in {
     fzf-lua = mkNvimPlugin inputs.fzf-lua "fzf-lua";
     lualine = mkNvimPlugin inputs.lualine "lualine";
     nvim-navic = mkNvimPlugin inputs.nvim-navic "nvim-navic";
-    rnvimr = mkNvimPlugin inputs.rnvimr "rnvimr";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
     toggleterm = mkNvimPlugin inputs.toggleterm "toggleterm.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";

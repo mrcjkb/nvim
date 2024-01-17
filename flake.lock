@@ -3328,22 +3328,6 @@
         "type": "github"
       }
     },
-    "rnvimr": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1691316254,
-        "narHash": "sha256-j8upCQI9u5P/s+90wRPyLbE7uSnJXm5ONwHAReEYmGE=",
-        "owner": "kevinhwang91",
-        "repo": "rnvimr",
-        "rev": "5f0483d1c107ab1fe7e0af08cdf7900aa0dcb40e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kevinhwang91",
-        "repo": "rnvimr",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "cmp-buffer": "cmp-buffer",
@@ -3419,7 +3403,6 @@
         "promise-async": "promise-async",
         "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "repeat": "repeat",
-        "rnvimr": "rnvimr",
         "rustaceanvim": "rustaceanvim",
         "schemastore-nvim": "schemastore-nvim",
         "sqlite": "sqlite",

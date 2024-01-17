@@ -181,7 +181,6 @@ with final.lib; let
         fzf-lua
         nvim-navic
         lualine
-        rnvimr
         toggleterm
         harpoon
         gitsigns

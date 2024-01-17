@@ -337,10 +337,6 @@
       url = "github:SmiteshP/nvim-navic";
       flake = false;
     };
-    rnvimr = {
-      url = "github:kevinhwang91/rnvimr";
-      flake = false;
-    };
     oil-nvim = {
       url = "github:stevearc/oil.nvim";
       flake = false;
