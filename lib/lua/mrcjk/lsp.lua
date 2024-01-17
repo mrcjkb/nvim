@@ -51,10 +51,8 @@ vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
 end
 
 local function code_action()
-  if vim.cmd.CodeActionMenu then
-    return vim.cmd.CodeActionMenu()
-  end
-  return vim.lsp.buf.code_action()
+  return require('actions-preview').code_actions()
+  -- return vim.lsp.buf.code_action()
 end
 
 local function go_to_first_import()

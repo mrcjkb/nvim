@@ -31,6 +31,5 @@ require('hardtime').setup {
     'dapui-repl',
     'dapui_watches',
     'dapui_breakpoints',
-    'code-action-menu-menu',
   },
 }

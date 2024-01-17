@@ -171,7 +171,7 @@ with final.lib; let
         schemastore-nvim
         lspconfig
         lspkind-nvim
-        nvim-code-action-menu
+        actions-preview-nvim
         nvim-lint
         project
         telescope_hoogle

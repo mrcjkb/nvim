@@ -221,9 +221,6 @@ g.rustaceanvim = function()
   }
 end
 
--- nvim-code-action-menu
-g.code_action_menu_show_action_kind = false
-
 -- nvim-ts-context-commentstring
 g.skip_ts_context_commentstring_module = true
 

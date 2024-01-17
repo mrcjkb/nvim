@@ -253,8 +253,8 @@
       url = "github:onsails/lspkind-nvim";
       flake = false;
     };
-    nvim-code-action-menu = {
-      url = "github:weilbith/nvim-code-action-menu";
+    actions-preview-nvim = {
+      url = "github:aznhe21/actions-preview.nvim";
       flake = false;
     };
     cmp-dap = {

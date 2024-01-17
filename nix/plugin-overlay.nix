@@ -59,7 +59,7 @@ in {
     cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
-    nvim-code-action-menu = mkNvimPlugin inputs.nvim-code-action-menu "nvim-code-action-menu";
+    actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
     cmp-dap = mkNvimPlugin inputs.cmp-dap "cmp-dap";
     nvim-treesitter = prev.vimPlugins.nvim-treesitter.withAllGrammars.overrideAttrs (_: _: {
       # TODO: re-enable when sql highlights are fixed
