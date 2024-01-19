@@ -164,7 +164,7 @@ function lsp.on_attach(client, bufnr)
   if client.server_capabilities.inlayHintProvider then
     keymap.set('n', '<space>h', function()
       local current_setting = vim.lsp.inlay_hint.is_enabled(bufnr)
-      vim.lsp.inlay_hint(not current_setting)
+      vim.lsp.inlay_hint.enable(bufnr, not current_setting)
     end, desc('[lsp] toggle inlay hints'))
   end
 
