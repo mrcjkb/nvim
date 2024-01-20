@@ -19,10 +19,10 @@ end, desc('rust: run last runnable'))
 vim.keymap.set('n', '<space>rme', function()
   vim.cmd.RustLsp('expandMacro')
 end, desc('rust: expand macro'))
-vim.keymap.set('n', '<C-k>', function()
+vim.keymap.set('n', '<space>rk', function()
   vim.cmd.RustLsp { 'moveItem', 'up' }
 end, desc('rust: move item up'))
-vim.keymap.set('n', '<C-j>', function()
+vim.keymap.set('n', '<space>rj', function()
   vim.cmd.RustLsp { 'moveItem', 'down' }
 end, desc('rust: move item down'))
 vim.keymap.set('v', 'K', function()
