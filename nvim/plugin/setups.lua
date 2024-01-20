@@ -5,7 +5,6 @@ end
 setup('wildfire')
 setup('Comment')
 setup('neoconf')
-setup('todo-comments')
 setup('tmux')
 setup('nvim-highlight-colors')
 
