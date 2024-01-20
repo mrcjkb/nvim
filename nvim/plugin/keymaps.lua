@@ -28,8 +28,8 @@ keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last buffer' })
 -- inoremap('!', '!<c-g>u')
 -- inoremap('?', '?<c-g>u')
 
-keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection down' })
-keymap.set('v', 'K', ":m '>-2<CR>gv=gv", { desc = 'move selection down' })
+-- keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection up' })
+-- keymap.set('v', 'K', ":m '>-2<CR>gv=gv", { desc = 'move selection down' })
 
 -- Toggle the quickfix list (only opens if it is populated)
 local function toggle_qf_list()
