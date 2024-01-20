@@ -4,12 +4,18 @@ local function desc(description)
   return { noremap = true, silent = true, buffer = bufnr, desc = description }
 end
 
-vim.keymap.set('n', '<space>rd', function()
+vim.keymap.set('n', '<space>rdd', function()
   vim.cmd.RustLsp('debuggables')
 end, desc('rust: debuggables'))
+vim.keymap.set('n', '<space>rdl', function()
+  vim.cmd.RustLsp { 'debuggables', 'last' }
+end, desc('rust: run last debuggable'))
 vim.keymap.set('n', '<space>rr', function()
   vim.cmd.RustLsp('runnables')
 end, desc('rust: runnables'))
+vim.keymap.set('n', '<space>rl', function()
+  vim.cmd.RustLsp { 'runnables', 'last' }
+end, desc('rust: run last runnable'))
 vim.keymap.set('n', '<space>rme', function()
   vim.cmd.RustLsp('expandMacro')
 end, desc('rust: expand macro'))
