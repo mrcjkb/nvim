@@ -1743,17 +1743,16 @@
     "material-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1705960929,
-        "narHash": "sha256-mvGxmHGJGvtM74yGQGk175KOelEjN7OIJNbFQH7aWwc=",
-        "owner": "mrcjkb",
-        "repo": "material.nvim.fork",
-        "rev": "db13665ece3e19ec828ab18c2a14e96f8070fe1f",
+        "lastModified": 1705963747,
+        "narHash": "sha256-ccOtlCSAlMLRm4YVkintve7iX9ySMUc86xohNrwB6fg=",
+        "owner": "marko-cerovac",
+        "repo": "material.nvim",
+        "rev": "7cf05c682044a528510cc41135d83f52e4356f15",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "tree-sitter-highlight-groups",
-        "repo": "material.nvim.fork",
+        "owner": "marko-cerovac",
+        "repo": "material.nvim",
         "type": "github"
       }
     },
