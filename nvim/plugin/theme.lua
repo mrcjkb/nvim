@@ -66,6 +66,7 @@ require('material').setup {
     ['@comment.documentation'] = { link = '@comment', italic = false },
     ['@lsp.type.interface'] = { fg = '#B480D6', italic = false },
     Title = { fg = '#B480D6' },
+    ['@keyword.blocking'] = { fg = '#71C6E7', bold = true },
   },
   custom_colors = function(colors)
     colors.editor.fg = '#FFFFFF'
