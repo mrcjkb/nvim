@@ -45,6 +45,8 @@
    "readTMVarIO"
    "swapTMVar"
    "swapTMVarIO"
+   "swapTMVar_"
+   "swapTMVarIO_"
    "readTBQueue"
    "readTBQueueIO"
    "peekTBQueue"
