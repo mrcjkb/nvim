@@ -12,14 +12,22 @@
 (quasiquote
   (_
     (module) @_mod
-    . (variable) @exception
+    . (variable) @keyword.exception
   ) 
   (#eq? @_mod "Log")
-  (#eq? @exception "e")
+  (#eq? @keyword.exception "e")
 ) 
 
-((variable) @exception
-  (#any-of? @exception 
+((variable) @keyword.exception
+  (#any-of? @keyword.exception 
+   "throwString"
+   "throwWhenNothing"
+   "failWhenNothing"
+   "failWhenLeft_"
+  ))
+
+((variable) @keyword.exception
+  (#any-of? @keyword.exception 
    "throwString"
    "throwWhenNothing"
    "failWhenNothing"
