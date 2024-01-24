@@ -152,7 +152,6 @@ with final.lib; let
         nvim-lastplace
         comment
         material-theme
-        neotest-rust
         neotest-java
         neotest
         nio # TODO: Remove when rocks-dev is ready
@@ -251,6 +250,10 @@ with final.lib; let
         url = "git@github.com:mrcjkb/neotest-haskell.git";
       }
       {
+        name = "neotest-rust";
+        url = "git@github.com:mrcjkb/neotest-rust.git";
+      }
+      {
         name = "haskell-snippets.nvim";
         url = "git@github.com:mrcjkb/haskell-snippets.nvim.git";
       }
@@ -275,6 +278,9 @@ with final.lib; let
         neotest-haskell-dev
         telescope-manix
         rustaceanvim
+      ])
+      ++ (with final.nvimPlugins; [
+        neotest-rust
       ]);
     inherit extraPackages;
   };
