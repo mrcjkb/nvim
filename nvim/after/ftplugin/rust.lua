@@ -8,13 +8,13 @@ vim.keymap.set('n', '<space>rdd', function()
   vim.cmd.RustLsp('debuggables')
 end, desc('rust: debuggables'))
 vim.keymap.set('n', '<space>rdl', function()
-  vim.cmd.RustLsp { 'debuggables', 'last' }
+  vim.cmd.RustLsp { 'debuggables', bang = true }
 end, desc('rust: run last debuggable'))
 vim.keymap.set('n', '<space>rr', function()
   vim.cmd.RustLsp('runnables')
 end, desc('rust: runnables'))
 vim.keymap.set('n', '<space>rl', function()
-  vim.cmd.RustLsp { 'runnables', 'last' }
+  vim.cmd.RustLsp { 'runnables', bang = true }
 end, desc('rust: run last runnable'))
 vim.keymap.set('n', '<space>rme', function()
   vim.cmd.RustLsp('expandMacro')
