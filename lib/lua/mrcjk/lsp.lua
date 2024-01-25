@@ -35,7 +35,7 @@ require('nvim-lightbulb').setup {
   },
 }
 
-require('fidget').setup()
+require('fidget').setup {}
 
 local default_on_codelens = vim.lsp.codelens.on_codelens
 vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
@@ -133,7 +133,13 @@ function lsp.on_attach(client, bufnr)
   keymap.set('n', '<space>df', document_functions, desc('[lsp] document functions'))
   keymap.set('n', '<space>ds', document_structs, desc('[lsp] document structs'))
   keymap.set('n', '<space>di', document_modules, desc('[lsp] document modules/imports'))
-  keymap.set('n', '<M-CR>', code_action, desc('[lsp] code action'))
+  if client.name == 'rust-analyzer' then
+    keymap.set('n', '<M-CR>', function()
+      vim.cmd.RustLsp('codeAction')
+    end, desc('rust: code action'))
+  else
+    keymap.set('n', '<M-CR>', code_action, desc('[lsp] code action'))
+  end
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
   keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('[lsp] refresh code lenses'))
   keymap.set('n', 'gr', vim.lsp.buf.references, desc('[lsp] find references'))
