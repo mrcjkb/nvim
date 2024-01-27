@@ -1,3 +1,9 @@
+local bufnr = vim.api.nvim_get_current_buf()
+if vim.b[bufnr].mrcjkb_did_ftplugin then
+  return
+end
+vim.b[bufnr].mrcjkb_did_ftplugin = true
+
 local lsp = require('mrcjk.lsp')
 
 local pylsp_cmd = 'pylsp'
@@ -7,9 +13,9 @@ if vim.fn.executable(pylsp_cmd) ~= 1 then
 end
 
 -- local dap_python = require('dap-python')
-local on_pylsp_attach = function(client, bufnr)
-  lsp.on_attach(client, bufnr)
-  lsp.on_dap_attach(bufnr)
+local on_pylsp_attach = function(client, buf)
+  lsp.on_attach(client, buf)
+  lsp.on_dap_attach(buf)
   -- local opts = { noremap=true, silent=true }
   -- vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
   -- vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
@@ -35,6 +41,7 @@ local config = {
 }
 
 vim.lsp.start(config, {
+  bufnr = bufnr,
   reuse_client = function(client, conf)
     return client.name == conf.name and client.config.root_dir == conf.root_dir
   end,

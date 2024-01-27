@@ -1,8 +1,14 @@
+local bufnr = vim.api.nvim_get_current_buf()
+if vim.b[bufnr].mrcjkb_did_ftplugin then
+  return
+end
+vim.b[bufnr].mrcjkb_did_ftplugin = true
+
 local lsp = require('mrcjk.lsp')
 local jdtls = require('jdtls')
 
-local on_jdtls_attach = function(client, bufnr)
-  lsp.on_attach(client, bufnr)
+local on_jdtls_attach = function(client, buf)
+  lsp.on_attach(client, buf)
   -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
   -- you make during a debug session immediately.
   -- You can use the `JdtHotcodeReplace` command to trigger it manually

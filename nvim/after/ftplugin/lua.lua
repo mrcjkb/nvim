@@ -1,4 +1,10 @@
-vim.bo.comments = ':---,:--'
+local bufnr = vim.api.nvim_get_current_buf()
+if vim.b[bufnr].mrcjkb_did_ftplugin then
+  return
+end
+vim.b[bufnr].mrcjkb_did_ftplugin = true
+
+vim.bo[bufnr].comments = ':---,:--'
 
 local lsp = require('mrcjk.lsp')
 
