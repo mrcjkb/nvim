@@ -156,8 +156,10 @@ local keymap_opts = { noremap = true, silent = true }
 local telescope = require('telescope')
 local lsp = require('mrcjk.lsp')
 
+---@return HTOpts
 g.haskell_tools = function()
-  return {
+  ---@type HTOpts
+  local ht_opts = {
     tools = {
       repl = {
         handler = 'toggleterm',
@@ -199,10 +201,16 @@ g.haskell_tools = function()
       },
     },
   }
+  return ht_opts
 end
 
+---@return RustaceanOpts
 g.rustaceanvim = function()
-  return {
+  ---@type RustaceanOpts
+  local rustacean_opts = {
+    tools = {
+      executor = 'toggleterm',
+    },
     server = {
       on_attach = function(client, bufnr)
         lsp.on_attach(client, bufnr)
@@ -219,6 +227,7 @@ g.rustaceanvim = function()
       },
     },
   }
+  return rustacean_opts
 end
 
 -- nvim-ts-context-commentstring
