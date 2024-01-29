@@ -24,6 +24,7 @@ in {
     nvim-lastplace = mkNvimPlugin inputs.nvim-lastplace "nvim-lastplace";
     comment = mkNvimPlugin inputs.comment "comment.nvim";
     material-theme = mkNvimPlugin inputs.material-theme "material.nvim";
+    crates-nvim = mkNvimPlugin inputs.crates-nvim "crates-nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
     nio = mkNvimPlugin inputs.nio "nvim-nio";
     neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";

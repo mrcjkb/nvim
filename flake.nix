@@ -40,6 +40,10 @@
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
     };
+    crates-nvim = {
+      url = "github:saecki/crates.nvim";
+      flake = false;
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;

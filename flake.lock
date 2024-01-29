@@ -256,6 +256,22 @@
         "type": "github"
       }
     },
+    "crates-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706141227,
+        "narHash": "sha256-vkq1N6XvJOSsIbCCcAk1+9ReRMF4it/mofq55JhwQRY=",
+        "owner": "saecki",
+        "repo": "crates.nvim",
+        "rev": "f2a169840e97a8ed2048abb507d2742c3895c85b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saecki",
+        "repo": "crates.nvim",
+        "type": "github"
+      }
+    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -3346,6 +3362,7 @@
         "cmp-rg": "cmp-rg",
         "cmp-tmux": "cmp-tmux",
         "comment": "comment",
+        "crates-nvim": "crates-nvim",
         "diffview": "diffview",
         "eyeliner-nvim": "eyeliner-nvim",
         "fidget": "fidget",

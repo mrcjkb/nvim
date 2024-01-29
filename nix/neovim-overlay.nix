@@ -152,9 +152,10 @@ with final.lib; let
         nvim-lastplace
         comment
         material-theme
+        crates-nvim
+        neotest
         neotest-rust
         neotest-java
-        neotest
         nio # TODO: Remove when rocks-dev is ready
         nvim-dap
         nvim-dap-ui
