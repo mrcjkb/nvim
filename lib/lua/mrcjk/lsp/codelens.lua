@@ -2,12 +2,12 @@ local M = {}
 
 --- @class lsp.codelens.GetOpts
 --- @field lnum? integer
---- @field filter? fun(lens: lsp.CodeLens):boolean
 
 --- @class lsp.codelens.GotoOpts: vim.codelens.GetOpts
 --- @field cursor_position? {[1]:integer,[2]:integer}
 --- @field wrap? integer
 --- @field win_id? integer
+--- @field predicate? fun(lens: lsp.CodeLens):boolean
 
 --- @param lenses lsp.CodeLens[]
 --- @return table<integer,lsp.CodeLens[]>
@@ -37,6 +37,9 @@ local function next_codelens(position, search_forward, bufnr, opts)
   position[1] = position[1] - 1
   bufnr = (not bufnr or bufnr == 0) and vim.api.nvim_get_current_buf() or bufnr
   local wrap = opts.wrap == nil and true or opts.wrap
+  local predicate = opts.predicate or function()
+    return true
+  end
   local line_count = vim.api.nvim_buf_line_count(bufnr)
   local lenses = vim.lsp.codelens.get(bufnr)
   local lenses_by_lnum = lenses_by_lines(lenses)
@@ -55,18 +58,24 @@ local function next_codelens(position, search_forward, bufnr, opts)
       --- @type function, function
       local sort_lenses, is_next
       if search_forward then
+        ---@param a lsp.CodeLens
+        ---@param b lsp.CodeLens
         sort_lenses = function(a, b)
-          return a.col < b.col
+          return a.range.start.character < b.range.start.character
         end
+        ---@param d lsp.CodeLens
         is_next = function(d)
-          return math.min(d.col, line_length - 1) > position[2]
+          return predicate(d) and math.min(d.range.start.character, line_length - 1) > position[2]
         end
       else
+        ---@param a lsp.CodeLens
+        ---@param b lsp.CodeLens
         sort_lenses = function(a, b)
-          return a.col > b.col
+          return a.range.start.character > b.range.start.character
         end
+        ---@param d lsp.CodeLens
         is_next = function(d)
-          return math.min(d.col, line_length - 1) < position[2]
+          return predicate(d) and math.min(d.range.start.character, line_length - 1) < position[2]
         end
       end
       table.sort(lenses_by_lnum[lnum], sort_lenses)
@@ -173,6 +182,7 @@ end
 ---                          See |nvim_win_get_cursor()|. Defaults to the current cursor position.
 ---         - wrap: (boolean, default true) Whether to loop around file or not. Similar to 'wrapscan'.
 ---         - win_id: (number, default 0) Window ID
+---         - predicate: (function) A predicate for filtering code lenses.
 function M.goto_next(opts)
   codelens_move_pos(opts, M.get_next_pos(opts))
 end
