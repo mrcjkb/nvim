@@ -1,3 +1,5 @@
+local codelens = require('mrcjk.lsp.codelens')
+
 local bufnr = vim.api.nvim_get_current_buf()
 if vim.b[bufnr].mrcjkb_did_ftplugin then
   return
@@ -56,3 +58,15 @@ end, desc('rust: join lines'))
 vim.keymap.set('n', '<space>rs', function()
   vim.cmd.RustLsp('ssr')
 end, desc('rust: SSR'))
+
+---@param lens lsp.CodeLens
+local testable_predicate = function(lens)
+  ---@diagnostic disable-next-line: undefined-field
+  return type(lens.title) == 'string' and lens.title:find('Run Test') ~= nil
+end
+vim.keymap.set('n', '[t', function()
+  codelens.goto_prev { predicate = testable_predicate }
+end, desc('rust: previous testable'))
+vim.keymap.set('n', ']t', function()
+  codelens.goto_next { predicate = testable_predicate }
+end, desc('[lsp] next testable'))
