@@ -60,9 +60,12 @@ vim.keymap.set('n', '<space>rs', function()
 end, desc('rust: SSR'))
 
 ---@param lens lsp.CodeLens
+---@return boolean
 local testable_predicate = function(lens)
-  return lens.command.title:find('Run Test') ~= nil
+  local title = vim.tbl_get(lens, 'command', 'title')
+  return title and title:find('Run Test') ~= nil or false
 end
+
 vim.keymap.set('n', '[t', function()
   codelens.goto_prev { predicate = testable_predicate }
 end, desc('rust: previous testable'))
