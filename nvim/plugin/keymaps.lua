@@ -84,26 +84,26 @@ keymap.set('n', ']c', cright, { silent = true, desc = 'cycle quickfix right' })
 keymap.set('n', '[C', vim.cmd.cfirst, { silent = true, desc = 'first quickfix entry' })
 keymap.set('n', ']C', vim.cmd.clast, { silent = true, desc = 'last quickfix entry' })
 
--- local function lleft()
---   try_fallback_notify {
---     try = vim.cmd.lprev,
---     fallback = vim.cmd.llast,
---     notify = 'Location list is empty!',
---   }
--- end
+local function lleft()
+  try_fallback_notify {
+    try = vim.cmd.lprev,
+    fallback = vim.cmd.llast,
+    notify = 'Location list is empty!',
+  }
+end
 
--- local function lright()
---   try_fallback_notify {
---     try = vim.cmd.lnext,
---     fallback = vim.cmd.lfirst,
---     notify = 'Location list is empty!',
---   }
--- end
+local function lright()
+  try_fallback_notify {
+    try = vim.cmd.lnext,
+    fallback = vim.cmd.lfirst,
+    notify = 'Location list is empty!',
+  }
+end
 
--- keymap.set('n', '[l', lleft, { silent = true, desc = 'cycle loclist left' })
--- keymap.set('n', ']l', lright, { silent = true, desc = 'cycle loclist right' })
--- keymap.set('n', '[L', vim.cmd.lfirst, { silent = true, desc = 'first loclist entry' })
--- keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last loclist entry' })
+keymap.set('n', '[l', lleft, { silent = true, desc = 'cycle loclist left' })
+keymap.set('n', ']l', lright, { silent = true, desc = 'cycle loclist right' })
+keymap.set('n', '[L', vim.cmd.lfirst, { silent = true, desc = 'first loclist entry' })
+keymap.set('n', ']L', vim.cmd.llast, { silent = true, desc = 'last loclist entry' })
 
 -- Resize vertical splits
 local toIntegral = math.ceil
