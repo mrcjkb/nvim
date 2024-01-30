@@ -2,12 +2,12 @@ local M = {}
 
 --- @class lsp.codelens.GetOpts
 --- @field lnum? integer
+--- @field predicate? fun(lens: lsp.CodeLens):boolean
+--- @field wrap? integer
+--- @field cursor_position? {[1]:integer,[2]:integer}
+--- @field win_id? integer
 
 --- @class lsp.codelens.GotoOpts: lsp.codelens.GetOpts
---- @field cursor_position? {[1]:integer,[2]:integer}
---- @field wrap? integer
---- @field win_id? integer
---- @field predicate? fun(lens: lsp.CodeLens):boolean
 
 --- @param predicate fun(lens: lsp.CodeLens):boolean Filter predicate
 --- @param lenses lsp.CodeLens[]
@@ -34,7 +34,7 @@ end
 --- @param position {[1]: integer, [2]: integer}
 --- @param search_forward boolean
 --- @param bufnr integer
---- @param opts lsp.codelens.GotoOpts
+--- @param opts lsp.codelens.GetOpts
 --- @return lsp.CodeLens?
 local function next_codelens(position, search_forward, bufnr, opts)
   position[1] = position[1] - 1
@@ -120,7 +120,7 @@ end
 
 --- Get the previous codelens closest to the cursor position.
 ---
----@param opts? lsp.codelens.GotoOpts (table) See |lsp.codelens.goto_next()|
+---@param opts? lsp.codelens.GetOpts (table) See |lsp.codelens.goto_next()|
 ---@return lsp.CodeLens? Previous codelens
 function M.get_prev(opts)
   opts = opts or {}
@@ -134,7 +134,7 @@ end
 
 --- Return the position of the previous codelens in the current buffer.
 ---
----@param opts? lsp.codelens.GotoOpts (table) See |lsp.codelens.goto_next()|
+---@param opts? lsp.codelens.GetOpts (table) See |lsp.codelens.goto_next()|
 ---@return table|false: Previous codelens position as a (row, col) tuple or false if there is no
 ---                     prior codelens
 function M.get_prev_pos(opts)
@@ -153,7 +153,7 @@ end
 
 --- Get the next codelens closest to the cursor position.
 ---
----@param opts? lsp.codelens.GotoOpts (table) See |lsp.codelens.goto_next()|
+---@param opts? lsp.codelens.GetOpts (table) See |lsp.codelens.goto_next()|
 ---@return lsp.CodeLens? : Next codelens
 function M.get_next(opts)
   opts = opts or {}
