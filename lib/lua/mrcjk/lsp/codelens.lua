@@ -84,7 +84,7 @@ local function next_codelens(position, search_forward, bufnr, opts)
       table.sort(lenses_by_lnum[lnum], sort_lenses)
       if i == 0 then
         for _, v in
-          pairs(lenses_by_lnum[lnum] --[[@as table<string,any>]])
+          pairs(lenses_by_lnum[lnum] --[[@as table<string,unknown>]])
         do
           if is_next(v) then
             return v
