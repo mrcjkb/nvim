@@ -20,6 +20,12 @@ end, desc('rust: runnables'))
 vim.keymap.set('n', '<space>rl', function()
   vim.cmd.RustLsp { 'runnables', bang = true }
 end, desc('rust: run last runnable'))
+vim.keymap.set('n', '<space>rtt', function()
+  vim.cmd.RustLsp('testables')
+end, desc('rust: testables'))
+vim.keymap.set('n', '<space>rtl', function()
+  vim.cmd.RustLsp { 'testables', bang = true }
+end, desc('rust: run last testable'))
 vim.keymap.set('n', '<space>rme', function()
   vim.cmd.RustLsp('expandMacro')
 end, desc('rust: expand macro'))
