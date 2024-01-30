@@ -1,6 +1,8 @@
 ---@diagnostic disable: cast-local-type
 local lsp = {}
 
+local codelens = require('mrcjk.lsp.codelens')
+
 local function preview_location_callback(_, result)
   if result == nil or vim.tbl_isempty(result) then
     return nil
@@ -142,6 +144,8 @@ function lsp.on_attach(client, bufnr)
   end
   keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('[lsp] run code lens'))
   keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('[lsp] refresh code lenses'))
+  keymap.set('n', '[d', codelens.goto_prev, desc('[lsp] previous codelens'))
+  keymap.set('n', ']d', codelens.goto_next, desc('[lsp] next codelens'))
   keymap.set('n', 'gr', vim.lsp.buf.references, desc('[lsp] find references'))
   keymap.set({ 'n', 'v' }, '<space>f', function()
     vim.lsp.buf.format { async = true }
