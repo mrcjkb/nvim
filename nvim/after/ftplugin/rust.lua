@@ -61,8 +61,7 @@ end, desc('rust: SSR'))
 
 ---@param lens lsp.CodeLens
 local testable_predicate = function(lens)
-  ---@diagnostic disable-next-line: undefined-field
-  return type(lens.title) == 'string' and lens.title:find('Run Test') ~= nil
+  return lens.command.title:find('Run Test') ~= nil
 end
 vim.keymap.set('n', '[t', function()
   codelens.goto_prev { predicate = testable_predicate }
