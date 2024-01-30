@@ -3,15 +3,16 @@ local M = {}
 --- @class lsp.codelens.GetOpts
 --- @field lnum? integer
 
---- @class lsp.codelens.GotoOpts: vim.codelens.GetOpts
+--- @class lsp.codelens.GotoOpts: lsp.codelens.GetOpts
 --- @field cursor_position? {[1]:integer,[2]:integer}
 --- @field wrap? integer
 --- @field win_id? integer
 --- @field predicate? fun(lens: lsp.CodeLens):boolean
 
+--- @param predicate fun(lens: lsp.CodeLens):boolean Filter predicate
 --- @param lenses lsp.CodeLens[]
 --- @return table<integer,lsp.CodeLens[]>
-local function lenses_by_lines(lenses)
+local function filter_lenses_by_lines(predicate, lenses)
   if not lenses then
     return {}
   end
@@ -23,7 +24,9 @@ local function lenses_by_lines(lenses)
       line_lenses = {}
       lenses_by_lnum[lens.range.start.line] = line_lenses
     end
-    table.insert(line_lenses, lens)
+    if predicate(lens) then
+      table.insert(line_lenses, lens)
+    end
   end
   return lenses_by_lnum
 end
@@ -42,7 +45,7 @@ local function next_codelens(position, search_forward, bufnr, opts)
   end
   local line_count = vim.api.nvim_buf_line_count(bufnr)
   local lenses = vim.lsp.codelens.get(bufnr)
-  local lenses_by_lnum = lenses_by_lines(lenses)
+  local lenses_by_lnum = filter_lenses_by_lines(predicate, lenses)
 
   for i = 0, line_count do
     local offset = i * (search_forward and 1 or -1)
@@ -65,7 +68,7 @@ local function next_codelens(position, search_forward, bufnr, opts)
         end
         ---@param d lsp.CodeLens
         is_next = function(d)
-          return predicate(d) and math.min(d.range.start.character, line_length - 1) > position[2]
+          return math.min(d.range.start.character, line_length - 1) > position[2]
         end
       else
         ---@param a lsp.CodeLens
@@ -75,7 +78,7 @@ local function next_codelens(position, search_forward, bufnr, opts)
         end
         ---@param d lsp.CodeLens
         is_next = function(d)
-          return predicate(d) and math.min(d.range.start.character, line_length - 1) < position[2]
+          return math.min(d.range.start.character, line_length - 1) < position[2]
         end
       end
       table.sort(lenses_by_lnum[lnum], sort_lenses)
