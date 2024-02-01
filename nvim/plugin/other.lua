@@ -77,6 +77,14 @@ require('other-nvim').setup {
         },
       },
     },
+    {
+      pattern = '(.+)/src/test/(.*)/(.*)Test.java$',
+      target = {
+        {
+          target = '%1/src/main/%2/%3.java',
+        },
+      },
+    },
   },
 }
 
