@@ -27,7 +27,6 @@ in {
     crates-nvim = mkNvimPlugin inputs.crates-nvim "crates-nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
     nio = mkNvimPlugin inputs.nio "nvim-nio";
-    neotest-rust = mkNvimPlugin inputs.neotest-rust "neotest-rust";
     neotest-java = mkNvimPlugin inputs.neotest-java "neotest-java";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";

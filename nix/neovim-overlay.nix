@@ -154,7 +154,6 @@ with final.lib; let
         material-theme
         crates-nvim
         neotest
-        neotest-rust
         neotest-java
         nio # TODO: Remove when rocks-dev is ready
         nvim-dap
@@ -251,10 +250,6 @@ with final.lib; let
         name = "neotest-haskell";
         url = "git@github.com:mrcjkb/neotest-haskell.git";
       }
-      # {
-      #   name = "neotest-rust";
-      #   url = "git@github.com:mrcjkb/neotest-rust.git";
-      # }
       {
         name = "haskell-snippets.nvim";
         url = "git@github.com:mrcjkb/haskell-snippets.nvim.git";

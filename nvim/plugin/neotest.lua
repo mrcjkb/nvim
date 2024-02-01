@@ -18,7 +18,6 @@ neotest.setup {
         'sydtest',
       },
     },
-    -- require('neotest-rust'),
     require('rustaceanvim.neotest'),
     require('neotest-java'),
   },

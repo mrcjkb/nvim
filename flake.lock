@@ -2013,22 +2013,6 @@
         "type": "github"
       }
     },
-    "neotest-rust": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1706204419,
-        "narHash": "sha256-HtrC2Wl+yykjJ7HEwGx7RQd842stE4sDs4DJ/BwM5Ok=",
-        "owner": "rouge8",
-        "repo": "neotest-rust",
-        "rev": "392b54e18174b8c69eba779f94a9fd0b318d383e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rouge8",
-        "repo": "neotest-rust",
-        "type": "github"
-      }
-    },
     "neotest_2": {
       "flake": false,
       "locked": {
@@ -3392,7 +3376,6 @@
         "neotest": "neotest",
         "neotest-haskell": "neotest-haskell",
         "neotest-java": "neotest-java",
-        "neotest-rust": "neotest-rust",
         "nio": "nio",
         "nixpkgs": "nixpkgs_7",
         "nvim-bqf": "nvim-bqf",
