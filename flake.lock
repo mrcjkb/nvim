@@ -1959,15 +1959,16 @@
     "neotest": {
       "flake": false,
       "locked": {
-        "lastModified": 1706188582,
-        "narHash": "sha256-Divl5NEVZ5epgmJvItYu9L959XiCgsP1OfDAIG7+RKo=",
-        "owner": "nvim-neotest",
+        "lastModified": 1706827505,
+        "narHash": "sha256-gX1G8QA9V6/Sw/zxFJ/gKpu1kygSeAAk1aqrwifeSKA=",
+        "owner": "mrcjkb",
         "repo": "neotest",
-        "rev": "73043d666780e35185a77589e01bec96a52db910",
+        "rev": "a95ea7b272a766e135cf18d1357db0c76193f65c",
         "type": "github"
       },
       "original": {
-        "owner": "nvim-neotest",
+        "owner": "mrcjkb",
+        "ref": "watcher",
         "repo": "neotest",
         "type": "github"
       }
