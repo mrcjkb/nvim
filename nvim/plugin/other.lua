@@ -5,6 +5,7 @@ require('other-nvim').setup {
     end,
   },
   mappings = {
+    -- Haskell
     {
       pattern = '(.+)/src/(.*)/(.*).hs$',
       target = {
@@ -64,6 +65,17 @@ require('other-nvim').setup {
     {
       pattern = '(.+)/test/(.*)/Tiko(.*)Test.hs$',
       target = '%1/src/%2/%3.hs',
+    },
+
+    -- Java
+    {
+      pattern = '(.+)/src/(.*)/(.*).java$',
+      target = {
+        {
+          target = '%1/src/test/%2/%3Test.java',
+          context = 'test',
+        },
+      },
     },
   },
 }
