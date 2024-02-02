@@ -121,8 +121,8 @@
       flake = false;
     };
     neotest = {
-      # url = "github:nvim-neotest/neotest";
-      url = "github:mrcjkb/neotest/watcher";
+      url = "github:nvim-neotest/neotest";
+      # url = "github:mrcjkb/neotest/watcher";
       # url = "/home/mrcjk/git/github/forks/nvim/neotest/";
       flake = false;
     };
