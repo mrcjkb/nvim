@@ -21,6 +21,10 @@ neotest.setup {
     require('rustaceanvim.neotest'),
     require('neotest-java'),
   },
+  ---@diagnostic disable-next-line: missing-fields
+  discovery = {
+    enabled = true,
+  },
   icons = {
     failed = '',
     passed = '',
