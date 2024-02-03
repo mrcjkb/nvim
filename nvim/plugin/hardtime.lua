@@ -7,6 +7,8 @@ require('hardtime').setup {
   allow_different_key = false,
   restricted_keys = {
     ['-'] = {}, -- Remove from default list
+    ['<C-M>'] = {},
+    ['<C-N>'] = {},
     ['<C-P>'] = {},
     ['<CR>'] = {},
   },
