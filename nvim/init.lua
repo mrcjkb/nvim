@@ -206,6 +206,8 @@ end
 
 ---@return RustaceanOpts
 g.rustaceanvim = function()
+  local has_clippy = vim.fn.executable('cargo-clippy') == 1
+
   ---@type RustaceanOpts
   local rustacean_opts = {
     tools = {
@@ -222,6 +224,19 @@ g.rustaceanvim = function()
             allFeatures = true,
             loadOutDirsFromCheck = true,
             runBuildScripts = true,
+          },
+          checkOnSave = has_clippy and {
+            allFeatures = true,
+            command = 'clippy',
+            extraArgs = { '--no-deps' },
+          },
+          procMacro = {
+            enable = true,
+            ignored = {
+              ['async-trait'] = { 'async_trait' },
+              ['napi-derive'] = { 'napi' },
+              ['async-recursion'] = { 'async_recursion' },
+            },
           },
         },
       },
