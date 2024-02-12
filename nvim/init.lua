@@ -240,8 +240,3 @@ end
 
 -- nvim-ts-context-commentstring
 g.skip_ts_context_commentstring_module = true
-
--- For some reason, this causes plugins' ftplugin
--- to be sourced.
-cmd.syntax('on')
-cmd.syntax('enable')
