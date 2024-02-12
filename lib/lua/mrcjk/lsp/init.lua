@@ -98,7 +98,9 @@ local function document_structs()
 end
 
 function lsp.on_attach(client, bufnr)
-  require('nvim-navic').attach(client, bufnr)
+  if client.server_capabilities.documentSymbolProvider then
+    require('nvim-navic').attach(client, bufnr)
+  end
   vim.cmd.setlocal('signcolumn=yes')
 
   local function buf_set_var(...)
