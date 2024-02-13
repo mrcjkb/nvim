@@ -59,8 +59,6 @@
    "readTQueueIO"
    "peekTQueue"
    "peekTQueueIO"
-   "writeTQueue"
-   "writeTQueueIO"
    "unGetTQueue"
    "unGetTQueueIO"
    "readTChan"
