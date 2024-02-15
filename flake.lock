@@ -3421,6 +3421,7 @@
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
+        "vim-tpipeline": "vim-tpipeline",
         "vim-wordmotion": "vim-wordmotion",
         "wf-nvim": "wf-nvim",
         "which-key-nvim": "which-key-nvim",
@@ -4132,6 +4133,22 @@
       "original": {
         "owner": "andymass",
         "repo": "vim-matchup",
+        "type": "github"
+      }
+    },
+    "vim-tpipeline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706370088,
+        "narHash": "sha256-yPg/svPFzUKRs8H9kKCzRCkCr965sgiqxcXGhuBuCNI=",
+        "owner": "vimpostor",
+        "repo": "vim-tpipeline",
+        "rev": "86be2d4d7719db34d651df4690ab5f49274c646a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vimpostor",
+        "repo": "vim-tpipeline",
         "type": "github"
       }
     },
