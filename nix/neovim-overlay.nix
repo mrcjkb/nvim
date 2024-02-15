@@ -169,7 +169,6 @@ with final.lib; let
         illuminate
         neoconf-nvim
         schemastore-nvim
-        lspconfig
         lspkind-nvim
         actions-preview-nvim
         nvim-lint

@@ -142,10 +142,6 @@
       url = "github:b0o/SchemaStore.nvim";
       flake = false;
     };
-    lspconfig = {
-      url = "github:neovim/nvim-lspconfig";
-      flake = false;
-    };
     jdtls = {
       # FIXME: Update setup in dotfiles
       url = "github:mfussenegger/nvim-jdtls";

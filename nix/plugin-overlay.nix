@@ -30,7 +30,6 @@ in {
     neotest-java = mkNvimPlugin inputs.neotest-java "neotest-java";
     neoconf-nvim = mkNvimPlugin inputs.neoconf-nvim "neoconf.nvim";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
-    lspconfig = mkNvimPlugin inputs.lspconfig "nvim-lspconfig";
     rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     neodev-nvim = mkNvimPlugin inputs.neodev-nvim "neodev.nvim";

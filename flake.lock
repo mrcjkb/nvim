@@ -1708,22 +1708,6 @@
         "type": "github"
       }
     },
-    "lspconfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1706873780,
-        "narHash": "sha256-nEEHd2S32kP6f2NU9JnIkX6hIwI/qNzX2GgPLMgp5k4=",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "9a6279953c82d01b58825a46ede032ab246a5983",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "type": "github"
-      }
-    },
     "lspkind-nvim": {
       "flake": false,
       "locked": {
@@ -3365,7 +3349,6 @@
         "jdtls": "jdtls",
         "lsp-status": "lsp-status",
         "lsp_signature": "lsp_signature",
-        "lspconfig": "lspconfig",
         "lspkind-nvim": "lspkind-nvim",
         "lualine": "lualine",
         "material-theme": "material-theme",

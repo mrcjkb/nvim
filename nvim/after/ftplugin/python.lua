@@ -16,10 +16,6 @@ end
 local on_pylsp_attach = function(client, buf)
   lsp.on_attach(client, buf)
   lsp.on_dap_attach(buf)
-  -- local opts = { noremap=true, silent=true }
-  -- vim.keymap.set('n', '<leader>dn', dap_python.test_method, opts)
-  -- vim.keymap.set('n', '<leader>df', dap_python.test_class, opts)
-  -- vim.keymap.set('v', '<leader>ds', dap_python.debug_selection, opts)
 end
 
 local config = {
