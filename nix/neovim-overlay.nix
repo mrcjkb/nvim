@@ -192,7 +192,6 @@ with final.lib; let
         statuscol
         nvim-unception
         tmux-nvim
-        vim-tpipeline
         hardtime-nvim
         term-edit-nvim
         oil-nvim

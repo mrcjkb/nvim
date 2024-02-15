@@ -390,10 +390,6 @@
       url = "github:aserowy/tmux.nvim";
       flake = false;
     };
-    vim-tpipeline = {
-      url = "github:vimpostor/vim-tpipeline";
-      flake = false;
-    };
     hardtime-nvim = {
       url = "github:m4xshen/hardtime.nvim";
       flake = false;
