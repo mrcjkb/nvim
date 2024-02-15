@@ -25,6 +25,9 @@ vim.keymap.set('n', open_mapping, function()
     auto_scroll = false,
     -- This field is only relevant if direction is set to 'float'
     autochdir = false,
+    winbar = {
+      enabled = true,
+    },
   }
   vim.cmd.set('hidden') -- Required to persist toggleterm sessions
   vim.cmd.ToggleTerm()
