@@ -117,6 +117,24 @@ end
 vim.keymap.set({ 'n' }, 'n', function()
   return handle_n_N('n')
 end)
-return vim.keymap.set({ 'n' }, 'N', function()
+vim.keymap.set({ 'n' }, 'N', function()
   return handle_n_N('N')
 end)
+
+if vim.fn.has_key(vim.fn.environ(), 'TMUX') == 1 then
+  local tmuxgroup = api.nvim_create_augroup('tmux_status_toggle', { clear = true })
+  api.nvim_create_autocmd({ 'VimEnter', 'VimResume' }, {
+    pattern = '*',
+    group = tmuxgroup,
+    callback = function()
+      vim.system { 'tmux', 'set', 'status', 'off' }
+    end,
+  })
+  api.nvim_create_autocmd({ 'VimLeave', 'VimSuspend' }, {
+    pattern = '*',
+    group = tmuxgroup,
+    callback = function()
+      vim.system { 'tmux', 'set', 'status', 'on' }
+    end,
+  })
+end
