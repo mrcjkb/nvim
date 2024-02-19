@@ -135,7 +135,9 @@
       flake = false;
     };
     neoconf-nvim = {
-      url = "github:folke/neoconf.nvim";
+      # url = "github:folke/neoconf.nvim";
+      url = "github:mrcjkb/neoconf.nvim/no-lspconfig";
+      # url = "/home/mrcjk/git/github/forks/nvim/neoconf.nvim/";
       flake = false;
     };
     schemastore-nvim = {

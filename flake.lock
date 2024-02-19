@@ -1759,15 +1759,16 @@
     "neoconf-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1706750766,
-        "narHash": "sha256-q0TOwiGQu/Xl7rIDERbI4PJ5j88ErH77PNyOVOey6jM=",
-        "owner": "folke",
+        "lastModified": 1708381543,
+        "narHash": "sha256-e9HWqvKKftgTyaHGvefX5g9yNOUzrD6cQVZ2pGDTqSA=",
+        "owner": "mrcjkb",
         "repo": "neoconf.nvim",
-        "rev": "a0e63d84433ab03947cb3da82744220e39e05338",
+        "rev": "ab4047acde773921dbf99d6371523edb1d560cbb",
         "type": "github"
       },
       "original": {
-        "owner": "folke",
+        "owner": "mrcjkb",
+        "ref": "no-lspconfig",
         "repo": "neoconf.nvim",
         "type": "github"
       }
