@@ -305,7 +305,9 @@
       flake = false;
     };
     project = {
-      url = "github:ahmedkhalf/project.nvim";
+      # url = "github:ahmedkhalf/project.nvim";
+      url = "github:mrcjkb/project.nvim/use-workspace-root";
+      # url = "/home/mrcjk/git/github/forks/nvim/project.nvim";
       flake = false;
     };
     telescope = {

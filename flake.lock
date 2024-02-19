@@ -3251,15 +3251,16 @@
     "project": {
       "flake": false,
       "locked": {
-        "lastModified": 1680567592,
-        "narHash": "sha256-avV3wMiDbraxW4mqlEsKy0oeewaRj9Q33K8NzWoaptU=",
-        "owner": "ahmedkhalf",
+        "lastModified": 1708377086,
+        "narHash": "sha256-vzkytCkFnThtGAHVqEk4AEvqMyryBjbO938gIaLifNs=",
+        "owner": "mrcjkb",
         "repo": "project.nvim",
-        "rev": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb",
+        "rev": "9ec247312908d949876604ee7dce5543be161de4",
         "type": "github"
       },
       "original": {
-        "owner": "ahmedkhalf",
+        "owner": "mrcjkb",
+        "ref": "use-workspace-root",
         "repo": "project.nvim",
         "type": "github"
       }
