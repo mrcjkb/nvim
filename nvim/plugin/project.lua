@@ -14,5 +14,4 @@ require('project_nvim').setup {
     'hie.yaml',
   },
   scope_chdir = 'win',
-  silent_chdir = false,
 }
