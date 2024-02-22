@@ -8,4 +8,7 @@ require('fidget').setup {
       render_limit = 3, -- How many LSP messages to show at once
     },
   },
+  notification = {
+    override_vim_notify = true,
+  },
 }
