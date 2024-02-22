@@ -151,6 +151,7 @@
     };
     neodev-nvim = {
       url = "github:folke/neodev.nvim";
+      # url = "/home/mrcjk/git/github/forks/nvim/neodev.nvim/";
       flake = false;
     };
     nvim-dap = {
