@@ -225,6 +225,7 @@ with final.lib; let
       telescope-fzy-native-nvim
       neorg
       dial-nvim
+      vim-scriptease
     ]);
 
   extraPackages = with final; [
