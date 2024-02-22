@@ -11,6 +11,7 @@
     neorocks = {
       url = "github:nvim-neorocks/neorocks";
     };
+    gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     # neovim = {
     #   # 90b213990f02d2a86019ef4058ad86a995931bea good
     #   # 5e78fd7784509dbbe146748e9264e5129cf68ab8 bad
@@ -134,12 +135,6 @@
       url = "github:rcasia/neotest-java";
       flake = false;
     };
-    neoconf-nvim = {
-      # url = "github:folke/neoconf.nvim";
-      url = "github:mrcjkb/neoconf.nvim/no-lspconfig";
-      # url = "/home/mrcjk/git/github/forks/nvim/neoconf.nvim/";
-      flake = false;
-    };
     schemastore-nvim = {
       url = "github:b0o/SchemaStore.nvim";
       flake = false;
@@ -147,11 +142,6 @@
     jdtls = {
       # FIXME: Update setup in dotfiles
       url = "github:mfussenegger/nvim-jdtls";
-      flake = false;
-    };
-    neodev-nvim = {
-      url = "github:folke/neodev.nvim";
-      # url = "/home/mrcjk/git/github/forks/nvim/neodev.nvim/";
       flake = false;
     };
     nvim-dap = {
@@ -417,6 +407,7 @@
     self,
     nixpkgs,
     neorocks,
+    gen-luarc,
     flake-utils,
     pre-commit-hooks,
     ...
@@ -434,6 +425,7 @@
         inherit system;
         overlays = [
           neorocks.overlays.default
+          gen-luarc.overlays.default
           plugin-overlay
           neovim-overlay
           inputs.haskell-tools.overlays.default
@@ -453,6 +445,7 @@
         ];
         shellHook = ''
           ${self.checks.${system}.pre-commit-check.shellHook}
+          ln -fs ${pkgs.luarc-json} .luarc.json
         '';
       };
       pre-commit-check = pre-commit-hooks.lib.${system}.run {

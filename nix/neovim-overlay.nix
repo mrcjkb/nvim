@@ -123,7 +123,7 @@ with final.lib; let
         wrapRc = true;
       });
 
-  all-plugins = with final.nvimPlugins;
+  base-plugins = with final.nvimPlugins;
     ([
         plenary
         sqlite
@@ -159,7 +159,6 @@ with final.lib; let
         nvim-dap
         nvim-dap-ui
         nvim-dap-virtual-text
-        neodev-nvim
         jdtls
         lsp-status
         lsp_signature
@@ -167,7 +166,6 @@ with final.lib; let
         nvim-lightbulb
         fidget
         illuminate
-        neoconf-nvim
         schemastore-nvim
         lspkind-nvim
         actions-preview-nvim
@@ -228,6 +226,16 @@ with final.lib; let
       vim-scriptease
     ]);
 
+  all-plugins =
+    base-plugins
+    ++ (with final; [
+      haskell-tools-nvim-dev
+      haskell-snippets-nvim
+      neotest-haskell-dev
+      telescope-manix
+      rustaceanvim
+    ]);
+
   extraPackages = with final; [
     haskellPackages.fast-tags
     nodePackages.vim-language-server
@@ -240,7 +248,7 @@ with final.lib; let
   ];
 
   nvim-dev = mkNeovim {
-    plugins = all-plugins;
+    plugins = base-plugins;
     devPlugins = [
       {
         name = "haskell-tools.nvim";
@@ -267,20 +275,19 @@ with final.lib; let
   };
 
   nvim-pkg = mkNeovim {
-    plugins =
-      all-plugins
-      ++ (with final; [
-        haskell-tools-nvim-dev
-        haskell-snippets-nvim
-        neotest-haskell-dev
-        telescope-manix
-        rustaceanvim
-      ]);
+    plugins = all-plugins;
     inherit extraPackages;
+  };
+
+  luarc-json = final.mk-luarc-json {
+    plugins = all-plugins;
+    nvim = final.neovim-nightly;
+    neodev-types = "nightly";
   };
 in {
   inherit
     nvim-dev
     nvim-pkg
+    luarc-json
     ;
 }
