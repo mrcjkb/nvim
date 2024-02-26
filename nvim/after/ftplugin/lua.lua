@@ -1,8 +1,4 @@
 local bufnr = vim.api.nvim_get_current_buf()
-if vim.b[bufnr].mrcjkb_did_ftplugin then
-  return
-end
-vim.b[bufnr].mrcjkb_did_ftplugin = true
 
 vim.bo[bufnr].comments = ':---,:--'
 
@@ -25,6 +21,7 @@ if vim.fn.executable(lua_ls_cmd) ~= 1 then
   return
 end
 
+---@diagnostic disable-next-line: missing-fields
 vim.lsp.start {
   name = 'luals',
   cmd = { lua_ls_cmd },

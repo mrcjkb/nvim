@@ -40,6 +40,7 @@ require('nvim-lightbulb').setup {
 require('fidget').setup {}
 
 local default_on_codelens = vim.lsp.codelens.on_codelens
+---@diagnostic disable-next-line: duplicate-set-field
 vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
   if err or not lenses or not next(lenses) then
     return default_on_codelens(err, lenses, ctx, _)
@@ -259,6 +260,8 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
+---@type lsp.ClientCapabilities
+---@diagnostic disable-next-line: assign-type-mismatch
 lsp.capabilities = capabilities
 
 api.nvim_create_autocmd('LspDetach', {

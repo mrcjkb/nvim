@@ -1,9 +1,3 @@
-local bufnr = vim.api.nvim_get_current_buf()
-if vim.b[bufnr].mrcjkb_did_ftplugin then
-  return
-end
-vim.b[bufnr].mrcjkb_did_ftplugin = true
-
 local lsp = require('mrcjk.lsp')
 
 local pylsp_cmd = 'pylsp'
@@ -35,6 +29,8 @@ local config = {
     },
   },
 }
+
+local bufnr = vim.api.nvim_get_current_buf()
 
 vim.lsp.start(config, {
   bufnr = bufnr,
