@@ -193,7 +193,6 @@ with final.lib; let
         term-edit-nvim
         oil-nvim
         other-nvim
-        wf-nvim
         which-key-nvim
       ]
       ++ [

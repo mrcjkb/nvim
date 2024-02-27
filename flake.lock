@@ -3444,7 +3444,6 @@
         "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
-        "wf-nvim": "wf-nvim",
         "which-key-nvim": "which-key-nvim",
         "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
@@ -4170,22 +4169,6 @@
       "original": {
         "owner": "chaoren",
         "repo": "vim-wordmotion",
-        "type": "github"
-      }
-    },
-    "wf-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1705944484,
-        "narHash": "sha256-QssI2cF4PjKT0TAo9CveKeLwcIN8DQl7loi77fiIoo4=",
-        "owner": "Cassin01",
-        "repo": "wf.nvim",
-        "rev": "fe5d94278f33446c3afdb34dac9f3a953907f720",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Cassin01",
-        "repo": "wf.nvim",
         "type": "github"
       }
     },
