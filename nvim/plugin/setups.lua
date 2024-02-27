@@ -4,7 +4,6 @@ end
 
 setup('wildfire')
 setup('Comment')
-setup('neoconf')
 setup('nvim-highlight-colors')
 
 if not vim.g.nvim_surround_setup then
