@@ -211,29 +211,29 @@ cmp.setup.cmdline(':', {
 
 require('cmp_luasnip_choice').setup()
 
-vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, { noremap = false, desc = '[cmp] complete' })
+vim.keymap.set({ 'i', 'c', 's' }, '<C-n>', cmp.complete, { noremap = false, desc = 'cmp: complete' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-f>', function()
   complete_with_source('path')
-end, { noremap = false, desc = '[cmp] path' })
+end, { noremap = false, desc = 'cmp: path' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-g>', function()
   complete_with_source('rg')
-end, { noremap = false, desc = '[cmp] rg' })
+end, { noremap = false, desc = 'cmp: rg' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-o>', function()
   complete_with_source('nvim_lsp')
-end, { noremap = false, desc = '[cmp] lsp' })
+end, { noremap = false, desc = 'cmp: lsp' })
 vim.keymap.set({ 'i', 'c', 's' }, '<C-t>', function()
   complete_with_source {
     name = 'tmux',
     keyword_length = 3,
     all_panes = true,
   }
-end, { noremap = false, desc = '[cmp] tmux' })
+end, { noremap = false, desc = 'cmp: tmux' })
 vim.keymap.set({ 'c' }, '<C-h>', function()
   complete_with_source('cmdline_history')
-end, { noremap = false, desc = '[cmp] cmdline history' })
+end, { noremap = false, desc = 'cmp: cmdline history' })
 vim.keymap.set({ 'c' }, '<C-c>', function()
   complete_with_source('cmdline')
-end, { noremap = false, desc = '[cmp] cmdline' })
+end, { noremap = false, desc = 'cmp: cmdline' })
 vim.keymap.set({ 'c' }, '<tab>', function()
   complete_with_source('cmdline')
-end, { noremap = false, desc = '[cmp] cmdline' })
+end, { noremap = false, desc = 'cmp: cmdline' })

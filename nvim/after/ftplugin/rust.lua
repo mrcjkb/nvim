@@ -7,52 +7,52 @@ end
 
 vim.keymap.set('n', '<space>rdd', function()
   vim.cmd.RustLsp('debuggables')
-end, desc('rust: debuggables'))
+end, desc('[r]ust: [dd]ebuggables'))
 vim.keymap.set('n', '<space>rdl', function()
   vim.cmd.RustLsp { 'debuggables', bang = true }
-end, desc('rust: run last debuggable'))
+end, desc('[r]ust: run [d]ebuggables [l]ast'))
 vim.keymap.set('n', '<space>rr', function()
   vim.cmd.RustLsp('runnables')
-end, desc('rust: runnables'))
+end, desc('[r]ust: [r]unnables'))
 vim.keymap.set('n', '<space>rl', function()
   vim.cmd.RustLsp { 'runnables', bang = true }
-end, desc('rust: run last runnable'))
+end, desc('[r]ust: [r]unnables [l]ast'))
 vim.keymap.set('n', '<space>rtt', function()
   vim.cmd.RustLsp('testables')
-end, desc('rust: testables'))
+end, desc('[r]ust: [t]es[t]ables'))
 vim.keymap.set('n', '<space>rtl', function()
   vim.cmd.RustLsp { 'testables', bang = true }
-end, desc('rust: run last testable'))
+end, desc('[r]ust: run [t]estables [l]ast'))
 vim.keymap.set('n', '<space>rme', function()
   vim.cmd.RustLsp('expandMacro')
-end, desc('rust: expand macro'))
+end, desc('[r]ust: [m]acro [e]xpand'))
 vim.keymap.set('n', '<space>rk', function()
   vim.cmd.RustLsp { 'moveItem', 'up' }
-end, desc('rust: move item up'))
+end, desc('[r]ust: move item up [k]'))
 vim.keymap.set('n', '<space>rj', function()
   vim.cmd.RustLsp { 'moveItem', 'down' }
-end, desc('rust: move item down'))
+end, desc('[r]ust: move item down [j]'))
 vim.keymap.set('v', 'K', function()
   vim.cmd.RustLsp { 'hover', 'range' }
 end, desc('rust: hover range'))
 vim.keymap.set('n', '<space>re', function()
   vim.cmd.RustLsp('explainError')
-end, desc('rust: explain error'))
+end, desc('[r]ust: [e]xplain error'))
 vim.keymap.set('n', '<space>rd', function()
   vim.cmd.RustLsp('renderDiagnostic')
-end, desc('rust: render diagnostic'))
+end, desc('rust: [r]ender [d]iagnostic'))
 vim.keymap.set('n', '<space>gc', function()
   vim.cmd.RustLsp('openCargo')
-end, desc('rust: open Cargo.toml'))
+end, desc('rust: [g]o to [c]argo.toml'))
 vim.keymap.set('n', '<space>gp', function()
   vim.cmd.RustLsp('parentModule')
-end, desc('rust: open parent module'))
+end, desc('rust: [g]o to [p]arent module'))
 vim.keymap.set('n', 'J', function()
   vim.cmd.RustLsp('joinLines')
 end, desc('rust: join lines'))
 vim.keymap.set('n', '<space>rs', function()
   vim.cmd.RustLsp('ssr')
-end, desc('rust: SSR'))
+end, desc('[r]ust: [s]sr'))
 
 ---@param lens lsp.CodeLens
 ---@return boolean
@@ -63,7 +63,7 @@ end
 
 vim.keymap.set('n', '[t', function()
   codelens.goto_prev { predicate = testable_predicate }
-end, desc('rust: previous testable'))
+end, desc('rust: previous [t]estable'))
 vim.keymap.set('n', ']t', function()
   codelens.goto_next { predicate = testable_predicate }
-end, desc('[lsp] next testable'))
+end, desc('rust: next [t]estable'))

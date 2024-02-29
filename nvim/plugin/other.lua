@@ -94,12 +94,12 @@ end
 
 vim.keymap.set('n', '<leader>oo', function()
   vim.cmd.Other()
-end, desc('[other]'))
+end, desc('[oo]ther'))
 
 vim.keymap.set('n', '<leader>os', function()
   vim.cmd.Other('spec')
-end, desc('[other] spec'))
+end, desc('[o]ther: [s]pec'))
 
 vim.keymap.set('n', '<leader>ot', function()
   vim.cmd.Other('test')
-end, desc('[other] test'))
+end, desc('[o]ther: [t]est'))

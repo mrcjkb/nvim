@@ -5,26 +5,26 @@ vim.keymap.set({ 'i', 's' }, '<c-j>', function()
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
   end
-end, { silent = true, desc = '[luasnip] expand or jump' })
+end, { silent = true, desc = 'luasnip: expand or jump' })
 
 -- jump to previous item
 vim.keymap.set({ 'i', 's' }, '<c-k>', function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
-end, { silent = true, desc = '[luasnip] jump' })
+end, { silent = true, desc = 'luasnip: jump' })
 
 -- select within a list of options
 vim.keymap.set('i', '<c-l>', function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
-end, { silent = true, desc = '[luasnip] change choice' })
+end, { silent = true, desc = 'luasnip: change choice' })
 
 -- Source luasnips config (for snippet development)
 vim.keymap.set('n', '<leader><leader>s', function()
   vim.cmd.source('/home/mrcjk/git/github/mrcjkb/nvim/nvim/plugin/luasnip.lua')
-end, { desc = '[luasnip-dev] source snippets' })
+end, { desc = 'luasnip-dev: source snippets' })
 
 ls.setup {
   history = true,

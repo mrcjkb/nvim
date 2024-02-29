@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('BufReadPre', {
     vim.keymap.set('n', '<leader>ss', function()
       p.save()
       vim.notify('Saved session.', vim.log.levels.INFO)
-    end, { desc = '[session] save' })
+    end, { desc = '[s]ession: [s]ave' })
 
     vim.keymap.set('n', '<leader>sx', function()
       if is_active then
@@ -27,12 +27,7 @@ vim.api.nvim_create_autocmd('BufReadPre', {
         is_active = true
         vim.notify('Started session recording.', vim.log.levels.INFO)
       end
-    end, {})
-
-    vim.keymap.set('n', '<leader>sx', function()
-      p.stop()
-      vim.notify('Stopped session recording.', vim.log.levels.INFO)
-    end, { desc = '[session] stop recording' })
+    end, { desc = 'start/stop recording [s]ession [x]' })
 
     is_setup = true
   end,
@@ -41,8 +36,4 @@ vim.api.nvim_create_autocmd('BufReadPre', {
 vim.keymap.set('n', '<leader>sl', function()
   require('persistence').load()
   vim.notify('Loaded session.', vim.log.levels.INFO)
-end, { desc = '[session] load' })
-
-vim.api.nvim_create_user_command('S', function()
-  require('persistence').load()
-end, {})
+end, { desc = '[s]ession: [l]oad' })

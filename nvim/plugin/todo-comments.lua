@@ -10,8 +10,8 @@ require('todo-comments').setup {
 
 vim.keymap.set('n', ']t', function()
   require('todo-comments').jump_next { keywords = { 'TODO' } }
-end, { desc = 'Next todo comment' })
+end, { desc = 'Next [t]odo comment' })
 
 vim.keymap.set('n', '[t', function()
   require('todo-comments').jump_prev { keywords = { 'TODO' } }
-end, { desc = 'Previous todo comment' })
+end, { desc = 'Previous [t]odo comment' })

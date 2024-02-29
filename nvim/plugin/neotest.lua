@@ -37,12 +37,12 @@ neotest.setup {
     open = false,
   },
 }
-vim.keymap.set('n', '<leader>nr', neotest.run.run, desc('[test] run nearest'))
+vim.keymap.set('n', '<leader>nr', neotest.run.run, desc('[n]eotest: [r]un nearest'))
 vim.keymap.set('n', '<leader>nf', function()
   neotest.run.run(vim.api.nvim_buf_get_name(0))
-end, desc('[test] run file'))
+end, desc('[n]eotest: run [f]ile'))
 vim.keymap.set('n', '<leader>nw', function()
   neotest.watch.toggle(vim.api.nvim_buf_get_name(0))
-end, desc('[test] watch file'))
-vim.keymap.set('n', '<leader>no', neotest.output.open, desc('[test] open output'))
-vim.keymap.set('n', '<leader>ns', neotest.summary.toggle, desc('[test] toggle summary'))
+end, desc('[n]eotest: [w]atch file'))
+vim.keymap.set('n', '<leader>no', neotest.output.open, desc('[n]eotest: [o]pen output'))
+vim.keymap.set('n', '<leader>ns', neotest.summary.toggle, desc('[n]eotest: toggle [s]ummary'))

@@ -7,7 +7,7 @@ local on_latex_attach = function(client, bufnr)
     'n',
     '<space>lb',
     '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>',
-    { noremap = true, silent = true, desc = 'latex build' }
+    { noremap = true, silent = true, desc = '[l]atex [b]uild' }
   )
   lsp.on_attach(client, bufnr)
 end

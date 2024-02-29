@@ -12,14 +12,14 @@ local on_jdtls_attach = function(client, buf)
   local function desc(description)
     return { noremap = true, silent = true, desc = description }
   end
-  vim.keymap.set('n', '<A-o>', jdtls.organize_imports, desc('[lsp] organize imports'))
-  vim.keymap.set('n', '<A-v>', jdtls.extract_variable, desc('[lsp] extract variable'))
-  vim.keymap.set('v', '<A-v>', function()
+  vim.keymap.set('n', '<space>oi', jdtls.organize_imports, desc('java: [o]rganize [i]mports'))
+  vim.keymap.set('n', '<space>ev', jdtls.extract_variable, desc('java: [e]xtract [v]ariable'))
+  vim.keymap.set('v', '<space>ev', function()
     jdtls.extract_variable { visual = true }
-  end, desc('[lsp] extract variable (visual)'))
-  vim.keymap.set('v', '<A-m>', function()
+  end, desc('java: [e]xtract [v]ariable (visual)'))
+  vim.keymap.set('v', '<space>em', function()
     jdtls.extract_method { visual = true }
-  end, desc('[lsp] extract method (visual)'))
+  end, desc('java: [e]xtract [m]ethod (visual)'))
   -- nvim-dap (requires java-debug and vscode-java-test bundles)
   -- vim.keymap.set('n', '<leader>df', jdtls.test_class, opts)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
