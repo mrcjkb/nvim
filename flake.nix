@@ -83,7 +83,7 @@
       flake = false;
     };
     neogit = {
-      url = "github:NeogitOrg/neogit";
+      url = "github:NeogitOrg/neogit/nightly";
       flake = false;
     };
     gitlinker = {
