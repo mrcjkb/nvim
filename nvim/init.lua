@@ -221,6 +221,7 @@ g.rustaceanvim = function()
         lsp.on_attach(client, bufnr)
         lsp.on_dap_attach(bufnr)
       end,
+      capabilities = lsp.capabilities,
       default_settings = {
         ['rust-analyzer'] = {
           cargo = {
