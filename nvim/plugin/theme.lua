@@ -60,6 +60,7 @@ require('material').setup {
     Identifier = { fg = '#FFFFFF' },
     ['@variable'] = { link = 'Identifier' },
     ['@field'] = { fg = '#DDDDDD' },
+    ['@variable.member'] = { fg = '#DDDDDD' },
     ['@property'] = { fg = '#DDDDDD' },
     ['@parameter'] = { fg = '#EEEEEE', italic = true },
     -- ['@function.call'] = { fg = '#82AAFF', italic = true }, -- blue
