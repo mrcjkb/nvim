@@ -59,9 +59,9 @@ require('material').setup {
     TelescopePreviewTitle = { bg = '#ABCF76' },
     Identifier = { fg = '#FFFFFF' },
     ['@variable'] = { link = 'Identifier' },
-    ['@field'] = { fg = '#DDDDDD' },
-    ['@variable.member'] = { fg = '#DDDDDD' },
     ['@property'] = { fg = '#DDDDDD' },
+    ['@field'] = { link = '@property' },
+    ['@variable.member'] = { link = '@property' },
     ['@parameter'] = { fg = '#EEEEEE', italic = true },
     -- ['@function.call'] = { fg = '#82AAFF', italic = true }, -- blue
     ['@function.call'] = { fg = '#B0C9FF' }, -- paleblue
