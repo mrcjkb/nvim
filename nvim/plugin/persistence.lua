@@ -37,3 +37,7 @@ vim.keymap.set('n', '<leader>sl', function()
   require('persistence').load()
   vim.notify('Loaded session.', vim.log.levels.INFO)
 end, { desc = '[s]ession: [l]oad' })
+
+vim.api.nvim_create_user_command('S', function()
+  require('persistence').load()
+end, {})
