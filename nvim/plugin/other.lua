@@ -84,6 +84,36 @@ require('other-nvim').setup {
       target = '%1/src/%2/%3/Internal.hs',
       contect = 'internal-impl',
     },
+    {
+      pattern = '(.+)/spec/(.*)/(.*)Spec.hs$',
+      target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/spec/(.*)/(.*)Spec.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
+    },
+    {
+      pattern = '(.+)/spec/(.*)/(.*)Test.hs$',
+      target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/spec/(.*)/(.*)Test.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
+    },
+    {
+      pattern = '(.+)/spec/(.*)/Tiko(.*)Test.hs$',
+      target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/spec/(.*)/Tiko(.*)Test.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
+    },
 
     -- Java
     {
