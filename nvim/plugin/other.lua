@@ -159,3 +159,7 @@ end, desc('[o]ther: [i]mpl'))
 vim.keymap.set('n', '<leader>oI', function()
   vim.cmd.Other('internal-impl')
 end, desc('[o]ther: [I]nternal-impl'))
+
+vim.keymap.set('n', '<leader>on', function()
+  vim.cmd.Other('internal')
+end, desc('[o]ther: i[n]ternal'))
