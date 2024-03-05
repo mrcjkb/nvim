@@ -57,14 +57,32 @@ require('other-nvim').setup {
     {
       pattern = '(.+)/test/(.*)/(.*)Spec.hs$',
       target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/test/(.*)/(.*)Spec.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
     },
     {
       pattern = '(.+)/test/(.*)/(.*)Test.hs$',
       target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/test/(.*)/(.*)Test.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
     },
     {
       pattern = '(.+)/test/(.*)/Tiko(.*)Test.hs$',
       target = '%1/src/%2/%3.hs',
+      contect = 'impl',
+    },
+    {
+      pattern = '(.+)/test/(.*)/Tiko(.*)Test.hs$',
+      target = '%1/src/%2/%3/Internal.hs',
+      contect = 'internal-impl',
     },
 
     -- Java
@@ -103,3 +121,11 @@ end, desc('[o]ther: [s]pec'))
 vim.keymap.set('n', '<leader>ot', function()
   vim.cmd.Other('test')
 end, desc('[o]ther: [t]est'))
+
+vim.keymap.set('n', '<leader>oi', function()
+  vim.cmd.Other('impl')
+end, desc('[o]ther: [i]mpl'))
+
+vim.keymap.set('n', '<leader>oI', function()
+  vim.cmd.Other('internal-impl')
+end, desc('[o]ther: [I]nternal-impl'))
