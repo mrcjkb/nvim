@@ -15,11 +15,14 @@ configs.setup {
       end
       local fname = vim.api.nvim_buf_get_name(buf)
       local max_filesize = 100 * 1024 -- 100 KiB
-      local ok, stats = pcall(vim.loop.fs_stat, fname)
+      local ok, stats = pcall(vim.uv.fs_stat, fname)
       if ok and stats and stats.size > max_filesize then
         return true
       end
     end,
+  },
+  indent = {
+    enable = true,
   },
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
@@ -91,12 +94,6 @@ configs.setup {
   },
   incremental_selection = {
     enable = false,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
-    },
   },
   query_linter = {
     enable = true,
