@@ -3028,11 +3028,11 @@
     "nvim-treesitter": {
       "flake": false,
       "locked": {
-        "lastModified": 1709968077,
-        "narHash": "sha256-5cHJMqbiBAbkis9exMAH5Y2ALynaSVmQT8NQTR4VztM=",
+        "lastModified": 1708938487,
+        "narHash": "sha256-raOYE5AiB0l/uzjngf3HDcbDJiGHEQRR7oxukkIiOo0=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter",
-        "rev": "7ff51f53b0efb6228df2e8539b51bb2e737b77f3",
+        "rev": "fad40f2010c6f50aaad285b2752551a37d8772e4",
         "type": "github"
       },
       "original": {
@@ -3602,7 +3602,6 @@
         "todo-comments": "todo-comments",
         "toggleterm": "toggleterm",
         "treesitter-context": "treesitter-context",
-        "treesitter-refactor": "treesitter-refactor",
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
@@ -4221,22 +4220,6 @@
       "original": {
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-context",
-        "type": "github"
-      }
-    },
-    "treesitter-refactor": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1680645221,
-        "narHash": "sha256-yzSkoH690qIEqvhiv0exeH7pS+J5ZVkqidEUOn0kb5M=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter-refactor",
-        "rev": "65ad2eca822dfaec2a3603119ec3cc8826a7859e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter-refactor",
         "type": "github"
       }
     },

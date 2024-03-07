@@ -270,10 +270,6 @@
       url = "github:JoosepAlviste/nvim-ts-context-commentstring";
       flake = false;
     };
-    treesitter-refactor = {
-      url = "github:nvim-treesitter/nvim-treesitter-refactor";
-      flake = false;
-    };
     wildfire-nvim = {
       url = "github:sustech-data/wildfire.nvim";
       flake = false;
