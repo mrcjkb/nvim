@@ -1619,15 +1619,15 @@
     "gitlinker": {
       "flake": false,
       "locked": {
-        "lastModified": 1675414954,
-        "narHash": "sha256-zrHvJSROjrDC5XtepOwuDrzrJG2jpnF5NJ05Iwd6DwA=",
-        "owner": "ruifm",
+        "lastModified": 1710204602,
+        "narHash": "sha256-BH1x5c4Cup3Qlngw4bPT5Qs39fF1YXhIccQje97lVwA=",
+        "owner": "linrongbin16",
         "repo": "gitlinker.nvim",
-        "rev": "cc59f732f3d043b626c8702cb725c82e54d35c25",
+        "rev": "0ff97f4c61c99a694ea192924c42f5d580ba3a96",
         "type": "github"
       },
       "original": {
-        "owner": "ruifm",
+        "owner": "linrongbin16",
         "repo": "gitlinker.nvim",
         "type": "github"
       }

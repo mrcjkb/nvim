@@ -87,7 +87,7 @@
       flake = false;
     };
     gitlinker = {
-      url = "github:ruifm/gitlinker.nvim";
+      url = "github:linrongbin16/gitlinker.nvim";
       flake = false;
     };
     repeat = {
