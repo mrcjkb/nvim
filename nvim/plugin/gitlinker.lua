@@ -1,20 +1,41 @@
 local gitlinker = require('gitlinker')
+
+---@param dest string
+local function mk_gitlab_internal_router(dest)
+  return 'https://gitlab.internal.tiko.ch/'
+    .. '{_A.ORG}/'
+    .. '{_A.REPO}/blob/'
+    .. dest
+    .. '{_A.FILE}'
+    .. '#L{_A.LSTART}'
+    .. "{(_A.LEND > _A.LSTART and ('-L' .. _A.LEND) or '')}"
+end
+
 gitlinker.setup {
-  callbacks = {
-    ['gitlab.internal.tiko.ch'] = require('gitlinker.hosts').get_gitlab_type_url,
+  router = {
+    browse = {
+      ['^gitlab.internal.tiko%.ch'] = mk_gitlab_internal_router('{_A.REV}/'),
+    },
+    blame = {
+      ['^gitlab.internal.tiko%.ch'] = mk_gitlab_internal_router('{_A.REPO}/blame/{_A.REV}/'),
+    },
+    default_branch = {
+      ['^gitlab.internal.tiko%.ch'] = mk_gitlab_internal_router('{_A.DEFAULT_BRANCH}/'),
+    },
+    current_branch = {
+      ['^gitlab.internal.tiko%.ch'] = mk_gitlab_internal_router('{_A.CURRENT_BRANCH}/'),
+    },
   },
 }
 
-local actions = require('gitlinker.actions')
+vim.keymap.set({ 'n', 'v' }, '<leader>gbb', function()
+  vim.cmd.GitLink { bang = true }
+end, { silent = true, desc = '[g]it: open in [bb]rowser' })
 
-vim.keymap.set('n', '<leader>gb', function()
-  gitlinker.get_buf_range_url('n', { action_callback = actions.open_in_browser })
-end, { silent = true, desc = '[g]it: open [b]uffer url in browser' })
+vim.keymap.set('n', '<leader>gBc', function()
+  vim.cmd.GitLink { 'current_branch', bang = true }
+end, { silent = true, desc = '[g]it: open in [B]rowser ([c]urrent branch)' })
 
-vim.keymap.set('v', '<leader>gb', function()
-  gitlinker.get_buf_range_url('v', { action_callback = actions.open_in_browser })
-end, { silent = true, desc = '[g]it: open in [b]rowser' })
-
-vim.keymap.set('n', '<leader>gB', function()
-  gitlinker.get_repo_url { action_callback = actions.open_in_browser }
-end, { silent = true, desc = '[g]it: open repo in [B]rowser' })
+vim.keymap.set('n', '<leader>gBd', function()
+  vim.cmd.GitLink { 'default_branch', bang = true }
+end, { silent = true, desc = '[g]it: open in [B]rowser ([d]efault branch)' })
