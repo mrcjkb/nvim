@@ -24,7 +24,7 @@ flash.setup {
   },
   label = {
     rainbow = {
-      enabled = true,
+      enabled = false,
     },
   },
   prompt = {
