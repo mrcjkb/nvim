@@ -1920,16 +1920,15 @@
     "neogit": {
       "flake": false,
       "locked": {
-        "lastModified": 1710973942,
-        "narHash": "sha256-7s+GszCdXnUkmxNHvwAfo9sWnw9C9OH3NL/YIK7c8qs=",
+        "lastModified": 1710973931,
+        "narHash": "sha256-AGdw29HoCI0c5tQ53vsTkk597K0eL/Y6IM2Gg+W+1x8=",
         "owner": "NeogitOrg",
         "repo": "neogit",
-        "rev": "3c23a5196318db0767f4ecdb66040b82afc584ff",
+        "rev": "bf2a353108b9046e907fc112701f6d876b50e465",
         "type": "github"
       },
       "original": {
         "owner": "NeogitOrg",
-        "ref": "nightly",
         "repo": "neogit",
         "type": "github"
       }
