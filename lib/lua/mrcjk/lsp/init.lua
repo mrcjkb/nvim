@@ -7,7 +7,7 @@ local function preview_location_callback(_, result)
   if result == nil or vim.tbl_isempty(result) then
     return nil
   end
-  local buf, _ = vim.lsp.util.preview_location(result[1])
+  local buf, _ = vim.lsp.util.preview_location(result[1], {})
   if buf then
     local cur_buf = vim.api.nvim_get_current_buf()
     vim.bo[buf].filetype = vim.bo[cur_buf].filetype
