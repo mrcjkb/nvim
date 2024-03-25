@@ -159,6 +159,7 @@ with final.lib; let
         nvim-dap-ui
         nvim-dap-virtual-text
         jdtls
+        nvim-metals
         lsp-status
         lsp_signature
         nvim-lsp-selection-range

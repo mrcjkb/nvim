@@ -141,6 +141,10 @@
       url = "github:mfussenegger/nvim-jdtls";
       flake = false;
     };
+    nvim-metals = {
+      url = "github:scalameta/nvim-metals";
+      flake = false;
+    };
     nvim-dap = {
       url = "github:mfussenegger/nvim-dap";
       flake = false;
