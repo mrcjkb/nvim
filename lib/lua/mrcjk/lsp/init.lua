@@ -218,7 +218,7 @@ function lsp.on_dap_attach(bufnr)
   keymap.set('n', '<Down>', dap.step_into, desc('dap: sep into'))
   keymap.set('n', '<Right>', dap.step_over, desc('dap: step over'))
   keymap.set('n', '<space>dC', dap.continue, desc('[d]ap: [C]ontinue'))
-  keymap.set('n', '<leader>[b]', dap.toggle_breakpoint, desc('dap: toggle [b]reakpoint'))
+  keymap.set('n', '<leader>b', dap.toggle_breakpoint, desc('dap: toggle [b]reakpoint'))
   -- keymap.set('n', '<leader>B', dap.toggle_conditional_breakpoint, opts) -- FIXME
   keymap.set('n', '<leader>dr', function()
     dap.repl.toggle { height = 15 }
