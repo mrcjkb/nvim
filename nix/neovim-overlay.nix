@@ -49,6 +49,8 @@ with final.lib; let
         cp -r * $out/nvim
         rm -r $out/nvim/after
         cp -r after $out/after
+        ln -s ${inputs.spell-de-dictionary} $out/nvim/spell/de.utf-8.spl;
+        ln -s ${inputs.spell-de-suggestions} $out/nvim/spell/de.utf-8.sug;
       '';
     };
 

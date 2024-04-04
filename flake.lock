@@ -3606,6 +3606,8 @@
         "repeat": "repeat",
         "rustaceanvim": "rustaceanvim",
         "schemastore-nvim": "schemastore-nvim",
+        "spell-de-dictionary": "spell-de-dictionary",
+        "spell-de-suggestions": "spell-de-suggestions",
         "sqlite": "sqlite",
         "statuscol": "statuscol",
         "surround": "surround",
@@ -3663,6 +3665,30 @@
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
         "type": "github"
+      }
+    },
+    "spell-de-dictionary": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Z0bzp9RSHYtFOHLiJi7pv/tCr9QSAIJFh6rV+AfOv10=",
+        "type": "file",
+        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
+      },
+      "original": {
+        "type": "file",
+        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
+      }
+    },
+    "spell-de-suggestions": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-P8y/g4mA+KBe4Sg7+GVwIRbTDjBZuSx71ZB66rnf+Y0=",
+        "type": "file",
+        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
+      },
+      "original": {
+        "type": "file",
+        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
       }
     },
     "sqlite": {

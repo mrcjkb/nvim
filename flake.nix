@@ -11,6 +11,14 @@
     neorocks = {
       url = "github:nvim-neorocks/neorocks";
     };
+    spell-de-dictionary = {
+      url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl";
+      flake = false;
+    };
+    spell-de-suggestions = {
+      url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug";
+      flake = false;
+    };
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
     # neovim = {
     #   # 90b213990f02d2a86019ef4058ad86a995931bea good
