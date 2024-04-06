@@ -2037,6 +2037,22 @@
         "type": "github"
       }
     },
+    "neotest-busted": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709471377,
+        "narHash": "sha256-V5Ekvze9gFnAByUVssBDhZqw8dXOikeQrHvuAkoQYP4=",
+        "owner": "HiPhish",
+        "repo": "neotest-busted",
+        "rev": "f26c8d86526063545c2818247554dcc8704f22ad",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "neotest-busted",
+        "type": "gitlab"
+      }
+    },
     "neotest-haskell": {
       "inputs": {
         "flake-compat": "flake-compat_10",
@@ -3574,6 +3590,7 @@
         "neogit": "neogit",
         "neorocks": "neorocks_2",
         "neotest": "neotest",
+        "neotest-busted": "neotest-busted",
         "neotest-haskell": "neotest-haskell",
         "neotest-java": "neotest-java",
         "nio": "nio",

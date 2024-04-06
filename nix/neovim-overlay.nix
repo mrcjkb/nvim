@@ -156,6 +156,7 @@ with final.lib; let
         crates-nvim
         neotest
         neotest-java
+        neotest-busted
         nio # TODO: Remove when rocks-dev is ready
         nvim-dap
         nvim-dap-ui

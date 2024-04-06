@@ -140,6 +140,10 @@
       url = "github:rcasia/neotest-java";
       flake = false;
     };
+    neotest-busted = {
+      url = "gitlab:HiPhish/neotest-busted";
+      flake = false;
+    };
     schemastore-nvim = {
       url = "github:b0o/SchemaStore.nvim";
       flake = false;

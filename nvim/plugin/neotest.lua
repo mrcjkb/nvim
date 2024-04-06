@@ -20,6 +20,7 @@ neotest.setup {
     },
     require('rustaceanvim.neotest'),
     require('neotest-java'),
+    require('neotest-busted'),
   },
   ---@diagnostic disable-next-line: missing-fields
   discovery = {
