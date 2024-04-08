@@ -7,9 +7,7 @@ local g = vim.g
 opt.compatible = false
 
 -- Enable true colour support
-if fn.has('termguicolors') then
-  opt.termguicolors = true
-end
+opt.termguicolors = true
 
 -- Search down into subfolders
 opt.path = vim.o.path .. '**'
