@@ -223,7 +223,7 @@ with final.lib; let
       markdown-preview-nvim
       vim-fugitive
       telescope-fzy-native-nvim
-      neorg
+      # neorg
       dial-nvim
       vim-scriptease
     ]);
