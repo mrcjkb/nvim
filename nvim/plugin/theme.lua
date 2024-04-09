@@ -40,7 +40,7 @@ require('material').setup {
   custom_highlights = {
     LspCodeLens = { fg = '#B480D6', italic = true },
     TermCursor = { link = 'Cursor' },
-    TermCursorNC = { bg = '#FF5370', fg = 'white', ctermbg = 1, ctermfg = 15 },
+    TermCursorNC = { bg = '#FF5370', fg = '#EEEEEE', ctermbg = 1, ctermfg = 15 },
     FidgetTitle = { link = 'DiagnosticHint' },
     DapUINormal = { link = 'Normal' },
     DapUIScope = { fg = '#E6B455' },
@@ -72,7 +72,8 @@ require('material').setup {
     ['@keyword.blocking'] = { fg = '#71C6E7', bold = true },
   },
   custom_colors = function(colors)
-    colors.editor.fg = '#FFFFFF'
+    -- colors.editor.fg = '#ebd2fc'
+    colors.editor.fg = '#EEEEEE'
     colors.editor.fg_dark = colors.main.white
     colors.editor.accent = colors.main.darkpurple
   end,
