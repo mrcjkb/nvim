@@ -161,7 +161,6 @@ with final.lib; let
         nio # TODO: Remove when rocks-dev is ready
         nvim-dap
         nvim-dap-ui
-        nvim-dap-virtual-text
         jdtls
         nvim-metals
         lsp-status

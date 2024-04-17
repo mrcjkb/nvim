@@ -1,6 +1,5 @@
 local dap = require('dap')
 local dapui = require('dapui')
-local dapvt = require('nvim-dap-virtual-text')
 
 -- Virtual text
 vim.g.dap_virtual_text = true
@@ -46,4 +45,3 @@ dap.defaults.fallback.external_terminal = {
 }
 
 dapui.setup()
-dapvt.setup {}

@@ -169,10 +169,6 @@
       url = "github:rcarriga/nvim-dap-ui";
       flake = false;
     };
-    nvim-dap-virtual-text = {
-      url = "github:theHamsta/nvim-dap-virtual-text";
-      flake = false;
-    };
     lsp-status = {
       url = "github:nvim-lua/lsp-status.nvim";
       flake = false;
