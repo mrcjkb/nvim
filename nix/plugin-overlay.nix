@@ -31,7 +31,6 @@ in {
     neotest-java = mkNvimPlugin inputs.neotest-java "neotest-java";
     neotest-busted = mkNvimPlugin inputs.neotest-busted "neotest-busted";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
-    rust-tools = mkNvimPlugin inputs.rust-tools "rust-tools";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     nvim-metals = mkNvimPlugin inputs.nvim-metals "nvim-metals";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
