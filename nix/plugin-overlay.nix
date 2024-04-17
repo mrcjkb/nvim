@@ -20,6 +20,7 @@ in {
     repeat = mkNvimPlugin inputs.repeat "vim-repeat";
     unimpaired = mkNvimPlugin inputs.unimpaired "vim-unimpaired";
     surround = mkNvimPlugin inputs.surround "nvim-surround";
+    substitute = mkNvimPlugin inputs.substitute "substitute.nvim";
     persistence = mkNvimPlugin inputs.persistence "persistence.nvim";
     nvim-lastplace = mkNvimPlugin inputs.nvim-lastplace "nvim-lastplace";
     comment = mkNvimPlugin inputs.comment "comment.nvim";

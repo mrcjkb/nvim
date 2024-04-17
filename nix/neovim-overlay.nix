@@ -149,6 +149,7 @@ with final.lib; let
         repeat
         unimpaired
         surround
+        substitute
         persistence
         nvim-lastplace
         comment

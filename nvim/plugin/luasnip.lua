@@ -22,9 +22,9 @@ vim.keymap.set('i', '<c-l>', function()
 end, { silent = true, desc = 'luasnip: change choice' })
 
 -- Source luasnips config (for snippet development)
-vim.keymap.set('n', '<leader><leader>s', function()
-  vim.cmd.source('/home/mrcjk/git/github/mrcjkb/nvim/nvim/plugin/luasnip.lua')
-end, { desc = 'luasnip-dev: source snippets' })
+-- vim.keymap.set('n', '<leader><leader>s', function()
+--   vim.cmd.source('/home/mrcjk/git/github/mrcjkb/nvim/nvim/plugin/luasnip.lua')
+-- end, { desc = 'luasnip-dev: source snippets' })
 
 ls.setup {
   history = true,

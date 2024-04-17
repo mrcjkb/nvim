@@ -111,6 +111,10 @@
       url = "github:kylechui/nvim-surround";
       flake = false;
     };
+    substitute = {
+      url = "github:gbprod/substitute.nvim";
+      flake = false;
+    };
     persistence = {
       url = "github:folke/persistence.nvim";
       flake = false;

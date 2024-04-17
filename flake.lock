@@ -3645,6 +3645,7 @@
         "spell-de-suggestions": "spell-de-suggestions",
         "sqlite": "sqlite",
         "statuscol": "statuscol",
+        "substitute": "substitute",
         "surround": "surround",
         "telescope": "telescope",
         "telescope-manix": "telescope-manix",
@@ -3755,6 +3756,22 @@
       "original": {
         "owner": "luukvbaal",
         "repo": "statuscol.nvim",
+        "type": "github"
+      }
+    },
+    "substitute": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700202535,
+        "narHash": "sha256-gR2WaBnqTSeBxMuUTjii+BOI0T8+C+poAofk17/Jxkk=",
+        "owner": "gbprod",
+        "repo": "substitute.nvim",
+        "rev": "17ffaeb5a1dc2dbef39cf0865d8a4b6000836714",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gbprod",
+        "repo": "substitute.nvim",
         "type": "github"
       }
     },
