@@ -38,7 +38,6 @@ in {
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
     nvim-lsp-selection-range = mkNvimPlugin inputs.nvim-lsp-selection-range "nvim-lsp-selection-range";
-    nvim-lightbulb = mkNvimPlugin inputs.nvim-lightbulb "nvim-lightbulb";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";

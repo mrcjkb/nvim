@@ -27,16 +27,6 @@ end
 local api = vim.api
 local keymap = vim.keymap
 
-vim.fn.sign_define('LightBulbSign', { text = '󰌶', texthl = 'LspDiagnosticsDefaultInformation' })
-require('nvim-lightbulb').setup {
-  autocmd = {
-    enabled = false,
-  },
-  sign = {
-    text = '󰌶',
-  },
-}
-
 require('fidget').setup {}
 
 local default_on_codelens = vim.lsp.codelens.on_codelens
@@ -159,17 +149,6 @@ function lsp.on_attach(client, bufnr)
   keymap.set('v', 'vv', function()
     require('lsp-selection-range').expand()
   end, desc('lsp: expand selection range'))
-
-  -- local navbuddy = require('nvim-navbuddy')
-  -- navbuddy.attach(client, bufnr)
-  -- keymap.set('n', 'go', navbuddy.open, opts)
-
-  vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-    buffer = bufnr,
-    group = vim.api.nvim_create_augroup('LightBulb', {}),
-    desc = "lua require('nvim-lightbulb').update_lightbulb()",
-    callback = require('nvim-lightbulb').update_lightbulb,
-  })
 
   -- Autocomplete signature hints
   require('lsp_signature').on_attach()

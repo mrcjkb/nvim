@@ -2962,22 +2962,6 @@
         "type": "github"
       }
     },
-    "nvim-lightbulb": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1689887436,
-        "narHash": "sha256-Meoop66jINllnxN6aohuPmU7DEjn64FMq/b8zuy9FEQ=",
-        "owner": "kosayoda",
-        "repo": "nvim-lightbulb",
-        "rev": "8f00b89dd1b1dbde16872bee5fbcee2e58c9b8e9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kosayoda",
-        "repo": "nvim-lightbulb",
-        "type": "github"
-      }
-    },
     "nvim-lint": {
       "flake": false,
       "locked": {
@@ -3603,7 +3587,6 @@
         "nvim-dap-ui": "nvim-dap-ui",
         "nvim-highlight-colors": "nvim-highlight-colors",
         "nvim-lastplace": "nvim-lastplace",
-        "nvim-lightbulb": "nvim-lightbulb",
         "nvim-lint": "nvim-lint",
         "nvim-lsp-selection-range": "nvim-lsp-selection-range",
         "nvim-metals": "nvim-metals",

@@ -181,10 +181,6 @@
       url = "github:camilledejoye/nvim-lsp-selection-range";
       flake = false;
     };
-    nvim-lightbulb = {
-      url = "github:kosayoda/nvim-lightbulb";
-      flake = false;
-    };
     fidget = {
       url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;

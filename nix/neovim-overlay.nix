@@ -166,7 +166,6 @@ with final.lib; let
         lsp-status
         lsp_signature
         nvim-lsp-selection-range
-        nvim-lightbulb
         fidget
         illuminate
         schemastore-nvim
