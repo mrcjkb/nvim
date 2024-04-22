@@ -104,6 +104,10 @@ cmp.setup {
       end
     end, { 'i', 'c', 's' }),
     ['<C-y>'] = cmp.mapping(function(_)
+      local entry = cmp.get_selected_entry()
+      if not entry then
+        cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
+      end
       cmp.confirm {
         select = true,
       }
