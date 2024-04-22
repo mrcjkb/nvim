@@ -5,12 +5,6 @@ local luasnip = require('luasnip')
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-local function has_words_before()
-  local unpack_ = unpack or table.unpack
-  local line, col = unpack_(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
-end
-
 ---@param source string|table
 local function complete_with_source(source)
   if type(source) == 'string' then
@@ -80,8 +74,6 @@ cmp.setup {
       -- expand_or_locally_jumpable(): Only jump inside the snippet region
       elseif luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
-      elseif has_words_before() then
-        cmp.complete()
       else
         fallback()
       end
