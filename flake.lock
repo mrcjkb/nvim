@@ -64,22 +64,6 @@
         "type": "github"
       }
     },
-    "cmp-git": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1713177887,
-        "narHash": "sha256-T4aw00meHGksdGyfG5C243Ijhh64WFRFxNWdI4N7R2Q=",
-        "owner": "petertriho",
-        "repo": "cmp-git",
-        "rev": "b9603f18496bc3ca07e6bd474607081af709e750",
-        "type": "github"
-      },
-      "original": {
-        "owner": "petertriho",
-        "repo": "cmp-git",
-        "type": "github"
-      }
-    },
     "cmp-luasnip": {
       "flake": false,
       "locked": {
@@ -3522,7 +3506,6 @@
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-cmdline-history": "cmp-cmdline-history",
-        "cmp-git": "cmp-git",
         "cmp-luasnip": "cmp-luasnip",
         "cmp-luasnip-choice": "cmp-luasnip-choice",
         "cmp-nvim-lsp": "cmp-nvim-lsp",

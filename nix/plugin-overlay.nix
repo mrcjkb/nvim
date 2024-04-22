@@ -53,7 +53,6 @@ in {
     # cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
     cmp-luasnip = mkNvimPlugin inputs.cmp-luasnip "cmp-luasnip";
     cmp-luasnip-choice = mkNvimPlugin inputs.cmp-luasnip-choice "cmp-luasnip-choice";
-    cmp-git = mkNvimPlugin inputs.cmp-git "cmp-git";
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";

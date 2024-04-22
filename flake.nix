@@ -237,10 +237,6 @@
       url = "github:L3MON4D3/cmp-luasnip-choice";
       flake = false;
     };
-    cmp-git = {
-      url = "github:petertriho/cmp-git";
-      flake = false;
-    };
     cmp-rg = {
       url = "github:lukas-reineke/cmp-rg";
       flake = false;

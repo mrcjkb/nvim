@@ -208,10 +208,8 @@ with final.lib; let
         cmp-nvim-lsp
         cmp-nvim-lsp-document-symbol
         cmp-nvim-lsp-signature-help
-        # cmp-omni
         cmp-luasnip
         cmp-luasnip-choice
-        cmp-git
         cmp-rg
         nvim-cmp
       ])
