@@ -109,10 +109,6 @@ cmp.setup {
   },
   sources = cmp.config.sources {
     -- The insertion order appears to influence the priority of the sources
-    -- {
-    --   name = 'omni',
-    --   disable_omnifuncs = { 'v:lua.vim.lsp.omnifunc' },
-    -- },
     { name = 'nvim_lsp', keyword_length = 3 },
     { name = 'nvim_lsp_signature_help', keyword_length = 3 },
     { name = 'luasnip_choice' }, -- luasnip choice nodes
@@ -124,7 +120,6 @@ cmp.setup {
       all_panes = true,
     },
     { name = 'path' },
-    -- { name = 'buffer-lines', keyword_length = 3 },
   },
   enabled = function()
     return vim.bo[0].buftype ~= 'prompt'
@@ -149,7 +144,6 @@ cmp.setup.filetype('lua', {
       all_panes = true,
     },
     { name = 'path' },
-    -- { name = 'buffer-lines', keyword_length = 3 },
   },
 })
 
