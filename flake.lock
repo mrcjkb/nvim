@@ -64,22 +64,6 @@
         "type": "github"
       }
     },
-    "cmp-dap": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1702237116,
-        "narHash": "sha256-wi9L4RcnJWUzTkC4u8vSTacrMxg4ftm/K7pkuwLEQ3U=",
-        "owner": "rcarriga",
-        "repo": "cmp-dap",
-        "rev": "ea92773e84c0ad3288c3bc5e452ac91559669087",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rcarriga",
-        "repo": "cmp-dap",
-        "type": "github"
-      }
-    },
     "cmp-git": {
       "flake": false,
       "locked": {
@@ -3538,7 +3522,6 @@
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-cmdline-history": "cmp-cmdline-history",
-        "cmp-dap": "cmp-dap",
         "cmp-git": "cmp-git",
         "cmp-luasnip": "cmp-luasnip",
         "cmp-luasnip-choice": "cmp-luasnip-choice",

@@ -213,7 +213,6 @@ with final.lib; let
         cmp-luasnip-choice
         cmp-git
         cmp-rg
-        cmp-dap
         nvim-cmp
       ])
     ++ (with prev.vimPlugins; [

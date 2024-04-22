@@ -78,10 +78,6 @@
       url = "github:brenoprata10/nvim-highlight-colors";
       flake = false;
     };
-    # leap = {
-    #   url = "github:ggandor/leap.nvim";
-    #   flake = false;
-    # };
     flash-nvim = {
       url = "github:folke/flash.nvim";
       flake = false;
@@ -256,10 +252,6 @@
     };
     actions-preview-nvim = {
       url = "github:aznhe21/actions-preview.nvim";
-      flake = false;
-    };
-    cmp-dap = {
-      url = "github:rcarriga/cmp-dap";
       flake = false;
     };
     nvim-treesitter = {

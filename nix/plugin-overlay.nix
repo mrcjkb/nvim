@@ -57,7 +57,6 @@ in {
     cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
     lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
-    cmp-dap = mkNvimPlugin inputs.cmp-dap "cmp-dap";
     nvim-treesitter = prev.vimPlugins.nvim-treesitter.withAllGrammars.overrideAttrs (_: _: {
       # TODO: re-enable when sql highlights are fixed
       # src = inputs.nvim-treesitter;

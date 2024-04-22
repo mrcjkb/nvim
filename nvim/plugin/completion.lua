@@ -131,7 +131,7 @@ cmp.setup {
     -- { name = 'buffer-lines', keyword_length = 3 },
   },
   enabled = function()
-    return vim.bo[0].buftype ~= 'prompt' or require('cmp_dap').is_dap_buffer()
+    return vim.bo[0].buftype ~= 'prompt'
   end,
   experimental = {
     native_menu = false,
@@ -172,12 +172,6 @@ cmp.setup.filetype('gitcommit', {
     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
     { name = 'conventionalcommits' },
     { name = 'buffer' },
-  },
-})
-
-cmp.setup.filetype({ 'dap-repl', 'dapui_watches', 'dapui_hover' }, {
-  sources = {
-    { name = 'dap' },
   },
 })
 
