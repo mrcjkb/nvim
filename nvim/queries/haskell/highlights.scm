@@ -37,6 +37,9 @@
 ; Blocking STM calls "@keyword.blocking" is a non-standard capture
 ((variable) @keyword.blocking
   (#any-of? @keyword.blocking
+   "readMVar"
+   "putMVar"
+   "takeMVar"
    "putTMVar"
    "putTMVarIO"
    "takeTMVar"
