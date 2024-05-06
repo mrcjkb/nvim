@@ -160,27 +160,16 @@ function lsp.on_attach(client, bufnr)
     end, desc('lsp: toggle inlay [h]ints'))
   end
 
-  local function get_active_clients(buf)
-    return vim.lsp.get_clients { bufnr = buf, name = client.name }
-  end
-  local function buf_refresh_codeLens()
-    vim.schedule(function()
-      for _, c in pairs(get_active_clients(bufnr)) do
-        if c.server_capabilities.codeLensProvider then
-          vim.lsp.codelens.refresh()
-          return
-        end
-      end
-    end)
-  end
   local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
   if client.server_capabilities.codeLensProvider then
-    vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufWritePost', 'TextChanged' }, {
+    vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufEnter', 'CursorHold' }, {
       group = group,
-      callback = buf_refresh_codeLens,
+      callback = function()
+        vim.lsp.codelens.refresh { bufnr = bufnr }
+      end,
       buffer = bufnr,
     })
-    buf_refresh_codeLens()
+    vim.lsp.codelens.refresh { bufnr = bufnr }
   end
 end
 
