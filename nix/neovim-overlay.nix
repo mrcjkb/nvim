@@ -194,6 +194,7 @@ with final.lib; let
         hardtime-nvim
         term-edit-nvim
         oil-nvim
+        oil-git-status-nvim
         other-nvim
         which-key-nvim
       ]

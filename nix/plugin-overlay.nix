@@ -77,6 +77,7 @@ in {
     lualine = mkNvimPlugin inputs.lualine "lualine";
     nvim-navic = mkNvimPlugin inputs.nvim-navic "nvim-navic";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
+    oil-git-status-nvim = mkNvimPlugin inputs.oil-git-status-nvim "oil-git-status.nvim";
     toggleterm = mkNvimPlugin inputs.toggleterm "toggleterm.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";
     gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";

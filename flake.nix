@@ -324,6 +324,11 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
+    oil-git-status-nvim = {
+      url = "github:mrcjkb/oil-git-status.nvim/ftplugin";
+      # url = "/home/mrcjk/git/github/forks/nvim/oil-git-status.nvim";
+      flake = false;
+    };
     toggleterm = {
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
