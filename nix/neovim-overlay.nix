@@ -132,13 +132,13 @@ with final.lib; let
         nvim-web-devicons
         diffview
         nvim-ts-context-commentstring
-        treesitter-textobjects
-        treesitter-context
+        # treesitter-textobjects
+        # treesitter-context
         wildfire-nvim
         rainbow-delimiters-nvim
         vim-matchup
-        iswap-nvim
-        nvim-treesitter
+        # iswap-nvim
+        # nvim-treesitter
         vim-wordmotion
         nvim-highlight-colors
         # (withConfig leap "require('leap').set_default_keymaps()")

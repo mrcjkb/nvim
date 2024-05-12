@@ -42,16 +42,16 @@
 ; )
 
 ; Unqualified function that returns a Query
-(
- (signature
-   (_
-    ((type) @type_name)(#eq? @type_name "Query")
-   )
- )
- (function
-   (_
-    (quasiquote_body) @sql
-   )
- )
-)
-
+; (
+;  (signature
+;    (_
+;     ((type) @type_name)(#eq? @type_name "Query")
+;    )
+;  )
+;  (function
+;    (_
+;     (quasiquote_body) @sql
+;    )
+;  )
+; )
+;
