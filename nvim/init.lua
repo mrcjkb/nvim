@@ -235,6 +235,12 @@ g.rustaceanvim = function()
               ['async-recursion'] = { 'async_recursion' },
             },
           },
+          inlayHints = {
+            lifetimeElisionHints = {
+              enable = true,
+              useParameterNames = true,
+            },
+          },
         },
       },
     },
