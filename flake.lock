@@ -3607,11 +3607,11 @@
     "project": {
       "flake": false,
       "locked": {
-        "lastModified": 1716815413,
-        "narHash": "sha256-grwdxrbL6UZwXZ73GL36Z4I/J2157+0uYXZew7T8tbw=",
+        "lastModified": 1716820641,
+        "narHash": "sha256-qCm8rI4UGifaycAeihPw442+IMcjo9jB9EGTNznj56o=",
         "owner": "mrcjkb",
         "repo": "project.nvim",
-        "rev": "6aeb268608e439c5f802c56242e3f8383bf58ba3",
+        "rev": "fa2e3ed3f6ba47a437126777a32a142d989f380a",
         "type": "github"
       },
       "original": {
