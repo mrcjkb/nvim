@@ -172,7 +172,6 @@ with final.lib; let
         lspkind-nvim
         actions-preview-nvim
         nvim-lint
-        project
         telescope_hoogle
         telescope-smart-history
         telescope

@@ -68,7 +68,6 @@ in {
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
     iswap-nvim = mkNvimPlugin inputs.iswap-nvim "iswap.nvim";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
-    project = mkNvimPlugin inputs.project "project.nvim";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";

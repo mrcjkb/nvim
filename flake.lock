@@ -3604,23 +3604,6 @@
         "type": "github"
       }
     },
-    "project": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716820641,
-        "narHash": "sha256-qCm8rI4UGifaycAeihPw442+IMcjo9jB9EGTNznj56o=",
-        "owner": "mrcjkb",
-        "repo": "project.nvim",
-        "rev": "fa2e3ed3f6ba47a437126777a32a142d989f380a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrcjkb",
-        "ref": "fixes",
-        "repo": "project.nvim",
-        "type": "github"
-      }
-    },
     "promise-async": {
       "flake": false,
       "locked": {
@@ -3737,7 +3720,6 @@
         "persistence": "persistence",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks_7",
-        "project": "project",
         "promise-async": "promise-async",
         "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "repeat": "repeat",

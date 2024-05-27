@@ -286,13 +286,6 @@
       url = "github:mfussenegger/nvim-lint";
       flake = false;
     };
-    project = {
-      # url = "github:ahmedkhalf/project.nvim";
-      # url = "github:mrcjkb/project.nvim/use-workspace-root";
-      url = "github:mrcjkb/project.nvim/fixes";
-      # url = "/home/mrcjk/git/github/forks/nvim/project.nvim";
-      flake = false;
-    };
     telescope = {
       url = "github:nvim-telescope/telescope.nvim/0.1.x";
       flake = false;
