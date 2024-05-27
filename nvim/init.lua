@@ -1,5 +1,4 @@
 local cmd = vim.cmd
-local fn = vim.fn
 local opt = vim.o
 local keymap = vim.keymap
 local g = vim.g
@@ -65,18 +64,6 @@ local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end
 
-local sign = function(opts)
-  fn.sign_define(opts.name, {
-    texthl = opts.name,
-    text = opts.text,
-    numhl = '',
-  })
-end
-sign { name = 'DiagnosticSignError', text = '󰅚' }
-sign { name = 'DiagnosticSignWarn', text = '⚠' }
-sign { name = 'DiagnosticSignInfo', text = 'ⓘ' }
-sign { name = 'DiagnosticSignHint', text = '󰌶' }
-
 vim.diagnostic.config {
   virtual_text = {
     prefix = '',
@@ -97,7 +84,14 @@ vim.diagnostic.config {
       return prefix_diagnostic('■', diagnostic)
     end,
   },
-  signs = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰅚',
+      [vim.diagnostic.severity.WARN] = '⚠',
+      [vim.diagnostic.severity.INFO] = 'ⓘ',
+      [vim.diagnostic.severity.HINT] = '󰌶',
+    },
+  },
   update_in_insert = false,
   underline = true,
   severity_sort = true,
