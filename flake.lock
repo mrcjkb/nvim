@@ -4376,16 +4376,15 @@
     "vim-matchup": {
       "flake": false,
       "locked": {
-        "lastModified": 1716368019,
+        "lastModified": 1716950687,
         "narHash": "sha256-0w2IjpEM/+yvY6fRJfVkuCRYdcEVpLsVduDB+T13hG8=",
-        "owner": "mrcjkb",
+        "owner": "andymass",
         "repo": "vim-matchup",
-        "rev": "d65fc3b9335b36cc93776149cdf95c5e7f58bc70",
+        "rev": "1535a769d5dca851fe7d41b0be95f7c7203a4bef",
         "type": "github"
       },
       "original": {
-        "owner": "mrcjkb",
-        "ref": "haskell",
+        "owner": "andymass",
         "repo": "vim-matchup",
         "type": "github"
       }
