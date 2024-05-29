@@ -115,15 +115,16 @@
     "cmp-nvim-lsp-document-symbol": {
       "flake": false,
       "locked": {
-        "lastModified": 1680363634,
-        "narHash": "sha256-kvy0Q/QA3S4xDqmRLCePmLHYmH7uG19rcgPPKdail/0=",
-        "owner": "hrsh7th",
+        "lastModified": 1716965533,
+        "narHash": "sha256-BBvG0/yEyYs+sLPtCYAgZLz9ccGAMBCMhgmwC+gZ3kc=",
+        "owner": "mrcjkb",
         "repo": "cmp-nvim-lsp-document-symbol",
-        "rev": "f0f53f704c08ea501f9d222b23491b0d354644b0",
+        "rev": "d1b9dbca988b71b9d2a9fea9cff49fbf7927f71a",
         "type": "github"
       },
       "original": {
-        "owner": "hrsh7th",
+        "owner": "mrcjkb",
+        "ref": "fix-deprecation",
         "repo": "cmp-nvim-lsp-document-symbol",
         "type": "github"
       }
