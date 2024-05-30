@@ -218,8 +218,7 @@
       flake = false;
     };
     cmp-nvim-lsp-document-symbol = {
-      # url = "github:hrsh7th/cmp-nvim-lsp-document-symbol";
-      url = "github:mrcjkb/cmp-nvim-lsp-document-symbol/fix-deprecation";
+      url = "github:hrsh7th/cmp-nvim-lsp-document-symbol";
       flake = false;
     };
     cmp-nvim-lsp-signature-help = {
