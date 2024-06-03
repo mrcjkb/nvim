@@ -20,12 +20,6 @@
       flake = false;
     };
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
-    # neovim = {
-    #   # 90b213990f02d2a86019ef4058ad86a995931bea good
-    #   # 5e78fd7784509dbbe146748e9264e5129cf68ab8 bad
-    #   url = "github:neovim/neovim?dir=contrib&rev=17f3a3ae31d91944a5a4e56aa743745cff7fdf07";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
