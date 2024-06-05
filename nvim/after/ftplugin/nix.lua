@@ -13,7 +13,8 @@ vim.lsp.start {
   capabilities = lsp.capabilities,
   settings = {
     formatting = {
-      command = vim.fn.executable('alejandra') == 1 and { 'alejandra', '-qq' } or nil,
+      command = vim.fn.executable('alejandra') == 1 and { 'alejandra', '-qq' }
+        or vim.fn.executable('nixpkgs-fmt') == 1 and { 'nixpkgs-fmt' },
     },
     flake = {
       autoArchive = true,
