@@ -1,6 +1,13 @@
 local lsp = require('mrcjk.lsp')
 local jdtls = require('jdtls')
 
+local jdtls_bin = vim.fn.executable('jdtls') == 1 and 'jdtls'
+  or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
+
+if not jdtls_bin then
+  return
+end
+
 local on_jdtls_attach = function(client, buf)
   lsp.on_attach(client, buf)
   -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
@@ -30,11 +37,7 @@ local cache_dir = vim.fn.stdpath('cache')
 local workspace_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', 'mvnw', '.git' }, { upward = true })[1])
 local data_dir = vim.fs.joinpath(cache_dir, 'jdtls', workspace_dir)
 
-local cmd = { 'jdt-language-server', '-data', data_dir }
-
-if vim.fn.executable(cmd[1]) ~= 1 then
-  return
-end
+local cmd = { jdtls_bin, '-data', data_dir }
 
 local java_runtime_dir = os.getenv('JAVA_RUNTIME_DIR')
 
@@ -69,7 +72,6 @@ local settings = {
         {
           name = 'Java',
           path = java_runtime_dir,
-          -- path = '/usr/lib/jvm/java-8-openjdk/',
         } or nil,
       },
     },
