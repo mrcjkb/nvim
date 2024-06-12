@@ -32,12 +32,9 @@ local on_jdtls_attach = function(client, buf)
   -- vim.keymap.set('n', '<leader>dn', jdtls.test_nearest_method, opts)
 end
 
-local cache_dir = vim.fn.stdpath('cache')
----@cast cache_dir string
 local workspace_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', 'mvnw', '.git' }, { upward = true })[1])
-local data_dir = vim.fs.joinpath(cache_dir, 'jdtls', workspace_dir)
 
-local cmd = { jdtls_bin, '-data', data_dir }
+local cmd = { jdtls_bin }
 
 local java_runtime_dir = os.getenv('JAVA_RUNTIME_DIR')
 
