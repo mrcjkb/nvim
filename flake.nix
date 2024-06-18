@@ -254,7 +254,9 @@
       flake = false;
     };
     nvim-ts-context-commentstring = {
-      url = "github:JoosepAlviste/nvim-ts-context-commentstring";
+      # url = "github:JoosepAlviste/nvim-ts-context-commentstring";
+      url = "github:mrcjkb/nvim-ts-context-commentstring/haskell";
+      # url = "/home/mrcjk/git/github/forks/nvim/nvim-ts-context-commentstring/";
       flake = false;
     };
     wildfire-nvim = {

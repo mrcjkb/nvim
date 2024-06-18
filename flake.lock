@@ -3809,15 +3809,16 @@
     "nvim-ts-context-commentstring": {
       "flake": false,
       "locked": {
-        "lastModified": 1716355849,
-        "narHash": "sha256-hI/vsHbX7g5cAHwPewu3GYXpeby9n21uz3a5l+7Pvo8=",
-        "owner": "JoosepAlviste",
+        "lastModified": 1718725430,
+        "narHash": "sha256-O+5wJtWFs4ZxD9q0+SxR9ggd5amUdnoTbRItaN7rB5E=",
+        "owner": "mrcjkb",
         "repo": "nvim-ts-context-commentstring",
-        "rev": "cb064386e667def1d241317deed9fd1b38f0dc2e",
+        "rev": "c6eebaa0288ec7c0b3df9fcef83fc4ae8bb39c49",
         "type": "github"
       },
       "original": {
-        "owner": "JoosepAlviste",
+        "owner": "mrcjkb",
+        "ref": "haskell",
         "repo": "nvim-ts-context-commentstring",
         "type": "github"
       }
