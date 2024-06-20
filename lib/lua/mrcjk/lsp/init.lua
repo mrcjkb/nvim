@@ -26,29 +26,6 @@ local function init_dap()
 
   vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', linehl = '', numhl = '' })
 
-  local commands = {
-    {
-      'DapContinue',
-      dap.continue,
-      {},
-    },
-    {
-      'DapBreakpoints',
-      dap.list_breakpoints,
-      {},
-    },
-    {
-      'DapSidebar',
-      function()
-        require('dap-setup').sidebar.toggle()
-      end,
-      {},
-    },
-  }
-  for _, command in ipairs(commands) do
-    vim.api.nvim_create_user_command(unpack(command))
-  end
-
   dap.defaults.fallback.external_terminal = {
     command = 'alacritty',
     args = { '-e' },
