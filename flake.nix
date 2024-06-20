@@ -416,7 +416,12 @@
       };
       shell = pkgs.mkShell {
         name = "nvim-devShell";
-        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+        buildInputs =
+          self.checks.${system}.pre-commit-check.enabledPackages
+          ++ (with pkgs; [
+            lua-language-server
+            nil
+          ]);
         shellHook = ''
           ${self.checks.${system}.pre-commit-check.shellHook}
           ln -fs ${pkgs.luarc-json} .luarc.json

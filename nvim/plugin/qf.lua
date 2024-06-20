@@ -1,3 +1,9 @@
+---@diagnostic disable: missing-fields
+if vim.g.nvim_bqf_did_setup then
+  return
+end
+vim.g.nvim_bqf_did_setup = true
+
 local fn = vim.fn
 
 function _G.qftf(info)
@@ -58,5 +64,11 @@ require('bqf').setup {
     fzf = {
       extra_opts = { '--bind', 'ctrl-o:toggle-all', '--delimiter', '│' },
     },
+  },
+  preview = {
+    border = 'none',
+    win_vheight = 999,
+    win_height = 999,
+    winblend = 0,
   },
 }
