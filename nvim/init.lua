@@ -146,7 +146,6 @@ g.loaded_netrwFileHandlers = 1
 -- Plugin settings
 local keymap_opts = { noremap = true, silent = true }
 local telescope = require('telescope')
-local lsp = require('mrcjk.lsp')
 
 ---@return HTOpts
 g.haskell_tools = function()
@@ -187,7 +186,6 @@ g.haskell_tools = function()
         )
         keymap.set('n', '<space>ea', ht.lsp.buf_eval_all, desc('haskell: [e]valuate [a]ll'))
       end,
-      capabilities = lsp.capabilities,
       default_settings = {
         haskell = {
           formattingProvider = 'stylish-haskell',
@@ -207,8 +205,9 @@ g.rustaceanvim = function()
       executor = 'toggleterm',
     },
     server = {
-      on_attach = lsp.on_dap_attach,
-      capabilities = lsp.capabilities,
+      on_attach = function(...)
+        require('mrcjk.lsp').on_dap_attach(...)
+      end,
       default_settings = {
         ['rust-analyzer'] = {
           cargo = {

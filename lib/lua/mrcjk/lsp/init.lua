@@ -74,14 +74,6 @@ local has_cmp_lsp, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 if has_cmp_lsp then
   capabilities = vim.tbl_deep_extend('force', capabilities, cmp_lsp.default_capabilities())
 end
--- Enable preliminary support for workspace/didChangeWatchedFiles
-capabilities = vim.tbl_deep_extend('keep', capabilities, {
-  workspace = {
-    didChangeWatchedFiles = {
-      dynamicRegistration = true,
-    },
-  },
-})
 
 -- foldingRange capabilities provided by the nvim-ufo plugin
 ---@diagnostic disable-next-line: inject-field
