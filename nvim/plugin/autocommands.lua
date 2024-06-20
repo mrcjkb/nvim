@@ -194,14 +194,27 @@ vim.api.nvim_create_autocmd('LspProgress', {
   group = lsp_augroup,
   once = true,
   callback = function()
-    require('fidget').setup {}
+    require('fidget').setup {
+      -- Options related to LSP progress subsystem
+      progress = {
+        ignore_done_already = true, -- Ignore new tasks that are already complete
+
+        -- Options related to how LSP progress messages are displayed as notifications
+        display = {
+          render_limit = 3, -- How many LSP messages to show at once
+        },
+      },
+      notification = {
+        override_vim_notify = false,
+      },
+    }
   end,
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = lsp_augroup,
   callback = function(ev)
-    if not vim.g.did_override_on_codelens then
+    if not vim.g.initial_lsp_attach_done then
       local default_on_codelens = vim.lsp.codelens.on_codelens
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.lsp.codelens.on_codelens = function(err, lenses, ctx, _)
@@ -215,7 +228,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
         return default_on_codelens(err, lenses, ctx, _)
       end
-      vim.g.did_override_on_codelens = true
+      require('actions-preview').setup {
+        backend = { 'telescope' },
+      }
+      vim.g.initial_lsp_attach_done = true
     end
 
     local bufnr = ev.buf
