@@ -23,6 +23,7 @@ require('hardtime').setup {
     'qf',
     'netrw',
     'NeogitStatus',
+    'NeogitCommitView',
     'DiffviewFilePanel',
     'query',
     'harpoon',
