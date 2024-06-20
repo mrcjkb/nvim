@@ -3,8 +3,9 @@ local is_active = false
 
 require('persistence.config').setup()
 
-vim.api.nvim_create_autocmd('BufReadPre', {
+vim.api.nvim_create_autocmd('BufWinEnter', {
   group = vim.api.nvim_create_augroup('persistence', { clear = true }),
+  once = true,
   callback = function()
     if is_setup then
       return

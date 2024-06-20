@@ -1,7 +1,7 @@
 if vim.g.gitlinker_setup_done then
   return
 end
-vim.api.nvim_create_autocmd('BufReadPost', {
+vim.api.nvim_create_autocmd('BufWinEnter', {
   once = true,
   group = vim.api.nvim_create_augroup('gitlinker-setup', {}),
   callback = function()

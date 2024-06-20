@@ -1,7 +1,7 @@
 if vim.g.nvim_ufo_setup_done then
   return
 end
-vim.api.nvim_create_autocmd('BufReadPre', {
+vim.api.nvim_create_autocmd('BufWinEnter', {
   once = true,
   group = vim.api.nvim_create_augroup('nvim-ufo-setup', {}),
   callback = function()
