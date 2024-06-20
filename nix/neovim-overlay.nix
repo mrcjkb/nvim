@@ -220,7 +220,7 @@ with final.lib; let
     ]))
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
-      luasnip
+      (opt luasnip)
       markdown-preview-nvim
       vim-fugitive
       telescope-fzy-native-nvim
