@@ -1,5 +1,3 @@
-local navic = require('nvim-navic')
-
 ---@return string status
 local function extra_mode_status()
   local reg_recording = vim.fn.reg_recording()
@@ -21,7 +19,14 @@ require('lualine').setup {
   globalstatus = true,
   sections = {
     lualine_c = {
-      { navic.get_location, cond = navic.is_available },
+      {
+        function(...)
+          require('nvim-navic').get_location(...)
+        end,
+        cond = function(...)
+          require('nvim-navic').is_available(...)
+        end,
+      },
     },
     lualine_z = {
       { extra_mode_status },
