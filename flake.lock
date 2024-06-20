@@ -3742,22 +3742,6 @@
         "type": "github"
       }
     },
-    "nvim-lsp-selection-range": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1666531967,
-        "narHash": "sha256-58OpTcuZf6liiWU5TA35sN8dIbHNyQ+y9oD42nxx0OU=",
-        "owner": "camilledejoye",
-        "repo": "nvim-lsp-selection-range",
-        "rev": "7fd411a1df5c9a219fcd9d0914da55fe0e584c7b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "camilledejoye",
-        "repo": "nvim-lsp-selection-range",
-        "type": "github"
-      }
-    },
     "nvim-metals": {
       "flake": false,
       "locked": {
@@ -4230,7 +4214,6 @@
         "nvim-highlight-colors": "nvim-highlight-colors",
         "nvim-lastplace": "nvim-lastplace",
         "nvim-lint": "nvim-lint",
-        "nvim-lsp-selection-range": "nvim-lsp-selection-range",
         "nvim-metals": "nvim-metals",
         "nvim-navic": "nvim-navic",
         "nvim-treesitter": "nvim-treesitter",

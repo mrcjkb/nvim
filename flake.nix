@@ -167,10 +167,6 @@
       url = "github:ray-x/lsp_signature.nvim";
       flake = false;
     };
-    nvim-lsp-selection-range = {
-      url = "github:camilledejoye/nvim-lsp-selection-range";
-      flake = false;
-    };
     fidget = {
       url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;

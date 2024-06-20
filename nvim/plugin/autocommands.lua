@@ -295,12 +295,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set({ 'n', 'v' }, '<space>f', function()
       vim.lsp.buf.format { async = true }
     end, desc('lsp: [f]ormat buffer'))
-    keymap.set('n', 'vv', function()
-      require('lsp-selection-range').trigger()
-    end, desc('lsp: trigger selection range'))
-    keymap.set('v', 'vv', function()
-      require('lsp-selection-range').expand()
-    end, desc('lsp: expand selection range'))
 
     -- Autocomplete signature hints
     require('lsp_signature').on_attach()

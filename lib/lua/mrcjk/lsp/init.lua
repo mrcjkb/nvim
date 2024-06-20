@@ -74,7 +74,6 @@ local has_cmp_lsp, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 if has_cmp_lsp then
   capabilities = vim.tbl_deep_extend('force', capabilities, cmp_lsp.default_capabilities())
 end
-capabilities = require('lsp-selection-range').update_capabilities(capabilities)
 -- Enable preliminary support for workspace/didChangeWatchedFiles
 capabilities = vim.tbl_deep_extend('keep', capabilities, {
   workspace = {

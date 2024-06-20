@@ -170,7 +170,6 @@ with final.lib; let
       nvim-metals
       lsp-status
       lsp_signature
-      nvim-lsp-selection-range
       fidget
       illuminate
       schemastore-nvim

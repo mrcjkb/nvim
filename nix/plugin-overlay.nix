@@ -37,7 +37,6 @@ in {
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
-    nvim-lsp-selection-range = mkNvimPlugin inputs.nvim-lsp-selection-range "nvim-lsp-selection-range";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
