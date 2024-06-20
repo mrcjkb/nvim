@@ -3,3 +3,4 @@
 .pre-commit-config.yaml
 .luarc.json
 result
+time.txt

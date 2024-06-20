@@ -125,97 +125,99 @@ with final.lib; let
         wrapRc = true;
       });
 
+  opt = drv: {
+    plugin = drv;
+    optional = true;
+  };
+
   base-plugins = with final.nvimPlugins;
-    ([
-        plenary
-        sqlite
-        nvim-web-devicons
-        diffview
-        nvim-ts-context-commentstring
-        treesitter-textobjects
-        treesitter-context
-        wildfire-nvim
-        rainbow-delimiters-nvim
-        vim-matchup
-        iswap-nvim
-        nvim-treesitter
-        vim-wordmotion
-        nvim-highlight-colors
-        # (withConfig leap "require('leap').set_default_keymaps()")
-        flash-nvim
-        eyeliner-nvim
-        neogit
-        gitlinker
-        repeat
-        unimpaired
-        surround
-        substitute
-        persistence
-        nvim-lastplace
-        comment
-        material-theme
-        crates-nvim
-        neotest
-        neotest-java
-        neotest-busted
-        nio # TODO: Remove when rocks-dev is ready
-        nvim-dap
-        nvim-dap-ui
-        jdtls
-        nvim-metals
-        lsp-status
-        lsp_signature
-        nvim-lsp-selection-range
-        fidget
-        illuminate
-        schemastore-nvim
-        lspkind-nvim
-        actions-preview-nvim
-        nvim-lint
-        telescope_hoogle
-        telescope-smart-history
-        telescope
-        todo-comments
-        fzf-lua
-        nvim-navic
-        lualine
-        toggleterm
-        harpoon
-        gitsigns
-        {
-          plugin = nvim-bqf;
-          optional = true;
-        }
-        formatter
-        yanky
-        promise-async
-        nvim-ufo
-        statuscol
-        nvim-unception
-        tmux-nvim
-        hardtime-nvim
-        term-edit-nvim
-        oil-nvim
-        oil-git-status-nvim
-        other-nvim
-        which-key-nvim
-      ]
-      ++ [
-        # nvim-cmp and plugins
-        cmp-buffer
-        cmp-tmux
-        cmp-path
-        cmp-cmdline
-        cmp-cmdline-history
-        cmp-nvim-lua
-        cmp-nvim-lsp
-        cmp-nvim-lsp-document-symbol
-        cmp-nvim-lsp-signature-help
-        cmp-luasnip
-        cmp-luasnip-choice
-        cmp-rg
-        nvim-cmp
-      ])
+    [
+      plenary
+      sqlite
+      nvim-web-devicons
+      diffview
+      nvim-ts-context-commentstring
+      treesitter-textobjects
+      treesitter-context
+      wildfire-nvim
+      rainbow-delimiters-nvim
+      vim-matchup
+      iswap-nvim
+      nvim-treesitter
+      vim-wordmotion
+      nvim-highlight-colors
+      # (withConfig leap "require('leap').set_default_keymaps()")
+      flash-nvim
+      eyeliner-nvim
+      neogit
+      gitlinker
+      repeat
+      unimpaired
+      surround
+      substitute
+      persistence
+      nvim-lastplace
+      comment
+      material-theme
+      crates-nvim
+      neotest
+      neotest-java
+      neotest-busted
+      nio # TODO: Remove when rocks-dev is ready
+      nvim-dap
+      nvim-dap-ui
+      jdtls
+      nvim-metals
+      lsp-status
+      lsp_signature
+      nvim-lsp-selection-range
+      fidget
+      illuminate
+      schemastore-nvim
+      lspkind-nvim
+      actions-preview-nvim
+      nvim-lint
+      telescope_hoogle
+      telescope-smart-history
+      telescope
+      todo-comments
+      fzf-lua
+      nvim-navic
+      lualine
+      toggleterm
+      harpoon
+      gitsigns
+      (opt nvim-bqf)
+      formatter
+      yanky
+      promise-async
+      nvim-ufo
+      statuscol
+      nvim-unception
+      tmux-nvim
+      hardtime-nvim
+      term-edit-nvim
+      oil-nvim
+      oil-git-status-nvim
+      other-nvim
+      which-key-nvim
+    ]
+    ++ (map opt (with final.nvimPlugins; [
+      # nvim-cmp and plugins
+      cmp-buffer
+      cmp-tmux
+      cmp-path
+      cmp-cmdline
+      cmp-cmdline-history
+      cmp-nvim-lua
+      cmp-nvim-lsp
+      cmp-nvim-lsp-document-symbol
+      cmp-nvim-lsp-signature-help
+      cmp-luasnip
+      cmp-luasnip-choice
+      cmp-rg
+      nvim-cmp
+    ]))
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
       luasnip
