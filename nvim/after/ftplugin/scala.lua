@@ -4,9 +4,6 @@ end
 local metals = require('metals')
 local lsp = require('mrcjk.lsp')
 local config = metals.bare_config()
-config.on_attach = function(client, bufnr)
-  lsp.on_attach(client, bufnr)
-end
 config.settings = {
   metals = {
     useGlobalExecutable = true,

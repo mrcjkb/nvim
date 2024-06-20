@@ -26,7 +26,6 @@ vim.lsp.start {
   name = 'luals',
   cmd = { lua_ls_cmd },
   root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
-  on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
   settings = {
     Lua = {

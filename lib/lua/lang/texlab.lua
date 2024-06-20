@@ -1,15 +1,12 @@
-local lsp = require('mrcjk.lsp')
-
 local M = {}
 
-local on_latex_attach = function(client, bufnr)
+local on_latex_attach = function()
   vim.keymap.set(
     'n',
     '<space>lb',
     '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>',
     { noremap = true, silent = true, desc = '[l]atex [b]uild' }
   )
-  lsp.on_attach(client, bufnr)
 end
 
 local root_files = { '.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml' }
@@ -21,7 +18,7 @@ M.launch = function()
       filetypes = { 'tex', 'plaintex', 'bib' },
       root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
       on_attach = on_latex_attach,
-      capabilities = lsp.capabilities,
+      capabilities = require('mrcjk.lsp').capabilities,
       single_file_support = true,
       settings = {
         texlab = {

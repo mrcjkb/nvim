@@ -6,16 +6,10 @@ if vim.fn.executable(pylsp_cmd) ~= 1 then
   return
 end
 
--- local dap_python = require('dap-python')
-local on_pylsp_attach = function(client, buf)
-  lsp.on_attach(client, buf)
-  lsp.on_dap_attach(buf)
-end
-
 local config = {
   cmd = { pylsp_cmd },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'setup.py', 'setup.cfg', 'pyproject.toml' }, { upward = true })[1]),
-  on_attach = on_pylsp_attach,
+  on_attach = lsp.on_dap_attach,
   capabilities = lsp.capabilities,
   settings = {
     pylsp = {

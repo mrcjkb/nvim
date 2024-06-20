@@ -7,7 +7,6 @@ end
 vim.lsp.start {
   name = 'vimls',
   cmd = { 'vim-language-server', '--stdio' },
-  on_attach = lsp.on_attach,
   capabilities = lsp.capabilities,
   init_options = {
     isNeovim = true,

@@ -167,9 +167,7 @@ g.haskell_tools = function()
     hls = {
       -- for hls development
       -- cmd = { 'cabal', 'run', 'haskell-language-server' },
-      on_attach = function(client, bufnr, ht)
-        lsp.on_attach(client, bufnr)
-        lsp.on_dap_attach(bufnr)
+      on_attach = function(_, bufnr, ht)
         local desc = function(description)
           return vim.tbl_extend('keep', keymap_opts, { buffer = bufnr, desc = description })
         end
@@ -209,10 +207,7 @@ g.rustaceanvim = function()
       executor = 'toggleterm',
     },
     server = {
-      on_attach = function(client, bufnr)
-        lsp.on_attach(client, bufnr)
-        lsp.on_dap_attach(bufnr)
-      end,
+      on_attach = lsp.on_dap_attach,
       capabilities = lsp.capabilities,
       default_settings = {
         ['rust-analyzer'] = {

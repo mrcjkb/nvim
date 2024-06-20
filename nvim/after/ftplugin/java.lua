@@ -8,8 +8,7 @@ if not jdtls_bin then
   return
 end
 
-local on_jdtls_attach = function(client, buf)
-  lsp.on_attach(client, buf)
+local on_jdtls_attach = function(_, buf)
   -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
   -- you make during a debug session immediately.
   -- You can use the `JdtHotcodeReplace` command to trigger it manually
@@ -17,7 +16,7 @@ local on_jdtls_attach = function(client, buf)
   --   hotcodereplace = 'auto',
   -- }
   local function desc(description)
-    return { noremap = true, silent = true, desc = description }
+    return { noremap = true, silent = true, desc = description, buffer = buf }
   end
   vim.keymap.set('n', '<space>oi', jdtls.organize_imports, desc('java: [o]rganize [i]mports'))
   vim.keymap.set('n', '<space>ev', jdtls.extract_variable, desc('java: [e]xtract [v]ariable'))
