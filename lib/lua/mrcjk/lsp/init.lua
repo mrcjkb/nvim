@@ -3,7 +3,62 @@ local lsp = {}
 
 local keymap = vim.keymap
 
+local function init_dap()
+  if vim.g.dap_did_setup then
+    return
+  end
+  vim.g.dap_did_setup = true
+  local dap = require('dap')
+  local dapui = require('dapui')
+
+  -- Virtual text
+  vim.g.dap_virtual_text = true
+  -- request variable values for all frames (experimental)
+  vim.g.dap_virtual_text = 'all frames'
+
+  -- dap
+
+  dap.toggle_conditional_breakpoint = function()
+    dap.toggle_breakpoint(vim.fn.input { prompt = 'Breakpoint condition: ' }, nil, nil, true)
+  end
+  local widgets = require('dap.ui.widgets')
+  dap.sidebar = widgets.sidebar(widgets.scopes)
+
+  vim.fn.sign_define('DapBreakpoint', { text = '', texthl = '', linehl = '', numhl = '' })
+
+  local commands = {
+    {
+      'DapContinue',
+      dap.continue,
+      {},
+    },
+    {
+      'DapBreakpoints',
+      dap.list_breakpoints,
+      {},
+    },
+    {
+      'DapSidebar',
+      function()
+        require('dap-setup').sidebar.toggle()
+      end,
+      {},
+    },
+  }
+  for _, command in ipairs(commands) do
+    vim.api.nvim_create_user_command(unpack(command))
+  end
+
+  dap.defaults.fallback.external_terminal = {
+    command = 'alacritty',
+    args = { '-e' },
+  }
+
+  dapui.setup()
+end
+
 function lsp.on_dap_attach(_, bufnr)
+  init_dap()
   local dap = require('dap')
   local dap_widgets = require('dap.ui.widgets')
   local dap_utils = require('dap.utils')
