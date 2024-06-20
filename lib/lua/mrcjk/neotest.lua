@@ -1,10 +1,18 @@
+---Neotest is quite heavy on startup, so this module is loaded in ftplugins
+if vim.g.neotest_setup_done then
+  return true
+end
+vim.g.neotest_setup_done = true
+
+vim.cmd.packadd('neotest')
+vim.cmd.packadd('neotest-java')
+
 local function desc(description)
   return { noremap = true, silent = true, desc = description }
 end
 
 local neotest = require('neotest')
 
----Neotest is quite heavy on startup, so this initializes it lazily, on keymap
 ---@diagnostic disable-next-line: missing-fields
 neotest.setup {
   adapters = {
@@ -47,3 +55,5 @@ vim.keymap.set('n', '<leader>nw', function()
 end, desc('[n]eotest: [w]atch file'))
 vim.keymap.set('n', '<leader>no', neotest.output.open, desc('[n]eotest: [o]pen output'))
 vim.keymap.set('n', '<leader>ns', neotest.summary.toggle, desc('[n]eotest: toggle [s]ummary'))
+
+return true

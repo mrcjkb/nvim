@@ -1,5 +1,6 @@
 local bufnr = vim.api.nvim_get_current_buf()
 require('lang.haskell')
+require('mrcjk.neotest')
 local ht = require('haskell-tools')
 
 local function desc(description)

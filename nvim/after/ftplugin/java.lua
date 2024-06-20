@@ -1,3 +1,4 @@
+require('mrcjk.neotest')
 local lsp = require('mrcjk.lsp')
 local jdtls = require('jdtls')
 

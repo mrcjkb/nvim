@@ -1,3 +1,4 @@
+require('mrcjk.neotest')
 local codelens = require('mrcjk.lsp.codelens')
 
 local bufnr = vim.api.nvim_get_current_buf()

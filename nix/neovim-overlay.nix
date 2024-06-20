@@ -160,8 +160,8 @@ with final.lib; let
       comment
       material-theme
       crates-nvim
-      neotest
-      neotest-java
+      (opt neotest)
+      (opt neotest-java)
       neotest-busted
       nio # TODO: Remove when rocks-dev is ready
       nvim-dap
