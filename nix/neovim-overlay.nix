@@ -141,7 +141,7 @@ with final.lib; let
       treesitter-context
       wildfire-nvim
       rainbow-delimiters-nvim
-      vim-matchup
+      (opt vim-matchup)
       iswap-nvim
       nvim-treesitter
       vim-wordmotion
