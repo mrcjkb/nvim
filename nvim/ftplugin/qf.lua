@@ -4,6 +4,8 @@ if vim.g.nvim_bqf_did_setup then
 end
 vim.g.nvim_bqf_did_setup = true
 
+vim.cmd.packadd('nvim-bqf')
+
 local fn = vim.fn
 
 function _G.qftf(info)
@@ -58,10 +60,10 @@ end
 
 vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
--- Adapt fzf's delimiter in nvim-bqf
 require('bqf').setup {
   filter = {
     fzf = {
+      -- Adapt fzf's delimiter
       extra_opts = { '--bind', 'ctrl-o:toggle-all', '--delimiter', '│' },
     },
   },
