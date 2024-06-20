@@ -1,3 +1,4 @@
+-- TODO: lazy-load
 require('other-nvim').setup {
   transformers = {
     lowercase = function(inputString)
