@@ -289,6 +289,10 @@
       url = "github:nvim-telescope/telescope-smart-history.nvim";
       flake = false;
     };
+    telescope-zf-native = {
+      url = "github:natecraddock/telescope-zf-native.nvim";
+      flake = false;
+    };
     todo-comments = {
       url = "github:folke/todo-comments.nvim";
       flake = false;

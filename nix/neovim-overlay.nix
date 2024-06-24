@@ -178,6 +178,7 @@ with final.lib; let
       nvim-lint
       telescope_hoogle
       telescope-smart-history
+      telescope-zf-native
       telescope
       todo-comments
       fzf-lua

@@ -70,6 +70,7 @@ in {
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
+    telescope-zf-native = mkNvimPlugin inputs.telescope-zf-native "telescope-zf-native.nvim";
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     fzf-lua = mkNvimPlugin inputs.fzf-lua "fzf-lua";
     lualine = mkNvimPlugin inputs.lualine "lualine";
