@@ -202,7 +202,7 @@ with final.lib; let
       other-nvim
       which-key-nvim
     ]
-    ++ (map opt (with final.nvimPlugins; [
+    ++ (with final.nvimPlugins; [
       # nvim-cmp and plugins
       cmp-buffer
       cmp-tmux
@@ -217,7 +217,7 @@ with final.lib; let
       cmp-luasnip-choice
       cmp-rg
       nvim-cmp
-    ]))
+    ])
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
       (opt luasnip)
