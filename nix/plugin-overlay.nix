@@ -92,5 +92,6 @@ in {
     term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
+    markview-nvim = mkNvimPlugin inputs.markview-nvim "markview.nvim";
   };
 }

@@ -201,6 +201,7 @@ with final.lib; let
       oil-git-status-nvim
       other-nvim
       which-key-nvim
+      markview-nvim
     ]
     ++ (with final.nvimPlugins; [
       # nvim-cmp and plugins

@@ -12,3 +12,7 @@ See also:
   - [kickstart-nix.nvim](https://github.com/mrcjkb/kickstart-nix.nvim):
     A simple Nix flake template repository for Neovim
     derivations, based on this config.
+
+> [!NOTE]
+>
+> Bla

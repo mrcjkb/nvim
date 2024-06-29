@@ -2409,6 +2409,19 @@
         "type": "github"
       }
     },
+    "markview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719657140,
+        "narHash": "sha256-QQ985WxEmDY1vvHqRY0p7uoflG+u9v+38LXSehClcAU=",
+        "path": "/home/mrcjk/git/github/forks/nvim/markview.nvim",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/mrcjk/git/github/forks/nvim/markview.nvim",
+        "type": "path"
+      }
+    },
     "material-theme": {
       "flake": false,
       "locked": {
@@ -4198,6 +4211,7 @@
         "lsp_signature": "lsp_signature",
         "lspkind-nvim": "lspkind-nvim",
         "lualine": "lualine",
+        "markview-nvim": "markview-nvim",
         "material-theme": "material-theme",
         "neogit": "neogit",
         "neorocks": "neorocks_2",

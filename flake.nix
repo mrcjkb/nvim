@@ -380,6 +380,11 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
+    markview-nvim = {
+      # url = "github:OXY2DEV/markview.nvim";
+      url = "/home/mrcjk/git/github/forks/nvim/markview.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
