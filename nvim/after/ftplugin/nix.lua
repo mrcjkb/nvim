@@ -11,13 +11,15 @@ vim.lsp.start {
   root_dir = vim.fs.dirname(vim.fs.find({ 'flake.nix', '.git' }, { upward = true })[1]),
   capabilities = lsp.capabilities,
   settings = {
-    formatting = {
-      command = vim.fn.executable('alejandra') == 1 and { 'alejandra', '-qq' }
-        or vim.fn.executable('nixpkgs-fmt') == 1 and { 'nixpkgs-fmt' },
-    },
-    flake = {
-      autoArchive = true,
-      autoEvalInputs = true,
+    ['nil'] = {
+      formatting = {
+        command = vim.fn.executable('alejandra') == 1 and { 'alejandra', '-qq' }
+          or vim.fn.executable('nixpkgs-fmt') == 1 and { 'nixpkgs-fmt' },
+      },
+      flake = {
+        autoArchive = true,
+        autoEvalInputs = true,
+      },
     },
   },
 }
