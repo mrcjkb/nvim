@@ -218,6 +218,7 @@ telescope.setup {
 }
 
 telescope.load_extension('fzy_native')
+telescope.load_extension('zf-native')
 telescope.load_extension('smart_history')
 -- telescope.load_extension('cheat')
 -- telescope.load_extension('ui-select')
