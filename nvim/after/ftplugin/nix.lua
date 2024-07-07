@@ -14,7 +14,8 @@ vim.lsp.start {
     ['nil'] = {
       formatting = {
         command = vim.fn.executable('alejandra') == 1 and { 'alejandra', '-qq' }
-          or vim.fn.executable('nixpkgs-fmt') == 1 and { 'nixpkgs-fmt' },
+          or vim.fn.executable('nixpkgs-fmt') == 1 and { 'nixpkgs-fmt' }
+          or nil,
       },
       flake = {
         autoArchive = true,
