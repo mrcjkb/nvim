@@ -4782,11 +4782,11 @@
     "which-key-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1717769072,
-        "narHash": "sha256-xfz51JQsEqaPRSzFw6DxM8yKFznOk9o9ETlZkErSzNg=",
+        "lastModified": 1721292676,
+        "narHash": "sha256-82i0wiYGeuN/gjjNflJw1GLGEqw6eIxzLGMxolRch/Y=",
         "owner": "folke",
         "repo": "which-key.nvim",
-        "rev": "0099511294f16b81c696004fa6a403b0ae61f7a0",
+        "rev": "439d1247cbfed8ee46d6c9a5edbfad6b4c968e06",
         "type": "github"
       },
       "original": {
