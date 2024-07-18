@@ -244,7 +244,7 @@ with final.lib; let
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
     nodePackages.dockerfile-language-server-nodejs
-    nodePackages.vscode-json-languageserver-bin
+    nodePackages.vscode-langservers-extracted
     nodePackages.bash-language-server
     taplo # toml toolkit including a language server
     sqls
