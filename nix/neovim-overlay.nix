@@ -285,7 +285,6 @@ with final.lib; let
   luarc-json = final.mk-luarc-json {
     plugins = all-plugins;
     nvim = final.neovim-nightly;
-    neodev-types = "nightly";
   };
 in {
   inherit
