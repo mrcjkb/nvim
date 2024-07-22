@@ -302,9 +302,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, desc('lsp: [f]ormat buffer'))
 
-    -- Autocomplete signature hints
-    require('lsp_signature').on_attach()
-
     if client.server_capabilities.inlayHintProvider then
       keymap.set('n', '<space>h', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }

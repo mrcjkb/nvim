@@ -37,10 +37,12 @@ in {
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     live-rename-nvim = mkNvimPlugin inputs.live-rename-nvim "live-rename.nvim";
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
-    lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
-    nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
+    care-nvim = inputs.care-nvim.packages.${final.system}.care-nvim;
+    care-cmp = mkNvimPlugin inputs.care-cmp "care-cmp";
+    care-lsp = mkNvimPlugin inputs.care-lsp "care-lsp";
+    # nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
     cmp-buffer = mkNvimPlugin inputs.cmp-buffer "cmp-buffer";
     cmp-tmux = mkNvimPlugin inputs.cmp-tmux "cmp-tmux";
     cmp-path = mkNvimPlugin inputs.cmp-path "cmp-path";

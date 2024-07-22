@@ -167,10 +167,6 @@
       url = "github:nvim-lua/lsp-status.nvim";
       flake = false;
     };
-    lsp_signature = {
-      url = "github:ray-x/lsp_signature.nvim";
-      flake = false;
-    };
     fidget = {
       url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;
@@ -179,8 +175,18 @@
       url = "github:RRethy/vim-illuminate";
       flake = false;
     };
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
+    # nvim-cmp = {
+    #   url = "github:hrsh7th/nvim-cmp";
+    #   flake = false;
+    # };
+    # care-nvim.url = "github:max397574/care.nvim";
+    care-nvim.url = "/home/mrcjk/git/github/forks/nvim/care.nvim";
+    care-cmp = {
+      url = "github:max397574/care-cmp";
+      flake = false;
+    };
+    care-lsp = {
+      url = "github:max397574/care-lsp";
       flake = false;
     };
     cmp-buffer = {
