@@ -39,7 +39,10 @@ in {
     lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
-    nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
+    neocomplete-nvim = inputs.neocomplete-nvim.packages.${final.system}.neocomplete-nvim;
+    neocomplete-cmp = mkNvimPlugin inputs.neocomplete-cmp "neocomplete-cmp";
+    neocomplete-lsp = mkNvimPlugin inputs.neocomplete-lsp "neocomplete-lsp";
+    # nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
     cmp-buffer = mkNvimPlugin inputs.cmp-buffer "cmp-buffer";
     cmp-tmux = mkNvimPlugin inputs.cmp-tmux "cmp-tmux";
     cmp-path = mkNvimPlugin inputs.cmp-path "cmp-path";

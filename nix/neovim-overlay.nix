@@ -204,19 +204,22 @@ with final.lib; let
     ]
     ++ (with final.nvimPlugins; [
       # nvim-cmp and plugins
-      cmp-buffer
-      cmp-tmux
-      cmp-path
-      cmp-cmdline
-      cmp-cmdline-history
-      cmp-nvim-lua
-      cmp-nvim-lsp
-      cmp-nvim-lsp-document-symbol
-      cmp-nvim-lsp-signature-help
-      cmp-luasnip
-      cmp-luasnip-choice
-      cmp-rg
-      nvim-cmp
+      # cmp-buffer
+      # cmp-tmux
+      # cmp-path
+      # cmp-cmdline
+      # cmp-cmdline-history
+      # cmp-nvim-lua
+      # cmp-nvim-lsp
+      # cmp-nvim-lsp-document-symbol
+      # cmp-nvim-lsp-signature-help
+      # cmp-luasnip
+      # cmp-luasnip-choice
+      # cmp-rg
+      # nvim-cmp
+      neocomplete-nvim
+      neocomplete-cmp
+      neocomplete-lsp
     ])
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim

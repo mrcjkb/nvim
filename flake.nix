@@ -175,8 +175,18 @@
       url = "github:RRethy/vim-illuminate";
       flake = false;
     };
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
+    # nvim-cmp = {
+    #   url = "github:hrsh7th/nvim-cmp";
+    #   flake = false;
+    # };
+    # neocomplete-nvim.url = "github:max397574/neocomplete.nvim";
+    neocomplete-nvim.url = "/home/mrcjk/git/github/forks/nvim/neocomplete.nvim";
+    neocomplete-cmp = {
+      url = "github:max397574/neocomplete-cmp";
+      flake = false;
+    };
+    neocomplete-lsp = {
+      url = "github:max397574/neocomplete-lsp";
       flake = false;
     };
     cmp-buffer = {
