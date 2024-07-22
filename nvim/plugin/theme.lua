@@ -68,6 +68,7 @@ require('material').setup {
     ['@function.builtin'] = { fg = '#B0C9FF' }, -- paleblue
     ['@comment.documentation'] = { link = '@comment', italic = false },
     ['@lsp.type.interface'] = { fg = '#B480D6', italic = false },
+    ['@lsp.type.enumMember.haskell'] = { fg = '#6E98EB', italic = false },
     Title = { fg = '#B480D6' },
     ['@keyword.blocking'] = { fg = '#71C6E7', bold = true },
   },

@@ -190,6 +190,11 @@ g.haskell_tools = function()
         haskell = {
           formattingProvider = 'stylish-haskell',
           maxCompletions = 10,
+          plugin = {
+            semanticTokens = {
+              globalOn = true,
+            },
+          },
         },
       },
     },

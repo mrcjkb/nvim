@@ -1,22 +1,23 @@
 ;; extends
 
+; NOTE: lsp semantic tokens have priority 125
+
 (quasiquote
-  (_
-    (module) @_mod
-    . (variable) @_name
-  ) 
+  (quoter
+    (_
+      (module (module_id) @_mod)
+      . (variable) @_name))
   (#eq? @_mod "Log")
   (#any-of? @_name "t" "d" "i" "w" "e")
-  (quasiquote_body) @string
-) 
+  (quasiquote_body) @string) 
+
 (quasiquote
-  (_
-    (module) @_mod
-    . (variable) @keyword.exception
-  ) 
+  (quoter
+    (_
+      (module (module_id) @_mod)
+      . (variable) @keyword.exception))
   (#eq? @_mod "Log")
-  (#eq? @keyword.exception "e")
-) 
+  (#eq? @keyword.exception "e"))
 
 ((variable) @keyword.exception
   (#any-of? @keyword.exception 
@@ -24,7 +25,8 @@
    "throwWhenNothing"
    "failWhenNothing"
    "failWhenLeft_"
-  ))
+  )
+  (#set! "priority" 200))
 
 ((variable) @keyword.exception
   (#any-of? @keyword.exception 
@@ -32,7 +34,8 @@
    "throwWhenNothing"
    "failWhenNothing"
    "failWhenLeft_"
-  ))
+  )
+  (#set! "priority" 200))
 
 ; Blocking STM calls "@keyword.blocking" is a non-standard capture
 ((variable) @keyword.blocking
@@ -72,4 +75,5 @@
    "unGetTChanIO"
    "waitTSem"
    "waitTSemIO"
-  ))
+  )
+  (#set! "priority" 200))
