@@ -409,9 +409,10 @@
           neovim-overlay
           inputs.haskell-tools.overlays.default
           inputs.haskell-snippets.overlays.default
-          inputs.neotest-haskell.overlays.default
           inputs.telescope-manix.overlays.default
           inputs.rustaceanvim.overlays.default
+          # FIXME: This will fail to build if not applied after the others
+          inputs.neotest-haskell.overlays.default
         ];
       };
       shell = pkgs.mkShell {
