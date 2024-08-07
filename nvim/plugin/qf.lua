@@ -1,10 +1,7 @@
----@diagnostic disable: missing-fields
-if vim.g.nvim_bqf_did_setup then
+if vim.g.qf_loaded then
   return
 end
-vim.g.nvim_bqf_did_setup = true
-
-vim.cmd.packadd('nvim-bqf')
+vim.g.qf_loaded = true
 
 local fn = vim.fn
 
@@ -60,6 +57,7 @@ end
 
 vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
+---@diagnostic disable-next-line: missing-fields
 require('bqf').setup {
   filter = {
     fzf = {

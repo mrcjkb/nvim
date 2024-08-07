@@ -187,7 +187,7 @@ with final.lib; let
       toggleterm
       harpoon
       gitsigns
-      (opt nvim-bqf)
+      nvim-bqf
       formatter
       yanky
       promise-async
