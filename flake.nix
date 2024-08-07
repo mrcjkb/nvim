@@ -20,8 +20,8 @@
       flake = false;
     };
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
@@ -334,6 +334,10 @@
       url = "github:kevinhwang91/nvim-bqf";
       flake = false;
     };
+    quicker-nvim = {
+      url = "github:stevearc/quicker.nvim";
+      flake = false;
+    };
     formatter = {
       url = "github:mhartington/formatter.nvim";
       flake = false;
@@ -388,7 +392,7 @@
     neorocks,
     gen-luarc,
     flake-utils,
-    pre-commit-hooks,
+    git-hooks,
     ...
   }: let
     supportedSystems = [
@@ -418,17 +422,17 @@
       shell = pkgs.mkShell {
         name = "nvim-devShell";
         buildInputs =
-          self.checks.${system}.pre-commit-check.enabledPackages
+          self.checks.${system}.git-hooks-check.enabledPackages
           ++ (with pkgs; [
             lua-language-server
             nil
           ]);
         shellHook = ''
-          ${self.checks.${system}.pre-commit-check.shellHook}
+          ${self.checks.${system}.git-hooks-check.shellHook}
           ln -fs ${pkgs.luarc-json} .luarc.json
         '';
       };
-      pre-commit-check = pre-commit-hooks.lib.${system}.run {
+      git-hooks-check = git-hooks.lib.${system}.run {
         src = self;
         hooks = {
           alejandra.enable = true;
@@ -447,7 +451,7 @@
         default = shell;
       };
       checks = {
-        inherit pre-commit-check;
+        inherit git-hooks-check;
       };
     })
     // {

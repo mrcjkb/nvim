@@ -57,14 +57,15 @@ end
 
 vim.o.qftf = '{info -> v:lua._G.qftf(info)}'
 
----@diagnostic disable-next-line: missing-fields
 require('bqf').setup {
   filter = {
+    ---@diagnostic disable-next-line: missing-fields
     fzf = {
       -- Adapt fzf's delimiter
       extra_opts = { '--bind', 'ctrl-o:toggle-all', '--delimiter', '│' },
     },
   },
+  ---@diagnostic disable-next-line: missing-fields
   preview = {
     border = 'none',
     win_vheight = 999,
@@ -72,3 +73,19 @@ require('bqf').setup {
     winblend = 0,
   },
 }
+
+require('quicker').setup {
+  opts = {
+    relativenumber = true,
+    -- keys = {
+    --   { '<TAB>', "<cmd>lua require('quicker').expand()<CR>", desc = 'Expand quickfix content' },
+    -- },
+    highlight = {
+      load_buffers = false,
+    },
+  },
+}
+
+vim.keymap.set('n', '<C-c>', function()
+  require('quicker').toggle()
+end, { desc = 'toggle quickfix list' })

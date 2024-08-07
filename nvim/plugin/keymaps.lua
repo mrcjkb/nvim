@@ -31,25 +31,6 @@ keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last [B]uffer' })
 -- keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection up' })
 -- keymap.set('v', 'K', ":m '>-2<CR>gv=gv", { desc = 'move selection down' })
 
--- Toggle the quickfix list (only opens if it is populated)
-local function toggle_qf_list()
-  local qf_exists = false
-  for _, win in pairs(fn.getwininfo() or {}) do
-    if win['quickfix'] == 1 then
-      qf_exists = true
-    end
-  end
-  if qf_exists == true then
-    vim.cmd.cclose()
-    return
-  end
-  if not vim.tbl_isempty(vim.fn.getqflist()) then
-    vim.cmd.copen()
-  end
-end
-
-keymap.set('n', '<C-c>', toggle_qf_list, { desc = 'toggle quickfix list' })
-
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
   if success then

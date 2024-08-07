@@ -188,6 +188,7 @@ with final.lib; let
       harpoon
       gitsigns
       nvim-bqf
+      quicker-nvim
       formatter
       yanky
       promise-async
