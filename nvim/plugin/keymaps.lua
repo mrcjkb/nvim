@@ -132,26 +132,38 @@ keymap.set('n', '<space>do', function()
   local _, winid = diagnostic.open_float(nil, { scope = 'line' })
   vim.api.nvim_win_set_config(winid or 0, { focusable = true })
 end, { noremap = true, silent = true, desc = '[d]iagnostics [o]pen floating' })
-keymap.set('n', '[d', diagnostic.goto_prev, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', diagnostic.goto_next, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+keymap.set('n', '[d', function()
+  diagnostic.jump { count = -1, float = true }
+end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function()
+  diagnostic.jump { count = 1, float = true }
+end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
-  diagnostic.goto_prev {
+  diagnostic.jump {
     severity = severity.ERROR,
+    count = -1,
+    float = true,
   }
 end, { noremap = true, silent = true, desc = 'previous [e]rror' })
 keymap.set('n', ']e', function()
-  diagnostic.goto_next {
+  diagnostic.jump {
     severity = severity.ERROR,
+    count = 1,
+    float = true,
   }
 end, { noremap = true, silent = true, desc = 'next [e]rror' })
 keymap.set('n', '[w', function()
-  diagnostic.goto_prev {
+  diagnostic.jump {
     severity = severity.WARN,
+    count = -1,
+    float = true,
   }
 end, { noremap = true, silent = true, desc = 'previous [w]arning' })
 keymap.set('n', ']w', function()
-  diagnostic.goto_next {
+  diagnostic.jump {
     severity = severity.WARN,
+    count = 1,
+    float = true,
   }
 end, { noremap = true, silent = true, desc = 'next [w]arning' })
 keymap.set('n', '<space>dl', function()
