@@ -10,15 +10,7 @@ configs.setup {
   highlight = {
     enable = true,
     disable = function(_, buf)
-      if files.disable_treesitter_features(buf) then
-        return true
-      end
-      local fname = vim.api.nvim_buf_get_name(buf)
-      local max_filesize = 100 * 1024 -- 100 KiB
-      local ok, stats = pcall(vim.uv.fs_stat, fname)
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
+      return files.disable_treesitter_features(buf)
     end,
   },
   indent = {
