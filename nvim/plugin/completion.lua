@@ -7,7 +7,7 @@ vim.g.completion_setup_done = true
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy' }
 
 ---@param source string|table
 local function complete_with_source(source)
