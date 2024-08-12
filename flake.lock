@@ -4073,23 +4073,6 @@
         "type": "github"
       }
     },
-    "oil-git-status-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1715026396,
-        "narHash": "sha256-Z9lZovI6f3wIFwOvg1JPknfpgBXBv/i54DRqJFBLkbg=",
-        "owner": "mrcjkb",
-        "repo": "oil-git-status.nvim",
-        "rev": "212ad53ad40b9b68df05f91e48f60c7b7c9aadee",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mrcjkb",
-        "ref": "ftplugin",
-        "repo": "oil-git-status.nvim",
-        "type": "github"
-      }
-    },
     "oil-nvim": {
       "flake": false,
       "locked": {
@@ -4382,7 +4365,6 @@
         "nvim-ufo": "nvim-ufo",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
-        "oil-git-status-nvim": "oil-git-status-nvim",
         "oil-nvim": "oil-nvim",
         "other-nvim": "other-nvim",
         "persistence": "persistence",
