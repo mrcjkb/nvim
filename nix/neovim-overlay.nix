@@ -223,7 +223,6 @@ with final.lib; let
       # catppuccin-nvim
       (opt luasnip)
       markdown-preview-nvim
-      vim-fugitive
       telescope-fzy-native-nvim
       # neorg
       dial-nvim
