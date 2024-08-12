@@ -159,6 +159,10 @@
       url = "github:rcarriga/nvim-dap-ui";
       flake = false;
     };
+    live-rename-nvim = {
+      url = "github:saecki/live-rename.nvim";
+      flake = false;
+    };
     lsp-status = {
       url = "github:nvim-lua/lsp-status.nvim";
       flake = false;

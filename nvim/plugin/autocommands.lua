@@ -272,7 +272,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
       -- TODO: Replace this with a Telescope extension?
       vim.print(vim.lsp.buf.list_workspace_folders())
     end, desc('lsp: [w]orkspace folders [l]'))
-    keymap.set('n', '<space>rn', vim.lsp.buf.rename, desc('lsp: [r]e[n]ame'))
+    keymap.set('n', '<space>rn', function()
+      -- vim.lsp.buf.rename()
+      require('live-rename').rename()
+    end, desc('lsp: [r]e[n]ame'))
+    keymap.set('n', '<space>ri', function()
+      require('live-rename').rename { text = '', insert = true }
+    end, desc('lsp: [r]ename ([i]nsert mode)'))
     keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, desc('lsp: [w]orkspace symbol [q]uery'))
     keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, desc('lsp: [dd]ocument symbol'))
     keymap.set('n', '<space>df', document_functions, desc('lsp: [d]ocument [f]unctions'))

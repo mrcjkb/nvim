@@ -35,6 +35,7 @@ in {
     nvim-metals = mkNvimPlugin inputs.nvim-metals "nvim-metals";
     nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
     nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
+    live-rename-nvim = mkNvimPlugin inputs.live-rename-nvim "live-rename.nvim";
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     lsp_signature = mkNvimPlugin inputs.lsp_signature "lsp_signature.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";

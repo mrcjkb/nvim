@@ -2516,6 +2516,22 @@
         "type": "github"
       }
     },
+    "live-rename-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723466644,
+        "narHash": "sha256-FS0zk8ol/xiwvhTWbRkC9f/WajhAvB+JmlptExf5I+Y=",
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "rev": "7f4d62ee0e46988402eb19a8ec8ee3b744ddabff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "type": "github"
+      }
+    },
     "lsp-status": {
       "flake": false,
       "locked": {
@@ -4338,6 +4354,7 @@
         "illuminate": "illuminate",
         "iswap-nvim": "iswap-nvim",
         "jdtls": "jdtls",
+        "live-rename-nvim": "live-rename-nvim",
         "lsp-status": "lsp-status",
         "lsp_signature": "lsp_signature",
         "lspkind-nvim": "lspkind-nvim",
