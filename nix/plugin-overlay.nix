@@ -39,24 +39,6 @@ in {
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
-    care-nvim = inputs.care-nvim.packages.${final.system}.care-nvim;
-    care-cmp = mkNvimPlugin inputs.care-cmp "care-cmp";
-    care-lsp = mkNvimPlugin inputs.care-lsp "care-lsp";
-    # nvim-cmp = mkNvimPlugin inputs.nvim-cmp "nvim-cmp";
-    cmp-buffer = mkNvimPlugin inputs.cmp-buffer "cmp-buffer";
-    cmp-tmux = mkNvimPlugin inputs.cmp-tmux "cmp-tmux";
-    cmp-path = mkNvimPlugin inputs.cmp-path "cmp-path";
-    cmp-cmdline = mkNvimPlugin inputs.cmp-cmdline "cmp-cmdline";
-    cmp-cmdline-history = mkNvimPlugin inputs.cmp-cmdline-history "cmp-cmdline-history";
-    cmp-nvim-lua = mkNvimPlugin inputs.cmp-nvim-lua "cmp-nvim-lua";
-    cmp-nvim-lsp = mkNvimPlugin inputs.cmp-nvim-lsp "cmp-nvim-lsp";
-    cmp-nvim-lsp-document-symbol = mkNvimPlugin inputs.cmp-nvim-lsp-document-symbol "cmp-nvim-lsp-document-symbol";
-    cmp-nvim-lsp-signature-help = mkNvimPlugin inputs.cmp-nvim-lsp-signature-help "cmp-nvim-lsp-signature-help";
-    # cmp-omni = mkNvimPlugin inputs.cmp-omni "cmp-omni";
-    cmp-luasnip = mkNvimPlugin inputs.cmp-luasnip "cmp-luasnip";
-    cmp-luasnip-choice = mkNvimPlugin inputs.cmp-luasnip-choice "cmp-luasnip-choice";
-    cmp-rg = mkNvimPlugin inputs.cmp-rg "cmp-rg";
-    lspkind-nvim = mkNvimPlugin inputs.lspkind-nvim "lspkind-nvim";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
     nvim-treesitter = prev.vimPlugins.nvim-treesitter.withAllGrammars.overrideAttrs (_: _: {
       # TODO: re-enable when sql highlights are fixed

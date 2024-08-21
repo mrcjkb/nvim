@@ -173,7 +173,6 @@ with final.lib; let
       fidget
       illuminate
       schemastore-nvim
-      lspkind-nvim
       actions-preview-nvim
       nvim-lint
       telescope_hoogle
@@ -202,25 +201,6 @@ with final.lib; let
       other-nvim
       which-key-nvim
     ]
-    ++ (with final.nvimPlugins; [
-      # nvim-cmp and plugins
-      # cmp-buffer
-      # cmp-tmux
-      # cmp-path
-      # cmp-cmdline
-      # cmp-cmdline-history
-      # cmp-nvim-lua
-      # cmp-nvim-lsp
-      # cmp-nvim-lsp-document-symbol
-      # cmp-nvim-lsp-signature-help
-      # cmp-luasnip
-      # cmp-luasnip-choice
-      # cmp-rg
-      # nvim-cmp
-      care-nvim
-      care-cmp
-      care-lsp
-    ])
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
       (opt luasnip)

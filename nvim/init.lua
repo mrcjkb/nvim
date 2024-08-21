@@ -49,6 +49,8 @@ opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
+opt.completeopt = 'menu,menuone,noinsert,fuzzy,preview,noselect'
+
 g.markdown_syntax_conceal = 0
 
 -- See https://github.com/hrsh7th/nvim-compe/issues/286#issuecomment-805140394
