@@ -167,73 +167,12 @@
       url = "github:nvim-lua/lsp-status.nvim";
       flake = false;
     };
-    lsp_signature = {
-      url = "github:ray-x/lsp_signature.nvim";
-      flake = false;
-    };
     fidget = {
       url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;
     };
     illuminate = {
       url = "github:RRethy/vim-illuminate";
-      flake = false;
-    };
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
-      flake = false;
-    };
-    cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    cmp-tmux = {
-      url = "github:andersevenrud/cmp-tmux";
-      flake = false;
-    };
-    cmp-path = {
-      url = "github:hrsh7th/cmp-path";
-      flake = false;
-    };
-    cmp-cmdline = {
-      url = "github:hrsh7th/cmp-cmdline";
-      flake = false;
-    };
-    cmp-cmdline-history = {
-      url = "github:dmitmel/cmp-cmdline-history";
-      flake = false;
-    };
-    cmp-nvim-lua = {
-      url = "github:hrsh7th/cmp-nvim-lua";
-      flake = false;
-    };
-    cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    cmp-nvim-lsp-document-symbol = {
-      url = "github:hrsh7th/cmp-nvim-lsp-document-symbol";
-      flake = false;
-    };
-    cmp-nvim-lsp-signature-help = {
-      url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
-      flake = false;
-    };
-    cmp-luasnip = {
-      url = "github:saadparwaiz1/cmp_luasnip";
-      flake = false;
-    };
-    cmp-luasnip-choice = {
-      url = "github:L3MON4D3/cmp-luasnip-choice";
-      flake = false;
-    };
-    cmp-rg = {
-      url = "github:lukas-reineke/cmp-rg";
-      flake = false;
-    };
-    lspkind-nvim = {
-      # vscode-style completion pictograms
-      url = "github:onsails/lspkind-nvim";
       flake = false;
     };
     actions-preview-nvim = {
