@@ -36,10 +36,23 @@ local layout_config = {
   },
 }
 
+local function jj_files()
+  builtin.git_files {
+    prompt_title = 'jj Files',
+    git_command = { 'jj', 'file', 'list', '--no-pager' },
+  }
+end
+
 -- Fall back to find_files if not in a git repo
 local project_files = function()
   local opts = {} -- define here if you want to define something
-  local ok = pcall(builtin.git_files, opts)
+  local ok
+  if vim.fn.executable('jj') == 1 then
+    ok = pcall(jj_files, opts)
+  end
+  if not ok then
+    ok = pcall(builtin.git_files, opts)
+  end
   if not ok then
     builtin.find_files(opts)
   end
