@@ -36,26 +36,38 @@ local layout_config = {
   },
 }
 
-local function jj_files()
-  builtin.git_files {
-    prompt_title = 'jj Files',
-    git_command = { 'jj', 'file', 'list', '--no-pager' },
-  }
+---@param fallback function
+local function jj_files(fallback)
+  if vim.fn.executable('jj') ~= 1 then
+    fallback()
+    return
+  end
+  vim.system(
+    { 'jj', 'st' },
+    nil,
+    ---@param sc vim.SystemCompleted
+    vim.schedule_wrap(function(sc)
+      if sc.code == 0 then
+        builtin.git_files {
+          prompt_title = 'jj Files',
+          git_command = { 'jj', 'file', 'list', '--no-pager' },
+        }
+      else
+        fallback()
+      end
+    end)
+  )
 end
 
 -- Fall back to find_files if not in a git repo
 local project_files = function()
-  local opts = {} -- define here if you want to define something
-  local ok
-  if vim.fn.executable('jj') == 1 then
-    ok = pcall(jj_files, opts)
-  end
-  if not ok then
-    ok = pcall(builtin.git_files, opts)
-  end
-  if not ok then
-    builtin.find_files(opts)
-  end
+  jj_files(function()
+    local opts = {}
+    local ok = pcall(builtin.git_files, opts)
+    if not ok then
+      builtin.find_files(opts)
+    end
+  end)
 end
 
 local function grep_current_file_type(func, extra_args)
