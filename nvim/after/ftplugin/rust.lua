@@ -68,3 +68,4 @@ end, desc('rust: previous [t]estable'))
 vim.keymap.set('n', ']t', function()
   codelens.goto_next { predicate = testable_predicate }
 end, desc('rust: next [t]estable'))
+vim.keymap.set('n', '<space>a', '<Plug>RustHoverAction')
