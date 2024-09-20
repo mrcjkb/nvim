@@ -149,9 +149,9 @@ g.loaded_netrwFileHandlers = 1
 local keymap_opts = { noremap = true, silent = true }
 local telescope = require('telescope')
 
----@return HTOpts
+---@return haskell-tools.Opts
 g.haskell_tools = function()
-  ---@type HTOpts
+  ---@type haskell-tools.Opts
   local ht_opts = {
     tools = {
       repl = {
@@ -204,9 +204,9 @@ g.haskell_tools = function()
   return ht_opts
 end
 
----@return RustaceanOpts
+---@return rustaceanvim.Opts
 g.rustaceanvim = function()
-  ---@type RustaceanOpts
+  ---@type rustaceanvim.Opts
   local rustacean_opts = {
     tools = {
       executor = 'toggleterm',
