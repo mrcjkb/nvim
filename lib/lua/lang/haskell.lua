@@ -14,4 +14,9 @@ end, { noremap = true, silent = true, desc = 'haskell: [g]o to package.[y]aml' }
 vim.keymap.set('n', '<space>gc', function()
   require('haskell-tools').project.open_package_cabal()
 end, { noremap = true, silent = true, desc = 'haskell: [g]o to <package>.[c]abal' })
-vim.keymap.set('n', '<space>a', '<Plug>HaskellHoverAction')
+vim.keymap.set(
+  'n',
+  '<space>a',
+  '<Plug>HaskellHoverAction',
+  { noremap = true, silent = true, desc = 'haskell: hover [a]ction' }
+)
