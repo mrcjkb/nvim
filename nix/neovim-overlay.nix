@@ -163,8 +163,6 @@ with final.lib; let
       (opt neotest-java)
       neotest-busted
       nio # TODO: Remove when rocks-dev is ready
-      nvim-dap
-      nvim-dap-ui
       jdtls
       live-rename-nvim
       lsp-status
