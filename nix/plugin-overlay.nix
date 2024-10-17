@@ -32,9 +32,6 @@ in {
     neotest-busted = mkNvimPlugin inputs.neotest-busted "neotest-busted";
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
-    nvim-metals = mkNvimPlugin inputs.nvim-metals "nvim-metals";
-    nvim-dap = mkNvimPlugin inputs.nvim-dap "nvim-dap";
-    nvim-dap-ui = mkNvimPlugin inputs.nvim-dap-ui "nvim-dap-ui";
     live-rename-nvim = mkNvimPlugin inputs.live-rename-nvim "live-rename.nvim";
     lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
@@ -56,7 +53,6 @@ in {
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
     telescope-zf-native = mkNvimPlugin inputs.telescope-zf-native "telescope-zf-native.nvim";
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
-    fzf-lua = mkNvimPlugin inputs.fzf-lua "fzf-lua";
     lualine = mkNvimPlugin inputs.lualine "lualine";
     nvim-navic = mkNvimPlugin inputs.nvim-navic "nvim-navic";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";

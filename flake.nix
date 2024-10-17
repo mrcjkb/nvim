@@ -147,18 +147,6 @@
       url = "github:mfussenegger/nvim-jdtls";
       flake = false;
     };
-    nvim-metals = {
-      url = "github:scalameta/nvim-metals";
-      flake = false;
-    };
-    nvim-dap = {
-      url = "github:mfussenegger/nvim-dap";
-      flake = false;
-    };
-    nvim-dap-ui = {
-      url = "github:rcarriga/nvim-dap-ui";
-      flake = false;
-    };
     live-rename-nvim = {
       url = "github:saecki/live-rename.nvim";
       flake = false;
@@ -231,10 +219,6 @@
     };
     todo-comments = {
       url = "github:folke/todo-comments.nvim";
-      flake = false;
-    };
-    fzf-lua = {
-      url = "github:ibhagwan/fzf-lua";
       flake = false;
     };
     lualine = {
