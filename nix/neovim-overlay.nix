@@ -178,7 +178,6 @@ with final.lib; let
       telescope-zf-native
       telescope
       todo-comments
-      fzf-lua
       nvim-navic
       lualine
       toggleterm
