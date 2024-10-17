@@ -197,7 +197,6 @@ with final.lib; let
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
       (opt luasnip)
-      markdown-preview-nvim
       telescope-fzy-native-nvim
       # neorg
       dial-nvim
