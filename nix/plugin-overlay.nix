@@ -50,7 +50,6 @@ in {
     wildfire-nvim = mkNvimPlugin inputs.wildfire-nvim "wildfire.nvim";
     rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
-    iswap-nvim = mkNvimPlugin inputs.iswap-nvim "iswap.nvim";
     nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";

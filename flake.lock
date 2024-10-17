@@ -2703,22 +2703,6 @@
         "type": "github"
       }
     },
-    "iswap-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1716489980,
-        "narHash": "sha256-lAYHvz23f9nJ6rb0NIm+1aq0Vr0SwjPVitPuROtUS2A=",
-        "owner": "mizlan",
-        "repo": "iswap.nvim",
-        "rev": "e02cc91f2a8feb5c5a595767d208c54b6e3258ec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mizlan",
-        "repo": "iswap.nvim",
-        "type": "github"
-      }
-    },
     "jdtls": {
       "flake": false,
       "locked": {
@@ -4714,7 +4698,6 @@
         "haskell-snippets": "haskell-snippets",
         "haskell-tools": "haskell-tools",
         "illuminate": "illuminate",
-        "iswap-nvim": "iswap-nvim",
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
         "lsp-status": "lsp-status",

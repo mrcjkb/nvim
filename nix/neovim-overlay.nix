@@ -142,7 +142,6 @@ with final.lib; let
       wildfire-nvim
       rainbow-delimiters-nvim
       (opt vim-matchup)
-      iswap-nvim
       nvim-treesitter
       vim-wordmotion
       nvim-highlight-colors
