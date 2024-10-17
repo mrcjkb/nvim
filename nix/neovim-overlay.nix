@@ -166,7 +166,6 @@ with final.lib; let
       nvim-dap
       nvim-dap-ui
       jdtls
-      nvim-metals
       live-rename-nvim
       lsp-status
       fidget
