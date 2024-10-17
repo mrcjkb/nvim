@@ -151,10 +151,6 @@
       url = "github:saecki/live-rename.nvim";
       flake = false;
     };
-    lsp-status = {
-      url = "github:nvim-lua/lsp-status.nvim";
-      flake = false;
-    };
     fidget = {
       url = "git+https://github.com/j-hui/fidget.nvim.git";
       flake = false;

@@ -33,7 +33,6 @@ in {
     schemastore-nvim = mkNvimPlugin inputs.schemastore-nvim "SchemaStore.nvim";
     jdtls = mkNvimPlugin inputs.jdtls "nvim-jdtls";
     live-rename-nvim = mkNvimPlugin inputs.live-rename-nvim "live-rename.nvim";
-    lsp-status = mkNvimPlugin inputs.lsp-status "lsp-status.nvim";
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";

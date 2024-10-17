@@ -164,7 +164,6 @@ with final.lib; let
       nio # TODO: Remove when rocks-dev is ready
       jdtls
       live-rename-nvim
-      lsp-status
       fidget
       illuminate
       schemastore-nvim

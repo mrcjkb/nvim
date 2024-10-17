@@ -2719,22 +2719,6 @@
         "type": "github"
       }
     },
-    "lsp-status": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1659485921,
-        "narHash": "sha256-gmLeVnDyL8Zf5ZG92tP3mb/LAt438BxFtAi/Xax2zLI=",
-        "owner": "nvim-lua",
-        "repo": "lsp-status.nvim",
-        "rev": "54f48eb5017632d81d0fd40112065f1d062d0629",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-lua",
-        "repo": "lsp-status.nvim",
-        "type": "github"
-      }
-    },
     "lualine": {
       "flake": false,
       "locked": {
@@ -4635,7 +4619,6 @@
         "illuminate": "illuminate",
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
-        "lsp-status": "lsp-status",
         "lualine": "lualine",
         "material-theme": "material-theme",
         "neogit": "neogit",
