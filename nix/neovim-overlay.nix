@@ -151,7 +151,6 @@ with final.lib; let
       neogit
       gitlinker
       repeat
-      unimpaired
       surround
       substitute
       persistence
