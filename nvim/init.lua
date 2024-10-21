@@ -212,9 +212,6 @@ g.rustaceanvim = function()
       executor = 'toggleterm',
     },
     server = {
-      on_attach = function(...)
-        require('mrcjk.lsp').on_dap_attach(...)
-      end,
       default_settings = {
         ['rust-analyzer'] = {
           cargo = {
