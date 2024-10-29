@@ -13,13 +13,15 @@ require('catppuccin').setup {
   },
   ---@param colors CtpColors<string>
   custom_highlights = function(colors)
+    local darkening_percentage = 0.095
+    local U = require('catppuccin.utils.colors')
     return {
       TelescopeResultsTitle = { bg = colors.green, fg = colors.base },
       TelescopePromptTitle = { bg = colors.yellow, fg = colors.base },
       TelescopePreviewTitle = { bg = colors.red, fg = colors.base },
       TermCursor = { link = 'Cursor' },
       TermCursorNC = { bg = colors.red, fg = colors.text, ctermbg = 1, ctermfg = 15 },
-      LspCodeLens = { fg = colors.mauve, italic = true },
+      LspCodeLens = { fg = colors.mauve, bg = U.darken(colors.mauve, darkening_percentage, colors.base), italic = true },
       FidgetTitle = { link = 'DiagnosticHint' },
     }
   end,
