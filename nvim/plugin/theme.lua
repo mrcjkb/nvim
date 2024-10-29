@@ -1,82 +1,144 @@
-vim.g.material_terminal_italics = 1
-vim.g.material_style = 'darker'
-
-require('material').setup {
-  contrast = {
-    terminal = true,
-    floating_windows = false,
-    cursor_line = true,
-    non_current_windows = true,
+require('catppuccin').setup {
+  no_italic = true,
+  term_colors = true,
+  transparent_background = false,
+  ---@type CtpFlavors<CtpColors<string>>
+  color_overrides = {
+    ---@class CtpColors<string>
+    mocha = {
+      base = '#202020',
+      mantle = '#202020',
+      crust = '#202020',
+    },
   },
-  styles = {
-    comments = { italic = true },
-  },
-  plugins = {
-    'dap',
-    'eyeliner',
-    'fidget',
-    'flash',
-    'gitsigns',
-    'harpoon',
-    'illuminate',
-    'indent-blankline',
-    'neogit',
-    'neotest',
-    'nvim-cmp',
-    'nvim-navic',
-    'rainbow-delimiters',
-    'telescope',
-    -- 'dashboard',
-    -- 'sneak',
-  },
-  disable = {
-    colored_cursor = true,
-  },
-  high_visibility = {
-    lighter = true,
-    darker = true,
-  },
-  async_loading = true,
-  custom_highlights = {
-    LspCodeLens = { fg = '#B480D6', italic = true },
-    TermCursor = { link = 'Cursor' },
-    TermCursorNC = { bg = '#FF5370', fg = '#EEEEEE', ctermbg = 1, ctermfg = 15 },
-    FidgetTitle = { link = 'DiagnosticHint' },
-    DapUINormal = { link = 'Normal' },
-    DapUIScope = { fg = '#E6B455' },
-    DapUIType = { fg = '#B480D6' },
-    DapUIValue = { link = 'Normal' },
-    DapUIModifiedValue = { fg = '#E6B455', bold = true },
-    DapUIDecoration = { fg = '#E6B455' },
-    DapUIThread = { fg = '#ABCF76' },
-    DapUIStoppedThread = { fg = '#71C6E7' },
-    DapUIFrameName = { link = 'Normal' },
-    DapUISource = { fg = '#B480D6' },
-    DapUILineNumber = { fg = '#71C6E7' },
-    DapUIEndofBuffer = { link = 'EndofBuffer' },
-    TelescopeResultsTitle = { bg = '#E6B455' },
-    TelescopePromptTitle = { bg = '#B480D6' },
-    TelescopePreviewTitle = { bg = '#ABCF76' },
-    Identifier = { fg = '#FFFFFF' },
-    ['@variable'] = { link = 'Identifier' },
-    ['@property'] = { fg = '#DDDDDD' },
-    ['@field'] = { link = '@property' },
-    ['@variable.member'] = { link = '@property' },
-    ['@parameter'] = { fg = '#EEEEEE', italic = true },
-    -- ['@function.call'] = { fg = '#82AAFF', italic = true }, -- blue
-    ['@function.call'] = { fg = '#B0C9FF' }, -- paleblue
-    ['@function.builtin'] = { fg = '#B0C9FF' }, -- paleblue
-    ['@comment.documentation'] = { link = '@comment', italic = false },
-    ['@lsp.type.interface'] = { fg = '#B480D6', italic = false },
-    ['@lsp.type.enumMember.haskell'] = { fg = '#6E98EB', italic = false },
-    Title = { fg = '#B480D6' },
-    ['@keyword.blocking'] = { fg = '#71C6E7', bold = true },
-  },
-  custom_colors = function(colors)
-    -- colors.editor.fg = '#ebd2fc'
-    colors.editor.fg = '#EEEEEE'
-    colors.editor.fg_dark = colors.main.white
-    colors.editor.accent = colors.main.darkpurple
+  ---@param colors CtpColors<string>
+  custom_highlights = function(colors)
+    return {
+      TelescopeResultsTitle = { bg = colors.green, fg = colors.base },
+      TelescopePromptTitle = { bg = colors.yellow, fg = colors.base },
+      TelescopePreviewTitle = { bg = colors.red, fg = colors.base },
+      TermCursor = { link = 'Cursor' },
+      TermCursorNC = { bg = colors.red, fg = colors.text, ctermbg = 1, ctermfg = 15 },
+      LspCodeLens = { fg = colors.mauve, italic = true },
+      FidgetTitle = { link = 'DiagnosticHint' },
+    }
   end,
+  integrations = {
+    fidget = true,
+    flash = true,
+    fzf = false,
+    harpoon = true,
+    indent_blankline = { enabled = true },
+    cmp = false,
+    gitsigns = true,
+    nvimtree = false,
+    notify = false,
+    mini = { enabled = false },
+    mason = false,
+    markdown = true,
+    neogit = true,
+    neotest = true,
+    dap = false,
+    dap_ui = false,
+    semantic_tokens = true,
+    nvim_surround = true,
+    treesitter = true,
+    treesitter_context = true,
+    ts_rainbow2 = true,
+    ufo = true,
+    which_key = true,
+    vimwiki = true,
+    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+  },
 }
-vim.cmd.colorscheme('material')
+vim.cmd.colorscheme('catppuccin')
+
+-- XXX: lualine needs to be setup after setting the colorscheme
+
+---@return string status
+local function extra_mode_status()
+  local reg_recording = vim.fn.reg_recording()
+  if reg_recording ~= '' then
+    return ' @' .. reg_recording
+  end
+  local reg_executing = vim.fn.reg_executing()
+  if reg_executing ~= '' then
+    return ' @' .. reg_executing
+  end
+  local mode = vim.api.nvim_get_mode().mode
+  if mode == 'ix' then
+    return '^X: (^]^D^E^F^I^K^L^N^O^Ps^U^V^Y)'
+  end
+  return ''
+end
+
+local flavour = 'mocha'
+local catppuccin = require('catppuccin.utils.lualine')(flavour)
+local C = require('catppuccin.palettes').get_palette(flavour)
+catppuccin.normal.a.bg = C.mauve
+catppuccin.visual.a.bg = C.blue
+
+require('lualine').setup {
+  globalstatus = true,
+  sections = {
+    lualine_c = {
+      {
+        function(...)
+          require('nvim-navic').get_location(...)
+        end,
+        cond = function(...)
+          require('nvim-navic').is_available(...)
+        end,
+      },
+    },
+    lualine_z = {
+      { extra_mode_status },
+    },
+  },
+  options = {
+    theme = catppuccin,
+  },
+  tabline = {
+    lualine_a = {
+      {
+        'tabs',
+        mode = 1,
+      },
+    },
+    lualine_b = {
+      {
+        'buffers',
+        show_filename_only = true,
+        show_bufnr = true,
+        mode = 4,
+        filetype_names = {
+          TelescopePrompt = 'Telescope',
+          dashboard = 'Dashboard',
+          packer = 'Packer',
+          fzf = 'FZF',
+          alpha = 'Alpha',
+        },
+        buffers_color = {
+          -- Same values as the general color option can be used here.
+          active = 'lualine_b_normal', -- Color for active buffer.
+          inactive = 'lualine_b_inactive', -- Color for inactive buffer.
+        },
+      },
+    },
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
+  winbar = {
+    lualine_z = {
+      {
+        'filename',
+        path = 1,
+        file_status = true,
+        newfile_status = true,
+      },
+    },
+  },
+  extensions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
+}

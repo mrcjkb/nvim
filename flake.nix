@@ -114,12 +114,6 @@
       url = "github:numToStr/Comment.nvim";
       flake = false;
     };
-    material-theme = {
-      url = "github:marko-cerovac/material.nvim";
-      # url = "github:mrcjkb/material.nvim.fork/tree-sitter-highlight-groups";
-      # url = "/home/mrcjk/git/github/forks/nvim/material.nvim.fork/";
-      flake = false;
-    };
     neotest = {
       url = "github:nvim-neotest/neotest";
       # url = "github:mrcjkb/neotest/watcher";

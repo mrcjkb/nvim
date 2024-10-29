@@ -156,7 +156,6 @@ with final.lib; let
       persistence
       nvim-lastplace
       comment
-      material-theme
       crates-nvim
       (opt neotest)
       (opt neotest-java)
@@ -201,6 +200,7 @@ with final.lib; let
       # neorg
       dial-nvim
       vim-scriptease
+      catppuccin-nvim
     ]);
 
   all-plugins =

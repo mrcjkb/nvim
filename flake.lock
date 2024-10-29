@@ -2815,22 +2815,6 @@
         "type": "github"
       }
     },
-    "material-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725387234,
-        "narHash": "sha256-pnozrkJM4MM6dnhQEbBiwB7NXcwF86Hh2yAttrKhT/o=",
-        "owner": "marko-cerovac",
-        "repo": "material.nvim",
-        "rev": "ac8f02e97e359b7d258c0a00ec0949fe880790ad",
-        "type": "github"
-      },
-      "original": {
-        "owner": "marko-cerovac",
-        "repo": "material.nvim",
-        "type": "github"
-      }
-    },
     "neogit": {
       "flake": false,
       "locked": {
@@ -4620,7 +4604,6 @@
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
         "lualine": "lualine",
-        "material-theme": "material-theme",
         "neogit": "neogit",
         "neorocks": "neorocks_2",
         "neotest": "neotest",
