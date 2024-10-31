@@ -36,6 +36,9 @@ end, desc('[r]ust: move item down [j]'))
 vim.keymap.set('v', 'K', function()
   vim.cmd.RustLsp { 'hover', 'range' }
 end, desc('rust: hover range'))
+vim.keymap.set('n', 'K', function()
+  vim.cmd.RustLsp { 'hover', 'action' }
+end, desc('rust: hover range'))
 vim.keymap.set('n', '<space>re', function()
   vim.cmd.RustLsp('explainError')
 end, desc('[r]ust: [e]xplain error'))
