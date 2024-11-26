@@ -2,12 +2,13 @@ local lint = require('lint')
 local hlint_hint_file = os.getenv('HLINT_HINT')
 
 local function if_has_exe(cmd)
-  return vim.fn.executable(cmd) == 1 and { cmd }
+  return vim.fn.executable(cmd) == 1 and { cmd } or nil
 end
 
 if hlint_hint_file and hlint_hint_file ~= '' then
   lint.linters.hlint.args = { '--json', '--no-exit-code', '--hint=' .. hlint_hint_file }
 end
+---@type table<string, string[]|nil>
 lint.linters_by_ft = {
   haskell = if_has_exe('hlint'),
   markdown = if_has_exe('markdownlint'),

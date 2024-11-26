@@ -16,5 +16,5 @@ if vim.fn.has_key(vim.fn.environ(), 'TMUX') == 1 then
   --     vim.system { 'tmux', 'set', 'status', 'on' }
   --   end,
   -- })
-  require('tmux').setup {}
+  require('tmux').setup()
 end
