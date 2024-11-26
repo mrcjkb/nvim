@@ -273,10 +273,6 @@
       url = "github:aserowy/tmux.nvim";
       flake = false;
     };
-    hardtime-nvim = {
-      url = "github:m4xshen/hardtime.nvim";
-      flake = false;
-    };
     term-edit-nvim = {
       url = "github:chomosuke/term-edit.nvim";
       flake = false;

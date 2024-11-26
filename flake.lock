@@ -2450,22 +2450,6 @@
         "type": "github"
       }
     },
-    "hardtime-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728748235,
-        "narHash": "sha256-iEA14DhSxmKxPE2TCa7csJ2ZSaN7enI0kwZCxDPL/e4=",
-        "owner": "m4xshen",
-        "repo": "hardtime.nvim",
-        "rev": "027d6f991927a71bd510a7673ae5bb404ca2a1c7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "m4xshen",
-        "repo": "hardtime.nvim",
-        "type": "github"
-      }
-    },
     "harpoon": {
       "flake": false,
       "locked": {
@@ -4596,7 +4580,6 @@
         "git-hooks": "git-hooks_2",
         "gitlinker": "gitlinker",
         "gitsigns": "gitsigns",
-        "hardtime-nvim": "hardtime-nvim",
         "harpoon": "harpoon",
         "haskell-snippets": "haskell-snippets",
         "haskell-tools": "haskell-tools",
