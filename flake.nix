@@ -299,6 +299,8 @@
     supportedSystems = [
       "aarch64-linux"
       "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
     ];
 
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
