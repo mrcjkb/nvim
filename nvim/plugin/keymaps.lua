@@ -186,7 +186,7 @@ keymap.set('n', '<space>ch', function()
 end, { noremap = true, silent = true, desc = '[c] [h]int diagnostics to quickfix list' })
 
 local function buf_toggle_diagnostics()
-  local filter = { bufnr = vim.api.nvim_get_current_buf() }
+  local filter = { bufnr = api.nvim_get_current_buf() }
   diagnostic.enable(not diagnostic.is_enabled(filter), filter)
 end
 
