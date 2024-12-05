@@ -185,6 +185,13 @@ keymap.set('n', '<space>ch', function()
   diagnostic.setqflist { open = false, severity = severity.HINT }
 end, { noremap = true, silent = true, desc = '[c] [h]int diagnostics to quickfix list' })
 
+local function buf_toggle_diagnostics()
+  local filter = { bufnr = vim.api.nvim_get_current_buf() }
+  diagnostic.enable(not diagnostic.is_enabled(filter), filter)
+end
+
+keymap.set('n', '<space>dt', buf_toggle_diagnostics)
+
 local function toggle_spell_check()
   ---@diagnostic disable-next-line: param-type-mismatch vim.opt.spell = not (vim.opt.spell:get())
 end
