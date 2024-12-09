@@ -210,7 +210,7 @@ telescope.setup {
       },
     },
     preview = {
-      treesitter = true,
+      treesitter = false,
     },
     history = {
       path = vim.fn.stdpath('data') .. '/telescope_history.sqlite3',
