@@ -18,7 +18,7 @@ api.nvim_create_user_command('LspStop', function(kwargs)
   local name = kwargs.fargs[1]
   for _, client in pairs(vim.lsp.get_clients { buffer = 0 }) do
     if client.name == name then
-      vim.lsp.stop_client(client.id)
+      client:stop(true)
     end
   end
 end, {

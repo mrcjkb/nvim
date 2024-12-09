@@ -1,5 +1,6 @@
 local api = vim.api
 local keymap = vim.keymap
+local methods = vim.lsp.protocol.Methods
 
 local tempdirgroup = api.nvim_create_augroup('tempdir', { clear = true })
 -- Do not set undofile for files in /tmp
@@ -239,7 +240,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if not client then
       return
     end
-    if client.server_capabilities.documentSymbolProvider then
+    if client:supports_method(methods.textDocument_documentSymbol) then
       require('nvim-navic').attach(client, bufnr)
     end
     vim.cmd.setlocal('signcolumn=yes')
@@ -302,7 +303,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.buf.format { async = true }
     end, desc('lsp: [f]ormat buffer'))
 
-    if client.server_capabilities.inlayHintProvider then
+    if client:supports_method(methods.textDocument_inlayHint) then
       keymap.set('n', '<space>h', function()
         local current_setting = vim.lsp.inlay_hint.is_enabled { bufnr = bufnr }
         vim.lsp.inlay_hint.enable(not current_setting, { bufnr = bufnr })
@@ -310,7 +311,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
 
     local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
-    if client.server_capabilities.codeLensProvider then
+    if client:supports_method(methods.codeLens_resolve) then
       vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufEnter', 'CursorHold' }, {
         group = group,
         callback = function()

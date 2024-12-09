@@ -81,7 +81,8 @@ jdtls.start_or_attach {
   root_dir = workspace_dir,
   settings = settings,
   on_attach = on_jdtls_attach,
+  ---@param client vim.lsp.Client
   on_init = function(client, _)
-    client.notify('workspace/didChangeConfiguration', { settings = settings })
+    client:notify(vim.lsp.protocol.Methods.workspace_didChangeConfiguration, { settings = settings })
   end,
 }
