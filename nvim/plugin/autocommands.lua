@@ -58,6 +58,8 @@ local highlight_cur_n_group = api.nvim_create_augroup('highlight-current-n', { c
 api.nvim_create_autocmd('ColorScheme', {
   callback = function()
     local search = api.nvim_get_hl(0, { name = 'Search' })
+    ---@diagnostic disable-next-line: cast-type-mismatch
+    ---@cast search vim.api.keyset.highlight
     api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
     api.nvim_set_hl(0, 'SearchCurrentN', search)
     return api.nvim_set_hl(0, 'Search', { link = 'SearchCurrentN' })
@@ -81,7 +83,7 @@ api.nvim_create_autocmd('CmdlineLeave', {
       vim.opt.hlsearch = true
       return nil
     end
-    return vim.defer_fn(_4_, 5)
+    return vim.defer_fn(_4_, 5) ~= nil
   end,
   group = highlight_cur_n_group,
 })
@@ -141,13 +143,13 @@ local function preview_location_callback(_, result)
 end
 
 local function peek_definition()
-  local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/definition', params, preview_location_callback)
+  local params = vim.lsp.util.make_position_params(0, 'utf-8')
+  return vim.lsp.buf_request(0, methods.textDocument_definition, params, preview_location_callback)
 end
 
 local function peek_type_definition()
-  local params = vim.lsp.util.make_position_params()
-  return vim.lsp.buf_request(0, 'textDocument/typeDefinition', params, preview_location_callback)
+  local params = vim.lsp.util.make_position_params(0, 'utf-8')
+  return vim.lsp.buf_request(0, methods.textDocument_typeDefinition, params, preview_location_callback)
 end
 
 local function document_functions()
