@@ -1,4 +1,17 @@
 ---@diagnostic disable: undefined-doc-param
+
+local function is_pumvisible()
+  return tonumber(vim.fn.pumvisible()) ~= 0
+end
+
+vim.keymap.set('i', '<C-n>', function()
+  if is_pumvisible() or not next(vim.lsp.get_clients { bufnr = 0 }) then
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-n>', true, false, true), 'n', true)
+  else
+    vim.lsp.completion.trigger()
+  end
+end, { desc = 'Trigger/select next completion' })
+
 --- Implements custom completion for 'completefunc'
 ---
 --- - See |complete-functions|

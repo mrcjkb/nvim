@@ -323,7 +323,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
       vim.lsp.codelens.refresh { bufnr = bufnr }
     end
-
     vim.api.nvim_create_autocmd('CompleteChanged', {
       buffer = bufnr,
       callback = function()
@@ -357,6 +356,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, bufnr)
       end,
     })
+
+    if client:supports_method(methods.textDocument_completion, bufnr) then
+      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
+    end
   end,
 })
 
