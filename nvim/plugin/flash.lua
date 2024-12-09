@@ -32,19 +32,8 @@ flash.setup {
   },
 }
 
-local function jump_to_line()
-  flash.jump {
-    search = { mode = 'search', max_length = 0 },
-    label = { after = { 0, 0 } },
-    pattern = '^',
-  }
-end
-
 local function desc(description)
   return { noremap = true, silent = true, desc = description }
 end
-vim.keymap.set({ 'n', 'x', 'o' }, 's', flash.jump, desc('flash: jump'))
-vim.keymap.set({ 'n', 'x', 'o' }, 'S', flash.treesitter, desc('flash: treesitter'))
+vim.keymap.set({ 'n', 'x', 'o' }, '<leader><leader>', flash.jump, desc('flash: jump'))
 vim.keymap.set({ 'o' }, 'r', flash.remote, desc('flash: remote'))
-vim.keymap.set({ 'n', 'x', 'o' }, 'R', flash.treesitter_search, desc('flash: treesitter search'))
-vim.keymap.set({ 'n', 'x', 'o' }, 'gl', jump_to_line, desc('flash: jump to [l]line'))
