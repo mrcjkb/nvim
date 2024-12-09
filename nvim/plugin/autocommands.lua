@@ -321,6 +321,40 @@ vim.api.nvim_create_autocmd('LspAttach', {
       })
       vim.lsp.codelens.refresh { bufnr = bufnr }
     end
+
+    vim.api.nvim_create_autocmd('CompleteChanged', {
+      buffer = bufnr,
+      callback = function()
+        local info = vim.fn.complete_info { 'selected' }
+        local completionItem = vim.tbl_get(vim.v.completed_item, 'user_data', 'nvim', 'lsp', 'completion_item')
+        if completionItem == nil then
+          return
+        end
+
+        client:request(methods.completionItem_resolve, completionItem, function(err, result)
+          if err ~= nil then
+            vim.notify(vim.inspect(err), vim.log.levels.ERROR)
+            return
+          end
+          local documentation = vim.tbl_get(result, 'documentation', 'value')
+          if documentation == nil then
+            vim.api.nvim__complete_set(info['selected'], { info = '' })
+            return
+          end
+          local winData = vim.api.nvim__complete_set(info['selected'], { info = documentation })
+          if winData.winid == nil then
+            return
+          end
+          if not vim.api.nvim_win_is_valid(winData.winid) then
+            return
+          end
+          vim.api.nvim_win_set_config(winData.winid, { border = 'rounded' })
+          vim.bo[winData.bufnr].filetype = 'markdown'
+          vim.treesitter.start(winData.bufnr, 'markdown')
+          vim.wo[winData.winid].conceallevel = 3
+        end, bufnr)
+      end,
+    })
   end,
 })
 
