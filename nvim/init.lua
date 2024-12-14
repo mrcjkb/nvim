@@ -224,7 +224,6 @@ g.rustaceanvim = function()
             ignored = {
               ['async-trait'] = { 'async_trait' },
               ['napi-derive'] = { 'napi' },
-              ['async-recursion'] = { 'async_recursion' },
             },
           },
           inlayHints = {
