@@ -221,10 +221,6 @@ g.rustaceanvim = function()
           },
           procMacro = {
             enable = true,
-            ignored = {
-              ['async-trait'] = { 'async_trait' },
-              ['napi-derive'] = { 'napi' },
-            },
           },
           inlayHints = {
             lifetimeElisionHints = {
