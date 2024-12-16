@@ -190,6 +190,7 @@ g.haskell_tools = function()
       end,
       default_settings = {
         haskell = {
+          checkProject = false, -- PERF: don't check the entire project on initial load
           formattingProvider = 'stylish-haskell',
           maxCompletions = 30,
           plugin = {
