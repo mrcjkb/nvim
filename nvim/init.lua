@@ -196,6 +196,11 @@ g.haskell_tools = function()
             semanticTokens = {
               globalOn = true,
             },
+            rename = {
+              config = {
+                diff = true, -- (experimental) rename across modules
+              },
+            },
           },
         },
       },
