@@ -148,7 +148,6 @@ with final.lib; let
       # (withConfig leap "require('leap').set_default_keymaps()")
       flash-nvim
       eyeliner-nvim
-      neogit
       gitlinker
       repeat
       surround
@@ -221,6 +220,7 @@ with final.lib; let
     nodePackages.bash-language-server
     taplo # toml toolkit including a language server
     sqls
+    gitu
   ];
 
   nvim-dev = mkNeovim {

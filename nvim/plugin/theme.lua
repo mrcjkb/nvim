@@ -43,7 +43,7 @@ require('catppuccin').setup {
     mini = { enabled = false },
     mason = false,
     markdown = true,
-    neogit = true,
+    neogit = false,
     neotest = true,
     dap = false,
     dap_ui = false,

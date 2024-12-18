@@ -44,16 +44,6 @@ api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
-api.nvim_create_autocmd('FileType', {
-  pattern = 'Neogit*',
-  group = nospell_group,
-  callback = function(ev)
-    if vim.bo[ev.buf].filetype ~= 'NeogitCommitMessage' then
-      vim.wo[0].spell = false
-    end
-  end,
-})
-
 local highlight_cur_n_group = api.nvim_create_augroup('highlight-current-n', { clear = true })
 api.nvim_create_autocmd('ColorScheme', {
   callback = function()

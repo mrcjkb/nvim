@@ -2799,22 +2799,6 @@
         "type": "github"
       }
     },
-    "neogit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732996441,
-        "narHash": "sha256-xfLw1UD7C9C+MkUxnt01GkA0SpFBh06YDD/3ShsSmD4=",
-        "owner": "NeogitOrg",
-        "repo": "neogit",
-        "rev": "446197d90d179d579fa9c6970d4f98d494a2090b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NeogitOrg",
-        "repo": "neogit",
-        "type": "github"
-      }
-    },
     "neorocks": {
       "inputs": {
         "flake-compat": "flake-compat_9",
@@ -4587,7 +4571,6 @@
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
         "lualine": "lualine",
-        "neogit": "neogit",
         "neorocks": "neorocks_2",
         "neotest": "neotest",
         "neotest-busted": "neotest-busted",

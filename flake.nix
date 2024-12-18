@@ -80,10 +80,6 @@
       url = "github:jinh0/eyeliner.nvim";
       flake = false;
     };
-    neogit = {
-      url = "github:NeogitOrg/neogit";
-      flake = false;
-    };
     gitlinker = {
       url = "github:linrongbin16/gitlinker.nvim";
       flake = false;

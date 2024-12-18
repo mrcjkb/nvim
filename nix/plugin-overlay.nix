@@ -15,7 +15,6 @@ in {
     # leap = mkNvimPlugin inputs.leap "leap.nvim";
     flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
-    neogit = mkNvimPlugin inputs.neogit "neogit";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
     repeat = mkNvimPlugin inputs.repeat "vim-repeat";
     unimpaired = mkNvimPlugin inputs.unimpaired "vim-unimpaired";
