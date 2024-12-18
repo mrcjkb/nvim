@@ -109,9 +109,30 @@ with final.lib; let
           concatMapStringsSep ";" final.luaPackages.getLuaPath
           resolvedExtraLuaPackages
         }"'';
-  in
-    # final.wrapNeovimUnstable inputs.packages.${prev.system}.neovim (neovimConfig
-    final.wrapNeovimUnstable final.neovim-nightly (neovimConfig
+
+    excludeFiles = [
+      "indent.vim"
+      "menu.vim"
+      "mswin.vim"
+      "plugin/matchit.vim"
+      "plugin/matchparen.vim"
+      "plugin/rplugin.vim"
+      "plugin/shada.vim"
+      "plugin/tohtml.vim"
+      "plugin/tutor.vim"
+      "plugin/gzip.vim"
+      "plugin/tarPlugin.vim"
+      "plugin/zipPlugin.vim"
+    ];
+    postInstallCommands = map (target: "rm -f $out/share/nvim/runtime/${target}") excludeFiles;
+
+    nvim-unwrapped = prev.neovim.overrideAttrs (oa: {
+      postInstall = ''
+        ${oa.postInstall or ""}
+        ${concatStringsSep "\n" postInstallCommands}
+      '';
+    });
+  in final.wrapNeovimUnstable nvim-unwrapped (neovimConfig
       // {
         luaRcContent = initLua;
         wrapperArgs =
@@ -258,7 +279,7 @@ with final.lib; let
 
   luarc-json = final.mk-luarc-json {
     plugins = all-plugins;
-    nvim = final.neovim-nightly;
+    nvim = final.neovim;
   };
 in {
   inherit

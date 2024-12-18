@@ -8,6 +8,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     neorocks = {
       url = "github:nvim-neorocks/neorocks";
     };
@@ -286,6 +287,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    neovim-nightly,
     neorocks,
     gen-luarc,
     flake-utils,
@@ -306,6 +308,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
+          neovim-nightly.overlays.default
           neorocks.overlays.default
           gen-luarc.overlays.default
           plugin-overlay
