@@ -83,41 +83,33 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = 'rust: hover [a]ction' }
 )
 
--- vim.api.nvim_create_autocmd('User', {
---   pattern = 'rustaceanvim.code_action',
---   callback = function(ctx)
---     vim.print(ctx)
---     vim.keymap.set(
---       'n',
---       '<C-y>',
---       '<Plug>rustaceanvim.code_action.confirm',
---       { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
---     )
---
---     vim.keymap.set(
---       'n',
---       '<CR>',
---       '<Plug>rustaceanvim.code_action.confirm',
---       { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
---     )
---
---     vim.keymap.set(
---       'n',
---       'l',
---       '<Plug>rustaceanvim.code_action.confirm',
---       { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
---     )
---     vim.keymap.set(
---       'n',
---       'q',
---       '<Plug>rustaceanvim.code_action.quit',
---       { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
---     )
---     vim.keymap.set(
---       'n',
---       'h',
---       '<Plug>rustaceanvim.code_action.quit',
---       { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
---     )
---   end,
--- })
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'rustaceanvim.code_action',
+  callback = function(ctx)
+    vim.keymap.set(
+      'n',
+      '<C-y>',
+      '<Plug>rustaceanvim.code_action.confirm',
+      { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
+    )
+
+    vim.keymap.set(
+      'n',
+      'l',
+      '<Plug>rustaceanvim.code_action.confirm',
+      { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
+    )
+    vim.keymap.set(
+      'n',
+      'q',
+      '<Plug>rustaceanvim.code_action.quit',
+      { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
+    )
+    vim.keymap.set(
+      'n',
+      'h',
+      '<Plug>rustaceanvim.code_action.quit',
+      { noremap = true, silent = true, desc = 'confirm rust code action', buffer = ctx.data.buf }
+    )
+  end,
+})
