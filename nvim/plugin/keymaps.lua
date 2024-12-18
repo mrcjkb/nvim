@@ -1,5 +1,3 @@
-local M = {}
-
 local api = vim.api
 local fn = vim.fn
 local keymap = vim.keymap
@@ -202,16 +200,3 @@ keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'move down half-page and center' })
 keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'move up half-page and center' })
 keymap.set('n', '<C-f>', '<C-f>zz', { desc = 'move down full-page and center' })
 keymap.set('n', '<C-b>', '<C-b>zz', { desc = 'move up full-page and center' })
-
-keymap.set('n', '<leader>go', function()
-  vim.cmd.tabnew()
-  local buf = vim.api.nvim_get_current_buf()
-  vim.fn.termopen('gitu', {
-    on_exit = function()
-      vim.api.nvim_buf_delete(buf, {})
-    end,
-  })
-  vim.cmd.startinsert()
-end, { noremap = true, silent = true, desc = '[g]itu: [o]pen' })
-
-return M

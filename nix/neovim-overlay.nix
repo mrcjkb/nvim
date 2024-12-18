@@ -221,6 +221,7 @@ with final.lib; let
     taplo # toml toolkit including a language server
     sqls
     gitu
+    jujutsu
   ];
 
   nvim-dev = mkNeovim {
