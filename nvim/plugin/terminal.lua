@@ -14,10 +14,6 @@ end
 local function termopen(cmd, opts)
   opts = extend_default_opts(opts)
   vim.cmd.tabnew()
-  if opts.disable_line_numbers then
-    vim.opt.number = false
-    vim.opt.relativenumber = false
-  end
   local buf = vim.api.nvim_get_current_buf()
   vim.fn.termopen(cmd, {
     on_exit = function()
@@ -26,6 +22,10 @@ local function termopen(cmd, opts)
   })
   if opts.insert then
     vim.cmd.startinsert()
+  end
+  if opts.disable_line_numbers then
+    vim.opt.number = false
+    vim.opt.relativenumber = false
   end
 end
 
@@ -39,6 +39,9 @@ vim.keymap.set('n', '<leader>jj', function()
   })
 end, { noremap = true, silent = true, desc = 'lazy[j][j]' })
 
-vim.keymap.set('n', '<leader>jd', function()
-  termopen('jj describe')
-end, { noremap = true, silent = true, desc = '[j]j: [d]escribe' })
+vim.api.nvim_create_autocmd('TermOpen', {
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
+  group = vim.api.nvim_create_augroup('terminal-set-relative-number', { clear = true }),
+})
