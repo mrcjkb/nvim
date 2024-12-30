@@ -32,4 +32,5 @@ local function desc(description)
   return { noremap = true, silent = true, desc = description }
 end
 vim.keymap.set({ 'n', 'x', 'o' }, '<leader><leader>', flash.jump, desc('flash: jump'))
+vim.keymap.set({ 'n', 'x' }, 'r', flash.jump, desc('flash: jump'))
 vim.keymap.set({ 'o' }, 'r', flash.remote, desc('flash: remote'))
