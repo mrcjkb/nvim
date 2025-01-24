@@ -159,7 +159,6 @@ with final.lib; let
       nvim-ts-context-commentstring
       treesitter-textobjects
       treesitter-context
-      wildfire-nvim
       rainbow-delimiters-nvim
       (opt vim-matchup)
       nvim-treesitter

@@ -4770,7 +4770,6 @@
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
         "which-key-nvim": "which-key-nvim",
-        "wildfire-nvim": "wildfire-nvim",
         "yanky": "yanky"
       }
     },
@@ -5291,22 +5290,6 @@
       "original": {
         "owner": "folke",
         "repo": "which-key.nvim",
-        "type": "github"
-      }
-    },
-    "wildfire-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1692596265,
-        "narHash": "sha256-3eyKUJ/99TDJf7gRtWfA1EPKSa6o6ecHCUYDTzw7bog=",
-        "owner": "sustech-data",
-        "repo": "wildfire.nvim",
-        "rev": "1729faca1c6ae34520a6e531983a3737d3654ee1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sustech-data",
-        "repo": "wildfire.nvim",
         "type": "github"
       }
     },

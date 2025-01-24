@@ -167,10 +167,6 @@
       url = "github:JoosepAlviste/nvim-ts-context-commentstring";
       flake = false;
     };
-    wildfire-nvim = {
-      url = "github:sustech-data/wildfire.nvim";
-      flake = false;
-    };
     rainbow-delimiters-nvim = {
       url = "github:hiphish/rainbow-delimiters.nvim";
       flake = false;
