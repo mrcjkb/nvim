@@ -30,3 +30,5 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = pattern,
   command = 'Format',
 })
+
+return true
