@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('FileType', {
     if vim.g.gitsigns_nvim_did_setup then
       return
     end
+    vim.g.gitsigns_nvim_did_setup = true
     vim.schedule(function()
       require('gitsigns').setup {
         current_line_blame = true,
