@@ -91,10 +91,10 @@ require('lualine').setup {
     lualine_c = {
       {
         function(...)
-          require('nvim-navic').get_location(...)
+          return require('nvim-navic').get_location(...)
         end,
         cond = function(...)
-          require('nvim-navic').is_available(...)
+          return vim.fn.bufexists(0) == 1 and require('nvim-navic').is_available(...)
         end,
       },
     },
@@ -147,5 +147,5 @@ require('lualine').setup {
       },
     },
   },
-  extensions = { 'fugitive', 'fzf', 'toggleterm', 'quickfix' },
+  extensions = { 'toggleterm', 'quickfix' },
 }
