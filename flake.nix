@@ -60,10 +60,6 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
-    diffview = {
-      url = "github:sindrets/diffview.nvim";
-      flake = false;
-    };
     vim-wordmotion = {
       # Vimscript
       url = "github:chaoren/vim-wordmotion";

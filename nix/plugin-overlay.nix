@@ -9,7 +9,6 @@ in {
     plenary = mkNvimPlugin inputs.plenary "plenary.nvim";
     sqlite = mkNvimPlugin inputs.sqlite "sqlite.nvim";
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
-    diffview = mkNvimPlugin inputs.diffview "diffview.nvim";
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
     nvim-highlight-colors = mkNvimPlugin inputs.nvim-highlight-colors "nvim-highlight-colors";
     # leap = mkNvimPlugin inputs.leap "leap.nvim";

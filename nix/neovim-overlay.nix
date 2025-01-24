@@ -156,7 +156,6 @@ with final.lib; let
       plenary
       sqlite
       nvim-web-devicons
-      diffview
       nvim-ts-context-commentstring
       treesitter-textobjects
       treesitter-context

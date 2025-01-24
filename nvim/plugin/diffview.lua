@@ -1,6 +1,0 @@
-vim.keymap.set('n', '<leader>glf', function()
-  vim.cmd.DiffviewFileHistory(vim.api.nvim_buf_get_name(0))
-end, { desc = '[g]it: [l]ocal [f]ile history (diffview current buffer)' })
-vim.keymap.set('n', '<leader>gd', vim.cmd.DiffviewOpen, { desc = '[g]it: [d]iffview open' })
-vim.keymap.set('n', '<leader>df', vim.cmd.DiffviewToggleFiles, { desc = '[d]iffview: toggle [f]iles' })
-vim.keymap.set('n', '<leader>gf', vim.cmd.DiffviewFileHistory, { desc = '[g]it: [f]ile history (diffview cwd)' })
