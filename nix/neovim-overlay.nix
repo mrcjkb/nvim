@@ -301,6 +301,7 @@ with final.lib; let
   ];
 
   nvim-dev = mkNeovim {
+    appName = "nvim-dev";
     plugins = base-plugins;
     devPlugins = [
       {
