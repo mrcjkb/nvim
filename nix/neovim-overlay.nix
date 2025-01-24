@@ -201,8 +201,6 @@ with final.lib; let
       quicker-nvim
       formatter
       yanky
-      promise-async
-      nvim-ufo
       statuscol
       nvim-unception
       tmux-nvim
@@ -215,7 +213,6 @@ with final.lib; let
       # catppuccin-nvim
       (opt luasnip)
       telescope-fzy-native-nvim
-      # neorg
       dial-nvim
       vim-scriptease
       catppuccin-nvim

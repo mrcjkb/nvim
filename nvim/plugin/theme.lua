@@ -52,7 +52,7 @@ require('catppuccin').setup {
     treesitter = true,
     treesitter_context = true,
     ts_rainbow2 = true,
-    ufo = true,
+    ufo = false,
     which_key = true,
     vimwiki = true,
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)

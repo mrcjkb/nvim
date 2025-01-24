@@ -244,15 +244,6 @@
       url = "github:gbprod/yanky.nvim";
       flake = false;
     };
-    promise-async = {
-      # Dependency of nvim-ufo
-      url = "github:kevinhwang91/promise-async";
-      flake = false;
-    };
-    nvim-ufo = {
-      url = "github:kevinhwang91/nvim-ufo";
-      flake = false;
-    };
     statuscol = {
       url = "github:luukvbaal/statuscol.nvim";
       flake = false;

@@ -4456,22 +4456,6 @@
         "type": "github"
       }
     },
-    "nvim-ufo": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1732699704,
-        "narHash": "sha256-9fuwGuqsftWnBhoVxaOwhbyNt/UtSMtRD9QdwvhxFc8=",
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
-        "rev": "1ebb9ea3507f3a40ce8b0489fb259ab32b1b5877",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kevinhwang91",
-        "repo": "nvim-ufo",
-        "type": "github"
-      }
-    },
     "nvim-unception": {
       "flake": false,
       "locked": {
@@ -4670,22 +4654,6 @@
         "type": "github"
       }
     },
-    "promise-async": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1722813441,
-        "narHash": "sha256-9eM66brPjiFlY64vmBetRYrKnpDyN7+/URMm4GsGimA=",
-        "owner": "kevinhwang91",
-        "repo": "promise-async",
-        "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "kevinhwang91",
-        "repo": "promise-async",
-        "type": "github"
-      }
-    },
     "quicker-nvim": {
       "flake": false,
       "locked": {
@@ -4770,14 +4738,12 @@
         "nvim-navic": "nvim-navic",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
-        "nvim-ufo": "nvim-ufo",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
         "oil-nvim": "oil-nvim",
         "other-nvim": "other-nvim",
         "persistence": "persistence",
         "plenary": "plenary",
-        "promise-async": "promise-async",
         "quicker-nvim": "quicker-nvim",
         "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "repeat": "repeat",

@@ -59,8 +59,6 @@ in {
     quicker-nvim = mkNvimPlugin inputs.quicker-nvim "quicker.nvim";
     formatter = mkNvimPlugin inputs.formatter "formatter.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
-    promise-async = mkNvimPlugin inputs.promise-async "promise-async";
-    nvim-ufo = mkNvimPlugin inputs.nvim-ufo "nvim-ufo";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
     tmux-nvim = mkNvimPlugin inputs.tmux-nvim "tmux.nvim";

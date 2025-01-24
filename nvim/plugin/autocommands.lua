@@ -253,9 +253,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', 'gD', vim.lsp.buf.declaration, desc('lsp: go to [D]eclaration'))
     keymap.set('n', 'gd', vim.lsp.buf.definition, desc('lsp: go to [d]efinition'))
     keymap.set('n', '<space>gt', vim.lsp.buf.type_definition, desc('lsp: go to [t]ype definition'))
-    -- keymap.set('n', 'K', vim.lsp.buf.hover, opts) -- overridden by nvim-ufo
-    keymap.set('n', '<space>pd', peek_definition, desc('lsp: [p]eek [d]efinition')) -- overridden by nvim-ufo
-    keymap.set('n', '<space>pt', peek_type_definition, desc('lsp: [p]eek [t]ype definition')) -- overridden by nvim-ufo
+    keymap.set('n', '<space>pd', peek_definition, desc('lsp: [p]eek [d]efinition'))
+    keymap.set('n', '<space>pt', peek_type_definition, desc('lsp: [p]eek [t]ype definition'))
     keymap.set('n', 'gi', vim.lsp.buf.implementation, desc('lsp: go to [i]mplementation'))
     keymap.set('n', '<space>gi', go_to_first_import, desc('lsp: [g]o to fist [i]mport'))
     keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, desc('lsp: signature help'))
