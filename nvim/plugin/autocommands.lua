@@ -360,3 +360,8 @@ api.nvim_create_autocmd('LspDetach', {
     pcall(api.nvim_del_augroup_by_name, group)
   end,
 })
+
+api.nvim_create_autocmd({ 'VimEnter', 'FocusGained', 'BufEnter' }, {
+  group = api.nvim_create_augroup('ReloadFileOnChange', {}),
+  command = 'checktime',
+})
