@@ -224,7 +224,6 @@ with final.lib; let
       oil-nvim
       other-nvim
       which-key-nvim
-      snacks-nvim
     ]
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
