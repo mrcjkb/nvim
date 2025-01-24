@@ -3,9 +3,10 @@ local is_active = false
 
 require('persistence.config').setup()
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
+vim.api.nvim_create_autocmd('FileType', {
   group = vim.api.nvim_create_augroup('persistence', { clear = true }),
   once = true,
+  pattern = '*',
   callback = function()
     if is_setup then
       return
