@@ -12,6 +12,7 @@ with final.lib; let
     withNodeJs ? false,
     viAlias ? true,
     vimAlias ? true,
+    initLuaPre ? "",
   }: let
     defaultPlugin = {
       plugin = null;
@@ -55,6 +56,12 @@ with final.lib; let
     };
 
     initLua =
+      initLuaPre
+      + ""
+      +
+      /*
+      lua
+      */
       ''
         vim.loader.enable()
         vim.opt.rtp:prepend('${../lib}')
@@ -63,6 +70,9 @@ with final.lib; let
       + (builtins.readFile ../nvim/init.lua)
       + ""
       + optionalString (devPlugins != []) (
+        /*
+        lua
+        */
         ''
           local dev_pack_path = vim.fn.stdpath('data') .. '/site/pack/dev'
           local dev_plugins_dir = dev_pack_path .. '/opt'
@@ -70,17 +80,25 @@ with final.lib; let
         ''
         + strings.concatMapStringsSep
         "\n"
-        (plugin: ''
-          dev_plugin_path = dev_plugins_dir .. '/${plugin.name}'
-          if vim.fn.empty(vim.fn.glob(dev_plugin_path)) > 0 then
-            vim.notify('Bootstrapping dev plugin ${plugin.name} ...', vim.log.levels.INFO)
-            vim.cmd('!${final.git}/bin/git clone ${plugin.url} ' .. dev_plugin_path)
-          end
-          vim.cmd('packadd! ${plugin.name}')
-        '')
+        (plugin:
+          /*
+          lua
+          */
+          ''
+            dev_plugin_path = dev_plugins_dir .. '/${plugin.name}'
+            if vim.fn.empty(vim.fn.glob(dev_plugin_path)) > 0 then
+              vim.notify('Bootstrapping dev plugin ${plugin.name} ...', vim.log.levels.INFO)
+              vim.cmd('!${final.git}/bin/git clone ${plugin.url} ' .. dev_plugin_path)
+            end
+            vim.cmd('packadd! ${plugin.name}')
+          '')
         devPlugins
       )
-      + ''
+      +
+      /*
+      lua
+      */
+      ''
         vim.opt.rtp:append('${nvimConfig}/nvim')
         vim.opt.rtp:append('${nvimConfig}/after')
       '';
@@ -132,7 +150,8 @@ with final.lib; let
         ${concatStringsSep "\n" postInstallCommands}
       '';
     });
-  in final.wrapNeovimUnstable nvim-unwrapped (neovimConfig
+  in
+    final.wrapNeovimUnstable nvim-unwrapped (neovimConfig
       // {
         luaRcContent = initLua;
         wrapperArgs =
@@ -206,6 +225,7 @@ with final.lib; let
       oil-nvim
       other-nvim
       which-key-nvim
+      snacks-nvim
     ]
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
@@ -214,47 +234,48 @@ with final.lib; let
       dial-nvim
       vim-scriptease
       catppuccin-nvim
-      (nvim-treesitter.withPlugins (ps: with ps; [
-        bash
-        c
-        cpp
-        css
-        dhall
-        diff
-        dockerfile
-        editorconfig
-        gitcommit
-        haskell
-        haskell_persistent
-        html
-        java
-        jq
-        json
-        json5
-        latex
-        lua
-        luadoc
-        make
-        markdown
-        markdown_inline
-        mermaid
-        nix
-        nu
-        proto
-        python
-        regex
-        rust
-        scala
-        scheme
-        sql
-        terraform
-        thrift
-        toml
-        typst
-        vim
-        vimdoc
-        yaml
-      ]))
+      (nvim-treesitter.withPlugins (ps:
+        with ps; [
+          bash
+          c
+          cpp
+          css
+          dhall
+          diff
+          dockerfile
+          editorconfig
+          gitcommit
+          haskell
+          haskell_persistent
+          html
+          java
+          jq
+          json
+          json5
+          latex
+          lua
+          luadoc
+          make
+          markdown
+          markdown_inline
+          mermaid
+          nix
+          nu
+          proto
+          python
+          regex
+          rust
+          scala
+          scheme
+          sql
+          terraform
+          thrift
+          toml
+          typst
+          vim
+          vimdoc
+          yaml
+        ]))
     ]);
 
   all-plugins =
@@ -312,6 +333,18 @@ with final.lib; let
     inherit extraPackages;
   };
 
+  nvim-profile = mkNeovim {
+    plugins =
+      all-plugins
+      ++ (with final.nvimPlugins; [
+        snacks-nvim
+      ]);
+    inherit extraPackages;
+    initLuaPre = /* lua */ ''
+      require('snacks.profiler').startup {}
+    '';
+  };
+
   luarc-json = final.mk-luarc-json {
     plugins = all-plugins;
     nvim = final.neovim;
@@ -320,6 +353,7 @@ in {
   inherit
     nvim-dev
     nvim-pkg
+    nvim-profile
     luarc-json
     ;
 }

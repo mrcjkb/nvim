@@ -265,6 +265,10 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
+    snacks-nvim = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
@@ -330,6 +334,7 @@
         default = nvim;
         nvim = pkgs.nvim-pkg;
         nvim-dev = pkgs.nvim-dev;
+        nvim-profile = pkgs.nvim-profile;
         nightly = pkgs.neovim-nightly;
       };
       devShells = {

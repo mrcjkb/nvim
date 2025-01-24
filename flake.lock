@@ -4749,6 +4749,7 @@
         "repeat": "repeat",
         "rustaceanvim": "rustaceanvim",
         "schemastore-nvim": "schemastore-nvim",
+        "snacks-nvim": "snacks-nvim",
         "spell-de-dictionary": "spell-de-dictionary",
         "spell-de-suggestions": "spell-de-suggestions",
         "sqlite": "sqlite",
@@ -4809,6 +4810,22 @@
       "original": {
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
+        "type": "github"
+      }
+    },
+    "snacks-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1737698491,
+        "narHash": "sha256-wSXExGUg0RYu7yu+KCDWIYVVQl9lSEWRL5HR4MtEx5s=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "b96bd540f785c725289f9f15f0147b1b2dac5a35",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
         "type": "github"
       }
     },
