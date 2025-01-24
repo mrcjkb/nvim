@@ -1,4 +1,11 @@
-require('catppuccin').setup {
+local catppuccin = require('catppuccin')
+
+-- HACK: There seems to be a bug that causes recompilation on each start.
+-- This disables compilation.
+-- catppuccin.flavours = { latte = 1, frappe = 2, macchiato = 3, mocha = 4 }
+catppuccin.flavours = {}
+
+catppuccin.setup {
   -- no_italic = true,
   term_colors = true,
   transparent_background = false,
