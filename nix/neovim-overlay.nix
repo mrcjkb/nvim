@@ -161,7 +161,6 @@ with final.lib; let
       treesitter-context
       rainbow-delimiters-nvim
       (opt vim-matchup)
-      nvim-treesitter
       vim-wordmotion
       nvim-highlight-colors
       # (withConfig leap "require('leap').set_default_keymaps()")
@@ -215,6 +214,47 @@ with final.lib; let
       dial-nvim
       vim-scriptease
       catppuccin-nvim
+      (nvim-treesitter.withPlugins (ps: with ps; [
+        bash
+        c
+        cpp
+        css
+        dhall
+        diff
+        dockerfile
+        editorconfig
+        gitcommit
+        haskell
+        haskell_persistent
+        html
+        java
+        jq
+        json
+        json5
+        latex
+        lua
+        luadoc
+        make
+        markdown
+        markdown_inline
+        mermaid
+        nix
+        nu
+        proto
+        python
+        regex
+        rust
+        scala
+        scheme
+        sql
+        terraform
+        thrift
+        toml
+        typst
+        vim
+        vimdoc
+        yaml
+      ]))
     ]);
 
   all-plugins =

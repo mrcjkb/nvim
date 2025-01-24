@@ -33,10 +33,6 @@ in {
     fidget = mkNvimPlugin inputs.fidget "fidget.nvim";
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
-    nvim-treesitter = prev.vimPlugins.nvim-treesitter.withAllGrammars.overrideAttrs (_: _: {
-      # TODO: re-enable when sql highlights are fixed
-      # src = inputs.nvim-treesitter;
-    });
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
     treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
     nvim-ts-context-commentstring = mkNvimPlugin inputs.nvim-ts-context-commentstring "nvim-ts-context-commentstring";
