@@ -88,16 +88,7 @@ catppuccin.visual.a.bg = C.blue
 require('lualine').setup {
   globalstatus = true,
   sections = {
-    lualine_c = {
-      {
-        function(...)
-          return require('nvim-navic').get_location(...)
-        end,
-        cond = function(...)
-          return vim.fn.bufexists(0) == 1 and require('nvim-navic').is_available(...)
-        end,
-      },
-    },
+    lualine_c = {},
     lualine_z = {
       { extra_mode_status },
     },
