@@ -4762,7 +4762,6 @@
         "telescope-zf-native": "telescope-zf-native",
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
-        "tmux-nvim": "tmux-nvim",
         "todo-comments": "todo-comments",
         "toggleterm": "toggleterm",
         "treesitter-context": "treesitter-context",
@@ -5122,22 +5121,6 @@
       "original": {
         "owner": "chomosuke",
         "repo": "term-edit.nvim",
-        "type": "github"
-      }
-    },
-    "tmux-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1729834592,
-        "narHash": "sha256-c/1swuJ6pIiaU8+i62Di/1L/b4V9+5WIVzVVSJJ4ls8=",
-        "owner": "aserowy",
-        "repo": "tmux.nvim",
-        "rev": "307bad95a1274f7288aaee09694c25c8cbcd6f1a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aserowy",
-        "repo": "tmux.nvim",
         "type": "github"
       }
     },

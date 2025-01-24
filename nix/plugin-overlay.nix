@@ -56,7 +56,6 @@ in {
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
-    tmux-nvim = mkNvimPlugin inputs.tmux-nvim "tmux.nvim";
     term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";

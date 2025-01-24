@@ -220,7 +220,6 @@ with final.lib; let
       yanky
       statuscol
       nvim-unception
-      tmux-nvim
       term-edit-nvim
       oil-nvim
       other-nvim

@@ -249,10 +249,6 @@
       url = "github:samjwill/nvim-unception";
       flake = false;
     };
-    tmux-nvim = {
-      url = "github:aserowy/tmux.nvim";
-      flake = false;
-    };
     term-edit-nvim = {
       url = "github:chomosuke/term-edit.nvim";
       flake = false;
