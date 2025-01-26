@@ -34,6 +34,7 @@ local lz = require('lz.n')
 local keymap = lz.keymap {
   'telescope.nvim',
   cmd = 'Telescope',
+  ft = 'haskell',
   before = function()
     lz.trigger_load('harpoon')
   end,
