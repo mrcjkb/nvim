@@ -3440,11 +3440,11 @@
         "vimcats": "vimcats"
       },
       "locked": {
-        "lastModified": 1737856109,
-        "narHash": "sha256-lZszUR4zVF4d8z3K36QfCeaGGDB/RkF9RWZR213Ftmw=",
+        "lastModified": 1737906754,
+        "narHash": "sha256-oeKCbh4RxDiPx1cMiYkIEGIuhDK+1nwo3nv8KBljGKw=",
         "owner": "nvim-neorocks",
         "repo": "lz.n",
-        "rev": "525d029dfbff4bef23ecb7c12cabaf41bdef920c",
+        "rev": "1ce5a476ae307e88f72cfc4fd85032775ec9c116",
         "type": "github"
       },
       "original": {
