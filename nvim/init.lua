@@ -168,6 +168,10 @@ g.haskell_tools = function()
       -- for hls development
       -- cmd = { 'cabal', 'run', 'haskell-language-server' },
       on_attach = function(_, bufnr, ht)
+        pcall(function()
+          require("lz.n").trigger_load('telescope.nvim')
+          require('telescope').load_extension('ht')
+        end)
         local desc = function(description)
           return vim.tbl_extend('keep', keymap_opts, { buffer = bufnr, desc = description })
         end

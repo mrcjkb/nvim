@@ -1,7 +1,3 @@
-local ok, telescope = pcall(require'telescope')
-if ok then
-  telescope.load_extension('ht')
-end
 vim.keymap.set('n', '<space>gp', function()
   require('haskell-tools').project.telescope_package_grep()
 end, { noremap = true, silent = true, desc = 'haskell: telescope [g]rep [p]ackage' })
