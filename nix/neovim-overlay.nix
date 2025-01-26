@@ -227,7 +227,6 @@ with final.lib; let
     ]
     ++ (with prev.vimPlugins; [
       # catppuccin-nvim
-      (opt luasnip)
       telescope-fzy-native-nvim
       (opt dial-nvim)
       vim-scriptease
@@ -280,7 +279,6 @@ with final.lib; let
     base-plugins
     ++ (with final; with final.vimPlugins; [
       haskell-tools-nvim-dev
-      haskell-snippets-nvim
       neotest-haskell-dev
       telescope-manix
       rustaceanvim
