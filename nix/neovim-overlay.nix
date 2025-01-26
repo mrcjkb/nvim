@@ -229,7 +229,7 @@ with final.lib; let
       # catppuccin-nvim
       (opt luasnip)
       telescope-fzy-native-nvim
-      dial-nvim
+      (opt dial-nvim)
       vim-scriptease
       catppuccin-nvim
       (nvim-treesitter.withPlugins (ps:
