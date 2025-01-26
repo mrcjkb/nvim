@@ -44,6 +44,10 @@
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
     };
+    lz-n = {
+      url = "github:nvim-neorocks/lz.n";
+      # url = "/home/mrcjk/git/github/mrcjkb/lz.n";
+    };
     crates-nvim = {
       url = "github:saecki/crates.nvim";
       flake = false;
@@ -300,6 +304,7 @@
           inputs.haskell-snippets.overlays.default
           inputs.telescope-manix.overlays.default
           inputs.rustaceanvim.overlays.default
+          inputs.lz-n.overlays.default
           # FIXME: This will fail to build if not applied after the others
           inputs.neotest-haskell.overlays.default
         ];

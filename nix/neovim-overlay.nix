@@ -207,7 +207,7 @@ with final.lib; let
       telescope_hoogle
       telescope-smart-history
       telescope-zf-native
-      telescope
+      (opt telescope)
       todo-comments
       nvim-navic
       lualine
@@ -278,12 +278,13 @@ with final.lib; let
 
   all-plugins =
     base-plugins
-    ++ (with final; [
+    ++ (with final; with final.vimPlugins; [
       haskell-tools-nvim-dev
       haskell-snippets-nvim
       neotest-haskell-dev
       telescope-manix
       rustaceanvim
+      lz-n
     ]);
 
   extraPackages = with final; [
