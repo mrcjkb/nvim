@@ -1,27 +1,32 @@
-local harpoon = require('harpoon')
-
-harpoon:setup {
-  settings = {
-    save_on_toggle = true,
-  },
+local keymap = require('lz.n').keymap {
+  'harpoon',
+  keys = '<leader>tm',
+  after = function()
+    require('harpoon'):setup {
+      settings = {
+        save_on_toggle = true,
+      },
+    }
+  end,
 }
 
 ---@param keybinding string
 ---@param cmd function | string
 ---@param description string
 local function nnoremap(keybinding, cmd, description)
-  vim.keymap.set('n', keybinding, cmd, { noremap = true, silent = true, desc = description })
+  keymap.set('n', keybinding, cmd, { noremap = true, silent = true, desc = description })
 end
 
 nnoremap('<leader>mm', function()
-  harpoon:list():append()
+  require('harpoon'):list():append()
 end, 'harpoon: [mm]ark')
 nnoremap('<leader>hm', function()
+  local harpoon = require('harpoon')
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end, '[h]arpoon: toggle [m]enu')
 nnoremap('[h', function()
-  harpoon:list():prev()
+  require('harpoon'):list():prev()
 end, '[h]arpoon: previous')
 nnoremap(']h', function()
-  harpoon:list():prev()
+  require('harpoon'):list():prev()
 end, '[h]arpoon: next')

@@ -30,9 +30,13 @@ local function flash(prompt_bufnr)
   }
 end
 
-local keymap = require('lz.n').keymap {
+local lz = require('lz.n')
+local keymap = lz.keymap {
   'telescope.nvim',
   cmd = 'Telescope',
+  before = function()
+    lz.trigger_load('harpoon')
+  end,
   after = function()
     local telescope = require('telescope')
     telescope.setup {
@@ -101,6 +105,7 @@ local keymap = require('lz.n').keymap {
     telescope.load_extension('fzy_native')
     telescope.load_extension('zf-native')
     telescope.load_extension('smart_history')
+    telescope.load_extension('harpoon')
     -- telescope.load_extension('cheat')
     -- telescope.load_extension('ui-select')
   end,

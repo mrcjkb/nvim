@@ -212,7 +212,7 @@ with final.lib; let
       nvim-navic
       lualine
       toggleterm
-      harpoon
+      (opt harpoon)
       gitsigns
       nvim-bqf
       quicker-nvim
