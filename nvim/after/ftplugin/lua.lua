@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 require('mrcjk.neotest')
 local bufnr = vim.api.nvim_get_current_buf()
 
@@ -63,4 +66,4 @@ vim.lsp.start {
   },
 }
 
-require("mrcjk.formatter")
+require('mrcjk.formatter')

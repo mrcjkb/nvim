@@ -1,4 +1,7 @@
 local lsp = require('mrcjk.lsp')
+local files = require('mrcjk.files')
+
+files.treesitter_start()
 
 if vim.fn.executable('dhall-lsp-server') ~= 1 then
   return

@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 require('mrcjk.neotest')
 local lsp = require('mrcjk.lsp')
 local jdtls = require('jdtls')

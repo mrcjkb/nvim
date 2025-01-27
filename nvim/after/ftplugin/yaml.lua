@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 local lsp = require('mrcjk.lsp')
 
 local fname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')

@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start('cpp')
+
 if vim.fn.executable('clangd') ~= 1 then
   return
 end

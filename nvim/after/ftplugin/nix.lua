@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 local lsp = require('mrcjk.lsp')
 
 if vim.fn.executable('nil') ~= 1 then

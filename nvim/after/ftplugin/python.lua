@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 local lsp = require('mrcjk.lsp')
 
 local pylsp_cmd = 'pylsp'

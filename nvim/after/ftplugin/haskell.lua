@@ -1,3 +1,6 @@
+local files = require('mrcjk.files')
+files.treesitter_start()
+
 local bufnr = vim.api.nvim_get_current_buf()
 require('lang.haskell')
 require('mrcjk.neotest')

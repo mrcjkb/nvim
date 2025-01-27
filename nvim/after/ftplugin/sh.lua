@@ -1,4 +1,7 @@
+local files = require('mrcjk.files')
 local lsp = require('mrcjk.lsp')
+
+files.treesitter_start()
 
 if vim.fn.executable('bash-language-server') ~= 1 then
   return

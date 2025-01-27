@@ -23,4 +23,15 @@ function files.disable_treesitter_features(bufnr)
   return false
 end
 
+---@param lang? string
+---@param bufnr? number
+function files.treesitter_start(lang, bufnr)
+  bufnr = bufnr or vim.api.nvim_get_current_buf()
+  lang = lang or vim.bo[bufnr].ft
+  if files.disable_treesitter_features(bufnr) then
+    return
+  end
+  vim.treesitter.start(bufnr, lang)
+end
+
 return files
