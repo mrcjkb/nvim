@@ -6019,15 +6019,16 @@
     "treesitter-textobjects": {
       "flake": false,
       "locked": {
-        "lastModified": 1732260993,
-        "narHash": "sha256-b/7Bz7L83KL+uZC1bRJ4PrzPVK/NaCKSx4VCHlPcdCM=",
+        "lastModified": 1729499151,
+        "narHash": "sha256-bBUgQkTM804pSm9vPkw4OJhAPwonGKpxWkGXx1OAX3s=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-textobjects",
-        "rev": "ad8f0a472148c3e0ae9851e26a722ee4e29b1595",
+        "rev": "e0a7b5a6b7f18a5d508d05ca8853273db7bcbe50",
         "type": "github"
       },
       "original": {
         "owner": "nvim-treesitter",
+        "ref": "main",
         "repo": "nvim-treesitter-textobjects",
         "type": "github"
       }

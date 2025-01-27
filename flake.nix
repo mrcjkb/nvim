@@ -160,7 +160,7 @@
       flake = false;
     };
     treesitter-textobjects = {
-      url = "github:nvim-treesitter/nvim-treesitter-textobjects";
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
       flake = false;
     };
     treesitter-context = {
