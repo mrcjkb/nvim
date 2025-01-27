@@ -75,7 +75,7 @@ vim.cmd.colorscheme('catppuccin')
 vim.api.nvim_create_autocmd('FileType', {
   once = true,
   pattern = '*',
-  group = vim.api.nvim_create_augroup('gitsigns-nvim-setup', {}),
+  group = vim.api.nvim_create_augroup('catppuccin-nvim-setup', {}),
   callback = function()
     if vim.g.lualine_nvim_did_setup then
       return

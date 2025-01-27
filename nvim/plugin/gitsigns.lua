@@ -1,4 +1,4 @@
-if vim.g.gitsigns_nvim_did_setup then
+if vim.g.gitsigns_nvim_setup_done then
   return
 end
 vim.api.nvim_create_autocmd('FileType', {
@@ -6,10 +6,10 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = '*',
   group = vim.api.nvim_create_augroup('gitsigns-nvim-setup', {}),
   callback = function()
-    if vim.g.gitsigns_nvim_did_setup then
+    if vim.g.gitsigns_nvim_setup_done then
       return
     end
-    vim.g.gitsigns_nvim_did_setup = true
+    vim.g.gitsigns_nvim_setup_done = true
     vim.schedule(function()
       require('gitsigns').setup {
         current_line_blame = true,
