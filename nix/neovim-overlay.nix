@@ -200,7 +200,7 @@ with final.lib; let
       jdtls
       live-rename-nvim
       fidget
-      illuminate
+      (opt illuminate)
       schemastore-nvim
       actions-preview-nvim
       nvim-lint
@@ -231,7 +231,7 @@ with final.lib; let
       (opt dial-nvim)
       vim-scriptease
       catppuccin-nvim
-      (nvim-treesitter.withPlugins (ps:
+      (opt (nvim-treesitter.withPlugins (ps:
         with ps; [
           bash
           c
@@ -272,7 +272,7 @@ with final.lib; let
           vim
           vimdoc
           yaml
-        ]))
+        ])))
     ]);
 
   all-plugins =
