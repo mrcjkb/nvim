@@ -72,7 +72,7 @@ catppuccin.setup {
 }
 vim.cmd.colorscheme('catppuccin')
 
-vim.api.nvim_create_autocmd('FileType', {
+vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
   once = true,
   pattern = '*',
   group = vim.api.nvim_create_augroup('catppuccin-nvim-setup', {}),
@@ -101,10 +101,10 @@ vim.api.nvim_create_autocmd('FileType', {
     end
 
     local flavour = 'mocha'
-    local catppuccin = require('catppuccin.utils.lualine')(flavour)
+    local catppuccin_lualine = require('catppuccin.utils.lualine')(flavour)
     local C = require('catppuccin.palettes').get_palette(flavour)
-    catppuccin.normal.a.bg = C.mauve
-    catppuccin.visual.a.bg = C.blue
+    catppuccin_lualine.normal.a.bg = C.mauve
+    catppuccin_lualine.visual.a.bg = C.blue
 
     require('lualine').setup {
       globalstatus = true,
@@ -115,7 +115,7 @@ vim.api.nvim_create_autocmd('FileType', {
         },
       },
       options = {
-        theme = catppuccin,
+        theme = catppuccin_lualine,
       },
       tabline = {
         lualine_a = {
