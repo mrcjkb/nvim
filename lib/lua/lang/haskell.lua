@@ -1,5 +1,5 @@
 pcall(function()
-  require("lz.n").trigger_load('telescope.nvim')
+  require('lz.n').trigger_load('telescope.nvim')
   require('telescope').load_extension('ht')
 end)
 vim.keymap.set('n', '<space>gp', function()
@@ -20,3 +20,4 @@ vim.keymap.set(
   '<Plug>HaskellHoverAction',
   { noremap = true, silent = true, desc = 'haskell: hover [a]ction' }
 )
+require('mrcjk.other').set_keymaps()
