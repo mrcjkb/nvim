@@ -281,7 +281,7 @@ with final.lib; let
       haskell-tools-nvim-dev
       neotest-haskell-dev
       telescope-manix
-      rustaceanvim
+      rustaceanvim-dev
       lz-n
     ]);
 
