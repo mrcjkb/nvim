@@ -300,13 +300,6 @@
           gen-luarc.overlays.default
           plugin-overlay
           neovim-overlay
-          inputs.haskell-tools.overlays.default
-          inputs.haskell-snippets.overlays.default
-          inputs.telescope-manix.overlays.default
-          inputs.rustaceanvim.overlays.default
-          inputs.lz-n.overlays.default
-          # FIXME: This will fail to build if not applied after the others
-          inputs.neotest-haskell.overlays.default
         ];
       };
       shell = pkgs.mkShell {

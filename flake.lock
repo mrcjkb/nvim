@@ -5544,11 +5544,11 @@
         "vimcats": "vimcats_2"
       },
       "locked": {
-        "lastModified": 1738186906,
+        "lastModified": 1738187731,
         "narHash": "sha256-Z4aCPO4MR0Q2ZojT6YBGSa8fb7u5Nd+4Z/rekqhXqDY=",
         "owner": "mrcjkb",
         "repo": "rustaceanvim",
-        "rev": "4e147117fc0fdabbecdb212b4492642e8e8dc56f",
+        "rev": "4a2f2d2cc04f5b0aa0981f98bb7d002c898318ad",
         "type": "github"
       },
       "original": {

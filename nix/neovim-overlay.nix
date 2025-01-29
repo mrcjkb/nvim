@@ -277,12 +277,12 @@ with final.lib; let
 
   all-plugins =
     base-plugins
-    ++ (with final; with final.vimPlugins; [
-      haskell-tools-nvim-dev
-      neotest-haskell-dev
-      telescope-manix
-      rustaceanvim-dev
-      lz-n
+    ++ (with final; [
+      inputs.haskell-tools.packages.${system}.default
+      inputs.neotest-haskell.packages.${system}.default
+      inputs.telescope-manix.packages.${system}.default
+      inputs.rustaceanvim.packages.${system}.default
+      inputs.lz-n.packages.${system}.default
     ]);
 
   extraPackages = with final; [
