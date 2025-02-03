@@ -19,6 +19,13 @@ vim.lsp.start {
   capabilities = lsp.capabilities,
   settings = {
     yaml = {
+      schemaStore = {
+        -- Disable built-in schemaStore support to use
+        -- schemastore.nvim and its advanced options like `ignore`.
+        enable = false,
+        -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+        url = '',
+      },
       schemas = require('schemastore').yaml.schemas(),
     },
   },

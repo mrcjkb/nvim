@@ -21,7 +21,12 @@ with final.lib; let
       runtime = {};
     };
 
-    externalPackages = extraPackages ++ [final.sqlite];
+    externalPackages =
+      extraPackages
+      ++ (with final; [
+        sqlite
+        nodePackages.vscode-json-languageserver
+      ]);
 
     normalizedPlugins = map (x:
       defaultPlugin
@@ -338,9 +343,13 @@ with final.lib; let
         snacks-nvim
       ]);
     inherit extraPackages;
-    initLuaPre = /* lua */ ''
-      require('snacks.profiler').startup {}
-    '';
+    initLuaPre =
+      /*
+      lua
+      */
+      ''
+        require('snacks.profiler').startup {}
+      '';
   };
 
   luarc-json = final.mk-luarc-json {
