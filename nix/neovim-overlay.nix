@@ -247,6 +247,7 @@ with final.lib; let
           dockerfile
           editorconfig
           gitcommit
+          graphql
           haskell
           haskell_persistent
           html
