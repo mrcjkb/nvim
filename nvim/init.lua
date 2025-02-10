@@ -154,7 +154,7 @@ g.haskell_tools = function()
   local ht_opts = {
     tools = {
       repl = {
-        handler = 'toggleterm',
+        -- handler = 'toggleterm',
         auto_focus = false,
       },
       codeLens = {
