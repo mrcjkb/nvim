@@ -328,6 +328,10 @@ with final.lib; let
         name = "rustaceanvim";
         url = "git@github.com:mrcjkb/rustaceanvim.git";
       }
+      {
+        name = "lz.n";
+        url = "git@github.com:nvim-neorocks/lz.n.git";
+      }
     ];
     inherit extraPackages;
   };
