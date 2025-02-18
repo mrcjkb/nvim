@@ -216,10 +216,6 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
-    toggleterm = {
-      url = "github:akinsho/toggleterm.nvim";
-      flake = false;
-    };
     harpoon = {
       url = "github:ThePrimeagen/harpoon/harpoon2";
       flake = false;

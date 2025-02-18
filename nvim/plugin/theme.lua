@@ -159,7 +159,7 @@ vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
           },
         },
       },
-      extensions = { 'toggleterm', 'quickfix' },
+      extensions = { 'quickfix' },
     }
   end,
 })

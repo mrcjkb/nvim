@@ -5524,7 +5524,6 @@
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
         "todo-comments": "todo-comments",
-        "toggleterm": "toggleterm",
         "treesitter-context": "treesitter-context",
         "treesitter-textobjects": "treesitter-textobjects",
         "unimpaired": "unimpaired",
@@ -5898,22 +5897,6 @@
       "original": {
         "owner": "folke",
         "repo": "todo-comments.nvim",
-        "type": "github"
-      }
-    },
-    "toggleterm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1731162901,
-        "narHash": "sha256-g1FwgCc3a8Fak0Nb0gQQ+SI44uyAGaH1tIk1qpaAPEY=",
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
-        "rev": "87b2d6a3cab8e2bd9a0255427074285f0365398d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
         "type": "github"
       }
     },

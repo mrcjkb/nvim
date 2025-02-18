@@ -15,10 +15,11 @@ local function termopen(cmd, opts)
   opts = extend_default_opts(opts)
   vim.cmd.tabnew()
   local buf = vim.api.nvim_get_current_buf()
-  vim.fn.termopen(cmd, {
+  vim.fn.jobstart(cmd, {
     on_exit = function()
       vim.api.nvim_buf_delete(buf, {})
     end,
+    term = true,
   })
   if opts.insert then
     vim.cmd.startinsert()

@@ -216,7 +216,6 @@ with final.lib; let
       todo-comments
       nvim-navic
       lualine
-      toggleterm
       (opt harpoon)
       gitsigns
       nvim-bqf

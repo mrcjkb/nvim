@@ -154,7 +154,6 @@ g.haskell_tools = function()
   local ht_opts = {
     tools = {
       repl = {
-        -- handler = 'toggleterm',
         auto_focus = false,
       },
       codeLens = {
@@ -209,9 +208,6 @@ end
 g.rustaceanvim = function()
   ---@type rustaceanvim.Opts
   local rustacean_opts = {
-    tools = {
-      executor = 'toggleterm',
-    },
     server = {
       default_settings = {
         ['rust-analyzer'] = {
