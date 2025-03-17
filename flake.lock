@@ -5593,11 +5593,11 @@
       "locked": {
         "narHash": "sha256-Z0bzp9RSHYtFOHLiJi7pv/tCr9QSAIJFh6rV+AfOv10=",
         "type": "file",
-        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
+        "url": "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.spl"
       },
       "original": {
         "type": "file",
-        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl"
+        "url": "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.spl"
       }
     },
     "spell-de-suggestions": {
@@ -5605,11 +5605,11 @@
       "locked": {
         "narHash": "sha256-P8y/g4mA+KBe4Sg7+GVwIRbTDjBZuSx71ZB66rnf+Y0=",
         "type": "file",
-        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
+        "url": "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.sug"
       },
       "original": {
         "type": "file",
-        "url": "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug"
+        "url": "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.sug"
       }
     },
     "sqlite": {

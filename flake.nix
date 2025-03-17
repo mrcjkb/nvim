@@ -13,11 +13,11 @@
       url = "github:nvim-neorocks/neorocks";
     };
     spell-de-dictionary = {
-      url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.spl";
+      url = "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.spl";
       flake = false;
     };
     spell-de-suggestions = {
-      url = "http://ftp.vim.org/vim/runtime/spell/de.utf-8.sug";
+      url = "https://www.mirrorservice.org/pub/vim/runtime/spell/de.utf-8.sug";
       flake = false;
     };
     gen-luarc.url = "github:mrcjkb/nix-gen-luarc-json";
