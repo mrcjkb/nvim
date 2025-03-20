@@ -62,6 +62,8 @@ opt.shell = 'nu'
 opt.timeout = true
 opt.timeoutlen = 300
 
+opt.tags:append { '.tags' }
+
 local function prefix_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', diagnostic.message)
 end
