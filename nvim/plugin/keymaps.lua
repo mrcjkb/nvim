@@ -20,15 +20,6 @@ keymap.set('n', ']b', vim.cmd.bnext, { silent = true, desc = 'next [b]uffer' })
 keymap.set('n', '[B', vim.cmd.bfirst, { silent = true, desc = 'first [B]uffer' })
 keymap.set('n', ']B', vim.cmd.blast, { silent = true, desc = 'last [B]uffer' })
 
--- Undo break points in insert mode
--- inoremap(',', ',<c-g>u')
--- inoremap( '.', '.<c-g>u')
--- inoremap('!', '!<c-g>u')
--- inoremap('?', '?<c-g>u')
-
--- keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'move selection up' })
--- keymap.set('v', 'K', ":m '>-2<CR>gv=gv", { desc = 'move selection down' })
-
 local function try_fallback_notify(opts)
   local success, _ = pcall(opts.try)
   if success then
