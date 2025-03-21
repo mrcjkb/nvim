@@ -1,5 +1,5 @@
 local cmd = vim.cmd
-local opt = vim.o
+local opt = vim.opt
 local keymap = vim.keymap
 local g = vim.g
 
@@ -214,7 +214,6 @@ g.rustaceanvim = function()
       default_settings = {
         ['rust-analyzer'] = {
           cargo = {
-            allFeatures = true,
             loadOutDirsFromCheck = true,
             runBuildScripts = true,
           },
