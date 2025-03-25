@@ -285,7 +285,9 @@ with final.lib; let
     ++ (with final; [
       inputs.haskell-tools.packages.${system}.default
       inputs.neotest-haskell.packages.${system}.default
-      inputs.telescope-manix.packages.${system}.default
+      # FIXME:
+      # inputs.telescope-manix.packages.${system}.default
+      final.vimPlugins.telescope-manix
       inputs.rustaceanvim.packages.${system}.default
       inputs.lz-n.packages.${system}.default
     ]);
