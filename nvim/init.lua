@@ -64,30 +64,36 @@ opt.timeoutlen = 300
 
 opt.tags:append { '.tags' }
 
-local function prefix_diagnostic(prefix, diagnostic)
-  return string.format(prefix .. ' %s', diagnostic.message)
+local function format_diagnostic(prefix, diagnostic)
+  local formatted_message = diagnostic
+    .message
+    -- Replace any sequence of whitespace characters (including newlines) with a single space
+    :gsub('%s+', ' ')
+  return string.format(prefix .. ' %s', formatted_message)
 end
 
-vim.diagnostic.config {
-  virtual_text = {
-    prefix = '',
-    format = function(diagnostic)
-      local severity = diagnostic.severity
-      if severity == vim.diagnostic.severity.ERROR then
-        return prefix_diagnostic('󰅚', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.WARN then
-        return prefix_diagnostic('⚠', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.INFO then
-        return prefix_diagnostic('ⓘ', diagnostic)
-      end
-      if severity == vim.diagnostic.severity.HINT then
-        return prefix_diagnostic('󰌶', diagnostic)
-      end
-      return prefix_diagnostic('■', diagnostic)
-    end,
-  },
+local virtual_text_config = {
+  prefix = '',
+  format = function(diagnostic)
+    local severity = diagnostic.severity
+    if severity == vim.diagnostic.severity.ERROR then
+      return format_diagnostic('󰅚', diagnostic)
+    end
+    if severity == vim.diagnostic.severity.WARN then
+      return format_diagnostic('⚠', diagnostic)
+    end
+    if severity == vim.diagnostic.severity.INFO then
+      return format_diagnostic('ⓘ', diagnostic)
+    end
+    if severity == vim.diagnostic.severity.HINT then
+      return format_diagnostic('󰌶', diagnostic)
+    end
+    return format_diagnostic('■', diagnostic)
+  end,
+}
+
+local diagnostic_config = {
+  virtual_text = virtual_text_config,
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '󰅚',
@@ -108,6 +114,31 @@ vim.diagnostic.config {
     prefix = '',
   },
 }
+
+vim.diagnostic.config(diagnostic_config)
+
+local function cycle_diagnostic_modes()
+  local current_config = vim.diagnostic.config() or diagnostic_config
+  local modes = {
+    { virtual_text = virtual_text_config, virtual_lines = false },
+    { virtual_text = false, virtual_lines = true },
+    { virtual_text = false, virtual_lines = false },
+  }
+
+  local next_mode
+  for i, mode in ipairs(modes) do
+    if
+      (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
+      or (current_config.virtual_text == mode.virtual_text) and (current_config.virtual_lines == mode.virtual_lines)
+    then
+      next_mode = modes[(i % #modes) + 1]
+      break
+    end
+  end
+  vim.diagnostic.config(vim.tbl_extend('force', current_config, next_mode))
+end
+
+vim.keymap.set('n', '<space>d]', cycle_diagnostic_modes, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
