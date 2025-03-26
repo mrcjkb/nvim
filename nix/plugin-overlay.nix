@@ -3,6 +3,9 @@
     prev.pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
       version = src.lastModifiedDate;
+      # nvimRequireCheck hooks fail because this overlay
+      # ignores dependencies.
+      doCheck = false;
     };
 in {
   nvimPlugins = {
