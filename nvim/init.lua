@@ -117,7 +117,8 @@ local diagnostic_config = {
 
 vim.diagnostic.config(diagnostic_config)
 
-local function cycle_diagnostic_modes()
+---@param direction 'forward' | 'backward'
+local function cycle_diagnostic_modes(direction)
   local current_config = vim.diagnostic.config() or diagnostic_config
   local modes = {
     { virtual_text = virtual_text_config, virtual_lines = false },
@@ -125,20 +126,34 @@ local function cycle_diagnostic_modes()
     { virtual_text = false, virtual_lines = false },
   }
 
-  local next_mode
+  local current_mode_index
   for i, mode in ipairs(modes) do
     if
-      (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
-      or (current_config.virtual_text == mode.virtual_text) and (current_config.virtual_lines == mode.virtual_lines)
+      (
+        (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
+        or (current_config.virtual_text == mode.virtual_text)
+      ) and (current_config.virtual_lines == mode.virtual_lines)
     then
-      next_mode = modes[(i % #modes) + 1]
+      current_mode_index = i
       break
     end
   end
-  vim.diagnostic.config(vim.tbl_extend('force', current_config, next_mode))
+  local next_mode_index
+  if direction == 'forward' then
+    next_mode_index = (current_mode_index % #modes) + 1
+  else
+    next_mode_index = (current_mode_index - 2 + #modes) % #modes + 1
+  end
+  vim.diagnostic.config(vim.tbl_extend('force', current_config, modes[next_mode_index]))
 end
 
-vim.keymap.set('n', '<space>d]', cycle_diagnostic_modes, { noremap = true, silent = true })
+vim.keymap.set('n', '<space>d]', function()
+  cycle_diagnostic_modes('forward')
+end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<space>d[', function()
+  cycle_diagnostic_modes('backward')
+end, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
