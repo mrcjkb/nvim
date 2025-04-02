@@ -84,7 +84,13 @@ function files.treesitter_start(lang, bufnr)
     return
   end
   vim.treesitter.start(bufnr, lang)
-  vim.bo[bufnr].indentexpr = "v:lua.require('mrcjk.indentexpr').indentexpr()"
+
+  if vim.treesitter.query.get(lang, 'indents') then
+    vim.bo[bufnr].indentexpr = "v:lua.require('mrcjk.indentexpr').indentexpr()"
+  else
+    vim.bo[bufnr].autoindent = true
+    vim.bo[bufnr].smartindent = true
+  end
 
   -- select
   vim.keymap.set({ 'x', 'o' }, 'af', function()
