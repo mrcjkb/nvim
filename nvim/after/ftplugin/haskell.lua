@@ -2,7 +2,7 @@ local files = require('mrcjk.files')
 files.treesitter_start()
 
 local bufnr = vim.api.nvim_get_current_buf()
-require('lang.haskell')
+require('lang.haskell').set_keymaps()
 require('mrcjk.neotest')
 local ht = require('haskell-tools')
 
@@ -26,6 +26,32 @@ vim.keymap.set(
   desc('haskell: start `cabal repl %` in [tt]erminal')
 )
 
+vim.keymap.set(
+  'n',
+  '<space>a',
+  '<Plug>HaskellHoverAction',
+  { noremap = true, silent = true, desc = 'haskell: hover [a]ction' }
+)
+
+vim.keymap.set('n', '<leader>os', function()
+  vim.cmd.Other('spec')
+end, desc('[o]ther: [s]pec'))
+
+vim.keymap.set('n', '<leader>ot', function()
+  vim.cmd.Other('test')
+end, desc('[o]ther: [t]est'))
+
+vim.keymap.set('n', '<leader>oi', function()
+  vim.cmd.Other('impl')
+end, desc('[o]ther: [i]mpl'))
+
+vim.keymap.set('n', '<leader>oI', function()
+  vim.cmd.Other('internal-impl')
+end, desc('[o]ther: [I]nternal-impl'))
+
+vim.keymap.set('n', '<leader>on', function()
+  vim.cmd.Other('internal')
+end, desc('[o]ther: i[n]ternal'))
 -- nvim-surround
 
 if not vim.g.nvim_surround_setup then

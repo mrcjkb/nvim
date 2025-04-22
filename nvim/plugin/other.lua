@@ -135,3 +135,7 @@ require('other-nvim').setup {
     },
   },
 }
+
+vim.keymap.set('n', '<leader>oo', function()
+  vim.cmd.Other()
+end, { noremap = true, silent = true, desc = '[o]ther' })

@@ -5,7 +5,7 @@ local lsp = require('mrcjk.lsp')
 
 local fname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')
 if fname == 'package.yaml' then
-  require('lang.haskell')
+  require('lang.haskell').set_keymaps()
 end
 
 if vim.fn.executable('yaml-language-server') ~= 1 then

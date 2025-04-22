@@ -1,1 +1,1 @@
-require('lang.haskell')
+require('lang.haskell').set_keymaps()
