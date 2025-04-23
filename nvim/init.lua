@@ -57,7 +57,7 @@ g.markdown_syntax_conceal = 0
 g.omni_sql_default_compl_type = 'syntax'
 
 -- Set default shell
-opt.shell = 'zsh'
+opt.shell = 'nu'
 
 opt.timeout = true
 opt.timeoutlen = 300
