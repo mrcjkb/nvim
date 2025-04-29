@@ -5,13 +5,19 @@ vim.g.theme_did_setup = true
 
 local catppuccin = require('catppuccin')
 
+local compile_path = vim.fn.stdpath('cache') .. '/catppuccin'
+
 -- HACK: There seems to be a bug that causes recompilation on each start.
 -- This disables compilation.
--- catppuccin.flavours = { latte = 1, frappe = 2, macchiato = 3, mocha = 4 }
-catppuccin.flavours = {}
+if not vim.uv.fs_stat(compile_path) then
+  catppuccin.flavours = { latte = 1, frappe = 2, macchiato = 3, mocha = 4 }
+else
+  catppuccin.flavours = {}
+end
 
 catppuccin.setup {
   -- no_italic = true,
+  compile_path = compile_path,
   term_colors = true,
   transparent_background = false,
   ---@type CtpFlavors<CtpColors<string>>
