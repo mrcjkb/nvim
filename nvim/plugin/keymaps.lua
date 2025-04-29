@@ -195,7 +195,15 @@ keymap.set('n', '<C-}>', '<C-}>zz', { desc = 'move up full-page and center' })
 
 -- Terminal
 keymap.set('n', '<M-t>', function()
-  vim.cmd.terminal()
+  local term_bufnr = vim.iter(vim.api.nvim_list_bufs()):find(function(bufnr)
+    local name = vim.api.nvim_buf_get_name(bufnr)
+    return vim.startswith(name, 'term://')
+  end)
+  if term_bufnr then
+    vim.api.nvim_set_current_buf(term_bufnr)
+  else
+    vim.cmd.terminal()
+  end
 end, { silent = true, noremap = true, desc = 'terminal' })
 keymap.set('n', '<M-v>', function()
   vim.cmd.vsplit()
