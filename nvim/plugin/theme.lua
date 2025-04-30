@@ -6,6 +6,7 @@ vim.g.theme_did_setup = true
 local catppuccin = require('catppuccin')
 
 local compile_path = vim.fn.stdpath('cache') .. '/catppuccin'
+local flavour = vim.uv.os_getenv('CATPPUCCIN_FLAVOUR') or 'mocha'
 
 -- HACK: There seems to be a bug that causes recompilation on each start.
 -- This disables compilation.
@@ -17,6 +18,7 @@ end
 
 catppuccin.setup {
   -- no_italic = true,
+  flavour = flavour,
   compile_path = compile_path,
   term_colors = true,
   transparent_background = false,
@@ -106,7 +108,6 @@ vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
       return ''
     end
 
-    local flavour = 'mocha'
     local catppuccin_lualine = require('catppuccin.utils.lualine')(flavour)
     local C = require('catppuccin.palettes').get_palette(flavour)
     catppuccin_lualine.normal.a.bg = C.mauve
