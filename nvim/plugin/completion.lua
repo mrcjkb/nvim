@@ -13,14 +13,30 @@
 --- - findstart=0: column where the completion starts, or -2 or -3
 --- - findstart=1: list of matches (actually just calls |complete()|)
 -- function _G.completefunc(findstart, base)
-function _G.completefunc()
-  return { 'a', 'b', 'c' }
-  --
-  -- Return -2 to signal that we should continue completion so that we can
-  -- async complete.
-  -- return -2
-end
+-- function _G.completefunc()
+--   return { 'a', 'b', 'c' }
+--
+-- Return -2 to signal that we should continue completion so that we can
+-- async complete.
+-- return -2
+-- end
 
 -- in async complete: vim.fn.complete(start_col, matches)
 
 -- vim.o.completefunc = 'v:lua._G.completefunc'
+
+require('blink.cmp').setup {
+  cmdline = { enabled = false },
+  completion = {
+    menu = {
+      auto_show = false,
+    },
+    documentation = { auto_show = true, auto_show_delay_ms = 500 },
+    ghost_text = { enabled = true },
+  },
+  signature = { enabled = true },
+  fuzzy = { implementation = 'rust' },
+}
+vim.keymap.set('i', '<C-x><C-o>', function()
+  require('blink.cmp').show()
+end, { silent = false, noremap = false })

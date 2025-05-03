@@ -278,6 +278,7 @@ with final.lib; let
           vimdoc
           yaml
         ])))
+        blink-cmp
     ]);
 
   all-plugins =
