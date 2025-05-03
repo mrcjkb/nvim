@@ -193,6 +193,10 @@ g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
 
+vim.cmd([[
+  set sessionoptions-=buffers
+]])
+
 -- Plugin settings
 local keymap_opts = { noremap = true, silent = true }
 
