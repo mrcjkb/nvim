@@ -32,11 +32,18 @@ require('blink.cmp').setup {
       auto_show = false,
     },
     documentation = { auto_show = true, auto_show_delay_ms = 500 },
-    ghost_text = { enabled = true },
   },
   signature = { enabled = true },
   fuzzy = { implementation = 'rust' },
 }
 vim.keymap.set('i', '<C-x><C-o>', function()
+  local feed = vim.api.nvim_replace_termcodes('<Ignore><C-e>', true, true, true)
+  vim.api.nvim_feedkeys(feed, 'ix', false)
   require('blink.cmp').show()
 end, { silent = false, noremap = false })
+
+-- override vim.lsp.omnifunc
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.omnifunc = function()
+  return -3
+end

@@ -49,7 +49,7 @@ opt.cmdheight = 0
 
 opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 
-opt.completeopt = 'menu,menuone,noinsert,fuzzy,preview,noselect'
+opt.completeopt = 'menu,menuone,noinsert,fuzzy,popup,noselect'
 
 g.markdown_syntax_conceal = 0
 
