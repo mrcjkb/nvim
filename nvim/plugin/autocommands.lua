@@ -345,7 +345,8 @@ local function should_highlight_extra_whitespace()
   end
   local bufnr = vim.api.nvim_get_current_buf()
   require('editorconfig')
-  if vim.b[bufnr].editorconfig.trim_trailing_whitespace == 'true' then
+  local editorconfig = vim.b[bufnr].editorconfig or {}
+  if editorconfig.trim_trailing_whitespace == 'true' then
     return false
   end
   return true
