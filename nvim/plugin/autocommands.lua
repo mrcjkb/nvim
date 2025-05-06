@@ -343,7 +343,10 @@ local function should_highlight_extra_whitespace()
   if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
     return false
   end
-  local bufnr = vim.api.nvim_get_current_buf()
+  if api.nvim_get_mode().mode == 'i' then
+    return false
+  end
+  local bufnr = api.nvim_get_current_buf()
   require('editorconfig')
   local editorconfig = vim.b[bufnr].editorconfig or {}
   if editorconfig.trim_trailing_whitespace == 'true' then
