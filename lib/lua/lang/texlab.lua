@@ -1,12 +1,9 @@
 local M = {}
 
 local on_latex_attach = function()
-  vim.keymap.set(
-    'n',
-    '<space>lb',
-    '<cmd>te pdflatex -file-line-error -halt-on-error %<CR>',
-    { noremap = true, silent = true, desc = '[l]atex [b]uild' }
-  )
+  vim.keymap.set('n', '<space>lb', function()
+    vim.cmd.te { 'pdflatex', '-file-line-error', '-halt-on-error', '%' }
+  end, { noremap = true, silent = true, desc = '[l]atex [b]uild' })
 end
 
 local root_files = { '.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml' }

@@ -89,7 +89,6 @@ vim.keymap.set(
 -- vim.api.nvim_create_autocmd('User', {
 --   pattern = 'rustaceanvim.code_action',
 --   callback = function(ctx)
---     vim.print(ctx)
 --     vim.keymap.set(
 --       'n',
 --       '<C-y>',
