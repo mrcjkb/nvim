@@ -232,10 +232,6 @@
       url = "github:stevearc/quicker.nvim";
       flake = false;
     };
-    formatter = {
-      url = "github:mhartington/formatter.nvim";
-      flake = false;
-    };
     yanky = {
       url = "github:gbprod/yanky.nvim";
       flake = false;

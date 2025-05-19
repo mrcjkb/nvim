@@ -54,7 +54,6 @@ in {
     gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";
     nvim-bqf = mkNvimPlugin inputs.nvim-bqf "nvim-bqf";
     quicker-nvim = mkNvimPlugin inputs.quicker-nvim "quicker.nvim";
-    formatter = mkNvimPlugin inputs.formatter "formatter.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
     statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";

@@ -1506,22 +1506,6 @@
         "type": "github"
       }
     },
-    "formatter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730834708,
-        "narHash": "sha256-DQjLg413qhKBlEvlupCIdEzfRzQrCy0IFcmomScE2EQ=",
-        "owner": "mhartington",
-        "repo": "formatter.nvim",
-        "rev": "eb89a1f3e079f1b9680bc7293b75fffccb5e1598",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mhartington",
-        "repo": "formatter.nvim",
-        "type": "github"
-      }
-    },
     "gen-luarc": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -4964,7 +4948,6 @@
         "fidget": "fidget",
         "flake-utils": "flake-utils",
         "flash-nvim": "flash-nvim",
-        "formatter": "formatter",
         "gen-luarc": "gen-luarc",
         "git-hooks": "git-hooks_2",
         "gitlinker": "gitlinker",

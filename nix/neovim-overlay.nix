@@ -220,7 +220,6 @@ with final.lib; let
       gitsigns
       nvim-bqf
       quicker-nvim
-      formatter
       yanky
       statuscol
       nvim-unception

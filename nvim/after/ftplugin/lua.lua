@@ -65,5 +65,3 @@ vim.lsp.start {
     },
   },
 }
-
-require('mrcjk.formatter')
