@@ -290,9 +290,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '[l', codelens.goto_prev, desc('lsp: previous code[l]ens'))
     keymap.set('n', ']l', codelens.goto_next, desc('lsp: next code[l]ens'))
     keymap.set('n', 'gr', vim.lsp.buf.references, desc('lsp: [g]et [r]eferences'))
-    keymap.set({ 'n', 'v' }, '<space>f', function()
-      vim.lsp.buf.format { async = true }
-    end, desc('lsp: [f]ormat buffer'))
+    -- Defined in mrcjk.formatter module
+    -- keymap.set({ 'n', 'v' }, '<space>f', function()
+    --   vim.lsp.buf.format { async = true }
+    -- end, desc('lsp: [f]ormat buffer'))
 
     if client:supports_method(methods.textDocument_inlayHint) then
       keymap.set('n', '<space>h', function()
