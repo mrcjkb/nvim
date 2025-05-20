@@ -108,14 +108,16 @@ with final.lib; let
         vim.opt.rtp:append('${nvimConfig}/after')
       '';
 
+    libExt = final.stdenv.hostPlatform.extensions.sharedLibrary;
+
     extraMakeWrapperArgs = builtins.concatStringsSep " " (
       (optional (appName != "nvim" && appName != null && appName != "")
         ''--set NVIM_APPNAME "${appName}"'')
       ++ (optional (externalPackages != [])
         ''--prefix PATH : "${makeBinPath externalPackages}"'')
       ++ [
-        ''--set LIBSQLITE_CLIB_PATH "${final.sqlite.out}/lib/libsqlite3.so"''
-        ''--set LIBSQLITE "${final.sqlite.out}/lib/libsqlite3.so"''
+        ''--set LIBSQLITE_CLIB_PATH "${final.sqlite.out}/lib/libsqlite3${libExt}"''
+        ''--set LIBSQLITE "${final.sqlite.out}/lib/libsqlite3${libExt}"''
       ]
     );
 
