@@ -196,6 +196,9 @@ keymap.set('n', '<C-}>', '<C-}>zz', { desc = 'move up full-page and center' })
 -- Terminal
 keymap.set('n', '<M-t>', function()
   local term_bufnr = vim.iter(vim.api.nvim_list_bufs()):find(function(bufnr)
+    if not vim.api.nvim_buf_is_loaded(bufnr) then
+      return false
+    end
     local name = vim.api.nvim_buf_get_name(bufnr)
     return vim.startswith(name, 'term://')
   end)
