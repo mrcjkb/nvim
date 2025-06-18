@@ -333,6 +333,10 @@ with final.lib; let
         name = "lz.n";
         url = "git@github.com:nvim-neorocks/lz.n.git";
       }
+      {
+        name = "lsp-workspace.nvim";
+        url = "git@github.com:mrcjkb/lsp-workspace.nvim.git";
+      }
     ];
     inherit extraPackages;
   };
