@@ -62,6 +62,7 @@ vim.lsp.start {
   name = 'taplo',
   cmd = { 'taplo', 'lsp', 'stdio' },
   capabilities = lsp.capabilities,
+  filetypes = { 'toml' },
   init_options = {
     configurationSection = 'evenBetterToml',
     cachePath = vim.NIL,

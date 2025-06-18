@@ -17,6 +17,7 @@ elseif vim.fn.executable('nil') == 1 then
     cmd = { 'nil' },
     root_dir = vim.fs.dirname(vim.fs.find({ 'flake.nix', '.git' }, { upward = true })[1]),
     capabilities = lsp.capabilities,
+    filetypes = { 'nix' },
     settings = {
       ['nil'] = {
         formatting = {

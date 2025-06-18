@@ -16,6 +16,7 @@ end
 vim.lsp.start {
   name = 'yaml-ls',
   cmd = { 'yaml-language-server', '--stdio' },
+  filetypes = { 'yaml' },
   capabilities = lsp.capabilities,
   settings = {
     yaml = {

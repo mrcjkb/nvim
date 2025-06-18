@@ -11,6 +11,7 @@ end
 vim.lsp.start {
   cmd = { 'sqls' },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'config.yml' }, { upward = true })[1]),
+  filetypes = { 'sql' },
   capabilities = lsp.capabilities,
   settings = {},
 }

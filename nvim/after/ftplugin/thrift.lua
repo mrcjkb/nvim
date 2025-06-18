@@ -11,5 +11,6 @@ local lsp = require('mrcjk.lsp')
 vim.lsp.start {
   cmd = { 'thriftls' },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+  filetypes = { 'thrift' },
   capabilities = lsp.capabilities,
 }

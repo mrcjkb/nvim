@@ -12,6 +12,7 @@ vim.lsp.start {
   cmd = { 'bash-language-server', 'start' },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
   capabilities = lsp.capabilities,
+  filetypes = { 'sh' },
   settings = {
     bashIde = {
       globPattern = vim.env.GLOB_PATTERN or '*@(.sh|.inc|.bash|.command)',

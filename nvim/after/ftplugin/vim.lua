@@ -10,6 +10,7 @@ end
 vim.lsp.start {
   name = 'vimls',
   cmd = { 'vim-language-server', '--stdio' },
+  filetypes = { 'vim' },
   capabilities = lsp.capabilities,
   init_options = {
     isNeovim = true,

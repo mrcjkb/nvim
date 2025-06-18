@@ -12,6 +12,7 @@ vim.lsp.start {
   name = 'jsonls',
   cmd = { 'vscode-json-languageserver', '--stdio' },
   capabilities = lsp.capabilities,
+  filetypes = { 'json' },
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),

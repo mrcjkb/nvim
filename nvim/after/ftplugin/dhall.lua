@@ -11,5 +11,6 @@ end
 vim.lsp.start {
   cmd = { 'dhall-lsp-server' },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git' }, { upward = true })[1]),
+  filetypes = { 'dhall' },
   capabilities = lsp.capabilities,
 }

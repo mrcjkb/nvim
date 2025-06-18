@@ -12,7 +12,7 @@ M.launch = function()
   if vim.fn.executable('texlab') == 1 then
     vim.lsp.start {
       cmd = { 'texlab' },
-      filetypes = { 'tex', 'plaintex', 'bib' },
+      filetypes = { 'tex', 'plaintex', 'bib', 'texlab' },
       root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
       on_attach = on_latex_attach,
       capabilities = require('mrcjk.lsp').capabilities,

@@ -13,6 +13,7 @@ local config = {
   cmd = { pylsp_cmd },
   root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'setup.py', 'setup.cfg', 'pyproject.toml' }, { upward = true })[1]),
   capabilities = lsp.capabilities,
+  filetypes = { 'python' },
   settings = {
     pylsp = {
       plugins = {
