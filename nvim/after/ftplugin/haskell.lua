@@ -52,6 +52,18 @@ end, desc('[o]ther: [I]nternal-impl'))
 vim.keymap.set('n', '<leader>on', function()
   vim.cmd.Other('internal')
 end, desc('[o]ther: i[n]ternal'))
+
+if vim.fn.executable('pre-commit') == 1 then
+  vim.keymap.set('n', '<leader>pf', function()
+    vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'fourmolu' }, nil, function()
+      vim.schedule(function()
+        vim.cmd.checktime()
+      end)
+    end)
+  end)
+end
+
+
 -- nvim-surround
 
 if not vim.g.nvim_surround_setup then

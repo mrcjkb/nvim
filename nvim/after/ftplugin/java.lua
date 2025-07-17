@@ -2,8 +2,19 @@ local files = require('mrcjk.files')
 files.treesitter_start()
 
 require('mrcjk.neotest')
-local lsp = require('mrcjk.lsp')
-local jdtls = require('jdtls')
+
+local bufnr = vim.api.nvim_get_current_buf()
+
+if vim.fn.executable('pre-commit') == 1 then
+  vim.keymap.set('n', '<leader>pf', function()
+    vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'java-format' }, nil, function()
+      vim.schedule(function()
+        vim.cmd.checktime()
+      end)
+    end)
+  end)
+end
+
 
 local jdtls_bin = vim.fn.executable('jdtls') == 1 and 'jdtls'
   or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
@@ -12,7 +23,8 @@ if not jdtls_bin then
   return
 end
 
-local bufnr = vim.api.nvim_get_current_buf()
+local lsp = require('mrcjk.lsp')
+local jdtls = require('jdtls')
 
 vim.keymap.set('n', '<leader>ot', function()
   vim.cmd.Other('test')

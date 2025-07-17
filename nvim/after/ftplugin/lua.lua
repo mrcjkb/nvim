@@ -21,6 +21,16 @@ local root_files = {
 
 local lua_ls_cmd = 'lua-language-server'
 
+if vim.fn.executable('pre-commit') == 1 then
+  vim.keymap.set('n', '<leader>pf', function()
+    vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'stylua' }, nil, function()
+      vim.schedule(function()
+        vim.cmd.checktime()
+      end)
+    end)
+  end)
+end
+
 if vim.fn.executable(lua_ls_cmd) ~= 1 then
   return
 end
