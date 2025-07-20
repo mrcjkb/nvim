@@ -15,7 +15,6 @@ if vim.fn.executable('pre-commit') == 1 then
   end)
 end
 
-
 if vim.fn.executable('nixd') == 1 then
   vim.lsp.start {
     name = 'nixd',

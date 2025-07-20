@@ -63,7 +63,6 @@ if vim.fn.executable('pre-commit') == 1 then
   end)
 end
 
-
 -- nvim-surround
 
 if not vim.g.nvim_surround_setup then
