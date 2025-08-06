@@ -12,7 +12,7 @@ if vim.fn.executable('pre-commit') == 1 then
         vim.cmd.checktime()
       end)
     end)
-  end)
+  end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run java-format' })
 end
 
 local jdtls_bin = vim.fn.executable('jdtls') == 1 and 'jdtls'

@@ -28,7 +28,7 @@ if vim.fn.executable('pre-commit') == 1 then
         vim.cmd.checktime()
       end)
     end)
-  end)
+  end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run stylua' })
 end
 
 if vim.fn.executable(lua_ls_cmd) ~= 1 then
