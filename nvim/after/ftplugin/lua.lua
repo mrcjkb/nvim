@@ -6,6 +6,16 @@ local bufnr = vim.api.nvim_get_current_buf()
 
 vim.bo[bufnr].comments = ':---,:--'
 
+if vim.fn.executable('pre-commit') == 1 then
+  vim.keymap.set('n', '<leader>pf', function()
+    vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'stylua' }, nil, function()
+      vim.schedule(function()
+        vim.cmd.checktime()
+      end)
+    end)
+  end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run stylua' })
+end
+
 local lsp = require('mrcjk.lsp')
 
 local root_files = {
@@ -19,60 +29,56 @@ local root_files = {
   'selene.yml',
 }
 
+local emmylua_ls_cmd = 'emmylua_ls'
 local lua_ls_cmd = 'lua-language-server'
 
-if vim.fn.executable('pre-commit') == 1 then
-  vim.keymap.set('n', '<leader>pf', function()
-    vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'stylua' }, nil, function()
-      vim.schedule(function()
-        vim.cmd.checktime()
-      end)
-    end)
-  end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run stylua' })
-end
-
-if vim.fn.executable(lua_ls_cmd) ~= 1 then
-  return
-end
-
----@diagnostic disable-next-line: missing-fields
-vim.lsp.start {
-  name = 'luals',
-  cmd = { lua_ls_cmd },
-  root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
-  filetypes = { 'lua' },
-  capabilities = lsp.capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global, etc.
-        globals = {
-          'vim',
-          'describe',
-          'it',
-          'assert',
-          'stub',
+if vim.fn.executable(emmylua_ls_cmd) == 1 then
+  ---@diagnostic disable-next-line: missing-fields
+  vim.lsp.start {
+    name = 'emmylua-ls',
+    cmd = { emmylua_ls_cmd },
+    workspace_required = false,
+  }
+elseif vim.fn.executable(lua_ls_cmd) == 1 then
+  ---@diagnostic disable-next-line: missing-fields
+  vim.lsp.start {
+    name = 'luals',
+    cmd = { lua_ls_cmd },
+    root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
+    filetypes = { 'lua' },
+    capabilities = lsp.capabilities,
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
         },
-        disable = {
-          'duplicate-set-field',
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global, etc.
+          globals = {
+            'vim',
+            'describe',
+            'it',
+            'assert',
+            'stub',
+          },
+          disable = {
+            'duplicate-set-field',
+          },
         },
-      },
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          '${3rd}/busted/library',
-          '${3rd}/luassert/library',
+        workspace = {
+          checkThirdParty = false,
+          library = {
+            '${3rd}/busted/library',
+            '${3rd}/luassert/library',
+          },
         },
-      },
-      telemetry = {
-        enable = false,
-      },
-      hint = { -- inlay hints
-        enable = true,
+        telemetry = {
+          enable = false,
+        },
+        hint = { -- inlay hints
+          enable = true,
+        },
       },
     },
-  },
-}
+  }
+end
