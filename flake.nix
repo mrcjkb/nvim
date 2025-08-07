@@ -300,6 +300,7 @@
           self.checks.${system}.git-hooks-check.enabledPackages
           ++ (with pkgs; [
             lua-language-server
+            # emmylua-ls
             nil
           ]);
         shellHook = ''
