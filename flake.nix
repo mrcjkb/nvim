@@ -48,6 +48,7 @@
       url = "github:nvim-neorocks/lz.n";
       # url = "/home/mrcjk/git/github/mrcjkb/lz.n";
     };
+    fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
     crates-nvim = {
       url = "github:saecki/crates.nvim";
       flake = false;

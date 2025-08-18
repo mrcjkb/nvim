@@ -215,6 +215,7 @@ with final.lib; let
       telescope-smart-history
       telescope-zf-native
       (opt telescope)
+      fff-nvim
       todo-comments
       nvim-navic
       lualine
