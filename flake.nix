@@ -220,6 +220,10 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
+    hunk-nvim = {
+      url = "github:julienvincent/hunk.nvim";
+      flake = false;
+    };
     nvim-bqf = {
       url = "github:kevinhwang91/nvim-bqf";
       flake = false;

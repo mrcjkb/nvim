@@ -52,6 +52,8 @@ in {
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";
     gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";
+    # jj diff editor
+    hunk-nvim = mkNvimPlugin inputs.hunk-nvim "hunk.nvim";
     nvim-bqf = mkNvimPlugin inputs.nvim-bqf "nvim-bqf";
     quicker-nvim = mkNvimPlugin inputs.quicker-nvim "quicker.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";

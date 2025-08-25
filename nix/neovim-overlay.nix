@@ -220,6 +220,7 @@ with final.lib; let
       lualine
       (opt harpoon)
       gitsigns
+      hunk-nvim
       nvim-bqf
       quicker-nvim
       yanky
