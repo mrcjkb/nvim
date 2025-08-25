@@ -155,11 +155,6 @@
       url = "github:aznhe21/actions-preview.nvim";
       flake = false;
     };
-    nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter";
-      # url = "/home/mrcjk/git/github/forks/nvim/nvim-treesitter/";
-      flake = false;
-    };
     treesitter-textobjects = {
       url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
       flake = false;

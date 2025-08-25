@@ -189,7 +189,6 @@ with final.lib; let
       (opt vim-matchup)
       vim-wordmotion
       nvim-highlight-colors
-      # (withConfig leap "require('leap').set_default_keymaps()")
       flash-nvim
       eyeliner-nvim
       gitlinker
@@ -232,7 +231,6 @@ with final.lib; let
       which-key-nvim
     ]
     ++ (with prev.vimPlugins; [
-      # catppuccin-nvim
       telescope-fzy-native-nvim
       (opt dial-nvim)
       vim-scriptease
