@@ -136,40 +136,6 @@ local extensions = setmetatable({}, {
   end,
 })
 
----@param fallback function
-local function jj_files(fallback)
-  if vim.fn.executable('jj') ~= 1 then
-    fallback()
-    return
-  end
-  vim.system(
-    { 'jj', 'st' },
-    nil,
-    ---@param sc vim.SystemCompleted
-    vim.schedule_wrap(function(sc)
-      if sc.code == 0 then
-        builtin.git_files {
-          prompt_title = 'jj Files',
-          git_command = { 'jj', 'file', 'list', '--no-pager' },
-        }
-      else
-        fallback()
-      end
-    end)
-  )
-end
-
--- Fall back to find_files if not in a git repo
-local project_files = function()
-  jj_files(function()
-    local opts = {}
-    local ok = pcall(builtin.git_files, opts)
-    if not ok then
-      builtin.find_files(opts)
-    end
-  end)
-end
-
 local function grep_current_file_type(func, extra_args)
   local current_file_ext = vim.fn.expand('%:e')
   local additional_vimgrep_arguments = {}
@@ -224,7 +190,6 @@ keymap.set('n', '<M-f>', fuzzy_grep_current_file_type, { desc = 'telescope: fuzz
 keymap.set('n', '<M-g>', live_grep_current_file_type, { desc = 'telescope: live grep filetype' })
 keymap.set('n', '<leader>t*', grep_string_current_file_type, { desc = '[t]elescope: grep string [*] filetype' })
 keymap.set('n', '<leader>*', builtin.grep_string, { desc = 'telescope: grep string' })
--- keymap.set('n', '<leader>tg', project_files, { desc = '[t]elescope: project files [g]it' })
 keymap.set('n', '<leader>tc', builtin.quickfix, { desc = '[t]elescope: quickfix [c] list' })
 keymap.set('n', '<leader>tq', builtin.command_history, { desc = '[t]elescope: command [q] history' })
 keymap.set('n', '<leader>tl', builtin.loclist, { desc = '[t]elescope: [l]oclist' })
