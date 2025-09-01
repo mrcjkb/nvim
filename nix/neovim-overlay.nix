@@ -279,7 +279,7 @@ with final.lib; let
           vimdoc
           yaml
         ])))
-        nui-nvim # required by hunk-nvim
+      nui-nvim # required by hunk-nvim
     ]);
 
   all-plugins =
