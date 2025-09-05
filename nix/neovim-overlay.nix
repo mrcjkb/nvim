@@ -220,7 +220,6 @@ with final.lib; let
       lualine
       (opt harpoon)
       gitsigns
-      hunk-nvim
       nvim-bqf
       quicker-nvim
       yanky
@@ -279,7 +278,6 @@ with final.lib; let
           vimdoc
           yaml
         ])))
-      nui-nvim # required by hunk-nvim
     ]);
 
   all-plugins =

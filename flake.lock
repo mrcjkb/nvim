@@ -3057,22 +3057,6 @@
         "type": "github"
       }
     },
-    "hunk-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1749462866,
-        "narHash": "sha256-va7cCBuBk3WLAZjKl+lxlKmVckaK010RAdWMzrXlzAw=",
-        "owner": "julienvincent",
-        "repo": "hunk.nvim",
-        "rev": "1e0a4d719c780bb8b0690a54915601508ced321e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "julienvincent",
-        "repo": "hunk.nvim",
-        "type": "github"
-      }
-    },
     "illuminate": {
       "flake": false,
       "locked": {
@@ -5026,7 +5010,6 @@
         "harpoon": "harpoon",
         "haskell-snippets": "haskell-snippets",
         "haskell-tools": "haskell-tools",
-        "hunk-nvim": "hunk-nvim",
         "illuminate": "illuminate",
         "jdtls": "jdtls",
         "live-rename-nvim": "live-rename-nvim",
