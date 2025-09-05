@@ -273,6 +273,7 @@ with final.lib; let
           terraform
           thrift
           toml
+          typescript
           typst
           vim
           vimdoc
