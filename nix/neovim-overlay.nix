@@ -297,7 +297,7 @@ with final.lib; let
     haskellPackages.fast-tags
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
-    nodePackages.dockerfile-language-server
+    nodePackages.dockerfile-language-server-nodejs
     # nodePackages.vscode-langservers-extracted
     nodePackages.bash-language-server
     taplo # toml toolkit including a language server
