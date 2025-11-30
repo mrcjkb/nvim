@@ -1,4 +1,5 @@
 {inputs}: final: prev: let
+  system = final.stdenv.hostPlatform.system;
   mkNvimPlugin = src: pname:
     prev.pkgs.vimUtils.buildVimPlugin {
       inherit pname src;
@@ -14,7 +15,6 @@ in {
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
     nvim-highlight-colors = mkNvimPlugin inputs.nvim-highlight-colors "nvim-highlight-colors";
-    # leap = mkNvimPlugin inputs.leap "leap.nvim";
     flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
@@ -61,6 +61,6 @@ in {
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
     snacks-nvim = mkNvimPlugin inputs.snacks-nvim "snacks.nvim";
-    fff-nvim = inputs.fff-nvim.packages.${final.system}.fff-nvim;
+    fff-nvim = inputs.fff-nvim.packages.${system}.fff-nvim;
   };
 }

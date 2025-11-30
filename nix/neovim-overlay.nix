@@ -1,5 +1,6 @@
 {inputs}: final: prev:
 with final.lib; let
+  system = final.stdenv.hostPlatform.system;
   mkNeovim = {
     appName ? null,
     plugins ? [],
@@ -283,7 +284,7 @@ with final.lib; let
 
   all-plugins =
     base-plugins
-    ++ (with final; [
+    ++ [
       inputs.haskell-tools.packages.${system}.default
       inputs.neotest-haskell.packages.${system}.default
       # FIXME:
@@ -291,15 +292,15 @@ with final.lib; let
       final.vimPlugins.telescope-manix
       inputs.rustaceanvim.packages.${system}.default
       inputs.lz-n.packages.${system}.default
-    ]);
+    ];
 
   extraPackages = with final; [
     haskellPackages.fast-tags
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
-    nodePackages.dockerfile-language-server-nodejs
     # nodePackages.vscode-langservers-extracted
     nodePackages.bash-language-server
+    dockerfile-language-server
     taplo # toml toolkit including a language server
     sqls
     gitu

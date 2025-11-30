@@ -283,8 +283,8 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          neovim-nightly.overlays.default
           neorocks.overlays.default
+          neovim-nightly.overlays.default
           gen-luarc.overlays.default
           plugin-overlay
           neovim-overlay

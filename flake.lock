@@ -2392,11 +2392,11 @@
         "nixpkgs": "nixpkgs_18"
       },
       "locked": {
-        "lastModified": 1763966592,
-        "narHash": "sha256-KT2+Vflhw7WYDb4vfjcE7+vazUbBYgI8aBbqTigsGkI=",
+        "lastModified": 1764525262,
+        "narHash": "sha256-uAQfKy59tnANBfDUuMFEmvVEELdFL3SWjXWpPOs9Lwo=",
         "owner": "nvim-neorocks",
         "repo": "neorocks",
-        "rev": "305170f01ca7d05d509f2312b3413c1c78b28819",
+        "rev": "c7629aa8234913db308616ecc8c7175aa8de9e8e",
         "type": "github"
       },
       "original": {
