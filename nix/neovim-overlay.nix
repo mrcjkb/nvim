@@ -226,6 +226,7 @@ with final.lib; let
       oil-nvim
       other-nvim
       which-key-nvim
+      nomad
     ]
     ++ (with prev.vimPlugins; [
       telescope-fzy-native-nvim
