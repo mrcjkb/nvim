@@ -2,8 +2,16 @@
   description = "Neovim config";
 
   nixConfig = {
-    extra-substituters = "https://mrcjkb.cachix.org";
-    extra-trusted-public-keys = "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4=";
+    extra-substituters = [
+      "https://mrcjkb.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://nomad.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "mrcjkb.cachix.org-1:KhpstvH5GfsuEFOSyGjSTjng8oDecEds7rbrI96tjA4="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs"
+      "nomad.cachix.org-1:jQ4al6yxQyvUBB7YJVJbMbc9rASokqamqvPhBUrVjww="
+    ];
   };
 
   inputs = {
@@ -230,6 +238,7 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
+    nomad.url = "github:nomad/nomad";
   };
 
   outputs = inputs @ {
