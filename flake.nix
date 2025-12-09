@@ -170,10 +170,6 @@
       url = "github:andymass/vim-matchup";
       flake = false;
     };
-    nvim-lint = {
-      url = "github:mfussenegger/nvim-lint";
-      flake = false;
-    };
     telescope = {
       url = "github:nvim-telescope/telescope.nvim/0.1.x";
       flake = false;

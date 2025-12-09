@@ -41,7 +41,6 @@ in {
     nvim-ts-context-commentstring = mkNvimPlugin inputs.nvim-ts-context-commentstring "nvim-ts-context-commentstring";
     rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
-    nvim-lint = mkNvimPlugin inputs.nvim-lint "nvim-lint";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";

@@ -210,7 +210,6 @@ with final.lib; let
       (opt illuminate)
       schemastore-nvim
       actions-preview-nvim
-      nvim-lint
       telescope_hoogle
       telescope-smart-history
       telescope-zf-native
