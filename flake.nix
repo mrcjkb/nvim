@@ -84,11 +84,6 @@
       url = "github:tpope/vim-repeat";
       flake = false;
     };
-    unimpaired = {
-      # bracket mappings
-      url = "github:tpope/vim-unimpaired";
-      flake = false;
-    };
     surround = {
       url = "github:kylechui/nvim-surround";
       flake = false;

@@ -3227,7 +3227,6 @@
         "todo-comments": "todo-comments",
         "treesitter-context": "treesitter-context",
         "treesitter-textobjects": "treesitter-textobjects",
-        "unimpaired": "unimpaired",
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
         "which-key-nvim": "which-key-nvim",
@@ -3569,22 +3568,6 @@
         "owner": "nvim-treesitter",
         "ref": "main",
         "repo": "nvim-treesitter-textobjects",
-        "type": "github"
-      }
-    },
-    "unimpaired": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1755363114,
-        "narHash": "sha256-hsr3O/lV7rmC6zdfBVBqcbLDuumrY6r5ZmEnTttxrro=",
-        "owner": "tpope",
-        "repo": "vim-unimpaired",
-        "rev": "db65482581a28e4ccf355be297f1864a4e66985c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tpope",
-        "repo": "vim-unimpaired",
         "type": "github"
       }
     },

@@ -19,7 +19,6 @@ in {
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
     repeat = mkNvimPlugin inputs.repeat "vim-repeat";
-    unimpaired = mkNvimPlugin inputs.unimpaired "vim-unimpaired";
     surround = mkNvimPlugin inputs.surround "nvim-surround";
     substitute = mkNvimPlugin inputs.substitute "substitute.nvim";
     persistence = mkNvimPlugin inputs.persistence "persistence.nvim";
