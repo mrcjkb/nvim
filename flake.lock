@@ -3153,22 +3153,6 @@
         "type": "github"
       }
     },
-    "repeat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1720473942,
-        "narHash": "sha256-G/dmkq1KtSHIl+I5p3LfO6mGPS3eyLRbEEsuLbTpGlk=",
-        "owner": "tpope",
-        "repo": "vim-repeat",
-        "rev": "65846025c15494983dafe5e3b46c8f88ab2e9635",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tpope",
-        "repo": "vim-repeat",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "actions-preview-nvim": "actions-preview-nvim",
@@ -3210,7 +3194,6 @@
         "plenary": "plenary",
         "quicker-nvim": "quicker-nvim",
         "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
-        "repeat": "repeat",
         "rustaceanvim": "rustaceanvim",
         "schemastore-nvim": "schemastore-nvim",
         "snacks-nvim": "snacks-nvim",

@@ -193,7 +193,6 @@ with final.lib; let
       flash-nvim
       eyeliner-nvim
       gitlinker
-      repeat
       surround
       substitute
       persistence

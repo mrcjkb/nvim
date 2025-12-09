@@ -80,10 +80,6 @@
       url = "github:linrongbin16/gitlinker.nvim";
       flake = false;
     };
-    repeat = {
-      url = "github:tpope/vim-repeat";
-      flake = false;
-    };
     surround = {
       url = "github:kylechui/nvim-surround";
       flake = false;
