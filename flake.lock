@@ -2973,22 +2973,6 @@
         "type": "github"
       }
     },
-    "nvim-navic": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764049671,
-        "narHash": "sha256-hHPqCY5MLgSR4HdrEFoe9vdliphtUTxIi+Nv6xWMNYM=",
-        "owner": "SmiteshP",
-        "repo": "nvim-navic",
-        "rev": "7d914a39a1ef8f4e22c2c4381abeef7c556f5a13",
-        "type": "github"
-      },
-      "original": {
-        "owner": "SmiteshP",
-        "repo": "nvim-navic",
-        "type": "github"
-      }
-    },
     "nvim-ts-context-commentstring": {
       "flake": false,
       "locked": {
@@ -3217,7 +3201,6 @@
         "nvim-bqf": "nvim-bqf",
         "nvim-highlight-colors": "nvim-highlight-colors",
         "nvim-lastplace": "nvim-lastplace",
-        "nvim-navic": "nvim-navic",
         "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",

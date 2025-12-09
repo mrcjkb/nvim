@@ -190,10 +190,6 @@
       url = "github:hoob3rt/lualine.nvim";
       flake = false;
     };
-    nvim-navic = {
-      url = "github:SmiteshP/nvim-navic";
-      flake = false;
-    };
     oil-nvim = {
       url = "github:stevearc/oil.nvim";
       flake = false;

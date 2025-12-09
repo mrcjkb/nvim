@@ -232,9 +232,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     if not client then
       return
     end
-    if client:supports_method(methods.textDocument_documentSymbol) then
-      require('nvim-navic').attach(client, bufnr)
-    end
     vim.cmd.setlocal('signcolumn=yes')
 
     local function buf_set_var(...)

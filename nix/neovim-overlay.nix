@@ -215,7 +215,6 @@ with final.lib; let
       (opt telescope)
       fff-nvim
       todo-comments
-      nvim-navic
       lualine
       (opt harpoon)
       gitsigns

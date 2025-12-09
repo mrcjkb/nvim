@@ -46,7 +46,6 @@ in {
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     lualine = mkNvimPlugin inputs.lualine "lualine";
-    nvim-navic = mkNvimPlugin inputs.nvim-navic "nvim-navic";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";
     gitsigns = mkNvimPlugin inputs.gitsigns "gitsigns.nvim";
