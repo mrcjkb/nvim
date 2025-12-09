@@ -11,11 +11,11 @@ vim.keymap.set('n', cfg.opleader.block, '<Plug>(comment_toggle_blockwise)', { de
 
 vim.keymap.set('n', cfg.toggler.line, function()
   return vim.api.nvim_get_vvar('count') == 0 and '<Plug>(comment_toggle_linewise_current)'
-      or '<Plug>(comment_toggle_linewise_count)'
+    or '<Plug>(comment_toggle_linewise_count)'
 end, { expr = true, desc = 'Comment toggle current line' })
 vim.keymap.set('n', cfg.toggler.block, function()
   return vim.api.nvim_get_vvar('count') == 0 and '<Plug>(comment_toggle_blockwise_current)'
-      or '<Plug>(comment_toggle_blockwise_count)'
+    or '<Plug>(comment_toggle_blockwise_count)'
 end, { expr = true, desc = 'Comment toggle current block' })
 
 -- VISUAL mode mappings
