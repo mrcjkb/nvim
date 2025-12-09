@@ -35,9 +35,6 @@
     neotest-haskell = {
       url = "github:mrcjkb/neotest-haskell";
     };
-    telescope-manix = {
-      url = "github:mrcjkb/telescope-manix";
-    };
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
     };

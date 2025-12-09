@@ -287,9 +287,6 @@ with final.lib; let
     ++ [
       inputs.haskell-tools.packages.${system}.default
       inputs.neotest-haskell.packages.${system}.default
-      # FIXME:
-      # inputs.telescope-manix.packages.${system}.default
-      final.vimPlugins.telescope-manix
       inputs.rustaceanvim.packages.${system}.default
       inputs.lz-n.packages.${system}.default
     ];
@@ -317,10 +314,6 @@ with final.lib; let
       {
         name = "neotest-haskell";
         url = "git@github.com:mrcjkb/neotest-haskell.git";
-      }
-      {
-        name = "telescope-manix";
-        url = "git@github.com:mrcjkb/telescope-manix.git";
       }
       {
         name = "rustaceanvim";
