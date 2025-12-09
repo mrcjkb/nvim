@@ -3239,7 +3239,6 @@
         "surround": "surround",
         "telescope": "telescope",
         "telescope-smart-history": "telescope-smart-history",
-        "telescope-zf-native": "telescope-zf-native",
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
         "todo-comments": "todo-comments",
@@ -3506,22 +3505,6 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-smart-history.nvim",
-        "type": "github"
-      }
-    },
-    "telescope-zf-native": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726409081,
-        "narHash": "sha256-MCYnloqijGvmQRcdfMhYo5VkDNc4Yk35YCfNgbI1FcE=",
-        "owner": "natecraddock",
-        "repo": "telescope-zf-native.nvim",
-        "rev": "5721be27df11a19b9cd95e6a4887f16f26599802",
-        "type": "github"
-      },
-      "original": {
-        "owner": "natecraddock",
-        "repo": "telescope-zf-native.nvim",
         "type": "github"
       }
     },

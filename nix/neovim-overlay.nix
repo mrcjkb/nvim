@@ -212,7 +212,6 @@ with final.lib; let
       actions-preview-nvim
       telescope_hoogle
       telescope-smart-history
-      telescope-zf-native
       (opt telescope)
       fff-nvim
       todo-comments
