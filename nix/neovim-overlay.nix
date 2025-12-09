@@ -319,10 +319,6 @@ with final.lib; let
         url = "git@github.com:mrcjkb/neotest-haskell.git";
       }
       {
-        name = "haskell-snippets.nvim";
-        url = "git@github.com:mrcjkb/haskell-snippets.nvim.git";
-      }
-      {
         name = "telescope-manix";
         url = "git@github.com:mrcjkb/telescope-manix.git";
       }

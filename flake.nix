@@ -32,9 +32,6 @@
       url = "github:mrcjkb/haskell-tools.nvim";
       # url = "/home/mrcjk/.local/share/nvim/site/pack/dev/opt/haskell-tools.nvim";
     };
-    haskell-snippets = {
-      url = "github:mrcjkb/haskell-snippets.nvim";
-    };
     neotest-haskell = {
       url = "github:mrcjkb/neotest-haskell";
     };
