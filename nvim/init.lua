@@ -5,6 +5,9 @@ local g = vim.g
 
 opt.compatible = false
 
+-- Disable mouse
+opt.mouse = ''
+
 -- Enable true colour support
 opt.termguicolors = true
 
