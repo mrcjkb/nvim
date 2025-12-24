@@ -57,5 +57,6 @@ in {
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
     snacks-nvim = mkNvimPlugin inputs.snacks-nvim "snacks.nvim";
     fff-nvim = inputs.fff-nvim.packages.${system}.fff-nvim;
+    nomad = inputs.nomad.packages.${system}.neovim-nightly;
   };
 }
