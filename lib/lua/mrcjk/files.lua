@@ -80,6 +80,7 @@ require('todo-comments').setup {
 function files.treesitter_start(lang, bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
   if not enable_treesitter_features(bufnr) then
+    vim.b[bufnr].matchup_treesitter_enabled = false
     return
   end
 
