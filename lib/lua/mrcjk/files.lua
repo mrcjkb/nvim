@@ -16,8 +16,8 @@ local function disable_treesitter_features(bufnr)
     return true
   end
   local max_filesize = 100 * 1024 -- 100 KiB
-  local ok, stats = pcall(vim.uv.fs_stat, fname)
-  if ok and stats and stats.size > max_filesize then
+  local file_size = vim.fn.getfsize(fname)
+  if file_size > max_filesize then
     return true
   end
   return false
