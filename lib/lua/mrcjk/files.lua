@@ -9,18 +9,19 @@ local disabled_files = {
 
 ---@param bufnr number
 ---@return boolean
-local function disable_treesitter_features(bufnr)
+local function enable_treesitter_features(bufnr)
   local fname = vim.api.nvim_buf_get_name(bufnr)
   local short_name = vim.fn.fnamemodify(fname, ':t')
   if vim.tbl_contains(disabled_files, short_name) then
-    return true
+    return false
   end
   local max_filesize = 100 * 1024 -- 100 KiB
   local file_size = vim.fn.getfsize(fname)
   if file_size > max_filesize then
+    return false
+  else
     return true
   end
-  return false
 end
 
 vim.cmd.packadd('nvim-treesitter')
@@ -38,6 +39,7 @@ configs.setup {
 
 require('treesitter-context').setup {
   max_lines = 3,
+  on_attach = enable_treesitter_features,
 }
 
 require('nvim-treesitter-textobjects').setup {
@@ -46,7 +48,7 @@ require('nvim-treesitter-textobjects').setup {
     lookahead = true,
     selection_modes = {
       ['@parameter.outer'] = 'v', -- charwise
-      ['@function.outer'] = 'V', -- linewise
+      ['@function.outer'] = 'V',  -- linewise
       ['@class.outer'] = '<c-v>', -- blockwise
     },
   },
@@ -60,9 +62,7 @@ vim.cmd.packadd('vim-illuminate')
 local illuminate = require('illuminate')
 illuminate.configure {
   delay = 200,
-  should_enable = function(bufnr)
-    return not disable_treesitter_features(bufnr)
-  end,
+  should_enable = enable_treesitter_features,
 }
 
 require('todo-comments').setup {
@@ -79,10 +79,11 @@ require('todo-comments').setup {
 ---@param bufnr? number
 function files.treesitter_start(lang, bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
-  lang = lang or vim.bo[bufnr].ft
-  if disable_treesitter_features(bufnr) then
+  if not enable_treesitter_features(bufnr) then
     return
   end
+
+  lang = lang or vim.bo[bufnr].ft
   vim.treesitter.start(bufnr, lang)
 
   if vim.treesitter.query.get(lang, 'indents') then
