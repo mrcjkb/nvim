@@ -84,6 +84,8 @@ function files.treesitter_start(lang, bufnr)
     return
   end
 
+  vim.b[bufnr].matchup_treesitter_enabled = true
+
   lang = lang or vim.bo[bufnr].ft
   vim.treesitter.start(bufnr, lang)
 
