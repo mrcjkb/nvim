@@ -247,6 +247,7 @@ with final.lib; let
           graphql
           haskell
           haskell_persistent
+          hocon
           html
           java
           jq
