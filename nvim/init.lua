@@ -73,9 +73,9 @@ opt.tags:append { '.tags' }
 
 local function format_diagnostic(prefix, diagnostic)
   local formatted_message = diagnostic
-      .message
-      -- Replace any sequence of whitespace characters (including newlines) with a single space
-      :gsub('%s+', ' ')
+    .message
+    -- Replace any sequence of whitespace characters (including newlines) with a single space
+    :gsub('%s+', ' ')
   return string.format(prefix .. ' %s', formatted_message)
 end
 
@@ -129,17 +129,17 @@ local function cycle_diagnostic_modes(direction)
   local current_config = vim.diagnostic.config() or diagnostic_config
   local modes = {
     { virtual_text = virtual_text_config, virtual_lines = false },
-    { virtual_text = false,               virtual_lines = true },
-    { virtual_text = false,               virtual_lines = false },
+    { virtual_text = false, virtual_lines = true },
+    { virtual_text = false, virtual_lines = false },
   }
 
   local current_mode_index
   for i, mode in ipairs(modes) do
     if
-        (
-          (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
-          or (current_config.virtual_text == mode.virtual_text)
-        ) and (current_config.virtual_lines == mode.virtual_lines)
+      (
+        (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
+        or (current_config.virtual_text == mode.virtual_text)
+      ) and (current_config.virtual_lines == mode.virtual_lines)
     then
       current_mode_index = i
       break
@@ -305,6 +305,6 @@ g.rainbow_delimiters = {
         return 'rainbow-delimiters.strategy.global'
       end
       return 'rainbow-delimiters.strategy.local'
-    end
-  }
+    end,
+  },
 }
