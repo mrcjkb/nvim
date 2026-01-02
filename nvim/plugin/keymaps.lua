@@ -117,16 +117,6 @@ keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab [q]uit' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '<space>do', function()
-  local _, winid = diagnostic.open_float(nil, { scope = 'line' })
-  vim.api.nvim_win_set_config(winid or 0, { focusable = true })
-end, { noremap = true, silent = true, desc = '[d]iagnostics [o]pen floating' })
-keymap.set('n', '[d', function()
-  diagnostic.jump { count = -1, float = true }
-end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
-keymap.set('n', ']d', function()
-  diagnostic.jump { count = 1, float = true }
-end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
 keymap.set('n', '[e', function()
   diagnostic.jump {
     severity = severity.ERROR,
