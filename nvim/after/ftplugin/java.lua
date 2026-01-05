@@ -92,6 +92,12 @@ local settings = {
         } or nil,
       },
     },
+    gradle = {
+      enabled = true,
+      wrapper = {
+        enabled = false,
+      },
+    },
   },
 }
 
