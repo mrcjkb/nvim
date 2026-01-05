@@ -1,11 +1,6 @@
 local files = {}
 
-local disabled_files = {
-  'Enums.hs',
-  'all-packages.nix',
-  'hackage-packages.nix',
-  'generated.nix',
-}
+local disabled_files = {}
 
 ---@param bufnr number
 ---@return boolean
@@ -15,13 +10,7 @@ local function enable_treesitter_features(bufnr)
   if vim.tbl_contains(disabled_files, short_name) then
     return false
   end
-  local max_filesize = 100 * 1024 -- 100 KiB
-  local file_size = vim.fn.getfsize(fname)
-  if file_size > max_filesize then
-    return false
-  else
-    return true
-  end
+  return true
 end
 
 vim.cmd.packadd('nvim-treesitter')
@@ -37,7 +26,7 @@ require('nvim-treesitter-textobjects').setup {
     lookahead = true,
     selection_modes = {
       ['@parameter.outer'] = 'v', -- charwise
-      ['@function.outer'] = 'V', -- linewise
+      ['@function.outer'] = 'V',  -- linewise
       ['@class.outer'] = '<c-v>', -- blockwise
     },
   },
