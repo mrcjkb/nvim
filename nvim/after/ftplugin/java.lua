@@ -92,12 +92,6 @@ local settings = {
         } or nil,
       },
     },
-    gradle = {
-      enabled = true,
-      wrapper = {
-        enabled = false,
-      },
-    },
     project = {
       -- Prevent jdtls from editing checked in eclipse project files
       -- See https://github.com/eclipse-jdtls/eclipse.jdt.ls/issues/2451#issuecomment-142454761r8
