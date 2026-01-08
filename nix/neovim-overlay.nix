@@ -256,6 +256,7 @@ with final.lib; let
           latex
           lua
           luadoc
+          teal
           make
           markdown
           markdown_inline
