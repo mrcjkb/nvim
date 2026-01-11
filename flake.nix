@@ -106,9 +106,9 @@
       flake = false;
     };
     neotest = {
-      url = "github:nvim-neotest/neotest";
-      # url = "github:mrcjkb/neotest/watcher";
-      # url = "/home/mrcjk/git/github/forks/nvim/neotest/";
+      # url = "github:nvim-neotest/neotest";
+      url = "github:mrcjkb/neotest/mj/push-wssspnkwnzyu";
+      # url = "/home/mrcjk/git/github/forks/nvimPackages/neotest/";
       flake = false;
     };
     nio = {
