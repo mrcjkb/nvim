@@ -16,16 +16,7 @@ local neotest = require('neotest')
 ---@diagnostic disable-next-line: missing-fields
 neotest.setup {
   adapters = {
-    require('neotest-haskell') {
-      frameworks = {
-        {
-          framework = 'tasty',
-          modules = { 'Test.Tasty', 'Tiko' },
-        },
-        'hspec',
-        'sydtest',
-      },
-    },
+    require('neotest-haskell'),
     require('rustaceanvim.neotest'),
     require('neotest-java'),
     require('neotest-busted'),
