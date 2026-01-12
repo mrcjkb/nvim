@@ -15,6 +15,10 @@ if vim.fn.executable('pre-commit') == 1 then
   end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run alejandra' })
 end
 
+if vim.bo[bufnr].buftype == 'nofile' then
+  return
+end
+
 if vim.fn.executable('nixd') == 1 then
   vim.lsp.start {
     name = 'nixd',

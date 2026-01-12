@@ -1,6 +1,10 @@
 local files = require('mrcjk.files')
 files.treesitter_start()
 
+if vim.bo[0].buftype == 'nofile' then
+  return
+end
+
 local lsp = require('mrcjk.lsp')
 
 local fname = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':t')

@@ -15,8 +15,12 @@ if vim.fn.executable('pre-commit') == 1 then
   end, { noremap = true, silent = true, buffer = bufnr, desc = 'pre-commit run java-format' })
 end
 
+if vim.bo[bufnr].buftype == 'nofile' then
+  return
+end
+
 local jdtls_bin = vim.fn.executable('jdtls') == 1 and 'jdtls'
-  or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
+    or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
 
 if not jdtls_bin then
   return

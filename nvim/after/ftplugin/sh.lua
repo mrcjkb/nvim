@@ -3,6 +3,10 @@ local lsp = require('mrcjk.lsp')
 
 files.treesitter_start('bash')
 
+if vim.bo[0].buftype == 'nofile' then
+  return
+end
+
 if vim.fn.executable('bash-language-server') ~= 1 then
   return
 end

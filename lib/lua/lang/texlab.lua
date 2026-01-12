@@ -9,6 +9,10 @@ end
 local root_files = { '.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml' }
 
 M.launch = function()
+  if vim.bo[0].buftype == 'nofile' then
+    return
+  end
+
   if vim.fn.executable('texlab') == 1 then
     vim.lsp.start {
       cmd = { 'texlab' },
