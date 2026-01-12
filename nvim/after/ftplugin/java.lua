@@ -20,7 +20,7 @@ if vim.bo[bufnr].buftype == 'nofile' then
 end
 
 local jdtls_bin = vim.fn.executable('jdtls') == 1 and 'jdtls'
-    or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
+  or vim.fn.executable('jdt-language-server') == 1 and 'jdt-language-server'
 
 if not jdtls_bin then
   return
