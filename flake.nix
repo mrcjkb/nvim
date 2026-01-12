@@ -51,7 +51,7 @@
       # url = "/home/mrcjk/git/github/mrcjkb/lz.n";
     };
     fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
-      # url = "/home/mrcjk/git/github/forks/nvimPackages/neotest/";
+    # fff-nvim.url = "/home/mrcjk/git/github/forks/nvimPackages/fff.nvim/";
     crates-nvim = {
       url = "github:saecki/crates.nvim";
       flake = false;
