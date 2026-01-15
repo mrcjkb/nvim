@@ -206,3 +206,45 @@ keymap.set('n', '<M-h>', function()
   vim.cmd.split()
   vim.cmd.terminal()
 end, { silent = true, noremap = true, desc = 'terminal [h]orizontal split' })
+
+---@param direction 'forward' | 'backward'
+local function cycle_diagnostic_modes(direction)
+  local current_config = vim.diagnostic.config()
+  if not current_config then
+    return
+  end
+  local virtual_text_config = current_config.virtual_text
+  local modes = {
+    { virtual_text = virtual_text_config, virtual_lines = false },
+    { virtual_text = false, virtual_lines = true },
+    { virtual_text = false, virtual_lines = false },
+  }
+
+  local current_mode_index
+  for i, mode in ipairs(modes) do
+    if
+      (
+        (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
+        or (current_config.virtual_text == mode.virtual_text)
+      ) and (current_config.virtual_lines == mode.virtual_lines)
+    then
+      current_mode_index = i
+      break
+    end
+  end
+  local next_mode_index
+  if direction == 'forward' then
+    next_mode_index = (current_mode_index % #modes) + 1
+  else
+    next_mode_index = (current_mode_index - 2 + #modes) % #modes + 1
+  end
+  vim.diagnostic.config(vim.tbl_extend('force', current_config, modes[next_mode_index]))
+end
+
+vim.keymap.set('n', '<space>d]', function()
+  cycle_diagnostic_modes('forward')
+end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<space>d[', function()
+  cycle_diagnostic_modes('backward')
+end, { noremap = true, silent = true })

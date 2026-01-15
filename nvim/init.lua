@@ -79,28 +79,26 @@ local function format_diagnostic(prefix, diagnostic)
   return string.format(prefix .. ' %s', formatted_message)
 end
 
-local virtual_text_config = {
-  prefix = '',
-  format = function(diagnostic)
-    local severity = diagnostic.severity
-    if severity == vim.diagnostic.severity.ERROR then
-      return format_diagnostic('󰅚', diagnostic)
-    end
-    if severity == vim.diagnostic.severity.WARN then
-      return format_diagnostic('⚠', diagnostic)
-    end
-    if severity == vim.diagnostic.severity.INFO then
-      return format_diagnostic('ⓘ', diagnostic)
-    end
-    if severity == vim.diagnostic.severity.HINT then
-      return format_diagnostic('󰌶', diagnostic)
-    end
-    return format_diagnostic('■', diagnostic)
-  end,
-}
-
 local diagnostic_config = {
-  virtual_text = virtual_text_config,
+  virtual_text = {
+    prefix = '',
+    format = function(diagnostic)
+      local severity = diagnostic.severity
+      if severity == vim.diagnostic.severity.ERROR then
+        return format_diagnostic('󰅚', diagnostic)
+      end
+      if severity == vim.diagnostic.severity.WARN then
+        return format_diagnostic('⚠', diagnostic)
+      end
+      if severity == vim.diagnostic.severity.INFO then
+        return format_diagnostic('ⓘ', diagnostic)
+      end
+      if severity == vim.diagnostic.severity.HINT then
+        return format_diagnostic('󰌶', diagnostic)
+      end
+      return format_diagnostic('■', diagnostic)
+    end,
+  },
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '󰅚',
@@ -123,44 +121,6 @@ local diagnostic_config = {
 }
 
 vim.diagnostic.config(diagnostic_config)
-
----@param direction 'forward' | 'backward'
-local function cycle_diagnostic_modes(direction)
-  local current_config = vim.diagnostic.config() or diagnostic_config
-  local modes = {
-    { virtual_text = virtual_text_config, virtual_lines = false },
-    { virtual_text = false, virtual_lines = true },
-    { virtual_text = false, virtual_lines = false },
-  }
-
-  local current_mode_index
-  for i, mode in ipairs(modes) do
-    if
-      (
-        (type(current_config.virtual_text) == 'table' and mode.virtual_text == virtual_text_config)
-        or (current_config.virtual_text == mode.virtual_text)
-      ) and (current_config.virtual_lines == mode.virtual_lines)
-    then
-      current_mode_index = i
-      break
-    end
-  end
-  local next_mode_index
-  if direction == 'forward' then
-    next_mode_index = (current_mode_index % #modes) + 1
-  else
-    next_mode_index = (current_mode_index - 2 + #modes) % #modes + 1
-  end
-  vim.diagnostic.config(vim.tbl_extend('force', current_config, modes[next_mode_index]))
-end
-
-vim.keymap.set('n', '<space>d]', function()
-  cycle_diagnostic_modes('forward')
-end, { noremap = true, silent = true })
-
-vim.keymap.set('n', '<space>d[', function()
-  cycle_diagnostic_modes('backward')
-end, { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd('BufEnter', {
   group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
