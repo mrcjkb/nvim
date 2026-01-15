@@ -243,8 +243,8 @@ end
 
 vim.keymap.set('n', '<space>d]', function()
   cycle_diagnostic_modes('forward')
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'cycle [d]iagnostic modes forward' })
 
 vim.keymap.set('n', '<space>d[', function()
   cycle_diagnostic_modes('backward')
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'cycle [d]iagnostic modes backward' })
