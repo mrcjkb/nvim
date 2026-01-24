@@ -19,6 +19,14 @@ vim.keymap.set('n', '<leader>rp', ht.repl.paste, desc('haskell: [r]epl [p]aste')
 vim.keymap.set('n', '<leader>rt', ht.repl.paste_type, desc('haskell: [r]epl paste [t]ype from <register>'))
 vim.keymap.set('n', '<leader>rw', ht.repl.cword_type, desc('haskell: [r]epl type of <c[w]ord>'))
 -- TODO: remove when ambiguous target issue is resolved
+
+vim.keymap.set('n', 'K', function()
+  vim.cmd.Haskell { 'hover' }
+end, desc('haskell: hover actions'))
+vim.keymap.set('n', 'gh', function()
+  vim.cmd.Haskell { 'definition' }
+end, desc('haskell: go-to-definition with [h]oogle fallback'))
+
 vim.keymap.set(
   'n',
   '<leader>tt',
