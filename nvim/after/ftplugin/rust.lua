@@ -41,7 +41,7 @@ vim.keymap.set('v', 'K', function()
 end, desc('rust: hover range'))
 vim.keymap.set('n', 'K', function()
   vim.cmd.RustLsp { 'hover', 'actions' }
-end, desc('rust: hover range'))
+end, desc('rust: hover actions'))
 vim.keymap.set('n', '<space>re', function()
   vim.cmd.RustLsp('explainError')
 end, desc('[r]ust: [e]xplain error'))
