@@ -299,7 +299,6 @@ with final.lib; let
     dockerfile-language-server
     taplo # toml toolkit including a language server
     sqls
-    gitu
     jujutsu
   ];
 
