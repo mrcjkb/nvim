@@ -180,9 +180,6 @@ g.haskell_tools = function()
       codeLens = {
         autoRefresh = false,
       },
-      definition = {
-        hoogle_signature_fallback = true,
-      },
     },
     hls = {
       -- for hls development
