@@ -178,6 +178,52 @@ with final.lib; let
     optional = true;
   };
 
+  tree-sitter-parsers = with final.vimPlugins.nvim-treesitter-parsers; [
+      bash
+      c
+      cpp
+      css
+      dhall
+      diff
+      dockerfile
+      editorconfig
+      gitcommit
+      graphql
+      haskell
+      haskell_persistent
+      hocon
+      html
+      java
+      jq
+      json
+      json5
+      latex
+      lua
+      luadoc
+      teal
+      make
+      markdown
+      markdown_inline
+      mermaid
+      nix
+      nu
+      proto
+      python
+      regex
+      rust
+      scala
+      scheme
+      sql
+      terraform
+      thrift
+      toml
+      typescript
+      typst
+      vim
+      vimdoc
+      yaml
+    ];
+
   base-plugins = with final.nvimPlugins;
     [
       plenary
@@ -233,53 +279,9 @@ with final.lib; let
       (opt dial-nvim)
       vim-scriptease
       catppuccin-nvim
-      (opt (nvim-treesitter.withPlugins (ps:
-        with ps; [
-          bash
-          c
-          cpp
-          css
-          dhall
-          diff
-          dockerfile
-          editorconfig
-          gitcommit
-          graphql
-          haskell
-          haskell_persistent
-          hocon
-          html
-          java
-          jq
-          json
-          json5
-          latex
-          lua
-          luadoc
-          teal
-          make
-          markdown
-          markdown_inline
-          mermaid
-          nix
-          nu
-          proto
-          python
-          regex
-          rust
-          scala
-          scheme
-          sql
-          terraform
-          thrift
-          toml
-          typescript
-          typst
-          vim
-          vimdoc
-          yaml
-        ])))
-    ]);
+    ])
+    ++ tree-sitter-parsers
+    ++ (map (p: p.associatedQuery) tree-sitter-parsers);
 
   all-plugins =
     base-plugins

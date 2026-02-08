@@ -13,8 +13,6 @@ local function enable_treesitter_features(bufnr)
   return true
 end
 
-vim.cmd.packadd('nvim-treesitter')
-
 require('treesitter-context').setup {
   max_lines = 3,
   on_attach = enable_treesitter_features,
