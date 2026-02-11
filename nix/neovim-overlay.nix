@@ -224,6 +224,8 @@ with final.lib; let
       yaml
     ];
 
+  tree-sitter-queries = map (p: p.associatedQuery) tree-sitter-parsers;
+
   base-plugins = with final.nvimPlugins;
     [
       plenary
@@ -277,11 +279,11 @@ with final.lib; let
     ++ (with prev.vimPlugins; [
       telescope-fzy-native-nvim
       (opt dial-nvim)
-      vim-scriptease
+      vim-scriptease # :Messages, etc.
       catppuccin-nvim
     ])
     ++ tree-sitter-parsers
-    ++ (map (p: p.associatedQuery) tree-sitter-parsers);
+    ++ tree-sitter-queries;
 
   all-plugins =
     base-plugins
@@ -296,12 +298,10 @@ with final.lib; let
     haskellPackages.fast-tags
     nodePackages.vim-language-server
     nodePackages.yaml-language-server
-    # nodePackages.vscode-langservers-extracted
     nodePackages.bash-language-server
     dockerfile-language-server
     taplo # toml toolkit including a language server
     sqls
-    jujutsu
   ];
 
   nvim-dev = mkNeovim {
