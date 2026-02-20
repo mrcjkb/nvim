@@ -18,8 +18,8 @@ end
 ---@param bufnr integer
 ---@return fun():nil run_tinymist_command, string cmd_name, string cmd_desc
 local function create_tinymist_command(command_name, client, bufnr)
-  local export_type = command_name:match 'tinymist%.export(%w+)'
-  local info_type = command_name:match 'tinymist%.(%w+)'
+  local export_type = command_name:match('tinymist%.export(%w+)')
+  local info_type = command_name:match('tinymist%.(%w+)')
   local cmd_display = export_type or info_type:gsub('^get', 'Get'):gsub('^pin', 'Pin')
 
   ---@return nil
