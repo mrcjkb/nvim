@@ -281,7 +281,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       keymap.set('n', '<M-CR>', code_action, desc('lsp: code action'))
     end
     keymap.set('n', '<M-l>', vim.lsp.codelens.run, desc('lsp: run code lens'))
-    keymap.set('n', '<space>cr', vim.lsp.codelens.refresh, desc('lsp: refresh [c]ode [l]enses'))
 
     local codelens = require('mrcjk.lsp.codelens')
     keymap.set('n', '[l', codelens.goto_prev, desc('lsp: previous code[l]ens'))
@@ -298,16 +297,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end, desc('lsp: toggle inlay [h]ints'))
     end
 
-    local group = api.nvim_create_augroup(string.format('lsp-%s-%s', bufnr, client.id), {})
     if client:supports_method(methods.codeLens_resolve) then
-      vim.api.nvim_create_autocmd({ 'InsertLeave', 'BufEnter', 'CursorHold' }, {
-        group = group,
-        callback = function()
-          vim.lsp.codelens.refresh { bufnr = bufnr }
-        end,
-        buffer = bufnr,
-      })
-      vim.lsp.codelens.refresh { bufnr = bufnr }
+      vim.lsp.codelens.enable(true, { bufnr = bufnr })
     end
     if client:supports_method(methods.textDocument_completion, bufnr) then
       vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = false })
