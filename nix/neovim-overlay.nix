@@ -19,7 +19,6 @@ with final.lib; let
       plugin = null;
       config = null;
       optional = false;
-      runtime = {};
     };
 
     externalPackages =
