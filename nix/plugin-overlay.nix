@@ -37,7 +37,16 @@ in {
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
     treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
     nvim-ts-context-commentstring = mkNvimPlugin inputs.nvim-ts-context-commentstring "nvim-ts-context-commentstring";
-    rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
+    # rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim"
+    rainbow-delimiters-nvim = (mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim").overrideAttrs (oa: {
+      patches = [
+        (final.fetchpatch {
+          name = "fix-nil-check.patch";
+          url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim/-/merge_requests/25.patch";
+          hash = "sha256-MpfiIBqnm2ZQtmPEHmoPjYepzFsJYqbjPjaK9swXB6w=";
+        })
+      ];
+    });
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
