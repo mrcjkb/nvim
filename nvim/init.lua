@@ -212,7 +212,8 @@ g.haskell_tools = function()
             },
             rename = {
               config = {
-                diff = true, -- (experimental) rename across modules
+                diff = true,
+                crossModule = true, -- (experimental) rename across modules
               },
             },
           },
