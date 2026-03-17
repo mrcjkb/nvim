@@ -3224,22 +3224,6 @@
         "type": "github"
       }
     },
-    "nvim-ts-context-commentstring": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733574156,
-        "narHash": "sha256-AjDM3+n4+lNBQi8P2Yrh0Ab06uYCndBQT9TX36rDbOM=",
-        "owner": "JoosepAlviste",
-        "repo": "nvim-ts-context-commentstring",
-        "rev": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "JoosepAlviste",
-        "repo": "nvim-ts-context-commentstring",
-        "type": "github"
-      }
-    },
     "nvim-unception": {
       "flake": false,
       "locked": {
@@ -3437,7 +3421,6 @@
         "nvim-bqf": "nvim-bqf",
         "nvim-highlight-colors": "nvim-highlight-colors",
         "nvim-lastplace": "nvim-lastplace",
-        "nvim-ts-context-commentstring": "nvim-ts-context-commentstring",
         "nvim-unception": "nvim-unception",
         "nvim-web-devicons": "nvim-web-devicons",
         "oil-nvim": "oil-nvim",

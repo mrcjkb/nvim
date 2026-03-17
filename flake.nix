@@ -157,10 +157,6 @@
       url = "github:nvim-treesitter/nvim-treesitter-context";
       flake = false;
     };
-    nvim-ts-context-commentstring = {
-      url = "github:JoosepAlviste/nvim-ts-context-commentstring";
-      flake = false;
-    };
     rainbow-delimiters-nvim = {
       url = "github:hiphish/rainbow-delimiters.nvim";
       flake = false;

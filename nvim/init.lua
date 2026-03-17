@@ -251,9 +251,6 @@ g.rustaceanvim = function()
   return rustacean_opts
 end
 
--- nvim-ts-context-commentstring
-g.skip_ts_context_commentstring_module = true
-
 g.rainbow_delimiters = {
   strategy = {
     [''] = function(bufnr)
