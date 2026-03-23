@@ -266,7 +266,6 @@ with final.lib; let
       nvim-bqf
       quicker-nvim
       yanky
-      statuscol
       nvim-unception
       term-edit-nvim
       oil-nvim

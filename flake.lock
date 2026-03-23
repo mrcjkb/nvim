@@ -3435,7 +3435,6 @@
         "spell-de-dictionary": "spell-de-dictionary",
         "spell-de-suggestions": "spell-de-suggestions",
         "sqlite": "sqlite",
-        "statuscol": "statuscol",
         "substitute": "substitute",
         "surround": "surround",
         "telescope": "telescope",
@@ -3585,22 +3584,6 @@
       "original": {
         "owner": "kkharji",
         "repo": "sqlite.lua",
-        "type": "github"
-      }
-    },
-    "statuscol": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1748881224,
-        "narHash": "sha256-nFEQRJ5V+0RskJoAVRPAe2yrkORMTg9Jm13ClTmTSgk=",
-        "owner": "luukvbaal",
-        "repo": "statuscol.nvim",
-        "rev": "c46172d0911aa5d49ba5f39f4351d1bb7aa289cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "luukvbaal",
-        "repo": "statuscol.nvim",
         "type": "github"
       }
     },

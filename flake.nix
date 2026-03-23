@@ -210,10 +210,6 @@
       url = "github:gbprod/yanky.nvim";
       flake = false;
     };
-    statuscol = {
-      url = "github:luukvbaal/statuscol.nvim";
-      flake = false;
-    };
     nvim-unception = {
       # Prevent nested neovim instances
       url = "github:samjwill/nvim-unception";

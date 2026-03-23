@@ -49,7 +49,6 @@ in {
     nvim-bqf = mkNvimPlugin inputs.nvim-bqf "nvim-bqf";
     quicker-nvim = mkNvimPlugin inputs.quicker-nvim "quicker.nvim";
     yanky = mkNvimPlugin inputs.yanky "yanky.nvim";
-    statuscol = mkNvimPlugin inputs.statuscol "statuscol";
     nvim-unception = mkNvimPlugin inputs.nvim-unception "nvim-unception";
     term-edit-nvim = mkNvimPlugin inputs.term-edit-nvim "term-edit.nvim";
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
