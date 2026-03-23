@@ -102,10 +102,6 @@
       flake = false;
     };
     nvim-lastplace.url = "github:mrcjkb/nvim-lastplace";
-    comment = {
-      url = "github:numToStr/Comment.nvim";
-      flake = false;
-    };
     neotest = {
       # url = "github:nvim-neotest/neotest";
       url = "github:mrcjkb/neotest/mj/push-wssspnkwnzyu";

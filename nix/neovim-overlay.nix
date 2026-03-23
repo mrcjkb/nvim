@@ -243,7 +243,6 @@ with final.lib; let
       substitute
       persistence
       nvim-lastplace
-      comment
       crates-nvim
       (opt neotest)
       (opt neotest-java)

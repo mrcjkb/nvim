@@ -22,7 +22,6 @@ in {
     substitute = mkNvimPlugin inputs.substitute "substitute.nvim";
     persistence = mkNvimPlugin inputs.persistence "persistence.nvim";
     nvim-lastplace = mkNvimPlugin inputs.nvim-lastplace "nvim-lastplace";
-    comment = mkNvimPlugin inputs.comment "comment.nvim";
     crates-nvim = mkNvimPlugin inputs.crates-nvim "crates-nvim";
     neotest = mkNvimPlugin inputs.neotest "neotest";
     nio = mkNvimPlugin inputs.nio "nvim-nio";
