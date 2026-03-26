@@ -53,7 +53,9 @@ in {
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
     snacks-nvim = mkNvimPlugin inputs.snacks-nvim "snacks.nvim";
-    fff-nvim = inputs.fff-nvim.packages.${system}.fff-nvim;
+    fff-nvim = inputs.fff-nvim.packages.${system}.fff-nvim.overrideAttrs (oa: {
+      patches = [./fff-nvim.patch];
+    });
     nomad = inputs.nomad.packages.${system}.neovim-nightly;
   };
 }
