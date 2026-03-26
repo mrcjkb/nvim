@@ -103,8 +103,7 @@
     };
     nvim-lastplace.url = "github:mrcjkb/nvim-lastplace";
     neotest = {
-      # url = "github:nvim-neotest/neotest";
-      url = "github:mrcjkb/neotest/mj/push-wssspnkwnzyu";
+      url = "github:nvim-neotest/neotest";
       # url = "/home/mrcjk/git/github/forks/nvimPackages/neotest/";
       flake = false;
     };
