@@ -39,16 +39,20 @@
     haskell-tools = {
       url = "github:mrcjkb/haskell-tools.nvim";
       # url = "/home/mrcjk/.local/share/nvim/site/pack/dev/opt/haskell-tools.nvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     neotest-haskell = {
       url = "github:mrcjkb/neotest-haskell";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     rustaceanvim = {
       url = "github:mrcjkb/rustaceanvim";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     lz-n = {
       url = "github:nvim-neorocks/lz.n";
       # url = "/home/mrcjk/git/github/mrcjkb/lz.n";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
     # fff-nvim.url = "/home/mrcjk/git/github/forks/nvimPackages/fff.nvim/";
