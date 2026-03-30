@@ -13,11 +13,6 @@ local function enable_treesitter_features(bufnr)
   return true
 end
 
-require('treesitter-context').setup {
-  max_lines = 3,
-  on_attach = enable_treesitter_features,
-}
-
 require('nvim-treesitter-textobjects').setup {
   select = {
     -- Automatically jump forward to textobjects, similar to targets.vim

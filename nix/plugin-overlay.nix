@@ -34,8 +34,6 @@ in {
     illuminate = mkNvimPlugin inputs.illuminate "vim-illuminate";
     actions-preview-nvim = mkNvimPlugin inputs.actions-preview-nvim "actions-preview.nvim";
     treesitter-textobjects = mkNvimPlugin inputs.treesitter-textobjects "treesitter-textobjects";
-    treesitter-context = mkNvimPlugin inputs.treesitter-context "treesitter-context";
-    rainbow-delimiters-nvim = mkNvimPlugin inputs.rainbow-delimiters-nvim "rainbow-delimiters.nvim";
     vim-matchup = mkNvimPlugin inputs.vim-matchup "vim-matchup";
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";

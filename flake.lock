@@ -3297,22 +3297,6 @@
         "type": "github"
       }
     },
-    "rainbow-delimiters-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1774473252,
-        "narHash": "sha256-zQgnNN8QvboOHWaMcLw1uRt/9AxV1asvTnpCcJ/qVS4=",
-        "owner": "hiphish",
-        "repo": "rainbow-delimiters.nvim",
-        "rev": "50080ed0f44dbc18ae13b81278a01b951a06127a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hiphish",
-        "repo": "rainbow-delimiters.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "actions-preview-nvim": "actions-preview-nvim",
@@ -3352,7 +3336,6 @@
         "persistence": "persistence",
         "plenary": "plenary",
         "quicker-nvim": "quicker-nvim",
-        "rainbow-delimiters-nvim": "rainbow-delimiters-nvim",
         "rustaceanvim": "rustaceanvim",
         "schemastore-nvim": "schemastore-nvim",
         "snacks-nvim": "snacks-nvim",
@@ -3366,7 +3349,6 @@
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
         "todo-comments": "todo-comments",
-        "treesitter-context": "treesitter-context",
         "treesitter-textobjects": "treesitter-textobjects",
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
@@ -3704,22 +3686,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "treesitter-context": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1774172183,
-        "narHash": "sha256-rkM+v1AjE0bBWMYpwTkojqEiFx0vEBtdN7U0u3skuY4=",
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter-context",
-        "rev": "adf4b6b0420b7be6c717ef0ac7993183d6c201b1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-treesitter",
-        "repo": "nvim-treesitter-context",
         "type": "github"
       }
     },

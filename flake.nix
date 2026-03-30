@@ -152,14 +152,6 @@
       url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
       flake = false;
     };
-    treesitter-context = {
-      url = "github:nvim-treesitter/nvim-treesitter-context";
-      flake = false;
-    };
-    rainbow-delimiters-nvim = {
-      url = "github:hiphish/rainbow-delimiters.nvim";
-      flake = false;
-    };
     vim-matchup = {
       # tree-sitter powered % motions
       url = "github:andymass/vim-matchup";

@@ -231,8 +231,6 @@ with final.lib; let
       sqlite
       nvim-web-devicons
       treesitter-textobjects
-      treesitter-context
-      rainbow-delimiters-nvim
       (opt vim-matchup)
       vim-wordmotion
       nvim-highlight-colors
