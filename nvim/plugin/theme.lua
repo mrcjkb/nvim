@@ -41,7 +41,6 @@ catppuccin.setup {
       TelescopePreviewTitle = { bg = colors.red, fg = colors.base },
       TermCursor = { link = 'Cursor' },
       TermCursorNC = { bg = colors.red, fg = colors.text, ctermbg = 1, ctermfg = 15 },
-      LspCodeLens = { fg = colors.mauve, bg = U.darken(colors.mauve, darkening_percentage, colors.base), italic = true },
       FidgetTitle = { link = 'DiagnosticHint' },
       FloatBorder = { fg = colors.base, bg = colors.base },
       DiagnosticFloatingError = { bg = U.darken(colors.red, darkening_percentage, colors.base) },
