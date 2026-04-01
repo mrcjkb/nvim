@@ -138,6 +138,7 @@ vim.opt.colorcolumn = '100'
 -- Native plugins
 cmd.filetype('plugin', 'indent', 'on')
 cmd.packadd('cfilter')
+cmd.packadd('nvim.undotree')
 
 -- Disable builtin plugins
 g.loaded_gzip = 1
