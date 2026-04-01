@@ -37,11 +37,6 @@ with final.lib; let
       ))
     plugins;
 
-    neovimConfig = final.neovimUtils.makeNeovimConfig {
-      inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
-      plugins = normalizedPlugins;
-    };
-
     nvimConfig = final.stdenv.mkDerivation {
       name = "nvim-config";
       src = ../nvim;
@@ -158,19 +153,18 @@ with final.lib; let
       '';
     });
   in
-    final.wrapNeovimUnstable nvim-unwrapped (neovimConfig
-      // {
-        luaRcContent = initLua;
-        wrapperArgs =
-          escapeShellArgs neovimConfig.wrapperArgs
-          + " "
-          + extraMakeWrapperArgs
-          + " "
-          + extraMakeWrapperLuaCArgs
-          + " "
-          + extraMakeWrapperLuaArgs;
-        wrapRc = true;
-      });
+    final.wrapNeovimUnstable nvim-unwrapped {
+      inherit extraPython3Packages withPython3 withRuby withNodeJs viAlias vimAlias;
+      plugins = normalizedPlugins;
+      luaRcContent = initLua;
+      wrapperArgs =
+        extraMakeWrapperArgs
+        + " "
+        + extraMakeWrapperLuaCArgs
+        + " "
+        + extraMakeWrapperLuaArgs;
+      wrapRc = true;
+    };
 
   opt = drv: {
     plugin = drv;
