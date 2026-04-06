@@ -25,7 +25,7 @@ with final.lib; let
       extraPackages
       ++ (with final; [
         sqlite
-        nodePackages.vscode-json-languageserver
+        vscode-json-languageserver
       ]);
 
     normalizedPlugins = map (x:
@@ -284,9 +284,9 @@ with final.lib; let
 
   extraPackages = with final; [
     haskellPackages.fast-tags
-    nodePackages.vim-language-server
-    nodePackages.yaml-language-server
-    nodePackages.bash-language-server
+    vim-language-server
+    yaml-language-server
+    bash-language-server
     dockerfile-language-server
     taplo # toml toolkit including a language server
     sqls
