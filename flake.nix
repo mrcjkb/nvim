@@ -54,8 +54,6 @@
       # url = "/home/mrcjk/git/github/mrcjkb/lz.n";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    fff-nvim.url = "github:dmtrKovalenko/fff.nvim";
-    # fff-nvim.url = "/home/mrcjk/git/github/forks/nvimPackages/fff.nvim/";
     crates-nvim = {
       url = "github:saecki/crates.nvim";
       flake = false;
