@@ -13,6 +13,8 @@ M.launch = function()
     return
   end
 
+  vim.bo[0].textwidth = 100
+
   if vim.fn.executable('texlab') == 1 then
     vim.lsp.start {
       cmd = { 'texlab' },
