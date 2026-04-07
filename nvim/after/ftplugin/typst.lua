@@ -1,8 +1,6 @@
 local files = require('mrcjk.files')
 files.treesitter_start()
 
-vim.bo[0].textwidth = 100
-
 if not vim.b.highlight_colors_toggled then
   local hc = require('nvim-highlight-colors')
   hc.turnOn()

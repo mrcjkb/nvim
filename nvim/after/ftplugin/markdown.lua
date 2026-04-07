@@ -1,8 +1,6 @@
 local files = require('mrcjk.files')
 files.treesitter_start()
 
-vim.bo[0].textwidth = 100
-
 local pandoc_cmd = 'pandoc'
 if vim.fn.executable(pandoc_cmd) == 1 then
   if vim.fn.executable('tectonic') == 1 then
