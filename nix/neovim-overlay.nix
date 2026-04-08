@@ -268,7 +268,15 @@ with final.lib; let
       telescope-fzy-native-nvim
       (opt dial-nvim)
       vim-scriptease # :Messages, etc.
-      catppuccin-nvim
+      (catppuccin-nvim.overrideAttrs {
+        # TODO: Remove this override when it has landed in nixos-unstable
+        nvimSkipModules = [
+          "catppuccin.groups.integrations.noice"
+          "catppuccin.groups.integrations.feline"
+          "catppuccin.lib.vim.init"
+          "catppuccin.lib.detect_integrations"
+        ];
+      })
     ])
     ++ tree-sitter-parsers
     ++ tree-sitter-queries;
