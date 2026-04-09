@@ -267,7 +267,6 @@ with final.lib; let
     ++ (with prev.vimPlugins; [
       telescope-fzy-native-nvim
       (opt dial-nvim)
-      vim-scriptease # :Messages, etc.
       (catppuccin-nvim.overrideAttrs {
         # TODO: Remove this override when it has landed in nixos-unstable
         nvimSkipModules = [
