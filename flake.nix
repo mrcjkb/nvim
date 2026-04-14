@@ -156,7 +156,7 @@
       flake = false;
     };
     telescope = {
-      url = "github:nvim-telescope/telescope.nvim/0.1.x";
+      url = "github:nvim-telescope/telescope.nvim/feat/neoplen";
       flake = false;
     };
     telescope_hoogle = {
