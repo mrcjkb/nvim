@@ -8,7 +8,7 @@ with final.lib; let
     extraPackages ? [],
     resolvedExtraLuaPackages ? [],
     extraPython3Packages ? p: [],
-    withPython3 ? true,
+    withPython3 ? false,
     withRuby ? false,
     withNodeJs ? false,
     viAlias ? true,
