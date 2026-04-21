@@ -167,8 +167,6 @@ vim.cmd([[
   set sessionoptions-=buffers
 ]])
 
-vim.o.cmdheight = 1
-
 -- NOTE: Use g< to expand collapsed messages
 require('vim._core.ui2').enable {
   enable = true,
