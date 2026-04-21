@@ -233,13 +233,7 @@
     git-hooks,
     ...
   }: let
-    supportedSystems = [
-      "aarch64-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-
+    supportedSystems = builtins.attrNames nixpkgs.legacyPackages;
     plugin-overlay = import ./nix/plugin-overlay.nix {inherit inputs;};
     neovim-overlay = import ./nix/neovim-overlay.nix {inherit inputs;};
   in
