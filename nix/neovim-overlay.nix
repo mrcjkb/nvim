@@ -289,15 +289,7 @@ with final.lib; let
       inputs.lz-n.packages.${system}.default
     ];
 
-  extraPackages = with final; [
-    haskellPackages.fast-tags
-    vim-language-server
-    yaml-language-server
-    bash-language-server
-    dockerfile-language-server
-    taplo # toml toolkit including a language server
-    sqls
-  ];
+  extraPackages = [];
 
   nvim-dev = mkNeovim {
     plugins = base-plugins;

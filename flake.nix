@@ -254,6 +254,7 @@
           self.checks.${system}.git-hooks-check.enabledPackages
           ++ (with pkgs; [
             lua-language-server
+            vim-language-server
             # emmylua-ls
             nil
           ]);
@@ -271,6 +272,7 @@
         };
       };
     in {
+      legacyPackages = pkgs;
       packages = rec {
         default = nvim;
         nvim = pkgs.nvim-pkg;
