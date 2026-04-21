@@ -137,8 +137,6 @@ vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
             filetype_names = {
               TelescopePrompt = 'Telescope',
               dashboard = 'Dashboard',
-              packer = 'Packer',
-              fzf = 'FZF',
               alpha = 'Alpha',
             },
             buffers_color = {
@@ -151,9 +149,6 @@ vim.api.nvim_create_autocmd({ 'FileType', 'TermOpen' }, {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {},
-      },
-      winbar = {
         lualine_z = {
           {
             'filename',
