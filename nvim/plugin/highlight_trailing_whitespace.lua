@@ -29,12 +29,12 @@ local function should_highlight_trailing_whitespace()
   return true
 end
 
-api.nvim_create_autocmd({ 'UIEnter' }, {
+api.nvim_create_autocmd({ 'InsertLeave' }, {
   group = api.nvim_create_augroup('HighlightTrailingWhiteSpace', {}),
   callback = function()
     local extra_whitespace_hi = 'DiffDelete'
     if not vim.fn.hlexists(extra_whitespace_hi) then
-      vim.notify_once(string.format('highlight %s does not exist', extra_whitespace_hi), vim.log.levels.ERROR)
+      vim.notify_once(string.format('highlight %s does not exist', extra_whitespace_hi), vim.log.levels.WARN)
       return
     end
     if should_highlight_trailing_whitespace() then
