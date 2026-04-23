@@ -1,77 +1,11 @@
+if vim.g.loaded_lsp_autocmds then
+  return
+end
+vim.g.loaded_lsp_autocmds = true
+
 local api = vim.api
 local keymap = vim.keymap
 local methods = vim.lsp.protocol.Methods
-
-local highlight_cur_n_group = api.nvim_create_augroup('highlight-current-n', { clear = true })
-api.nvim_create_autocmd('ColorScheme', {
-  callback = function()
-    local search = api.nvim_get_hl(0, { name = 'Search' })
-    ---@diagnostic disable-next-line: cast-type-mismatch
-    ---@cast search vim.api.keyset.highlight
-    api.nvim_set_hl(0, 'CurSearch', { link = 'IncSearch' })
-    api.nvim_set_hl(0, 'SearchCurrentN', search)
-    return api.nvim_set_hl(0, 'Search', { link = 'SearchCurrentN' })
-  end,
-  group = highlight_cur_n_group,
-})
-api.nvim_create_autocmd('CmdlineEnter', {
-  pattern = '/,\\?',
-  callback = function()
-    vim.opt.hlsearch = true
-    vim.opt.incsearch = true
-    return api.nvim_set_hl(0, 'Search', { link = 'SearchCurrentN' })
-  end,
-  group = highlight_cur_n_group,
-})
-api.nvim_create_autocmd('CmdlineLeave', {
-  pattern = '/,\\?',
-  callback = function()
-    api.nvim_set_hl(0, 'Search', {})
-    local function _4_()
-      vim.opt.hlsearch = true
-      return nil
-    end
-    return vim.defer_fn(_4_, 5) ~= nil
-  end,
-  group = highlight_cur_n_group,
-})
-api.nvim_create_autocmd({ 'InsertEnter', 'CursorMoved' }, {
-  callback = vim.schedule_wrap(function()
-    vim.cmd.nohlsearch()
-  end),
-  group = highlight_cur_n_group,
-})
-local function handle_n_N(key)
-  do
-    local function other(mode)
-      if mode == 'n' then
-        return 'N'
-      elseif mode == 'N' then
-        return 'n'
-      else
-        return nil
-      end
-    end
-    local function feed(keys)
-      return api.nvim_feedkeys(keys, 'n', true)
-    end
-    if vim.v.searchforward == 0 then
-      feed(other(key))
-    elseif vim.v.searchforward == 1 then
-      feed(key)
-    end
-  end
-  return vim.defer_fn(function()
-    vim.opt.hlsearch = true
-    return nil
-  end, 5)
-end
-keymap.set({ 'n' }, 'n', function()
-  return handle_n_N('n')
-end)
-keymap.set({ 'n' }, 'N', function()
-  return handle_n_N('N')
-end)
 
 ---@param filter 'Function' | 'Module' | 'Struct'
 local function filtered_document_symbol(filter)
@@ -272,54 +206,3 @@ api.nvim_create_autocmd('LspDetach', {
   end,
 })
 
-api.nvim_create_autocmd({ 'VimEnter', 'FocusGained', 'BufEnter' }, {
-  group = api.nvim_create_augroup('ReloadFileOnChange', {}),
-  command = 'checktime',
-})
-
-local function should_highlight_extra_whitespace()
-  local ignored_filetypes = {
-    'TelescopePrompt',
-    'help',
-    'dashboard',
-  }
-  if vim.bo.buftype == 'nofile' or vim.bo.buftype == 'terminal' then
-    return false
-  end
-  if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
-    return false
-  end
-  if api.nvim_get_mode().mode == 'i' then
-    return false
-  end
-  local bufnr = api.nvim_get_current_buf()
-  require('editorconfig')
-  local editorconfig = vim.b[bufnr].editorconfig or {}
-  if editorconfig.trim_trailing_whitespace == 'true' then
-    return false
-  end
-  return true
-end
-
-api.nvim_create_autocmd({ 'UIEnter' }, {
-  group = api.nvim_create_augroup('HighlightExtraWhiteSpace', {}),
-  callback = function()
-    local extra_whitespace_hi = 'DiffDelete'
-    if not vim.fn.hlexists(extra_whitespace_hi) then
-      vim.notify_once(string.format('highlight %s does not exist', extra_whitespace_hi), vim.log.levels.ERROR)
-      return
-    end
-    if should_highlight_extra_whitespace() then
-      vim.cmd.match { extra_whitespace_hi, [[/\s\+$/]] }
-    else
-      vim.cmd.match()
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufEnter', {
-  group = vim.api.nvim_create_augroup('DisableNewLineAutoCommentString', {}),
-  callback = function()
-    vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
-  end,
-})
