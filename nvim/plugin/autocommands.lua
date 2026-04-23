@@ -14,16 +14,12 @@ api.nvim_create_autocmd('BufWritePre', {
 
 local numbertoggle = api.nvim_create_augroup('numbertoggle', { clear = true })
 -- Toggle between relative/absolute line numbers
-
-local statuscolumn = vim.opt.statuscolumn
 api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
   pattern = '*',
   group = numbertoggle,
   callback = function()
     if vim.o.nu and api.nvim_get_mode().mode ~= 'i' then
       vim.opt.relativenumber = true
-      statuscolumn = vim.opt.statuscolumn
-      vim.opt.statuscolumn = '%s%#LineNr#%{&nu?v:lnum:""}' .. '%#LineNr#%{&rnu?" ".v:relnum:""} '
     end
   end,
 })
@@ -34,7 +30,6 @@ api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter'
   callback = function()
     if vim.o.nu then
       vim.opt.relativenumber = false
-      vim.opt.statuscolumn = statuscolumn
       vim.cmd.redraw()
     end
   end,
