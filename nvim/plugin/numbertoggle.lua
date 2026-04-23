@@ -7,7 +7,7 @@ vim.g.loaded_numbertoggle = true
 local api = vim.api
 
 local numbertoggle = api.nvim_create_augroup('numbertoggle', { clear = true })
-api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
+api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'WinEnter' }, {
   pattern = '*',
   group = numbertoggle,
   callback = function()
@@ -17,7 +17,7 @@ api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeav
   end,
 })
 
-api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEnter', 'WinLeave' }, {
+api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'WinLeave' }, {
   pattern = '*',
   group = numbertoggle,
   callback = function()
