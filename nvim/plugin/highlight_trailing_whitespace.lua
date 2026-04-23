@@ -3,7 +3,6 @@ if vim.g.loaded_highlight_trailing_whitespace then
 end
 vim.g.loaded_highlight_trailing_whitespace = true
 
-
 local api = vim.api
 
 local function should_highlight_trailing_whitespace()

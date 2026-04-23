@@ -1,4 +1,3 @@
-
 if vim.g.loaded_cycle_n_N then
   return
 end
@@ -38,4 +37,3 @@ end)
 keymap.set({ 'n' }, 'N', function()
   return handle_n_N('N')
 end)
-

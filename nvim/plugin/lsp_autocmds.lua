@@ -205,4 +205,3 @@ api.nvim_create_autocmd('LspDetach', {
     pcall(api.nvim_del_augroup_by_name, group)
   end,
 })
-
