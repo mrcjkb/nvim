@@ -117,34 +117,57 @@ keymap.set('n', '<space>tq', vim.cmd.tabclose, { desc = '[t]ab [q]uit' })
 
 local severity = diagnostic.severity
 
-keymap.set('n', '[e', function()
-  diagnostic.jump {
-    severity = severity.ERROR,
-    count = -1,
-    float = true,
+---@param bufnr integer
+local on_diagnostic_jump = function(_, bufnr)
+  vim.diagnostic.open_float {
+    bufnr = bufnr,
+    scope = 'cursor',
+    focus = false,
   }
+end
+
+---@param filter vim.diagnostic.SeverityFilter
+local function prev_diagnostic(filter)
+  diagnostic.jump {
+    severity = filter,
+    count = -1,
+    on_jump = on_diagnostic_jump,
+  }
+end
+
+---@param filter vim.diagnostic.SeverityFilter
+local function next_diagnostic(filter)
+  diagnostic.jump {
+    severity = filter,
+    count = 1,
+    on_jump = on_diagnostic_jump,
+  }
+end
+
+keymap.set('n', '[d', function()
+  prev_diagnostic { severity.HINT, severity.ERROR }
+end, { noremap = true, silent = true, desc = 'previous [d]iagnostic' })
+keymap.set('n', ']d', function()
+  next_diagnostic { severity.HINT, severity.ERROR }
+end, { noremap = true, silent = true, desc = 'next [d]iagnostic' })
+keymap.set('n', '[e', function()
+  prev_diagnostic(severity.ERROR)
 end, { noremap = true, silent = true, desc = 'previous [e]rror' })
 keymap.set('n', ']e', function()
-  diagnostic.jump {
-    severity = severity.ERROR,
-    count = 1,
-    float = true,
-  }
+  next_diagnostic(severity.ERROR)
 end, { noremap = true, silent = true, desc = 'next [e]rror' })
 keymap.set('n', '[w', function()
-  diagnostic.jump {
-    severity = severity.WARN,
-    count = -1,
-    float = true,
-  }
+  prev_diagnostic(severity.WARN)
 end, { noremap = true, silent = true, desc = 'previous [w]arning' })
 keymap.set('n', ']w', function()
-  diagnostic.jump {
-    severity = severity.WARN,
-    count = 1,
-    float = true,
-  }
+  next_diagnostic(severity.WARN)
 end, { noremap = true, silent = true, desc = 'next [w]arning' })
+keymap.set('n', '[h', function()
+  prev_diagnostic { severity.HINT, severity.INFO }
+end, { noremap = true, silent = true, desc = 'previous [h]int or info diagnostic' })
+keymap.set('n', ']h', function()
+  next_diagnostic { severity.HINT, severity.INFO }
+end, { noremap = true, silent = true, desc = 'next [h]int or info diagnostic' })
 keymap.set('n', '<space>dl', function()
   diagnostic.setloclist { open = false }
 end, { noremap = true, silent = true, desc = '[d]iagnostics to [l]oclist' })
