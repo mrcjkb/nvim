@@ -187,6 +187,7 @@ with final.lib; let
     hocon
     html
     java
+    jjdescription
     jq
     json
     json5
