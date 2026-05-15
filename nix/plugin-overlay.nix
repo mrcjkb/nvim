@@ -38,6 +38,7 @@ in {
     telescope = mkNvimPlugin inputs.telescope "telescope.nvim";
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
+    telescope-zf-native = mkNvimPlugin inputs.telescope-zf-native "telescope-zf-native.nvim";
     todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     lualine = mkNvimPlugin inputs.lualine "lualine";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
@@ -51,9 +52,6 @@ in {
     other-nvim = mkNvimPlugin inputs.other-nvim "other.nvim";
     which-key-nvim = mkNvimPlugin inputs.which-key-nvim "which-key.nvim";
     snacks-nvim = mkNvimPlugin inputs.snacks-nvim "snacks.nvim";
-    fff-nvim = prev.vimPlugins.fff-nvim.overrideAttrs (oa: {
-      patches = [./fff-nvim.patch];
-    });
     nomad = inputs.nomad.packages.${system}.neovim-nightly;
   };
 }

@@ -249,8 +249,8 @@ with final.lib; let
       actions-preview-nvim
       telescope_hoogle
       telescope-smart-history
+      telescope-zf-native
       (opt telescope)
-      fff-nvim
       todo-comments
       lualine
       (opt harpoon)
@@ -266,7 +266,6 @@ with final.lib; let
       nomad
     ]
     ++ (with prev.vimPlugins; [
-      telescope-fzy-native-nvim
       (opt dial-nvim)
       (catppuccin-nvim.overrideAttrs {
         # TODO: Remove this override when it has landed in nixos-unstable
