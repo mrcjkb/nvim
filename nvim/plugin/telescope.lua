@@ -240,12 +240,6 @@ keymap.set('n', '<leader>th', function()
     layout_config = layout_config,
   }
 end, { desc = '[t]elescope: [h]oogle' })
-keymap.set('n', '<leader>tn', function()
-  extensions.manix.manix()
-end, { desc = '[t]elescope: ma[n]ix' })
-keymap.set('n', '<leader>tN', function()
-  extensions.manix.manix { cword = true }
-end, { desc = '[t]elescope: ma[N]ix <cword>' })
 keymap.set(
   'n',
   '<leader>to',
