@@ -224,7 +224,6 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
-    nomad.url = "github:nomad/nomad";
   };
 
   outputs = inputs @ {
