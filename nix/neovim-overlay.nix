@@ -251,7 +251,6 @@ with final.lib; let
       telescope-smart-history
       telescope-zf-native
       (opt telescope)
-      todo-comments
       lualine
       (opt harpoon)
       gitsigns

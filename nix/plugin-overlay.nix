@@ -39,7 +39,6 @@ in {
     telescope_hoogle = mkNvimPlugin inputs.telescope_hoogle "telescope_hoogle";
     telescope-smart-history = mkNvimPlugin inputs.telescope-smart-history "telescope-smart-history.nvim";
     telescope-zf-native = mkNvimPlugin inputs.telescope-zf-native "telescope-zf-native.nvim";
-    todo-comments = mkNvimPlugin inputs.todo-comments "todo-comments.nvim";
     lualine = mkNvimPlugin inputs.lualine "lualine";
     oil-nvim = mkNvimPlugin inputs.oil-nvim "oil.nvim";
     harpoon = mkNvimPlugin inputs.harpoon "harpoon";

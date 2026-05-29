@@ -3012,7 +3012,6 @@
         "telescope-zf-native": "telescope-zf-native",
         "telescope_hoogle": "telescope_hoogle",
         "term-edit-nvim": "term-edit-nvim",
-        "todo-comments": "todo-comments",
         "treesitter-textobjects": "treesitter-textobjects",
         "vim-matchup": "vim-matchup",
         "vim-wordmotion": "vim-wordmotion",
@@ -3272,22 +3271,6 @@
       "original": {
         "owner": "chomosuke",
         "repo": "term-edit.nvim",
-        "type": "github"
-      }
-    },
-    "todo-comments": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1762764922,
-        "narHash": "sha256-VGeIRfwQsHgSO89Pmn6yIP9na1F6mmYZx0HDLe9IKCQ=",
-        "owner": "folke",
-        "repo": "todo-comments.nvim",
-        "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "todo-comments.nvim",
         "type": "github"
       }
     },

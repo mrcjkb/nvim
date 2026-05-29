@@ -171,10 +171,6 @@
       url = "github:natecraddock/telescope-zf-native.nvim";
       flake = false;
     };
-    todo-comments = {
-      url = "github:folke/todo-comments.nvim";
-      flake = false;
-    };
     lualine = {
       url = "github:hoob3rt/lualine.nvim";
       flake = false;
