@@ -1918,22 +1918,6 @@
         "type": "github"
       }
     },
-    "neotest-java": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1779543969,
-        "narHash": "sha256-ALVudtC49gAQOGwucOh7zvhbUyZX0lTGyizhn+QCPl4=",
-        "owner": "rcasia",
-        "repo": "neotest-java",
-        "rev": "2aa2d5ff228bea6242eda27c83d431b909925690",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rcasia",
-        "repo": "neotest-java",
-        "type": "github"
-      }
-    },
     "neovim-nightly": {
       "inputs": {
         "flake-parts": "flake-parts_4",
@@ -2946,7 +2930,6 @@
         "neotest": "neotest",
         "neotest-busted": "neotest-busted",
         "neotest-haskell": "neotest-haskell",
-        "neotest-java": "neotest-java",
         "neovim-nightly": "neovim-nightly_5",
         "nio": "nio",
         "nixpkgs": "nixpkgs_19",

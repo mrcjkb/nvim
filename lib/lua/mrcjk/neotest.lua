@@ -5,7 +5,6 @@ end
 vim.g.neotest_setup_done = true
 
 vim.cmd.packadd('neotest')
-vim.cmd.packadd('neotest-java')
 
 local function desc(description)
   return { noremap = true, silent = true, desc = description }
@@ -18,7 +17,6 @@ neotest.setup {
   adapters = {
     require('neotest-haskell'),
     require('rustaceanvim.neotest'),
-    require('neotest-java'),
     require('neotest-busted'),
   },
   ---@diagnostic disable-next-line: missing-fields

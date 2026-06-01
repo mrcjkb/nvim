@@ -238,7 +238,6 @@ with final.lib; let
       nvim-lastplace
       crates-nvim
       (opt neotest)
-      (opt neotest-java)
       neotest-busted
       nio # TODO: Remove when rocks-dev is ready
       jdtls

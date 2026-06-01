@@ -113,10 +113,6 @@
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };
-    neotest-java = {
-      url = "github:rcasia/neotest-java";
-      flake = false;
-    };
     neotest-busted = {
       url = "gitlab:HiPhish/neotest-busted";
       flake = false;
