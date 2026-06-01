@@ -253,7 +253,6 @@ g.haskell_tools = function()
         haskell = {
           checkProject = false, -- PERF: don't check the entire project on initial load
           formattingProvider = 'fourmolu',
-          maxCompletions = 30,
           sessionLoading = 'multipleComponents',
           plugin = {
             semanticTokens = {
