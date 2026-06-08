@@ -61,6 +61,12 @@ vim.keymap.set('n', '<leader>on', function()
   vim.cmd.Other('internal')
 end, desc('[o]ther: i[n]ternal'))
 
+-- requires nvim-surround
+vim.keymap.set('n', '<leader>$', function()
+  local feed = vim.api.nvim_replace_termcodes('$%ds(i$ <Esc>', true, true, true)
+  vim.api.nvim_feedkeys(feed, 'ix', false)
+end, desc('replace ( ... ) with $ ...'))
+
 if vim.fn.executable('pre-commit') == 1 then
   vim.keymap.set('n', '<leader>pf', function()
     vim.system({ 'pre-commit', 'run', '--file', vim.api.nvim_buf_get_name(bufnr), 'fourmolu' }, nil, function()
