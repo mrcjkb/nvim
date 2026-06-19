@@ -31,3 +31,10 @@ end, {
     end, vim.lsp.get_clients { buffer = 0 })
   end,
 })
+
+
+-- hack to remap `:w` to `:silent w`
+api.nvim_create_user_command('W', function()
+  vim.cmd('silent write')
+end, {})
+vim.cmd.cabbrev { 'w', 'W' }
