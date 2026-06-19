@@ -221,14 +221,6 @@ keymap.set('n', '<M-t>', function()
     vim.cmd.terminal()
   end
 end, { silent = true, noremap = true, desc = 'terminal' })
-keymap.set('n', '<M-v>', function()
-  vim.cmd.vsplit()
-  vim.cmd.terminal()
-end, { silent = true, noremap = true, desc = 'terminal [v]ertical split' })
-keymap.set('n', '<M-h>', function()
-  vim.cmd.split()
-  vim.cmd.terminal()
-end, { silent = true, noremap = true, desc = 'terminal [h]orizontal split' })
 
 ---@param direction 'forward' | 'backward'
 local function cycle_diagnostic_modes(direction)
