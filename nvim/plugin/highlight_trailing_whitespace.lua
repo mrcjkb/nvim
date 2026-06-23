@@ -6,15 +6,19 @@ vim.g.loaded_highlight_trailing_whitespace = true
 local api = vim.api
 
 local function should_highlight_trailing_whitespace()
+  local ignored_buftypes = {
+    'nofile',
+    'terminal',
+  }
+  if vim.list_contains(ignored_buftypes, vim.bo.buftype) then
+    return false
+  end
   local ignored_filetypes = {
     'TelescopePrompt',
     'help',
     'dashboard',
   }
-  if vim.bo.buftype == 'nofile' or vim.bo.buftype == 'terminal' then
-    return false
-  end
-  if vim.tbl_contains(ignored_filetypes, vim.bo.filetype) then
+  if vim.list_contains(ignored_filetypes, vim.bo.filetype) then
     return false
   end
   if api.nvim_get_mode().mode == 'i' then
@@ -26,7 +30,7 @@ local function should_highlight_trailing_whitespace()
   if editorconfig.trim_trailing_whitespace == 'true' then
     return false
   end
-  return true
+  return not vim.bo.readonly
 end
 
 api.nvim_create_autocmd({ 'InsertLeave' }, {
@@ -40,7 +44,7 @@ api.nvim_create_autocmd({ 'InsertLeave' }, {
     if should_highlight_trailing_whitespace() then
       vim.cmd.match { extra_whitespace_hi, [[/\s\+$/]] }
     else
-      vim.cmd.match()
+      vim.cmd.match('none')
     end
   end,
 })
