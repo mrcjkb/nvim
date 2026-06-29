@@ -32,7 +32,6 @@ end, {
   end,
 })
 
-
 -- hack to remap `:w` to `:silent w`
 api.nvim_create_user_command('W', function()
   vim.cmd('silent write')
