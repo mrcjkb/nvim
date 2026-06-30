@@ -2966,11 +2966,11 @@
     "schemastore-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1782509138,
-        "narHash": "sha256-jdH0D+L3Y+5NJXoIik5Ao18dHRKc3dN3ZmKVUH+R9/4=",
+        "lastModified": 1782771639,
+        "narHash": "sha256-5bQCXUBADoX78XMMzgXce/EXX29hy/8QAdv6Lxdqguw=",
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
-        "rev": "490afbd7fd3b316330550405ac74758a971104a4",
+        "rev": "6ff1f21b2e2b77ec59f7433ce2d9fbc052d908ac",
         "type": "github"
       },
       "original": {
