@@ -948,7 +948,7 @@
     "git-hooks_10": {
       "inputs": {
         "flake-compat": "flake-compat_16",
-        "gitignore": "gitignore_11",
+        "gitignore": "gitignore_10",
         "nixpkgs": [
           "neotest-haskell",
           "gen-luarc",
@@ -973,7 +973,7 @@
     "git-hooks_11": {
       "inputs": {
         "flake-compat": "flake-compat_17",
-        "gitignore": "gitignore_12",
+        "gitignore": "gitignore_11",
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
@@ -993,7 +993,7 @@
     "git-hooks_12": {
       "inputs": {
         "flake-compat": "flake-compat_19",
-        "gitignore": "gitignore_13",
+        "gitignore": "gitignore_12",
         "nixpkgs": "nixpkgs_13"
       },
       "locked": {
@@ -1013,7 +1013,7 @@
     "git-hooks_13": {
       "inputs": {
         "flake-compat": "flake-compat_20",
-        "gitignore": "gitignore_14",
+        "gitignore": "gitignore_13",
         "nixpkgs": [
           "rustaceanvim",
           "nixpkgs"
@@ -1036,17 +1036,16 @@
     "git-hooks_2": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "gitignore": "gitignore_2",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1781733627,
-        "narHash": "sha256-U3yTuGBnmXvXoQI3qkpfEDsn9RovQPAjN7ndRco+3u0=",
+        "lastModified": 1782908218,
+        "narHash": "sha256-wLMOrPgVyeF3XmP+qfYcLqnVdTxikdcSvbIY7rA9jTA=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "3bbec39bc90eadfa031e6f3b77272f3f60803e39",
+        "rev": "9f7e99119ece7705299595299f3b031f39356de1",
         "type": "github"
       },
       "original": {
@@ -1058,7 +1057,7 @@
     "git-hooks_3": {
       "inputs": {
         "flake-compat": "flake-compat_4",
-        "gitignore": "gitignore_3",
+        "gitignore": "gitignore_2",
         "nixpkgs": [
           "haskell-tools",
           "gen-luarc",
@@ -1083,7 +1082,7 @@
     "git-hooks_4": {
       "inputs": {
         "flake-compat": "flake-compat_5",
-        "gitignore": "gitignore_4",
+        "gitignore": "gitignore_3",
         "nixpkgs": [
           "haskell-tools",
           "nixpkgs"
@@ -1106,7 +1105,7 @@
     "git-hooks_5": {
       "inputs": {
         "flake-compat": "flake-compat_7",
-        "gitignore": "gitignore_5",
+        "gitignore": "gitignore_4",
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
@@ -1126,7 +1125,7 @@
     "git-hooks_6": {
       "inputs": {
         "flake-compat": "flake-compat_8",
-        "gitignore": "gitignore_6",
+        "gitignore": "gitignore_5",
         "nixpkgs": [
           "lz-n",
           "gen-luarc",
@@ -1151,7 +1150,7 @@
     "git-hooks_7": {
       "inputs": {
         "flake-compat": "flake-compat_10",
-        "gitignore": "gitignore_7",
+        "gitignore": "gitignore_6",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
@@ -1171,7 +1170,7 @@
     "git-hooks_8": {
       "inputs": {
         "flake-compat": "flake-compat_12",
-        "gitignore": "gitignore_9",
+        "gitignore": "gitignore_8",
         "nixpkgs": [
           "lz-n",
           "vimcats",
@@ -1195,7 +1194,7 @@
     "git-hooks_9": {
       "inputs": {
         "flake-compat": "flake-compat_14",
-        "gitignore": "gitignore_10",
+        "gitignore": "gitignore_9",
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
@@ -1237,7 +1236,8 @@
     "gitignore_10": {
       "inputs": {
         "nixpkgs": [
-          "neorocks",
+          "neotest-haskell",
+          "gen-luarc",
           "git-hooks",
           "nixpkgs"
         ]
@@ -1260,7 +1260,6 @@
       "inputs": {
         "nixpkgs": [
           "neotest-haskell",
-          "gen-luarc",
           "git-hooks",
           "nixpkgs"
         ]
@@ -1283,28 +1282,6 @@
       "inputs": {
         "nixpkgs": [
           "neotest-haskell",
-          "git-hooks",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1709087332,
-        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "type": "github"
-      }
-    },
-    "gitignore_13": {
-      "inputs": {
-        "nixpkgs": [
-          "neotest-haskell",
           "neorocks",
           "git-hooks",
           "nixpkgs"
@@ -1324,7 +1301,7 @@
         "type": "github"
       }
     },
-    "gitignore_14": {
+    "gitignore_13": {
       "inputs": {
         "nixpkgs": [
           "rustaceanvim",
@@ -1349,6 +1326,8 @@
     "gitignore_2": {
       "inputs": {
         "nixpkgs": [
+          "haskell-tools",
+          "gen-luarc",
           "git-hooks",
           "nixpkgs"
         ]
@@ -1371,7 +1350,6 @@
       "inputs": {
         "nixpkgs": [
           "haskell-tools",
-          "gen-luarc",
           "git-hooks",
           "nixpkgs"
         ]
@@ -1394,28 +1372,6 @@
       "inputs": {
         "nixpkgs": [
           "haskell-tools",
-          "git-hooks",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1709087332,
-        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "gitignore.nix",
-        "type": "github"
-      }
-    },
-    "gitignore_5": {
-      "inputs": {
-        "nixpkgs": [
-          "haskell-tools",
           "neorocks",
           "git-hooks",
           "nixpkgs"
@@ -1435,7 +1391,7 @@
         "type": "github"
       }
     },
-    "gitignore_6": {
+    "gitignore_5": {
       "inputs": {
         "nixpkgs": [
           "lz-n",
@@ -1458,7 +1414,7 @@
         "type": "github"
       }
     },
-    "gitignore_7": {
+    "gitignore_6": {
       "inputs": {
         "nixpkgs": [
           "lz-n",
@@ -1481,7 +1437,7 @@
         "type": "github"
       }
     },
-    "gitignore_8": {
+    "gitignore_7": {
       "inputs": {
         "nixpkgs": [
           "lz-n",
@@ -1503,11 +1459,33 @@
         "type": "github"
       }
     },
-    "gitignore_9": {
+    "gitignore_8": {
       "inputs": {
         "nixpkgs": [
           "lz-n",
           "vimcats",
+          "git-hooks",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1709087332,
+        "narHash": "sha256-HG2cCnktfHsKV0s4XW83gU3F57gaTljL9KNSuG6bnQs=",
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "rev": "637db329424fd7e46cf4185293b9cc8c88c95394",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "gitignore.nix",
+        "type": "github"
+      }
+    },
+    "gitignore_9": {
+      "inputs": {
+        "nixpkgs": [
+          "neorocks",
           "git-hooks",
           "nixpkgs"
         ]
@@ -1545,11 +1523,11 @@
     "gitsigns": {
       "flake": false,
       "locked": {
-        "lastModified": 1781814344,
-        "narHash": "sha256-gpbnqwKT+Ud8Ta/X7U8PJxmO9Qs6w0unLmeUGSlsOHQ=",
+        "lastModified": 1782899415,
+        "narHash": "sha256-VqEz6o+9DvKekQ9h8QQntFaIb90BaveTctKKb0lmQLI=",
         "owner": "lewis6991",
         "repo": "gitsigns.nvim",
-        "rev": "2038c666bd9d8a0b7349a0b6ee00dc83104b9ecf",
+        "rev": "eb60cc7b94c46005237fd34170d76f3a089a90aa",
         "type": "github"
       },
       "original": {
@@ -1587,11 +1565,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782780130,
-        "narHash": "sha256-11yeHb0KPqvFtHAGGHBDR4O5Eb/zaPimufL0779z41s=",
+        "lastModified": 1782866659,
+        "narHash": "sha256-+SFznFmZPx6BVJdwiUMfnhy/Evz2s11L6DqvwIFTeDU=",
         "owner": "mrcjkb",
         "repo": "haskell-tools.nvim",
-        "rev": "3836bb3f52ad5287d1b2dc12bb3eea27852b246c",
+        "rev": "0e3a3baa1ff2319754335c63593b649f8ec268d4",
         "type": "github"
       },
       "original": {
@@ -1781,11 +1759,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782727189,
-        "narHash": "sha256-MSAkb1FocC6sRzg5Tq3/zvM/XslHrD1MAMaZtkxWQj4=",
+        "lastModified": 1782808564,
+        "narHash": "sha256-eOwKUtakHuw5zvZbFcW9XxztkDpH8xgKBW0XgSBh7Cw=",
         "owner": "nvim-neorocks",
         "repo": "neorocks",
-        "rev": "6aab99fb5f438c842dd593e5495ea406158f2a92",
+        "rev": "a682d86ac39cd51aa8231941119ebee33379d7b1",
         "type": "github"
       },
       "original": {
@@ -1847,11 +1825,11 @@
         "nixpkgs": "nixpkgs_14"
       },
       "locked": {
-        "lastModified": 1782727189,
-        "narHash": "sha256-MSAkb1FocC6sRzg5Tq3/zvM/XslHrD1MAMaZtkxWQj4=",
+        "lastModified": 1782808564,
+        "narHash": "sha256-eOwKUtakHuw5zvZbFcW9XxztkDpH8xgKBW0XgSBh7Cw=",
         "owner": "nvim-neorocks",
         "repo": "neorocks",
-        "rev": "6aab99fb5f438c842dd593e5495ea406158f2a92",
+        "rev": "a682d86ac39cd51aa8231941119ebee33379d7b1",
         "type": "github"
       },
       "original": {
@@ -1905,11 +1883,11 @@
         "plenary-nvim-src": "plenary-nvim-src"
       },
       "locked": {
-        "lastModified": 1782780931,
-        "narHash": "sha256-Dr1ESOLK+TiiF82qka3ilu092jCAiCt/ygrMA/EuAwo=",
+        "lastModified": 1782867511,
+        "narHash": "sha256-TIngQCcCOyP0WdF3GBV589FMSlW8VHdDFw7f4CjhtU4=",
         "owner": "mrcjkb",
         "repo": "neotest-haskell",
-        "rev": "391d5897318b8a9aec490d47a0314cde26051c09",
+        "rev": "4f62a8b04ceb93b9dea2d19abad2f96d35f272cf",
         "type": "github"
       },
       "original": {
@@ -2481,11 +2459,11 @@
     },
     "nixpkgs_14": {
       "locked": {
-        "lastModified": 1782467914,
-        "narHash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE=",
+        "lastModified": 1782723713,
+        "narHash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
         "type": "github"
       },
       "original": {
@@ -2741,11 +2719,11 @@
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
-        "lastModified": 1779834979,
-        "narHash": "sha256-pcU69LrhXFgXcvxbsBqLkUhgYEVGjMUDmEjaKZTSv+0=",
+        "lastModified": 1782879750,
+        "narHash": "sha256-rlalKqmk6y5bl/YUlAJay/Fx7EYKPH8gnMqyvrsYC04=",
         "owner": "nvim-tree",
         "repo": "nvim-web-devicons",
-        "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+        "rev": "dad71387de386a946b123079d0e53f23028f3abd",
         "type": "github"
       },
       "original": {
@@ -2837,7 +2815,7 @@
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_11",
-        "gitignore": "gitignore_8",
+        "gitignore": "gitignore_7",
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
