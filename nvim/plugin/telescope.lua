@@ -209,7 +209,7 @@ keymap.set('n', '<leader>ts', builtin.live_grep, { desc = '[t]elescope: live gre
 keymap.set('n', '<C-g>', function()
   local conf = require('telescope.config').values
   builtin.live_grep {
-    vimgrep_arguments = vim.list_extend(conf.vimgrep_arguments, {'--fixed-strings'}),
+    vimgrep_arguments = vim.list_extend(conf.vimgrep_arguments, { '--fixed-strings' }),
   }
 end, { desc = 'telescope: live grep (no regex)' })
 keymap.set('n', '<leader>tf', fuzzy_grep, { desc = '[t]elescope: [f]uzzy grep' })
