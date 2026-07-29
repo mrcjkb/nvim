@@ -255,8 +255,35 @@ g.haskell_tools = function()
           formattingProvider = 'fourmolu',
           sessionLoading = 'multipleComponents',
           plugin = {
+            eval = {
+              globalOn = false
+            },
             semanticTokens = {
               globalOn = true,
+            },
+            ["stylish-haskell"] = {
+              globalOn = false,
+            },
+            ormolu = {
+              globalOn = false,
+            },
+            fourmolu = {
+              globalOn = false,
+            },
+            ["cabal-fmt"] = {
+              globalOn = false,
+            },
+            importLens = {
+              globalOn = false,
+            },
+            gadt = {
+              globalOn = false,
+            },
+            notes = {
+              globalOn = false,
+            },
+            alternateNumberFormat = {
+              globalOn = false,
             },
             rename = {
               config = {
