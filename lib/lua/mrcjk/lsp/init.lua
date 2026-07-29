@@ -2,15 +2,12 @@
 local lsp = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.workspace.didChangeWatchedFiles = {
+  dynamicRegistration = true,
+}
 
 ---@type lsp.ClientCapabilities
 ---@diagnostic disable-next-line: assign-type-mismatch
-lsp.capabilities = vim.tbl_deep_extend('error', capabilities, {
-  workspace = {
-    didChangeWatchedFiles = {
-      dynamicRegistration = true,
-    },
-  },
-})
+lsp.capabilities = capabilities
 
 return lsp
