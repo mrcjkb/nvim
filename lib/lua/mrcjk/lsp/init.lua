@@ -9,8 +9,8 @@ lsp.capabilities = vim.tbl_deep_extend('error', capabilities, {
   workspace = {
     didChangeWatchedFiles = {
       dynamicRegistration = true,
-    }
-  }
+    },
+  },
 })
 
 return lsp

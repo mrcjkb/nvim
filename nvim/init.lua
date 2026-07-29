@@ -256,12 +256,12 @@ g.haskell_tools = function()
           sessionLoading = 'multipleComponents',
           plugin = {
             eval = {
-              globalOn = false
+              globalOn = false,
             },
             semanticTokens = {
               globalOn = true,
             },
-            ["stylish-haskell"] = {
+            ['stylish-haskell'] = {
               globalOn = false,
             },
             ormolu = {
@@ -270,7 +270,7 @@ g.haskell_tools = function()
             fourmolu = {
               globalOn = false,
             },
-            ["cabal-fmt"] = {
+            ['cabal-fmt'] = {
               globalOn = false,
             },
             importLens = {
