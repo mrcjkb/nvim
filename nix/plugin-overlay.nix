@@ -25,7 +25,7 @@ in {
         (final.fetchpatch {
           # fix(hacks): use new search state structure for neovim 0.13+
           url = "https://patch-diff.githubusercontent.com/raw/folke/flash.nvim/pull/492.patch";
-          hash = "sha256-pGGdzwUMGiMxgVdc/4KdHNEH4A847YeQF9dd/fkqSRg=";
+          hash = "sha256-9Fm5eRqmv8HlUf7h0UYbJ+TB5T081ruhMpwkDEUsoYc=";
         })
       ];
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
