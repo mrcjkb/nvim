@@ -41,6 +41,9 @@ if vim.fn.executable(emmylua_ls_cmd) == 1 then
   vim.lsp.start {
     name = 'emmylua-ls',
     cmd = { emmylua_ls_cmd },
+    filetypes = { 'lua' },
+    capabilities = lsp.capabilities,
+    root_dir = vim.fs.dirname(vim.fs.find(root_files, { upward = true })[1]),
     workspace_required = false,
   }
 elseif vim.fn.executable(lua_ls_cmd) == 1 then
