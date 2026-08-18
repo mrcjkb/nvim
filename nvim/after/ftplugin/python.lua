@@ -8,16 +8,15 @@ end
 local lsp = require('mrcjk.lsp')
 
 local pylsp_cmd = 'pylsp'
+local ty_cmd = 'ty'
+local cmd
+local settings
 
-if vim.fn.executable(pylsp_cmd) ~= 1 then
-  return
-end
-
-local config = {
-  cmd = { pylsp_cmd },
-  root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'setup.py', 'setup.cfg', 'pyproject.toml' }, { upward = true })[1]),
-  capabilities = lsp.capabilities,
-  filetypes = { 'python' },
+if vim.fn.executable(ty_cmd) == 1 then
+  cmd = { ty_cmd, 'server' }
+  settings = {}
+elseif vim.fn.executable(pylsp_cmd) == 1 then
+  cmd = { pylsp_cmd }
   settings = {
     pylsp = {
       plugins = {
@@ -28,7 +27,17 @@ local config = {
         mccabe = { enabled = false },
       },
     },
-  },
+  }
+else
+  return
+end
+
+local config = {
+  cmd = cmd,
+  root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'setup.py', 'setup.cfg', 'pyproject.toml' }, { upward = true })[1]),
+  capabilities = lsp.capabilities,
+  filetypes = { 'python' },
+  settings = settings,
 }
 
 local bufnr = vim.api.nvim_get_current_buf()
