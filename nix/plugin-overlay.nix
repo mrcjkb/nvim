@@ -7,6 +7,14 @@
       # ignores dependencies.
       doCheck = false;
     };
+  # EXAMPLE:
+  # patchNvimPlugin inputs.foo [
+  #   (final.fetchpatch {
+  #     # fix(hacks): use new search state structure for neovim 0.13+
+  #     url = "https://patch-diff.githubusercontent.com/raw/folke/flash.nvim/pull/492.patch";
+  #     hash = "sha256-9Fm5eRqmv8HlUf7h0UYbJ+TB5T081ruhMpwkDEUsoYc=";
+  #   })
+  # ];
   patchNvimPlugin = src: pname: patches:
     (mkNvimPlugin src pname)
       .overrideAttrs (attrs: {
@@ -19,15 +27,7 @@ in {
     nvim-web-devicons = mkNvimPlugin inputs.nvim-web-devicons "nvim-web-devicons";
     vim-wordmotion = mkNvimPlugin inputs.vim-wordmotion "vim-wordmotion";
     nvim-highlight-colors = mkNvimPlugin inputs.nvim-highlight-colors "nvim-highlight-colors";
-    flash-nvim =
-      patchNvimPlugin inputs.flash-nvim "flash.nvim"
-      [
-        (final.fetchpatch {
-          # fix(hacks): use new search state structure for neovim 0.13+
-          url = "https://patch-diff.githubusercontent.com/raw/folke/flash.nvim/pull/492.patch";
-          hash = "sha256-9Fm5eRqmv8HlUf7h0UYbJ+TB5T081ruhMpwkDEUsoYc=";
-        })
-      ];
+    flash-nvim = mkNvimPlugin inputs.flash-nvim "flash.nvim";
     eyeliner-nvim = mkNvimPlugin inputs.eyeliner-nvim "eyeliner.nvim";
     gitlinker = mkNvimPlugin inputs.gitlinker "gitlinker.nvim";
     surround = mkNvimPlugin inputs.surround "nvim-surround";
