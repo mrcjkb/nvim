@@ -11,5 +11,5 @@ oil.setup {
 }
 
 vim.keymap.set('n', '-', function()
-  vim.cmd.Oil()
+  vim.cmd.Oil('--preview')
 end, { desc = 'open parent directory' })
