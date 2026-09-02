@@ -86,6 +86,6 @@ require('quicker').setup {
   },
 }
 
-vim.keymap.set('n', '<C-c>', function()
+vim.keymap.set('n', '<C-q>', function()
   require('quicker').toggle()
 end, { desc = 'toggle quickfix list' })

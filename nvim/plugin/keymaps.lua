@@ -49,10 +49,10 @@ local function cright()
   }
 end
 
-keymap.set('n', '[c', cleft, { silent = true, desc = '[c]ycle quickfix left' })
-keymap.set('n', ']c', cright, { silent = true, desc = '[c]ycle quickfix right' })
-keymap.set('n', '[C', vim.cmd.cfirst, { silent = true, desc = 'first quickfix entry [C]' })
-keymap.set('n', ']C', vim.cmd.clast, { silent = true, desc = 'last quickfix entry [C]' })
+keymap.set('n', '[q', cleft, { silent = true, desc = 'cycle [q]uickfix left' })
+keymap.set('n', ']q', cright, { silent = true, desc = 'cycle [q]uickfix right' })
+keymap.set('n', '[Q', vim.cmd.cfirst, { silent = true, desc = 'first [Q]uickfix entry' })
+keymap.set('n', ']Q', vim.cmd.clast, { silent = true, desc = 'last [Q]uickfix entry' })
 
 local function lleft()
   try_fallback_notify {
