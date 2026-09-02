@@ -199,21 +199,15 @@ require('vim._core.ui2').enable {
       wmsg = 'msg',
       typed_cmd = 'cmd',
     },
-    cmd = {
-      height = 0.5,
-    },
-    dialog = {
-      height = 0.5,
-    },
-    msg = {
-      height = 0.3,
-      timeout = 1000,
-    },
-    pager = {
-      height = 0.5,
-    },
   },
 }
+
+-- Leave progress messages to fidget.nvim
+vim.opt.messagesopt:remove { 'progress:c' }
+vim.opt.messagesopt:append { 'progress:' }
+
+vim.opt.messagesopt:append { 'timeout:1000' }
+vim.opt.messagesopt:append { 'maxheight:50' }
 
 -- Plugin settings
 local keymap_opts = { noremap = true, silent = true }
