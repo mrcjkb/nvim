@@ -12,7 +12,7 @@ end, {
 vim.api.nvim_create_user_command('Restart', function()
   require('persistence').save()
   vim.notify('Saved session. Restarting...', vim.log.levels.INFO)
-  vim.cmd.restart('S')
+  vim.cmd.restart { 'S', bang = true }
 end, {
   desc = 'Restart and reload current session',
 })
