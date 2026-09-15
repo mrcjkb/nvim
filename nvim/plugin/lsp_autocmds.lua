@@ -160,6 +160,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap.set('n', '<space>ri', function()
       require('live-rename').rename { text = '', insert = true }
     end, desc('lsp: [r]ename ([i]nsert mode)'))
+    keymap.set('n', '<space>rc', function()
+      vim.cmd.lsp('restart')
+    end, desc('lsp: [r]estart [c]lient'))
     keymap.set('n', '<space>wq', vim.lsp.buf.workspace_symbol, desc('lsp: [w]orkspace symbol [q]uery'))
     keymap.set('n', '<space>dd', vim.lsp.buf.document_symbol, desc('lsp: [dd]ocument symbol'))
     keymap.set('n', '<space>df', document_functions, desc('lsp: [d]ocument [f]unctions'))
